@@ -1,0 +1,51 @@
+<!--
+  ~ Copyright 2013 must-be.org
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<idea-plugin>
+	<id>org.mustbe.consulo.java.web</id>
+	<name>Java Web API</name>
+	<depends>com.intellij.xml</depends>
+	<depends>org.consulo.java</depends>
+	<resource-bundle>messages.JavaWebBundle</resource-bundle>
+
+	<extensions defaultExtensionNs="com.intellij.xml">
+		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" path="web-app_2_5.xsd" version="2.5" />
+		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" path="web-app_3_0.xsd" version="3.0" />
+		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd" path="web-app_3_1.xsd" version="3.1" />
+	</extensions>
+
+	<extensions defaultExtensionNs="com.intellij.xml.dom">
+		<fileDescription implementation="org.mustbe.consulo.java.web.dom.web.WebAppDescriptor" />
+	</extensions>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<contentFolderTypeProvider implementation="org.mustbe.consulo.java.web.roots.WebResourcesFolderTypeProvider"/>
+
+		<packaging.artifactType implementation="org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactType" />
+		<packaging.artifactType implementation="org.mustbe.consulo.java.web.artifact.WarArtifactType" />
+		<packaging.elementType implementation="org.mustbe.consulo.java.web.artifact.WebResourceModuleOutputElementType" />
+
+		<fileTypeFactory implementation="org.mustbe.consulo.java.web.jsp.JspFileTypeFactory" />
+
+		<lang.fileViewProviderFactory language="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.JspFileViewProviderFactory" />
+		<lang.parserDefinition language="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.JspParserDefinition" />
+
+		<lang.syntaxHighlighterFactory key="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.highlight.JspSyntaxHighlighterFactory"/>
+		<syntaxHighlighter key="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.highlight.JspSyntaxHighlighter"/>
+
+		<moduleExtensionProvider key="java-web" parent-key="java" implementationClass="org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtensionProvider"/>
+	</extensions>
+</idea-plugin>

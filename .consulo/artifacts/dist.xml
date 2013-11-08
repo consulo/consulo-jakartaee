@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="dist">
+    <output-path>$PROJECT_DIR$/out/artifacts/dist</output-path>
+    <root id="root">
+      <element id="directory" name="java-web">
+        <element id="directory" name="lib">
+          <element id="zip-archive" name="java-web.jar">
+            <element id="module-production-resource-output" name="consulo-java-web" />
+            <element id="module-output" name="consulo-java-web" />
+          </element>
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
