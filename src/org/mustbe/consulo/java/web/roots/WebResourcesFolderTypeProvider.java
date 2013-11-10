@@ -50,7 +50,7 @@ public class WebResourcesFolderTypeProvider extends BaseContentFolderTypeProvide
 	}
 
 	@Override
-	public Icon getChildPackageIcon()
+	public Icon getChildDirectoryIcon()
 	{
 		return AllIcons.Nodes.WebFolder;
 	}
