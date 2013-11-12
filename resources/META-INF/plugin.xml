@@ -39,6 +39,7 @@
 		<packaging.elementType implementation="org.mustbe.consulo.java.web.artifact.WebResourceModuleOutputElementType" />
 
 		<fileTypeFactory implementation="org.mustbe.consulo.java.web.jsp.JspFileTypeFactory" />
+		<fileTypeFactory implementation="org.mustbe.consulo.java.web.artifact.WarFileTypeFactory" />
 
 		<lang.fileViewProviderFactory language="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.JspFileViewProviderFactory" />
 		<lang.parserDefinition language="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.JspParserDefinition" />
