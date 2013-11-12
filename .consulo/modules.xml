@@ -39,6 +39,10 @@
             <SOURCES />
           </library>
         </orderEntry>
+        <orderEntry type="module" module-name="java-ee" />
+        <orderEntry type="module" module-name="jsp-base-openapi" />
+        <orderEntry type="module" module-name="jsp-openapi" />
+        <orderEntry type="module" module-name="jsp-spi" />
       </module>
     </modules>
   </component>

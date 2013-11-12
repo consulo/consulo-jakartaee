@@ -25,6 +25,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mustbe.consulo.java.web.JavaWebBundle;
 import org.mustbe.consulo.java.web.JavaWebIcons;
+import org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension;
+import com.intellij.openapi.module.ModuleUtil;
+import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
 import com.intellij.packaging.artifacts.ArtifactType;
 import com.intellij.packaging.elements.CompositePackagingElement;
@@ -47,6 +50,12 @@ public class WarArtifactType extends ArtifactType
 	public WarArtifactType()
 	{
 		super("war", JavaWebBundle.message("war.artifact.name"));
+	}
+
+	@Override
+	public boolean isAvailableForAdd(@NotNull ModulesProvider modulesProvider)
+	{
+		return ModuleUtil.hasModuleExtension(modulesProvider, JavaWebModuleExtension.class);
 	}
 
 	@NotNull
