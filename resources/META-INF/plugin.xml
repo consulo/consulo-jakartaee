@@ -33,6 +33,7 @@
 
 	<extensions defaultExtensionNs="com.intellij">
 		<contentFolderTypeProvider implementation="org.mustbe.consulo.java.web.roots.WebResourcesFolderTypeProvider"/>
+		<highlightVisitor implementation="org.mustbe.consulo.java.web.jsp.ide.highlight.JspHighlightVisitor" />
 
 		<packaging.artifactType implementation="org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactType" />
 		<packaging.artifactType implementation="org.mustbe.consulo.java.web.artifact.WarArtifactType" />

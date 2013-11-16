@@ -16,9 +16,15 @@
 
 package org.mustbe.consulo.java.web.jsp.highlight;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.consulo.java.web.jsp.lexer.JspLexer;
+import org.mustbe.consulo.java.web.jsp.lexer.JspMergedLexer;
+import org.mustbe.consulo.java.web.jsp.psi.JspTokens;
 import com.intellij.lexer.Lexer;
+import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
+import com.intellij.openapi.editor.HighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.tree.IElementType;
@@ -29,17 +35,26 @@ import com.intellij.psi.tree.IElementType;
  */
 public class JspSyntaxHighlighter extends SyntaxHighlighterBase
 {
+	private static final Map<IElementType, TextAttributesKey> ourMap = new HashMap<IElementType, TextAttributesKey>();
+
+	static
+	{
+		ourMap.put(JspTokens.COMMENT, DefaultLanguageHighlighterColors.BLOCK_COMMENT);
+		ourMap.put(JspTokens.STRING_LITERAL, DefaultLanguageHighlighterColors.STRING);
+		ourMap.put(JspTokens.BAD_CHARACTER, HighlighterColors.BAD_CHARACTER);
+	}
+
 	@NotNull
 	@Override
 	public Lexer getHighlightingLexer()
 	{
-		return new JspLexer();
+		return new JspMergedLexer();
 	}
 
 	@NotNull
 	@Override
 	public TextAttributesKey[] getTokenHighlights(IElementType elementType)
 	{
-		return new TextAttributesKey[0];
+		return pack(ourMap.get(elementType));
 	}
 }

@@ -18,20 +18,19 @@ package org.mustbe.consulo.java.web.jsp;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.java.web.jsp.lexer.JspLexer;
+import org.mustbe.consulo.java.web.jsp.lexer.JspMergedLexer;
+import org.mustbe.consulo.java.web.jsp.psi.JspTokens;
 import org.mustbe.consulo.java.web.jsp.psi.impl.JspFileImpl;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.LanguageVersion;
 import com.intellij.lang.ParserDefinition;
-import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiParser;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
-import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
 
@@ -47,28 +46,14 @@ public class JspParserDefinition implements ParserDefinition
 	@Override
 	public Lexer createLexer(@Nullable Project project, @NotNull LanguageVersion languageVersion)
 	{
-		return new JspLexer();
+		return new JspMergedLexer();
 	}
 
 	@NotNull
 	@Override
 	public PsiParser createParser(@Nullable Project project, @NotNull LanguageVersion languageVersion)
 	{
-		return new PsiParser()
-		{
-			@NotNull
-			@Override
-			public ASTNode parse(@NotNull IElementType elementType, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
-			{
-				PsiBuilder.Marker marker = builder.mark();
-				while(!builder.eof())
-				{
-					builder.advanceLexer();
-				}
-				marker.done(elementType);
-				return builder.getTreeBuilt();
-			}
-		};
+		return new JspParser();
 	}
 
 	@NotNull
@@ -82,7 +67,7 @@ public class JspParserDefinition implements ParserDefinition
 	@Override
 	public TokenSet getWhitespaceTokens(@NotNull LanguageVersion languageVersion)
 	{
-		return TokenSet.EMPTY;
+		return TokenSet.create(JspTokens.WHITE_SPACE);
 	}
 
 	@NotNull
