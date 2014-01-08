@@ -30,6 +30,7 @@ import com.intellij.icons.AllIcons;
  * @author VISTALL
  * @since 07.11.13.
  */
+@Deprecated // use WebResourcesFolderTypeProvider from Consulo
 public class WebResourcesFolderTypeProvider extends BaseContentFolderTypeProvider
 {
 	public static ContentFolderTypeProvider getInstance()
