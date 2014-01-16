@@ -46,13 +46,6 @@ public class JavaWebModuleExtensionProvider implements ModuleExtensionProvider<J
 
 	@NotNull
 	@Override
-	public Class<JavaWebModuleExtension> getImmutableClass()
-	{
-		return JavaWebModuleExtension.class;
-	}
-
-	@NotNull
-	@Override
 	public JavaWebModuleExtension createImmutable(@NotNull String s, @NotNull Module module)
 	{
 		return new JavaWebModuleExtension(s, module);
