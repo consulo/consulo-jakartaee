@@ -30,12 +30,9 @@ import com.intellij.openapi.roots.ModifiableRootModel;
  */
 public class JavaWebMutableModuleExtension extends JavaWebModuleExtension implements MutableModuleExtension<JavaWebModuleExtension>
 {
-	private JavaWebModuleExtension myOriginal;
-
-	public JavaWebMutableModuleExtension(@NotNull String id, @NotNull Module module, JavaWebModuleExtension javaWebModuleExtension)
+	public JavaWebMutableModuleExtension(@NotNull String id, @NotNull Module module)
 	{
 		super(id, module);
-		myOriginal = javaWebModuleExtension;
 	}
 
 	@Nullable
@@ -52,14 +49,8 @@ public class JavaWebMutableModuleExtension extends JavaWebModuleExtension implem
 	}
 
 	@Override
-	public boolean isModified()
+	public boolean isModified(@NotNull JavaWebModuleExtension extension)
 	{
-		return myOriginal.isEnabled() != myIsEnabled;
-	}
-
-	@Override
-	public void commit()
-	{
-		myOriginal.commit(this);
+		return extension.isEnabled() != myIsEnabled;
 	}
 }

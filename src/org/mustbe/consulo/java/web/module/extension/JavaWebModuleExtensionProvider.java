@@ -53,8 +53,8 @@ public class JavaWebModuleExtensionProvider implements ModuleExtensionProvider<J
 
 	@NotNull
 	@Override
-	public JavaWebMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module, @NotNull JavaWebModuleExtension javaWebModuleExtension)
+	public JavaWebMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module)
 	{
-		return new JavaWebMutableModuleExtension(s, module, javaWebModuleExtension);
+		return new JavaWebMutableModuleExtension(s, module);
 	}
 }
