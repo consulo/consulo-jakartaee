@@ -20,7 +20,7 @@ import org.consulo.module.extension.impl.ModuleExtensionImpl;
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.consulo.java.web.roots.WebResourcesFolderTypeProvider;
 import org.mustbe.consulo.roots.ContentFoldersSupport;
-import com.intellij.openapi.module.Module;
+import com.intellij.openapi.roots.ModifiableRootModel;
 
 /**
  * @author VISTALL
@@ -29,7 +29,7 @@ import com.intellij.openapi.module.Module;
 @ContentFoldersSupport(value = WebResourcesFolderTypeProvider.class)
 public class JavaWebModuleExtension extends ModuleExtensionImpl<JavaWebModuleExtension>
 {
-	public JavaWebModuleExtension(@NotNull String id, @NotNull Module module)
+	public JavaWebModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
 	{
 		super(id, module);
 	}

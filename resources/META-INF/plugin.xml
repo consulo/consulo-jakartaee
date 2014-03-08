@@ -48,6 +48,11 @@
 		<lang.syntaxHighlighterFactory key="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.highlight.JspSyntaxHighlighterFactory"/>
 		<syntaxHighlighter key="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.highlight.JspSyntaxHighlighter"/>
 
-		<moduleExtensionProvider key="java-web" parent-key="java" implementationClass="org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtensionProvider"/>
+		<moduleExtensionProvider key="java-web"
+								 parentKey="java"
+								 icon="/general/web.png"
+								 name="Web"
+								 immutableClass="org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension"
+								 mutableClass="org.mustbe.consulo.java.web.module.extension.JavaWebMutableModuleExtension"/>
 	</extensions>
 </idea-plugin>
