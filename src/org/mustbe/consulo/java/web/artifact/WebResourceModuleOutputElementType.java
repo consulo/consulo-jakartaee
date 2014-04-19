@@ -18,7 +18,7 @@ package org.mustbe.consulo.java.web.artifact;
 
 import org.consulo.util.pointers.NamedPointer;
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.consulo.java.web.roots.WebResourcesFolderTypeProvider;
+import org.mustbe.consulo.roots.impl.WebResourcesFolderTypeProvider;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.packaging.impl.elements.moduleContent.ModuleOutputElementTypeBase;

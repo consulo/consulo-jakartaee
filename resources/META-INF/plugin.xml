@@ -32,7 +32,6 @@
 	</extensions>
 
 	<extensions defaultExtensionNs="com.intellij">
-		<contentFolderTypeProvider implementation="org.mustbe.consulo.java.web.roots.WebResourcesFolderTypeProvider"/>
 		<highlightVisitor implementation="org.mustbe.consulo.java.web.jsp.ide.highlight.JspHighlightVisitor" />
 
 		<packaging.artifactType implementation="org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactType" />
@@ -47,6 +46,7 @@
 
 		<lang.syntaxHighlighterFactory key="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.highlight.JspSyntaxHighlighterFactory"/>
 		<syntaxHighlighter key="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.highlight.JspSyntaxHighlighter"/>
+		<contentFolderSupportPatcher implementation="org.mustbe.consulo.java.web.module.JavaWebContentFolderSupportPatcher" />
 
 		<moduleExtensionProvider key="java-web"
 								 parentKey="java"
