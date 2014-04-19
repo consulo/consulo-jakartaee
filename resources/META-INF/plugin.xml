@@ -17,6 +17,7 @@
 <idea-plugin>
 	<id>org.mustbe.consulo.java.web</id>
 	<name>Java Web API</name>
+	<version>SHAPSHOT</version>
 	<depends>com.intellij.xml</depends>
 	<depends>org.consulo.java</depends>
 	<resource-bundle>messages.JavaWebBundle</resource-bundle>
