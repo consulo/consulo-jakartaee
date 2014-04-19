@@ -40,6 +40,46 @@
           </library>
         </orderEntry>
       </module>
+      <module name="java-web-maven" dirurl="file://$PROJECT_DIR$/java-web-maven">
+        <extension id="consulo-plugin" sdk-module-name="consulo-java-web" sdk-name="" custom-plugin-dir-url="file://$MODULE_DIR$/../dep" />
+        <extension id="java" sdk-module-name="consulo-java-web" sdk-name="" language-level-module-name="consulo-java-web" language-level-name="" special-dir-location="SOURCE_DIR" />
+        <content url="file://$MODULE_DIR$">
+          <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+          <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
+        </content>
+        <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
+        <orderEntry type="module-extension-sdk" extension-id="java" />
+        <orderEntry type="sourceFolder" forTests="false" />
+        <orderEntry type="module-library">
+          <library name="consulo:Java">
+            <CLASSES>
+              <root url="jar://$MODULE_DIR$/../dep/java/lib/java-manifest.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/java/lib/java-rt.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/java/lib/java.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/java/lib/jdi.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/java/lib/jdk-annotations.jar!/" />
+            </CLASSES>
+            <DOCUMENTATION />
+            <SOURCES />
+          </library>
+        </orderEntry>
+        <orderEntry type="module-library">
+          <library name="consulo:Maven Integration">
+            <CLASSES>
+              <root url="jar://$MODULE_DIR$/../dep/maven/lib/lucene-core-2.4.1.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven-server-api.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven2-server-impl.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven3-server-impl.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/maven/lib/plexus-utils-2.0.6.jar!/" />
+              <root url="jar://$MODULE_DIR$/../dep/maven/lib/wadl-core.jar!/" />
+            </CLASSES>
+            <DOCUMENTATION />
+            <SOURCES />
+          </library>
+        </orderEntry>
+        <orderEntry type="module" module-name="consulo-java-web" />
+      </module>
     </modules>
   </component>
 </project>
