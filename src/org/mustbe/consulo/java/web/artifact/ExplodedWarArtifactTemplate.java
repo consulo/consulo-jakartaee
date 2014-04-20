@@ -44,6 +44,8 @@ import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.impl.elements.DirectoryElementType;
 import com.intellij.packaging.impl.elements.LibraryElementType;
 import com.intellij.packaging.impl.elements.LibraryPackagingElement;
+import com.intellij.packaging.impl.elements.ZipArchiveElementType;
+import com.intellij.packaging.impl.elements.ZipArchivePackagingElement;
 import com.intellij.packaging.impl.elements.moduleContent.ProductionModuleOutputElementType;
 import com.intellij.packaging.impl.elements.moduleContent.ProductionResourceModuleOutputElementType;
 import com.intellij.util.containers.ArrayListSet;
@@ -74,9 +76,9 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 		webInfDir.setDirectoryName(JavaWebConstants.WEB_INF);
 		root.addFirstChild(webInfDir);
 
-		val classesDir = DirectoryElementType.getInstance().createEmpty(project);
-		classesDir.setDirectoryName("classes");
-		webInfDir.addFirstChild(classesDir);
+		val libDir = DirectoryElementType.getInstance().createEmpty(project);
+		libDir.setDirectoryName("lib");
+		webInfDir.addFirstChild(libDir);
 
 		Set<Library> libraries = new ArrayListSet<Library>();
 		Set<Module> modules = new ArrayListSet<Module>();
@@ -88,25 +90,26 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 			val pointer = ModuleUtilCore.createPointer(toAddModule);
 			ModuleRootModel rootModel = modulesProvider.getRootModel(toAddModule);
 
+			ZipArchivePackagingElement zipArchivePackagingElement = ZipArchiveElementType.getInstance().createEmpty(project);
+			zipArchivePackagingElement.setArchiveFileName(toAddModule.getName() + ".jar");
+
 			if(rootModel.getContentFolders(ContentFolderScopes.of(ProductionContentFolderTypeProvider.getInstance())).length > 0)
 			{
-				classesDir.addFirstChild(ProductionModuleOutputElementType.getInstance().createElement(project, pointer));
+				zipArchivePackagingElement.addFirstChild(ProductionModuleOutputElementType.getInstance().createElement(project, pointer));
 			}
+
+			if(rootModel.getContentFolders(ContentFolderScopes.of(ProductionResourceContentFolderTypeProvider.getInstance())).length > 0)
+			{
+				zipArchivePackagingElement.addFirstChild(ProductionResourceModuleOutputElementType.getInstance().createElement(project, pointer));
+			}
+
+			libDir.addFirstChild(zipArchivePackagingElement);
 
 			if(rootModel.getContentFolders(ContentFolderScopes.of(WebResourcesFolderTypeProvider.getInstance())).length > 0)
 			{
 				root.addFirstChild(WebResourceModuleOutputElementType.getInstance().createElement(project, pointer));
 			}
-
-			if(rootModel.getContentFolders(ContentFolderScopes.of(ProductionResourceContentFolderTypeProvider.getInstance())).length > 0)
-			{
-				webInfDir.addFirstChild(ProductionResourceModuleOutputElementType.getInstance().createElement(project, pointer));
-			}
 		}
-
-		val libDir = DirectoryElementType.getInstance().createEmpty(project);
-		libDir.setDirectoryName("lib");
-		webInfDir.addFirstChild(libDir);
 
 		for(Library library : libraries)
 		{
