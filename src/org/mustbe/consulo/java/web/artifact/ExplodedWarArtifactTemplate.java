@@ -17,18 +17,36 @@
 package org.mustbe.consulo.java.web.artifact;
 
 import java.util.ArrayList;
+import java.util.Set;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mustbe.consulo.java.web.JavaWebConstants;
 import org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension;
+import org.mustbe.consulo.roots.ContentFolderScopes;
+import org.mustbe.consulo.roots.impl.ProductionContentFolderTypeProvider;
+import org.mustbe.consulo.roots.impl.ProductionResourceContentFolderTypeProvider;
+import org.mustbe.consulo.roots.impl.WebResourcesFolderTypeProvider;
 import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.module.ModuleUtilCore;
+import com.intellij.openapi.roots.LibraryOrderEntry;
+import com.intellij.openapi.roots.ModuleOrderEntry;
+import com.intellij.openapi.roots.ModuleRootModel;
+import com.intellij.openapi.roots.RootPolicy;
+import com.intellij.openapi.roots.impl.ModuleLibraryTable;
+import com.intellij.openapi.roots.impl.libraries.LibraryTableImplUtil;
+import com.intellij.openapi.roots.libraries.Library;
+import com.intellij.openapi.roots.libraries.LibraryTable;
 import com.intellij.openapi.roots.ui.configuration.ChooseModulesDialog;
+import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
 import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.impl.elements.DirectoryElementType;
+import com.intellij.packaging.impl.elements.LibraryElementType;
+import com.intellij.packaging.impl.elements.LibraryPackagingElement;
 import com.intellij.packaging.impl.elements.moduleContent.ProductionModuleOutputElementType;
+import com.intellij.packaging.impl.elements.moduleContent.ProductionResourceModuleOutputElementType;
+import com.intellij.util.containers.ArrayListSet;
 import lombok.val;
 
 /**
@@ -37,32 +55,116 @@ import lombok.val;
  */
 public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 {
-	private PackagingElementResolvingContext myContext;
+	private final PackagingElementResolvingContext myContext;
 
 	public ExplodedWarArtifactTemplate(PackagingElementResolvingContext context)
 	{
 		myContext = context;
 	}
 
-	public static NewArtifactConfiguration doCreateArtifactTemplate(Module module)
+	@NotNull
+	public static NewArtifactConfiguration doCreateArtifactTemplate(Module module, PackagingElementResolvingContext packagingElementResolvingContext)
 	{
+		ModulesProvider modulesProvider = packagingElementResolvingContext.getModulesProvider();
+
+		val project = module.getProject();
 		val root = ExplodedWarArtifactType.getInstance().createRootElement(module.getName());
 
-		val webInfDir = DirectoryElementType.getInstance().createEmpty(module.getProject());
+		val webInfDir = DirectoryElementType.getInstance().createEmpty(project);
 		webInfDir.setDirectoryName(JavaWebConstants.WEB_INF);
 		root.addFirstChild(webInfDir);
 
-		val classesDir = DirectoryElementType.getInstance().createEmpty(module.getProject());
+		val classesDir = DirectoryElementType.getInstance().createEmpty(project);
 		classesDir.setDirectoryName("classes");
 		webInfDir.addFirstChild(classesDir);
 
-		val pointer = ModuleUtilCore.createPointer(module);
+		Set<Library> libraries = new ArrayListSet<Library>();
+		Set<Module> modules = new ArrayListSet<Module>();
 
-		classesDir.addFirstChild(ProductionModuleOutputElementType.getInstance().createElement(module.getProject(), pointer));
+		collectInfo(modules, libraries, modulesProvider, module);
 
-		root.addFirstChild(WebResourceModuleOutputElementType.getInstance().createElement(module.getProject(), pointer));
+		for(Module toAddModule : modules)
+		{
+			val pointer = ModuleUtilCore.createPointer(toAddModule);
+			ModuleRootModel rootModel = modulesProvider.getRootModel(toAddModule);
 
-		return new NewArtifactConfiguration(root, ExplodedWarArtifactType.getInstance().getPresentableName() + ": " + module.getName(), ExplodedWarArtifactType.getInstance());
+			if(rootModel.getContentFolders(ContentFolderScopes.of(ProductionContentFolderTypeProvider.getInstance())).length > 0)
+			{
+				classesDir.addFirstChild(ProductionModuleOutputElementType.getInstance().createElement(project, pointer));
+			}
+
+			if(rootModel.getContentFolders(ContentFolderScopes.of(WebResourcesFolderTypeProvider.getInstance())).length > 0)
+			{
+				root.addFirstChild(WebResourceModuleOutputElementType.getInstance().createElement(project, pointer));
+			}
+
+			if(rootModel.getContentFolders(ContentFolderScopes.of(ProductionResourceContentFolderTypeProvider.getInstance())).length > 0)
+			{
+				webInfDir.addFirstChild(ProductionResourceModuleOutputElementType.getInstance().createElement(project, pointer));
+			}
+		}
+
+		val libDir = DirectoryElementType.getInstance().createEmpty(project);
+		libDir.setDirectoryName("lib");
+		webInfDir.addFirstChild(libDir);
+
+		for(Library library : libraries)
+		{
+			LibraryPackagingElement libraryPackagingElement = LibraryElementType.getInstance().createEmpty(project);
+			libraryPackagingElement.setLibraryName(library.getName());
+
+			LibraryTable table = library.getTable();
+
+			String tableLevel = table.getTableLevel();
+			libraryPackagingElement.setLevel(tableLevel);
+
+			if(LibraryTableImplUtil.MODULE_LEVEL.equals(tableLevel))
+			{
+				libraryPackagingElement.setModuleName(((ModuleLibraryTable) table).getModule().getName());
+			}
+
+			libDir.addFirstChild(libraryPackagingElement);
+		}
+
+		return new NewArtifactConfiguration(root, ExplodedWarArtifactType.getInstance().getPresentableName() + ": " + module.getName(),
+				ExplodedWarArtifactType.getInstance());
+	}
+
+	private static void collectInfo(final Set<Module> modules, final Set<Library> libraries, final ModulesProvider modulesProvider, Module module)
+	{
+		modules.add(module);
+
+		ModuleRootModel rootModel = modulesProvider.getRootModel(module);
+
+		rootModel.orderEntries().withoutSdk().runtimeOnly().process(new RootPolicy<Object>()
+		{
+			@Override
+			public Object visitLibraryOrderEntry(LibraryOrderEntry libraryOrderEntry, Object value)
+			{
+				Library library = libraryOrderEntry.getLibrary();
+				if(library == null)
+				{
+					return null;
+				}
+				libraries.add(library);
+				return null;
+			}
+
+			@Override
+			public Object visitModuleOrderEntry(ModuleOrderEntry moduleOrderEntry, Object value)
+			{
+				Module moduleDependency = moduleOrderEntry.getModule();
+				if(moduleDependency == null)
+				{
+					return null;
+				}
+				if(!modules.contains(moduleDependency))
+				{
+					collectInfo(modules, libraries, modulesProvider, moduleDependency);
+				}
+				return null;
+			}
+		}, null);
 	}
 
 	@Nullable
@@ -70,7 +172,7 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 	public NewArtifactConfiguration createArtifact()
 	{
 		val modules = new ArrayList<Module>();
-		for(Module module : ModuleManager.getInstance(myContext.getProject()).getModules())
+		for(Module module : myContext.getModulesProvider().getModules())
 		{
 			if(ModuleUtilCore.getExtension(module, JavaWebModuleExtension.class) != null)
 			{
@@ -78,19 +180,19 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 			}
 		}
 
-		val dialog = new ChooseModulesDialog(myContext.getProject(), modules, "Choose Module", "Choose module for artifact creation");
+		val dialog = new ChooseModulesDialog(myContext.getProject(), modules, "Choose Module", "Choose Module For Artifact Creation");
 		dialog.setSingleSelectionMode();
 		val selectedModules = dialog.showAndGetResult();
 		if(selectedModules.size() != 1)
 		{
 			return null;
 		}
-		return doCreateArtifactTemplate(modules.get(0));
+		return doCreateArtifactTemplate(modules.get(0), myContext);
 	}
 
 	@Override
 	public String getPresentableName()
 	{
-		return "By module";
+		return "From Module";
 	}
 }

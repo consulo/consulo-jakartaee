@@ -11,10 +11,15 @@ import org.jetbrains.idea.maven.project.MavenProject;
 import org.jetbrains.idea.maven.project.MavenProjectChanges;
 import org.jetbrains.idea.maven.project.MavenProjectsProcessorTask;
 import org.jetbrains.idea.maven.project.MavenProjectsTree;
+import org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactTemplate;
+import org.mustbe.consulo.java.web.artifact.WarArtifactTemplate;
 import org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension;
 import org.mustbe.consulo.roots.ContentFolderTypeProvider;
 import org.mustbe.consulo.roots.impl.WebResourcesFolderTypeProvider;
 import com.intellij.openapi.module.Module;
+import com.intellij.packaging.artifacts.Artifact;
+import com.intellij.packaging.artifacts.ArtifactTemplate;
+import com.intellij.packaging.artifacts.ModifiableArtifactModel;
 import com.intellij.util.containers.MultiMap;
 
 /**
@@ -40,7 +45,7 @@ public class WarMavenImporter extends MavenImporterFromBuildPlugin
 
 	@Override
 	public void process(
-			MavenModifiableModelsProvider mavenModifiableModelsProvider,
+			final MavenModifiableModelsProvider mavenModifiableModelsProvider,
 			Module module,
 			MavenRootModelAdapter mavenRootModelAdapter,
 			MavenProjectsTree mavenProjectsTree,
@@ -50,6 +55,33 @@ public class WarMavenImporter extends MavenImporterFromBuildPlugin
 			List<MavenProjectsProcessorTask> mavenProjectsProcessorTasks)
 	{
 		enableModuleExtension(module, mavenModifiableModelsProvider, JavaWebModuleExtension.class);
+
+
+		ArtifactTemplate.NewArtifactConfiguration explodedArtifactConfiguration = ExplodedWarArtifactTemplate.doCreateArtifactTemplate(module,
+				mavenModifiableModelsProvider.getPackagingElementResolvingContext());
+
+		ModifiableArtifactModel artifactModel = mavenModifiableModelsProvider.getArtifactModel();
+
+		Artifact artifact = artifactModel.findArtifact(explodedArtifactConfiguration.getArtifactName());
+		if(artifact != null)
+		{
+			artifactModel.removeArtifact(artifact);
+		}
+
+		artifact = artifactModel.addArtifact(explodedArtifactConfiguration.getArtifactName(), explodedArtifactConfiguration.getArtifactType(),
+				explodedArtifactConfiguration.getRootElement());
+
+		ArtifactTemplate.NewArtifactConfiguration warArtifactConfiguration = WarArtifactTemplate.doCreateArtifactTemplate(artifact,
+				mavenModifiableModelsProvider.getPackagingElementResolvingContext());
+
+		Artifact warArtifact = artifactModel.findArtifact(warArtifactConfiguration.getArtifactName());
+		if(warArtifact != null)
+		{
+			artifactModel.removeArtifact(warArtifact);
+		}
+
+		artifactModel.addArtifact(warArtifactConfiguration.getArtifactName(), warArtifactConfiguration.getArtifactType(),
+				warArtifactConfiguration.getRootElement());
 	}
 
 	@Override

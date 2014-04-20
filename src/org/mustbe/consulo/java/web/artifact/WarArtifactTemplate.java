@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension;
+import com.intellij.openapi.module.Module;
+import com.intellij.openapi.roots.ModuleRootModel;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactManager;
 import com.intellij.packaging.artifacts.ArtifactPointerUtil;
@@ -43,25 +46,33 @@ public class WarArtifactTemplate extends ArtifactTemplate
 		myContext = context;
 	}
 
-	public NewArtifactConfiguration doCreateArtifactTemplate(Artifact artifact)
+	public static NewArtifactConfiguration doCreateArtifactTemplate(Artifact artifact, PackagingElementResolvingContext context)
 	{
-		val modulesIncludedInArtifacts = ArtifactUtil.getModulesIncludedInArtifacts(Collections.singletonList(artifact), myContext.getProject());
+		val modulesIncludedInArtifacts = ArtifactUtil.getModulesIncludedInArtifacts(Collections.singletonList(artifact), context.getProject());
 
-		if(modulesIncludedInArtifacts.size() != 1)
+		String moduleName = artifact.getName();
+
+		for(Module modulesIncludedInArtifact : modulesIncludedInArtifacts)
 		{
-			return null;
+			ModuleRootModel rootModel = context.getModulesProvider().getRootModel(modulesIncludedInArtifact);
+
+			JavaWebModuleExtension extension = rootModel.getExtension(JavaWebModuleExtension.class);
+			if(extension != null)
+			{
+				moduleName = modulesIncludedInArtifact.getName();
+				break;
+			}
 		}
 
-		val module = modulesIncludedInArtifacts.iterator().next();
-		val root = WarArtifactType.getInstance().createRootElement(module.getName());
+		val root = WarArtifactType.getInstance().createRootElement(moduleName);
 
-
-		val artifactPackagingElement = ArtifactElementType.getInstance().createEmpty(myContext.getProject());
-		artifactPackagingElement.setArtifactPointer(ArtifactPointerUtil.getPointerManager(myContext.getProject()).create(artifact));
+		val artifactPackagingElement = ArtifactElementType.getInstance().createEmpty(context.getProject());
+		artifactPackagingElement.setArtifactPointer(ArtifactPointerUtil.getPointerManager(context.getProject()).create(artifact));
 
 		root.addFirstChild(artifactPackagingElement);
 
-		return new NewArtifactConfiguration(root, WarArtifactType.getInstance().getPresentableName() + ": " + module.getName(), WarArtifactType.getInstance());
+		return new NewArtifactConfiguration(root, WarArtifactType.getInstance().getPresentableName() + ": " + moduleName,
+				WarArtifactType.getInstance());
 	}
 
 	@Nullable
@@ -77,19 +88,19 @@ public class WarArtifactTemplate extends ArtifactTemplate
 			}
 		}
 
-		val dialog = new ChooseArtifactsDialog(myContext.getProject(), artifacts, "Choose Artifact", "Choose exploded war artifact");
+		val dialog = new ChooseArtifactsDialog(myContext.getProject(), artifacts, "Choose Artifact", "Choose Exploded War Artifact");
 
 		val artifactList = dialog.showAndGetResult();
 		if(artifactList.size() != 1)
 		{
 			return null;
 		}
-		return doCreateArtifactTemplate(artifactList.get(0));
+		return doCreateArtifactTemplate(artifactList.get(0), myContext);
 	}
 
 	@Override
 	public String getPresentableName()
 	{
-		return "By artifact";
+		return "From Exploded Artifact";
 	}
 }
