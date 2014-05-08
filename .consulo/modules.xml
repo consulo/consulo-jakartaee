@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ModuleManager">
     <modules>
-      <module name="consulo-java-web" dirurl="file://$PROJECT_DIR$">
+      <module name="consulo-javaee" dirurl="file://$PROJECT_DIR$">
         <extension id="consulo-plugin" sdk-module-name="" sdk-name="Consulo 1.SNAPSHOT" custom-plugin-dir-url="file://$MODULE_DIR$/dep" />
         <extension id="java" sdk-module-name="" sdk-name="1.6" language-level-module-name="" language-level-name="JDK_1_6" special-dir-location="SOURCE_DIR" />
         <extension id="lombok" />
@@ -41,8 +41,8 @@
         </orderEntry>
       </module>
       <module name="java-web-maven" dirurl="file://$PROJECT_DIR$/java-web-maven">
-        <extension id="consulo-plugin" sdk-module-name="consulo-java-web" sdk-name="" custom-plugin-dir-url="file://$MODULE_DIR$/../dep" />
-        <extension id="java" sdk-module-name="consulo-java-web" sdk-name="" language-level-module-name="consulo-java-web" language-level-name="" special-dir-location="SOURCE_DIR" />
+        <extension id="consulo-plugin" sdk-module-name="consulo-javaee" sdk-name="" custom-plugin-dir-url="file://$MODULE_DIR$/../dep" />
+        <extension id="java" sdk-module-name="consulo-javaee" sdk-name="" language-level-module-name="consulo-javaee" language-level-name="" special-dir-location="SOURCE_DIR" />
         <content url="file://$MODULE_DIR$">
           <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
           <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
@@ -78,7 +78,7 @@
             <SOURCES />
           </library>
         </orderEntry>
-        <orderEntry type="module" module-name="consulo-java-web" />
+        <orderEntry type="module" module-name="consulo-javaee" />
       </module>
     </modules>
   </component>

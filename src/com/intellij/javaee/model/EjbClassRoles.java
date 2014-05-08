@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 must-be.org
+ * Copyright 2000-2007 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.intellij.javaee.model;
 
-package org.mustbe.consulo.java.web.dom.web.def;
-
-import com.intellij.util.xml.DefinesXml;
-import com.intellij.util.xml.DomElement;
+import com.intellij.javaee.ejb.role.EjbClassRoleEnum;
 
 /**
- * @author VISTALL
- * @since 07.11.13.
+ * @author peter
  */
-@DefinesXml
-public interface WebApp extends DomElement
-{
+public @interface EjbClassRoles {
+  EjbClassRoleEnum[] value();
 }

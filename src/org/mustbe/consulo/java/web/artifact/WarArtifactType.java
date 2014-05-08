@@ -23,9 +23,9 @@ import javax.swing.Icon;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.java.web.JavaWebBundle;
 import org.mustbe.consulo.java.web.JavaWebIcons;
 import org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension;
+import com.intellij.javaee.J2EEBundle;
 import com.intellij.openapi.module.ModuleUtil;
 import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
@@ -49,7 +49,7 @@ public class WarArtifactType extends ArtifactType
 
 	public WarArtifactType()
 	{
-		super("war", JavaWebBundle.message("war.artifact.name"));
+		super("war", J2EEBundle.message("war.artifact.name"));
 	}
 
 	@Override

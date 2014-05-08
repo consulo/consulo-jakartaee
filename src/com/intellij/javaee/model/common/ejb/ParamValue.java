@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 must-be.org
+ * Copyright 2000-2007 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.intellij.javaee.model.common.ejb;
 
-package org.mustbe.consulo.java.web;
-
-import org.consulo.lombok.annotations.Bundle;
+import com.intellij.util.xml.GenericValue;
 
 /**
- * @author VISTALL
- * @since 07.11.13.
+ * @author peter
  */
-@Bundle("messages.JavaWebBundle")
-public class JavaWebBundle
-{
+public interface ParamValue {
+  GenericValue<String> getParamName();
+  GenericValue<String> getParamValue();
 }

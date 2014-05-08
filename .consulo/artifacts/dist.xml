@@ -5,8 +5,8 @@
       <element id="directory" name="java-web">
         <element id="directory" name="lib">
           <element id="zip-archive" name="java-web.jar">
-            <element id="module-production-resource-output" name="consulo-java-web" />
-            <element id="module-output" name="consulo-java-web" />
+            <element id="module-production-resource-output" name="consulo-javaee" />
+            <element id="module-output" name="consulo-javaee" />
             <element id="module-production-resource-output" name="java-web-maven" />
             <element id="module-output" name="java-web-maven" />
           </element>
