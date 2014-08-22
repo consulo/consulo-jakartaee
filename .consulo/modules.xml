@@ -2,83 +2,79 @@
 <project version="4">
   <component name="ModuleManager">
     <modules>
-      <module name="consulo-javaee" dirurl="file://$PROJECT_DIR$">
-        <extension id="consulo-plugin" sdk-module-name="" sdk-name="Consulo 1.SNAPSHOT" custom-plugin-dir-url="file://$MODULE_DIR$/dep" />
-        <extension id="java" sdk-module-name="" sdk-name="1.6" language-level-module-name="" language-level-name="JDK_1_6" special-dir-location="SOURCE_DIR" />
-        <extension id="lombok" />
-        <content url="file://$MODULE_DIR$">
-          <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
-          <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
-          <content-folder type="EXCLUDED" url="file://$MODULE_DIR$/.consulo/sandbox" />
-        </content>
-        <orderEntry type="module-extension-sdk" extension-id="java" />
-        <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
-        <orderEntry type="sourceFolder" forTests="false" />
-        <orderEntry type="module-library">
-          <library name="consulo:Java">
-            <CLASSES>
-              <root url="jar://$MODULE_DIR$/dep/java/lib/java-manifest.jar!/" />
-              <root url="jar://$MODULE_DIR$/dep/java/lib/java-rt.jar!/" />
-              <root url="jar://$MODULE_DIR$/dep/java/lib/java.jar!/" />
-              <root url="jar://$MODULE_DIR$/dep/java/lib/jdk-annotations.jar!/" />
-            </CLASSES>
-            <DOCUMENTATION />
-            <SOURCES />
-          </library>
-        </orderEntry>
-        <orderEntry type="module-library">
-          <library name="consulo:XML">
-            <CLASSES>
-              <root url="jar://$MODULE_DIR$/dep/xml/lib/jaxen-1.1.3.jar!/" />
-              <root url="jar://$MODULE_DIR$/dep/xml/lib/jsr173_1.0_api.jar!/" />
-              <root url="jar://$MODULE_DIR$/dep/xml/lib/resolver.jar!/" />
-              <root url="jar://$MODULE_DIR$/dep/xml/lib/xerces.jar!/" />
-              <root url="jar://$MODULE_DIR$/dep/xml/lib/xml.jar!/" />
-            </CLASSES>
-            <DOCUMENTATION />
-            <SOURCES />
-          </library>
-        </orderEntry>
+      <module name="consulo-javaee" dirurl="file://$PROJECT_DIR$" current-layer="Default">
+        <module-layer name="Default">
+          <extension id="consulo-plugin" sdk-module-name="" sdk-name="Consulo 1.SNAPSHOT" custom-plugin-dir-url="file://$MODULE_DIR$/dep" />
+          <extension id="java" sdk-module-name="" sdk-name="1.6" language-level-module-name="" language-level-name="JDK_1_6" special-dir-location="SOURCE_DIR" />
+          <extension id="lombok" />
+          <content url="file://$MODULE_DIR$">
+            <content-folder type="EXCLUDED" url="file://$MODULE_DIR$/.consulo/sandbox" />
+            <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
+            <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+          </content>
+          <orderEntry type="module-extension-sdk" extension-id="java" />
+          <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
+          <orderEntry type="sourceFolder" forTests="false" />
+          <orderEntry type="module-library">
+            <library name="consulo:Java">
+              <binaries>
+                <root url="jar://$MODULE_DIR$/dep/java/lib/java-manifest.jar!/" />
+                <root url="jar://$MODULE_DIR$/dep/java/lib/java-rt.jar!/" />
+                <root url="jar://$MODULE_DIR$/dep/java/lib/java.jar!/" />
+                <root url="jar://$MODULE_DIR$/dep/java/lib/jdk-annotations.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module-library">
+            <library name="consulo:XML">
+              <binaries>
+                <root url="jar://$MODULE_DIR$/dep/xml/lib/jaxen-1.1.3.jar!/" />
+                <root url="jar://$MODULE_DIR$/dep/xml/lib/jsr173_1.0_api.jar!/" />
+                <root url="jar://$MODULE_DIR$/dep/xml/lib/resolver.jar!/" />
+                <root url="jar://$MODULE_DIR$/dep/xml/lib/xerces.jar!/" />
+                <root url="jar://$MODULE_DIR$/dep/xml/lib/xml.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+        </module-layer>
       </module>
-      <module name="java-web-maven" dirurl="file://$PROJECT_DIR$/java-web-maven">
-        <extension id="consulo-plugin" sdk-module-name="consulo-javaee" sdk-name="" custom-plugin-dir-url="file://$MODULE_DIR$/../dep" />
-        <extension id="java" sdk-module-name="consulo-javaee" sdk-name="" language-level-module-name="consulo-javaee" language-level-name="" special-dir-location="SOURCE_DIR" />
-        <content url="file://$MODULE_DIR$">
-          <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
-          <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
-        </content>
-        <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
-        <orderEntry type="module-extension-sdk" extension-id="java" />
-        <orderEntry type="sourceFolder" forTests="false" />
-        <orderEntry type="module-library">
-          <library name="consulo:Java">
-            <CLASSES>
-              <root url="jar://$MODULE_DIR$/../dep/java/lib/java-manifest.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/java/lib/java-rt.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/java/lib/java.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/java/lib/jdi.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/java/lib/jdk-annotations.jar!/" />
-            </CLASSES>
-            <DOCUMENTATION />
-            <SOURCES />
-          </library>
-        </orderEntry>
-        <orderEntry type="module-library">
-          <library name="consulo:Maven Integration">
-            <CLASSES>
-              <root url="jar://$MODULE_DIR$/../dep/maven/lib/lucene-core-2.4.1.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven-server-api.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven2-server-impl.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven3-server-impl.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/maven/lib/plexus-utils-2.0.6.jar!/" />
-              <root url="jar://$MODULE_DIR$/../dep/maven/lib/wadl-core.jar!/" />
-            </CLASSES>
-            <DOCUMENTATION />
-            <SOURCES />
-          </library>
-        </orderEntry>
-        <orderEntry type="module" module-name="consulo-javaee" />
+      <module name="java-web-maven" dirurl="file://$PROJECT_DIR$/java-web-maven" current-layer="Default">
+        <module-layer name="Default">
+          <extension id="consulo-plugin" sdk-module-name="consulo-javaee" sdk-name="" custom-plugin-dir-url="file://$MODULE_DIR$/../dep" />
+          <extension id="java" sdk-module-name="consulo-javaee" sdk-name="" language-level-module-name="consulo-javaee" language-level-name="" special-dir-location="SOURCE_DIR" />
+          <content url="file://$MODULE_DIR$">
+            <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
+            <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+          </content>
+          <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
+          <orderEntry type="module-extension-sdk" extension-id="java" />
+          <orderEntry type="sourceFolder" forTests="false" />
+          <orderEntry type="module-library">
+            <library name="consulo:Java">
+              <binaries>
+                <root url="jar://$MODULE_DIR$/../dep/java/lib/java-manifest.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/java/lib/java-rt.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/java/lib/java.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/java/lib/jdi.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/java/lib/jdk-annotations.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module-library">
+            <library name="consulo:Maven Integration">
+              <binaries>
+                <root url="jar://$MODULE_DIR$/../dep/maven/lib/lucene-core-2.4.1.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven-server-api.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven2-server-impl.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/maven/lib/maven3-server-impl.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/maven/lib/plexus-utils-2.0.6.jar!/" />
+                <root url="jar://$MODULE_DIR$/../dep/maven/lib/wadl-core.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module" module-name="consulo-javaee" />
+        </module-layer>
       </module>
     </modules>
   </component>
