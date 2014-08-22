@@ -1,1 +1,1 @@
-![Build Status](http://must-be.org/vulcan/statusImage?name=consulo-java-web)
+![Build Status](http://must-be.org/vulcan/statusImage?name=consulo-javaee)
