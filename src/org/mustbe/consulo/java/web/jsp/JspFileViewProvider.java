@@ -96,6 +96,6 @@ public class JspFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProv
 	@Override
 	protected MultiplePsiFilesPerDocumentFileViewProvider cloneInner(VirtualFile virtualFile)
 	{
-		return new JspFileViewProvider(getManager(), virtualFile, isPhysical());
+		return new JspFileViewProvider(getManager(), virtualFile, false);
 	}
 }
