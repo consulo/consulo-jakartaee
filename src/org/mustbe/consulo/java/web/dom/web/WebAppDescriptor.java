@@ -52,9 +52,9 @@ public class WebAppDescriptor extends DomFileDescription<WebApp>
 	}
 
 	@Override
-	public boolean isMyFile(@NotNull XmlFile file, @Nullable Module module)
+	public boolean isMyFile(@NotNull XmlFile file)
 	{
-		if(!super.isMyFile(file, module))
+		if(!super.isMyFile(file))
 		{
 			return false;
 		}
@@ -64,7 +64,7 @@ public class WebAppDescriptor extends DomFileDescription<WebApp>
 			return false;
 		}
 
-		module = ModuleUtilCore.findModuleForPsiElement(file);
+		Module module = ModuleUtilCore.findModuleForPsiElement(file);
 		if(module == null || ModuleUtilCore.getExtension(module, JavaWebModuleExtension.class) == null)
 		{
 			return false;
