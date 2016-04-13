@@ -16,28 +16,20 @@
 
 package org.mustbe.consulo.java.web.artifact;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import org.consulo.util.pointers.NamedPointer;
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.consulo.roots.ContentFolderScopes;
 import org.mustbe.consulo.roots.ContentFolderTypeProvider;
-import com.intellij.compiler.ant.Generator;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ModuleRootManager;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.packaging.artifacts.ArtifactType;
-import com.intellij.packaging.elements.AntCopyInstructionCreator;
-import com.intellij.packaging.elements.ArtifactAntGenerationContext;
 import com.intellij.packaging.elements.ArtifactIncrementalCompilerContext;
 import com.intellij.packaging.elements.IncrementalCompilerInstructionCreator;
 import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.elements.PackagingElementType;
 import com.intellij.packaging.impl.elements.moduleContent.ModuleOutputPackagingElementImpl;
-import lombok.val;
 
 /**
  * @author VISTALL
@@ -56,35 +48,12 @@ public class WebResourceModuleOutputPackagingElement extends ModuleOutputPackagi
 	}
 
 	@Override
-	public List<? extends Generator> computeAntInstructions(@NotNull PackagingElementResolvingContext resolvingContext, @NotNull AntCopyInstructionCreator creator, @NotNull ArtifactAntGenerationContext generationContext, @NotNull ArtifactType artifactType)
-	{
-		if(myModulePointer != null)
-		{
-			val module = myModulePointer.get();
-			if(module == null)
-			{
-				return Collections.emptyList();
-			}
-
-			val virtualFiles = ModuleRootManager.getInstance(module).getContentFolderFiles(ContentFolderScopes.of(myContentFolderType));
-
-			val generators = new ArrayList<Generator>(virtualFiles.length);
-			for(val virtualFile : virtualFiles)
-			{
-				generators.add(creator.createDirectoryContentCopyInstruction(virtualFile.getPath()));
-			}
-			return generators;
-		}
-		return Collections.emptyList();
-	}
-
-	@Override
 	public void computeIncrementalCompilerInstructions(@NotNull IncrementalCompilerInstructionCreator creator, @NotNull PackagingElementResolvingContext resolvingContext, @NotNull ArtifactIncrementalCompilerContext compilerContext, @NotNull ArtifactType artifactType)
 	{
-		val module = findModule(resolvingContext);
+		Module module = findModule(resolvingContext);
 		if(module != null)
 		{
-			val virtualFiles = ModuleRootManager.getInstance(module).getContentFolderFiles(ContentFolderScopes.of(myContentFolderType));
+			VirtualFile[] virtualFiles = ModuleRootManager.getInstance(module).getContentFolderFiles(ContentFolderScopes.of(myContentFolderType));
 
 			for(VirtualFile virtualFile : virtualFiles)
 			{
