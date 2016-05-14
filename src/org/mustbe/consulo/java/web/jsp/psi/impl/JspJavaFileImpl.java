@@ -18,11 +18,16 @@ package org.mustbe.consulo.java.web.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.RequiredReadAction;
+import org.mustbe.consulo.java.module.extension.JavaModuleExtension;
 import org.mustbe.consulo.java.web.jsp.psi.JspJavaFile;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.ide.highlighter.JavaFileType;
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.openapi.fileTypes.FileType;
+import com.intellij.openapi.module.ModuleUtilCore;
+import com.intellij.openapi.roots.impl.DirectoryIndex;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiClass;
@@ -31,6 +36,7 @@ import com.intellij.psi.PsiImportList;
 import com.intellij.psi.PsiJavaCodeReferenceElement;
 import com.intellij.psi.PsiPackageStatement;
 import com.intellij.util.IncorrectOperationException;
+import com.intellij.util.ObjectUtil;
 
 /**
  * @author VISTALL
@@ -68,7 +74,12 @@ public class JspJavaFileImpl extends PsiFileBase implements JspJavaFile
 	@Override
 	public String getPackageName()
 	{
-		return null;
+		VirtualFile virtualFile = getVirtualFile();
+		if(virtualFile == null)
+		{
+			return "";
+		}
+		return ObjectUtil.notNull(DirectoryIndex.getInstance(getProject()).getPackageName(virtualFile), "");
 	}
 
 	@Override
@@ -121,9 +132,11 @@ public class JspJavaFileImpl extends PsiFileBase implements JspJavaFile
 
 	@NotNull
 	@Override
+	@RequiredReadAction
 	public LanguageLevel getLanguageLevel()
 	{
-		return LanguageLevel.JDK_1_8;
+		JavaModuleExtension javaModuleExtension = ModuleUtilCore.getExtension(this, JavaModuleExtension.class);
+		return javaModuleExtension == null ? LanguageLevel.JDK_1_8 : javaModuleExtension.getLanguageLevel();
 	}
 
 	@Override
