@@ -118,7 +118,7 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 
 			LibraryTable table = library.getTable();
 
-			String tableLevel = table.getTableLevel();
+			String tableLevel = table == null ? null : table.getTableLevel();
 			libraryPackagingElement.setLevel(tableLevel);
 
 			if(LibraryTableImplUtil.MODULE_LEVEL.equals(tableLevel))
