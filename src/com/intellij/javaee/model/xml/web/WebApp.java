@@ -19,18 +19,19 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import com.intellij.javaee.model.common.JavaeeCommonConstants;
+import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
 import com.intellij.javaee.model.enums.WebAppVersion;
 import com.intellij.javaee.model.xml.*;
-import com.intellij.util.xml.*;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
+import com.intellij.util.xml.GenericAttributeValue;
+import com.intellij.util.xml.GenericDomValue;
+import com.intellij.util.xml.Stubbed;
+import com.intellij.util.xml.SubTag;
 
 /**
  * http://java.sun.com/xml/ns/javaee:web-appType interface.
  */
-@Namespace(JavaeeCommonConstants.WEB_NAMESPACE_KEY)
 @Stubbed
 public interface WebApp extends JavaeeDomModelElement, DescriptionGroup, JndiEnvironmentRefsGroup, ServiceRefGroup {
 
@@ -39,7 +40,7 @@ public interface WebApp extends JavaeeDomModelElement, DescriptionGroup, JndiEnv
 	 * @return the value of the version child.
 	 */
 	@NotNull
-        @Stubbed
+	@Stubbed
 	GenericAttributeValue<WebAppVersion> getVersion();
 
 

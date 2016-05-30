@@ -34,6 +34,16 @@
                 <root url="jar://$MODULE_DIR$/dep/xml/lib/xerces.jar!/" />
                 <root url="jar://$MODULE_DIR$/dep/xml/lib/xml.jar!/" />
               </binaries>
+              <sources>
+                <root url="file://$MODULE_DIR$/../consulo-xml/xml-api/src" />
+                <root url="file://$MODULE_DIR$/../consulo-xml/xml-dom-api/src" />
+                <root url="file://$MODULE_DIR$/../consulo-xml/xml-dom-impl/src" />
+                <root url="file://$MODULE_DIR$/../consulo-xml/xml-dom-tests/tests" />
+                <root url="file://$MODULE_DIR$/../consulo-xml/xml-impl/src" />
+                <root url="file://$MODULE_DIR$/../consulo-xml/xml-intellilang/src" />
+                <root url="file://$MODULE_DIR$/../consulo-xml/xml-spellchecker/src" />
+                <root url="file://$MODULE_DIR$/../consulo-xml/xml-tests/test" />
+              </sources>
             </library>
           </orderEntry>
         </module-layer>
@@ -79,4 +89,3 @@
     </modules>
   </component>
 </project>
-

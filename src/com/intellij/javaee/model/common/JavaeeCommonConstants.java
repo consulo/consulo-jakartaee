@@ -26,11 +26,6 @@ import com.intellij.psi.CommonClassNames;
  * Time: 17:51:28
  */
 public interface JavaeeCommonConstants {
-
-  @NonNls String EJB_NAMESPACE_KEY = "EJB namespace";
-  @NonNls String WEB_NAMESPACE_KEY = "Web namespace";
-  @NonNls String APP_NAMESPACE_KEY = "Javaee application namespace";
-
   @NonNls String APPLICATION_XML_ROOT_TAG = "application";
   @NonNls String WEB_XML_ROOT_TAG = "web-app";
   @NonNls String WEB_FRAGMENT_ROOT_TAG = "web-fragment";

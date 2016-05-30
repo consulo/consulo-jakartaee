@@ -36,7 +36,6 @@ import java.util.List;
  * 	application.
  * </pre>
  */
-@Namespace(JavaeeCommonConstants.APP_NAMESPACE_KEY)
 public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGroup {
 
 	/**

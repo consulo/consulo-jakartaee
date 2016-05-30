@@ -52,7 +52,6 @@ import java.util.List;
  * 	      ejb-jar.
  * </pre>
  */
-@Namespace(JavaeeCommonConstants.EJB_NAMESPACE_KEY)
 public interface EjbJar extends JavaeeDomModelElement, DescriptionGroup, EjbRootElement {
 
 	/**
