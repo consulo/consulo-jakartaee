@@ -15,7 +15,7 @@
  */
 package com.intellij.javaee;
 
-import org.consulo.lombok.annotations.Bundle;
+import consulo.lombok.annotations.Bundle;
 
 /**
  * Created by IntelliJ IDEA.
