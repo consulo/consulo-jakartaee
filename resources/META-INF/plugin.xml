@@ -23,6 +23,10 @@
 	<depends optional="true" config-file="org.jetbrains.idea.maven.xml">org.jetbrains.idea.maven</depends>
 	<resource-bundle>messages.J2EEBundle</resource-bundle>
 
+	<extensionPoints>
+		<extensionPoint name="contextParamsProvider" interface="com.intellij.javaee.model.xml.converters.ContextParamNameConverter" />
+	</extensionPoints>
+
 	<extensions defaultExtensionNs="com.intellij.xml">
 		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" path="/standardSchemas/web-app_2_5.xsd" version="2.5" />
 		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" path="/standardSchemas/web-app_3_0.xsd" version="3.0" />

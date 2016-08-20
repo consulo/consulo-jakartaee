@@ -36,7 +36,7 @@ public class ContextParamValueConverter extends WrappingConverter {
     if (value != null) {
       String paramName = value.getParamName().getStringValue();
       if (paramName != null) {
-        for (ContextParamsProvider provider : Extensions.getExtensions(ContextParamsProvider.WEB_XML_CONTEXT_PARAMS_EP)) {
+        for (ContextParamsProvider provider : Extensions.getExtensions(ContextParamsProvider.EP_NAME)) {
           Converter converter = provider.getContextParamValueConverter(paramName, module);
           if (converter != null) return converter;
         }

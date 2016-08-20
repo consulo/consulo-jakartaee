@@ -15,23 +15,23 @@
  */
 package com.intellij.javaee.model.xml.converters;
 
+import java.util.Collections;
+import java.util.Set;
+
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.extensions.ExtensionPointName;
 import com.intellij.openapi.module.Module;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.Converter;
-import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Collections;
-import java.util.Set;
 
 /**
  * @author Sergey Vasiliev
  */
 public abstract class ContextParamsProvider {
-  @NonNls public static final ExtensionPointName<ContextParamsProvider> WEB_XML_CONTEXT_PARAMS_EP =
-    ExtensionPointName.create("com.intellij.javaee.contextParamsProvider");
+  @NonNls public static final ExtensionPointName<ContextParamsProvider> EP_NAME =
+    ExtensionPointName.create("org.mustbe.consulo.javaee.contextParamsProvider");
 
   /**
    * @param module         All modules from {@link com.intellij.util.xml.ModuleContextProvider#getModules}.
