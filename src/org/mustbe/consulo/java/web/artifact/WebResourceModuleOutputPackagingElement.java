@@ -16,10 +16,7 @@
 
 package org.mustbe.consulo.java.web.artifact;
 
-import org.consulo.util.pointers.NamedPointer;
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.consulo.roots.ContentFolderScopes;
-import org.mustbe.consulo.roots.ContentFolderTypeProvider;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ModuleRootManager;
@@ -30,6 +27,9 @@ import com.intellij.packaging.elements.IncrementalCompilerInstructionCreator;
 import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.elements.PackagingElementType;
 import com.intellij.packaging.impl.elements.moduleContent.ModuleOutputPackagingElementImpl;
+import consulo.roots.ContentFolderScopes;
+import consulo.roots.ContentFolderTypeProvider;
+import consulo.util.pointers.NamedPointer;
 
 /**
  * @author VISTALL

@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.jetbrains.idea.maven.importing.MavenImporterFromBuildPlugin;
 import org.jetbrains.idea.maven.importing.MavenModifiableModelsProvider;
 import org.jetbrains.idea.maven.importing.MavenRootModelAdapter;
 import org.jetbrains.idea.maven.project.MavenProject;
@@ -14,13 +13,14 @@ import org.jetbrains.idea.maven.project.MavenProjectsTree;
 import org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactTemplate;
 import org.mustbe.consulo.java.web.artifact.WarArtifactTemplate;
 import org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension;
-import org.mustbe.consulo.roots.ContentFolderTypeProvider;
-import org.mustbe.consulo.roots.impl.WebResourcesFolderTypeProvider;
 import com.intellij.openapi.module.Module;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
 import com.intellij.packaging.artifacts.ModifiableArtifactModel;
 import com.intellij.util.containers.MultiMap;
+import consulo.maven.importing.MavenImporterFromBuildPlugin;
+import consulo.roots.ContentFolderTypeProvider;
+import consulo.roots.impl.WebResourcesFolderTypeProvider;
 
 /**
  * @author VISTALL

@@ -1,0 +1,8 @@
+<component name="libraryTable">
+  <library name="consulo-plugin: org.jetbrains.idea.maven">
+    <binaries>
+      <root url="file://$PROJECT_DIR$/dep/org.jetbrains.idea.maven/lib" />
+    </binaries>
+    <jarDirectory url="file://$PROJECT_DIR$/dep/org.jetbrains.idea.maven/lib" recursive="false" />
+  </library>
+</component>

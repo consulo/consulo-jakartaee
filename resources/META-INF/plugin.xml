@@ -19,7 +19,7 @@
 	<name>JavaEE</name>
 	<version>SHAPSHOT</version>
 	<depends>com.intellij.xml</depends>
-	<depends>org.consulo.java</depends>
+	<depends>consulo.java</depends>
 	<depends optional="true" config-file="org.jetbrains.idea.maven.xml">org.jetbrains.idea.maven</depends>
 	<resource-bundle>messages.J2EEBundle</resource-bundle>
 

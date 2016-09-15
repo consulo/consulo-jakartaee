@@ -4,10 +4,10 @@ import java.util.Set;
 
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension;
-import org.mustbe.consulo.roots.ContentFolderSupportPatcher;
-import org.mustbe.consulo.roots.ContentFolderTypeProvider;
-import org.mustbe.consulo.roots.impl.WebResourcesFolderTypeProvider;
 import com.intellij.openapi.roots.ModifiableRootModel;
+import consulo.roots.ContentFolderSupportPatcher;
+import consulo.roots.ContentFolderTypeProvider;
+import consulo.roots.impl.WebResourcesFolderTypeProvider;
 
 /**
  * @author VISTALL

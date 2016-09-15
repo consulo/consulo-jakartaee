@@ -16,6 +16,15 @@
 
 package org.mustbe.consulo.java.web.dom.web;
 
+import java.util.List;
+
+import javax.swing.Icon;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.java.web.JavaWebConstants;
+import org.mustbe.consulo.java.web.JavaWebIcons;
+import org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension;
 import com.intellij.javaee.model.xml.web.WebApp;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -23,15 +32,7 @@ import com.intellij.openapi.util.Iconable;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.util.xml.DomFileDescription;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.java.roots.SpecialDirUtil;
-import org.mustbe.consulo.java.web.JavaWebConstants;
-import org.mustbe.consulo.java.web.JavaWebIcons;
-import org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension;
-
-import javax.swing.*;
-import java.util.List;
+import consulo.java.roots.SpecialDirUtil;
 
 /**
  * @author VISTALL

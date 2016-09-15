@@ -6,8 +6,8 @@ import org.mustbe.consulo.java.web.jsp.psi.impl.JspDirectiveImpl;
 import org.mustbe.consulo.java.web.jsp.psi.impl.JspExpressionImpl;
 import org.mustbe.consulo.java.web.jsp.psi.impl.JspFragmentImpl;
 import org.mustbe.consulo.java.web.jsp.psi.impl.JspLineFragmentImpl;
-import com.intellij.psi.tree.ElementTypeAsPsiFactory;
 import com.intellij.psi.tree.IElementType;
+import consulo.psi.tree.ElementTypeAsPsiFactory;
 
 /**
  * @author VISTALL

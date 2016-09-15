@@ -18,8 +18,6 @@ package org.mustbe.consulo.java.web.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.RequiredReadAction;
-import org.mustbe.consulo.java.module.extension.JavaModuleExtension;
 import org.mustbe.consulo.java.web.jsp.psi.JspJavaFile;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.ide.highlighter.JavaFileType;
@@ -37,6 +35,8 @@ import com.intellij.psi.PsiJavaCodeReferenceElement;
 import com.intellij.psi.PsiPackageStatement;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.ObjectUtil;
+import consulo.annotations.RequiredReadAction;
+import consulo.java.module.extension.JavaModuleExtension;
 
 /**
  * @author VISTALL

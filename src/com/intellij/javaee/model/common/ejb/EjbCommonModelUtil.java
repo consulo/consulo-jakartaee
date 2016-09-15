@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.consulo.module.extension.ModuleExtension;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.javaee.ejb.role.EjbClassRoleEnum;
@@ -32,6 +31,7 @@ import com.intellij.util.Function;
 import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.xml.ElementPresentationManager;
 import com.intellij.util.xml.GenericValue;
+import consulo.module.extension.ModuleExtension;
 
 /**
  * @author peter

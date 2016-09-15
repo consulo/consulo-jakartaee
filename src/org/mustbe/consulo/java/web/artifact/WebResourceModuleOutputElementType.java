@@ -16,13 +16,13 @@
 
 package org.mustbe.consulo.java.web.artifact;
 
-import org.consulo.util.pointers.NamedPointer;
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.consulo.roots.impl.WebResourcesFolderTypeProvider;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.packaging.impl.elements.moduleContent.ModuleOutputElementTypeBase;
 import com.intellij.packaging.impl.elements.moduleContent.ModuleOutputPackagingElementImpl;
+import consulo.roots.impl.WebResourcesFolderTypeProvider;
+import consulo.util.pointers.NamedPointer;
 
 /**
  * @author VISTALL

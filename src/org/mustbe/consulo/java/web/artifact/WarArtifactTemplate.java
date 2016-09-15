@@ -25,12 +25,12 @@ import com.intellij.openapi.module.Module;
 import com.intellij.openapi.roots.ModuleRootModel;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactManager;
-import com.intellij.packaging.artifacts.ArtifactPointerUtil;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
 import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.impl.artifacts.ArtifactUtil;
 import com.intellij.packaging.impl.elements.ArtifactElementType;
 import com.intellij.packaging.impl.ui.ChooseArtifactsDialog;
+import consulo.packaging.artifacts.ArtifactPointerUtil;
 import lombok.val;
 
 /**

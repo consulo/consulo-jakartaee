@@ -18,10 +18,10 @@ package org.mustbe.consulo.java.web.module.extension;
 
 import javax.swing.JComponent;
 
-import org.consulo.module.extension.MutableModuleExtension;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import com.intellij.openapi.roots.ModuleRootLayer;
+import consulo.module.extension.MutableModuleExtension;
+import consulo.roots.ModuleRootLayer;
 
 /**
  * @author VISTALL
