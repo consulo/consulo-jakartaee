@@ -15,9 +15,9 @@
   -->
 
 <idea-plugin>
-	<id>org.mustbe.consulo.javaee</id>
+	<id>consulo.javaee</id>
 	<name>JavaEE</name>
-	<version>SHAPSHOT</version>
+	<version>SNAPSHOT</version>
 	<depends>com.intellij.xml</depends>
 	<depends>consulo.java</depends>
 	<depends optional="true" config-file="org.jetbrains.idea.maven.xml">org.jetbrains.idea.maven</depends>
@@ -34,31 +34,31 @@
 	</extensions>
 
 	<extensions defaultExtensionNs="com.intellij.xml.dom">
-		<fileDescription implementation="org.mustbe.consulo.java.web.dom.web.WebAppDescriptor" />
+		<fileDescription implementation="consulo.javaee.dom.web.WebAppDescriptor" />
 	</extensions>
 
 	<extensions defaultExtensionNs="com.intellij">
-		<highlightVisitor implementation="org.mustbe.consulo.java.web.jsp.ide.highlight.JspHighlightVisitor" />
+		<highlightVisitor implementation="consulo.javaee.jsp.ide.highlight.JspHighlightVisitor" />
 
-		<packaging.artifactType implementation="org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactType" />
-		<packaging.artifactType implementation="org.mustbe.consulo.java.web.artifact.WarArtifactType" />
-		<packaging.elementType implementation="org.mustbe.consulo.java.web.artifact.WebResourceModuleOutputElementType" />
+		<packaging.artifactType implementation="consulo.javaee.artifact.ExplodedWarArtifactType" />
+		<packaging.artifactType implementation="consulo.javaee.artifact.WarArtifactType" />
+		<packaging.elementType implementation="consulo.javaee.artifact.WebResourceModuleOutputElementType" />
 
-		<fileTypeFactory implementation="org.mustbe.consulo.java.web.jsp.JspFileTypeFactory" />
-		<fileTypeFactory implementation="org.mustbe.consulo.java.web.artifact.WarFileTypeFactory" />
+		<fileTypeFactory implementation="consulo.javaee.jsp.JspFileTypeFactory" />
+		<fileTypeFactory implementation="consulo.javaee.artifact.WarFileTypeFactory" />
 
-		<lang.fileViewProviderFactory language="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.JspFileViewProviderFactory" />
-		<lang.parserDefinition language="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.JspParserDefinition" />
+		<lang.fileViewProviderFactory language="JSP" implementationClass="consulo.javaee.jsp.JspFileViewProviderFactory" />
+		<lang.parserDefinition language="JSP" implementationClass="consulo.javaee.jsp.JspParserDefinition" />
 
-		<lang.syntaxHighlighterFactory key="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.highlight.JspSyntaxHighlighterFactory"/>
-		<syntaxHighlighter key="JSP" implementationClass="org.mustbe.consulo.java.web.jsp.highlight.JspSyntaxHighlighter"/>
-		<contentFolderSupportPatcher implementation="org.mustbe.consulo.java.web.module.JavaWebContentFolderSupportPatcher" />
+		<lang.syntaxHighlighterFactory key="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighterFactory"/>
+		<syntaxHighlighter key="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighter"/>
+		<contentFolderSupportPatcher implementation="consulo.javaee.module.JavaWebContentFolderSupportPatcher" />
 
 		<moduleExtensionProvider key="java-web"
 								 parentKey="java"
 								 icon="/general/web.png"
 								 name="JSP"
-								 immutableClass="org.mustbe.consulo.java.web.module.extension.JavaWebModuleExtension"
-								 mutableClass="org.mustbe.consulo.java.web.module.extension.JavaWebMutableModuleExtension"/>
+								 immutableClass="consulo.javaee.module.extension.JavaWebModuleExtension"
+								 mutableClass="consulo.javaee.module.extension.JavaWebMutableModuleExtension"/>
 	</extensions>
 </idea-plugin>

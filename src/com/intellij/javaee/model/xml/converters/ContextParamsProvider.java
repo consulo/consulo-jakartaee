@@ -31,7 +31,7 @@ import com.intellij.util.xml.Converter;
  */
 public abstract class ContextParamsProvider {
   @NonNls public static final ExtensionPointName<ContextParamsProvider> EP_NAME =
-    ExtensionPointName.create("org.mustbe.consulo.javaee.contextParamsProvider");
+    ExtensionPointName.create("consulo.javaee.contextParamsProvider");
 
   /**
    * @param module         All modules from {@link com.intellij.util.xml.ModuleContextProvider#getModules}.

@@ -2,7 +2,7 @@
   <artifact build-on-make="true" name="dist">
     <output-path>$PROJECT_DIR$/out/artifacts/dist</output-path>
     <root id="root">
-      <element id="directory" name="javaee">
+      <element id="directory" name="consulo.javaee">
         <element id="directory" name="lib">
           <element id="zip-archive" name="javaee.jar">
             <element id="module-production-resource-output" name="consulo-javaee" />

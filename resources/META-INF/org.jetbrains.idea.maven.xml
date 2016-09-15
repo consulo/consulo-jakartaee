@@ -1,5 +1,5 @@
 <idea-plugin>
 	<extensions defaultExtensionNs="org.jetbrains.idea.maven">
-		<importer implementation="org.mustbe.consulo.java.web.maven.WarMavenImporter" />
+		<importer implementation="consulo.java.web.maven.WarMavenImporter" />
 	</extensions>
 </idea-plugin>
