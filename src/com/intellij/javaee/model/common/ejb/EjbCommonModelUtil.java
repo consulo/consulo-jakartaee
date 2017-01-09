@@ -49,55 +49,45 @@ public class EjbCommonModelUtil
 		final ArrayList<T> result = new ArrayList<T>();
 		if(includeClass)
 		{
-			ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>(ejb.getEjbClass(),
-					EjbClassRoleEnum.EJB_CLASS_ROLE_EJB_CLASS)), result);
+			ContainerUtil.addIfNotNull(result, mapper.fun(Pair.create(ejb.getEjbClass(), EjbClassRoleEnum.EJB_CLASS_ROLE_EJB_CLASS)));
 		}
 		if(ejb instanceof EjbWithHome)
 		{
 			final EjbWithHome ejbWithHome = (EjbWithHome) ejb;
 			if(includeHomeInterfaces)
 			{
-				ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>(ejbWithHome.getHome(),
-						EjbClassRoleEnum.EJB_CLASS_ROLE_HOME_INTERFACE)), result);
-				ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>(ejbWithHome.getLocalHome(),
-						EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_HOME_INTERFACE)), result);
+				ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(ejbWithHome.getHome(), EjbClassRoleEnum.EJB_CLASS_ROLE_HOME_INTERFACE)));
+				ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(ejbWithHome.getLocalHome(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_HOME_INTERFACE)));
 			}
 			if(includeComponentInterfaces)
 			{
-				ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>(ejbWithHome.getRemote(),
-						EjbClassRoleEnum.EJB_CLASS_ROLE_REMOTE_INTERFACE)), result);
-				ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>(ejbWithHome.getLocal(),
-						EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_INTERFACE)), result);
+				ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(ejbWithHome.getRemote(), EjbClassRoleEnum.EJB_CLASS_ROLE_REMOTE_INTERFACE)));
+				ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(ejbWithHome.getLocal(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_INTERFACE)));
 				if(ejb instanceof SessionBean)
 				{
 					final SessionBean sessionBean = (SessionBean) ejb;
 					if(Boolean.TRUE.equals(sessionBean.getLocalBean().getValue()))
 					{
-						ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>(sessionBean.getEjbClass(),
-								EjbClassRoleEnum.EJB_CLASS_ROLE_EJB_CLASS)), result);
+						ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(sessionBean.getEjbClass(), EjbClassRoleEnum.EJB_CLASS_ROLE_EJB_CLASS)));
 					}
 					else
 					{
 						for(GenericValue<PsiClass> genericValue : sessionBean.getBusinessLocals())
 						{
-							ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>(genericValue,
-									EjbClassRoleEnum.EJB_CLASS_ROLE_BUSINESS_LOCAL_INTERFACE)), result);
+							ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(genericValue, EjbClassRoleEnum.EJB_CLASS_ROLE_BUSINESS_LOCAL_INTERFACE)));
 						}
 						for(GenericValue<PsiClass> genericValue : sessionBean.getBusinessRemotes())
 						{
-							ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>(genericValue,
-									EjbClassRoleEnum.EJB_CLASS_ROLE_BUSINESS_REMOTE_INTERFACE)), result);
+							ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(genericValue, EjbClassRoleEnum.EJB_CLASS_ROLE_BUSINESS_REMOTE_INTERFACE)));
 						}
-						ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>(sessionBean.getServiceEndpoint(),
-								EjbClassRoleEnum.EJB_CLASS_ROLE_SERVICE_ENDPOINT_INTERFACE)), result);
+						ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(sessionBean.getServiceEndpoint(), EjbClassRoleEnum.EJB_CLASS_ROLE_SERVICE_ENDPOINT_INTERFACE)));
 					}
 				}
 			}
 		}
 		if(includeComponentInterfaces && ejb instanceof MessageDrivenBean)
 		{
-			ContainerUtil.addIfNotNull(mapper.fun(new Pair<GenericValue<PsiClass>, EjbClassRoleEnum>((((MessageDrivenBean) ejb))
-					.getMessageListenerInterface(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_INTERFACE)), result);
+			ContainerUtil.addIfNotNull(result, mapper.fun(Pair.create((((MessageDrivenBean) ejb)).getMessageListenerInterface(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_INTERFACE)));
 		}
 		return result;
 	}

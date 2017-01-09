@@ -16,10 +16,7 @@
 
 package consulo.javaee.module.extension;
 
-import javax.swing.JComponent;
-
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import consulo.module.extension.MutableModuleExtension;
 import consulo.roots.ModuleRootLayer;
 
@@ -32,13 +29,6 @@ public class JavaWebMutableModuleExtension extends JavaWebModuleExtension implem
 	public JavaWebMutableModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
 	{
 		super(id, module);
-	}
-
-	@Nullable
-	@Override
-	public JComponent createConfigurablePanel(@Nullable Runnable runnable)
-	{
-		return null;
 	}
 
 	@Override

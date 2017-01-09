@@ -18,6 +18,8 @@ package consulo.javaee.artifact;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.module.Module;
@@ -25,13 +27,14 @@ import com.intellij.openapi.roots.ModuleRootModel;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactManager;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
+import com.intellij.packaging.elements.CompositePackagingElement;
 import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.impl.artifacts.ArtifactUtil;
 import com.intellij.packaging.impl.elements.ArtifactElementType;
+import com.intellij.packaging.impl.elements.ArtifactPackagingElement;
 import com.intellij.packaging.impl.ui.ChooseArtifactsDialog;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
 import consulo.packaging.artifacts.ArtifactPointerUtil;
-import lombok.val;
 
 /**
  * @author VISTALL
@@ -48,7 +51,7 @@ public class WarArtifactTemplate extends ArtifactTemplate
 
 	public static NewArtifactConfiguration doCreateArtifactTemplate(Artifact artifact, PackagingElementResolvingContext context)
 	{
-		val modulesIncludedInArtifacts = ArtifactUtil.getModulesIncludedInArtifacts(Collections.singletonList(artifact), context.getProject());
+		Set<Module> modulesIncludedInArtifacts = ArtifactUtil.getModulesIncludedInArtifacts(Collections.singletonList(artifact), context.getProject());
 
 		String moduleName = artifact.getName();
 
@@ -64,9 +67,9 @@ public class WarArtifactTemplate extends ArtifactTemplate
 			}
 		}
 
-		val root = WarArtifactType.getInstance().createRootElement(moduleName);
+		CompositePackagingElement<?> root = WarArtifactType.getInstance().createRootElement(moduleName);
 
-		val artifactPackagingElement = ArtifactElementType.getInstance().createEmpty(context.getProject());
+		ArtifactPackagingElement artifactPackagingElement = ArtifactElementType.getInstance().createEmpty(context.getProject());
 		artifactPackagingElement.setArtifactPointer(ArtifactPointerUtil.getPointerManager(context.getProject()).create(artifact));
 
 		root.addFirstChild(artifactPackagingElement);
@@ -78,8 +81,8 @@ public class WarArtifactTemplate extends ArtifactTemplate
 	@Override
 	public NewArtifactConfiguration createArtifact()
 	{
-		val artifacts = new ArrayList<Artifact>();
-		for(val artifact : ArtifactManager.getInstance(myContext.getProject()).getArtifacts())
+		List<Artifact> artifacts = new ArrayList<>();
+		for(Artifact artifact : ArtifactManager.getInstance(myContext.getProject()).getArtifacts())
 		{
 			if(artifact.getArtifactType() == ExplodedWarArtifactType.getInstance())
 			{
@@ -87,9 +90,9 @@ public class WarArtifactTemplate extends ArtifactTemplate
 			}
 		}
 
-		val dialog = new ChooseArtifactsDialog(myContext.getProject(), artifacts, "Choose Artifact", "Choose Exploded War Artifact");
+		ChooseArtifactsDialog dialog = new ChooseArtifactsDialog(myContext.getProject(), artifacts, "Choose Artifact", "Choose Exploded War Artifact");
 
-		val artifactList = dialog.showAndGetResult();
+		List<Artifact> artifactList = dialog.showAndGetResult();
 		if(artifactList.size() != 1)
 		{
 			return null;

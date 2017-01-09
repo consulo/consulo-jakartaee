@@ -17,12 +17,14 @@
 package consulo.javaee.artifact;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.LibraryOrderEntry;
 import com.intellij.openapi.roots.ModuleOrderEntry;
 import com.intellij.openapi.roots.ModuleRootModel;
@@ -34,12 +36,15 @@ import com.intellij.openapi.roots.libraries.LibraryTable;
 import com.intellij.openapi.roots.ui.configuration.ChooseModulesDialog;
 import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
+import com.intellij.packaging.elements.CompositePackagingElement;
 import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.impl.elements.DirectoryElementType;
+import com.intellij.packaging.impl.elements.DirectoryPackagingElement;
 import com.intellij.packaging.impl.elements.LibraryElementType;
 import com.intellij.packaging.impl.elements.LibraryPackagingElement;
 import com.intellij.packaging.impl.elements.moduleContent.ProductionModuleOutputElementType;
 import com.intellij.util.containers.ArrayListSet;
+import consulo.annotations.RequiredReadAction;
 import consulo.javaee.JavaWebConstants;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
 import consulo.packaging.impl.elements.ZipArchiveElementType;
@@ -49,7 +54,7 @@ import consulo.roots.ContentFolderScopes;
 import consulo.roots.impl.ProductionContentFolderTypeProvider;
 import consulo.roots.impl.ProductionResourceContentFolderTypeProvider;
 import consulo.roots.impl.WebResourcesFolderTypeProvider;
-import lombok.val;
+import consulo.util.pointers.NamedPointer;
 
 /**
  * @author VISTALL
@@ -65,29 +70,30 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 	}
 
 	@NotNull
+	@RequiredReadAction
 	public static NewArtifactConfiguration doCreateArtifactTemplate(Module module, PackagingElementResolvingContext packagingElementResolvingContext)
 	{
 		ModulesProvider modulesProvider = packagingElementResolvingContext.getModulesProvider();
 
-		val project = module.getProject();
-		val root = ExplodedWarArtifactType.getInstance().createRootElement(module.getName());
+		Project project = module.getProject();
+		CompositePackagingElement<?> root = ExplodedWarArtifactType.getInstance().createRootElement(module.getName());
 
-		val webInfDir = DirectoryElementType.getInstance().createEmpty(project);
+		DirectoryPackagingElement webInfDir = DirectoryElementType.getInstance().createEmpty(project);
 		webInfDir.setDirectoryName(JavaWebConstants.WEB_INF);
 		root.addFirstChild(webInfDir);
 
-		val libDir = DirectoryElementType.getInstance().createEmpty(project);
+		DirectoryPackagingElement libDir = DirectoryElementType.getInstance().createEmpty(project);
 		libDir.setDirectoryName("lib");
 		webInfDir.addFirstChild(libDir);
 
-		Set<Library> libraries = new ArrayListSet<Library>();
-		Set<Module> modules = new ArrayListSet<Module>();
+		Set<Library> libraries = new ArrayListSet<>();
+		Set<Module> modules = new ArrayListSet<>();
 
 		collectInfo(modules, libraries, modulesProvider, module);
 
 		for(Module toAddModule : modules)
 		{
-			val pointer = ModuleUtilCore.createPointer(toAddModule);
+			NamedPointer<Module> pointer = ModuleUtilCore.createPointer(toAddModule);
 			ModuleRootModel rootModel = modulesProvider.getRootModel(toAddModule);
 
 			ZipArchivePackagingElement zipArchivePackagingElement = ZipArchiveElementType.getInstance().createEmpty(project);
@@ -171,9 +177,10 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 
 	@Nullable
 	@Override
+	@RequiredReadAction
 	public NewArtifactConfiguration createArtifact()
 	{
-		val modules = new ArrayList<Module>();
+		List<Module> modules = new ArrayList<>();
 		for(Module module : myContext.getModulesProvider().getModules())
 		{
 			if(ModuleUtilCore.getExtension(module, JavaWebModuleExtension.class) != null)
@@ -182,9 +189,9 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 			}
 		}
 
-		val dialog = new ChooseModulesDialog(myContext.getProject(), modules, "Choose Module", "Choose Module For Artifact Creation");
+		ChooseModulesDialog dialog = new ChooseModulesDialog(myContext.getProject(), modules, "Choose Module", "Choose Module For Artifact Creation");
 		dialog.setSingleSelectionMode();
-		val selectedModules = dialog.showAndGetResult();
+		List<Module> selectedModules = dialog.showAndGetResult();
 		if(selectedModules.size() != 1)
 		{
 			return null;

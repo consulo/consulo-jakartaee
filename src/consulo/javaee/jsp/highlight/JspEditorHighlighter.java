@@ -31,7 +31,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.JspTokens;
-import lombok.val;
 
 /**
  * @author VISTALL
@@ -43,7 +42,7 @@ public class JspEditorHighlighter extends LayeredLexerEditorHighlighter
 	{
 		super(new JspSyntaxHighlighter(), colors);
 
-		val htmlHighlight = SyntaxHighlighterFactory.getSyntaxHighlighter(HtmlFileType.INSTANCE, project, virtualFile);
+		SyntaxHighlighter htmlHighlight = SyntaxHighlighterFactory.getSyntaxHighlighter(HtmlFileType.INSTANCE, project, virtualFile);
 		assert htmlHighlight != null;
 		registerLayer(JspTokens.HTML_TEXT, new LayerDescriptor(new SyntaxHighlighter()
 		{
@@ -60,7 +59,7 @@ public class JspEditorHighlighter extends LayeredLexerEditorHighlighter
 			}
 		}, ""));
 
-		val javaHighlight = SyntaxHighlighterFactory.getSyntaxHighlighter(JavaFileType.INSTANCE, project, virtualFile);
+		SyntaxHighlighter javaHighlight = SyntaxHighlighterFactory.getSyntaxHighlighter(JavaFileType.INSTANCE, project, virtualFile);
 		assert javaHighlight != null;
 		registerLayer(JspTokens.JAVA_TEXT, new LayerDescriptor(new SyntaxHighlighter()
 		{

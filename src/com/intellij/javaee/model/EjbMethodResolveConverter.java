@@ -15,6 +15,11 @@
  */
 package com.intellij.javaee.model;
 
+import java.util.Collection;
+import java.util.HashSet;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import com.intellij.javaee.model.common.ejb.EjbWithHome;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.javaee.model.common.ejb.MessageDrivenBean;
@@ -26,11 +31,6 @@ import com.intellij.psi.PsiClass;
 import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.GenericValue;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Collection;
-import java.util.HashSet;
 
 /**
  * @author peter
@@ -49,7 +49,7 @@ public class EjbMethodResolveConverter extends com.intellij.util.xml.converters.
   public static Collection<PsiClass> getTargetClasses(@Nullable final EnterpriseBean ejb,
                                                       @Nullable final MethodIntf methodIntf,
                                                       final boolean includeEjbClass) {
-    final Collection<PsiClass> targetClasses = new HashSet<PsiClass>();
+    final Collection<PsiClass> targetClasses = new HashSet<>();
     boolean allInterfaces = false;
     MethodIntf curMethodIntf = methodIntf;
     if (methodIntf == null) {
@@ -62,50 +62,50 @@ public class EjbMethodResolveConverter extends com.intellij.util.xml.converters.
     switch (curMethodIntf) {
       case HOME:
         if (ejb instanceof EjbWithHome) {
-          ContainerUtil.addIfNotNull(((EjbWithHome)ejb).getHome().getValue(), targetClasses);
+          ContainerUtil.addIfNotNull(targetClasses, ((EjbWithHome)ejb).getHome().getValue());
         }
         if (!allInterfaces) break;
       case LOCAL_HOME:
         if (ejb instanceof EjbWithHome) {
-          ContainerUtil.addIfNotNull(((EjbWithHome)ejb).getLocalHome().getValue(), targetClasses);
+          ContainerUtil.addIfNotNull(targetClasses, ((EjbWithHome)ejb).getLocalHome().getValue());
         }
         if (!allInterfaces) break;
       case REMOTE:
         if (ejb instanceof EjbWithHome) {
-          ContainerUtil.addIfNotNull(((EjbWithHome)ejb).getRemote().getValue(), targetClasses);
+          ContainerUtil.addIfNotNull(targetClasses, ((EjbWithHome)ejb).getRemote().getValue());
         }
         if (ejb instanceof SessionBean) {
           for (GenericValue<PsiClass> value : ((SessionBean)ejb).getBusinessRemotes()) {
-            ContainerUtil.addIfNotNull(value.getValue(), targetClasses);
+            ContainerUtil.addIfNotNull(targetClasses, value.getValue());
           }
         }
         if (!allInterfaces) break;
       case LOCAL:
         if (ejb instanceof EjbWithHome) {
-          ContainerUtil.addIfNotNull(((EjbWithHome)ejb).getLocal().getValue(), targetClasses);
+          ContainerUtil.addIfNotNull(targetClasses, ((EjbWithHome)ejb).getLocal().getValue());
         }
         if (ejb instanceof SessionBean) {
           for (GenericValue<PsiClass> value : ((SessionBean)ejb).getBusinessLocals()) {
-            ContainerUtil.addIfNotNull(value.getValue(), targetClasses);
+            ContainerUtil.addIfNotNull(targetClasses, value.getValue());
           }
         }
         else if (ejb instanceof MessageDrivenBean) {
-          ContainerUtil.addIfNotNull(((MessageDrivenBean)ejb).getMessageListenerInterface().getValue(), targetClasses);
+          ContainerUtil.addIfNotNull(targetClasses, ((MessageDrivenBean)ejb).getMessageListenerInterface().getValue());
         }
         if (!allInterfaces) break;
       case SERVICE_ENDPOINT:
         if (ejb instanceof SessionBean) {
-          ContainerUtil.addIfNotNull(((SessionBean)ejb).getServiceEndpoint().getValue(), targetClasses);
+          ContainerUtil.addIfNotNull(targetClasses, ((SessionBean)ejb).getServiceEndpoint().getValue());
         }
         if (!allInterfaces) break;
       case MESSAGE_ENDPOINT:
         if (ejb instanceof MessageDrivenBean) {
-          ContainerUtil.addIfNotNull(((MessageDrivenBean)ejb).getMessageListenerInterface().getValue(), targetClasses);
+          ContainerUtil.addIfNotNull(targetClasses, ((MessageDrivenBean)ejb).getMessageListenerInterface().getValue());
         }
         if (!allInterfaces) break;
       case TIMER:
         if (!allInterfaces && ejb != null) {
-          ContainerUtil.addIfNotNull(ejb.getEjbClass().getValue(), targetClasses);
+          ContainerUtil.addIfNotNull(targetClasses, ejb.getEjbClass().getValue());
         }
         break;
     }

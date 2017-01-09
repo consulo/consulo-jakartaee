@@ -56,7 +56,7 @@ public class JspFileType extends LanguageFileType implements TemplateLanguageFil
 
 	@NotNull
 	@Override
-	public String getName()
+	public String getId()
 	{
 		return "JSP";
 	}
