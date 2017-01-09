@@ -31,6 +31,7 @@ import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiImportList;
 import com.intellij.psi.PsiJavaCodeReferenceElement;
+import com.intellij.psi.PsiJavaModule;
 import com.intellij.psi.PsiPackageStatement;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.ObjectUtil;
@@ -137,6 +138,14 @@ public class JspJavaFileImpl extends PsiFileBase implements JspJavaFile
 	{
 		JavaModuleExtension javaModuleExtension = ModuleUtilCore.getExtension(this, JavaModuleExtension.class);
 		return javaModuleExtension == null ? LanguageLevel.JDK_1_8 : javaModuleExtension.getLanguageLevel();
+	}
+
+	@RequiredReadAction
+	@Nullable
+	@Override
+	public PsiJavaModule getModuleDeclaration()
+	{
+		return null;
 	}
 
 	@Override
