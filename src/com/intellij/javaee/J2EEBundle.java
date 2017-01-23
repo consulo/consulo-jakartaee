@@ -15,7 +15,8 @@
  */
 package com.intellij.javaee;
 
-import consulo.lombok.annotations.Bundle;
+import org.jetbrains.annotations.PropertyKey;
+import com.intellij.AbstractBundle;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,7 +24,22 @@ import consulo.lombok.annotations.Bundle;
  * Date: Aug 25, 2005
  * Time: 6:54:12 PM
  */
-@Bundle
-public class J2EEBundle
+public class J2EEBundle extends AbstractBundle
 {
+	private static final J2EEBundle ourInstance = new J2EEBundle();
+
+	private J2EEBundle()
+	{
+		super("messages.J2EEBundle");
+	}
+
+	public static String message(@PropertyKey(resourceBundle = "messages.J2EEBundle") String key)
+	{
+		return ourInstance.getMessage(key);
+	}
+
+	public static String message(@PropertyKey(resourceBundle = "messages.J2EEBundle") String key, Object... params)
+	{
+		return ourInstance.getMessage(key, params);
+	}
 }
