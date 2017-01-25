@@ -18,7 +18,6 @@ package com.intellij.javaee.model.xml.converters;
 import java.util.Collections;
 import java.util.Set;
 
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.extensions.ExtensionPointName;
@@ -30,8 +29,7 @@ import com.intellij.util.xml.Converter;
  * @author Sergey Vasiliev
  */
 public abstract class ContextParamsProvider {
-  @NonNls public static final ExtensionPointName<ContextParamsProvider> EP_NAME =
-    ExtensionPointName.create("consulo.javaee.contextParamsProvider");
+  public static final ExtensionPointName<ContextParamsProvider> EP_NAME = ExtensionPointName.create("consulo.javaee.contextParamsProvider");
 
   /**
    * @param module         All modules from {@link com.intellij.util.xml.ModuleContextProvider#getModules}.

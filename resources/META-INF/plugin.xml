@@ -24,7 +24,7 @@
 	<resource-bundle>messages.J2EEBundle</resource-bundle>
 
 	<extensionPoints>
-		<extensionPoint name="contextParamsProvider" interface="com.intellij.javaee.model.xml.converters.ContextParamNameConverter" />
+		<extensionPoint name="contextParamsProvider" interface="com.intellij.javaee.model.xml.converters.ContextParamsProvider" />
 	</extensionPoints>
 
 	<extensions defaultExtensionNs="com.intellij.xml">
