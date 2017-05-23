@@ -38,14 +38,6 @@ WHITESPACE=[ \n\r\t]+
 
    "<${"   { yybegin(TAG);  return XmlTokenType.XML_START_TAG_START; }
 
-    "%>"   { yybegin(YYINITIAL);  return XmlTokenType.XML_END_TAG_START; }
-
-    "@%>"  { yybegin(YYINITIAL);  return XmlTokenType.XML_END_TAG_START; }
-
-    "=%>"  { yybegin(YYINITIAL);  return XmlTokenType.XML_END_TAG_START; }
-
-    "}$>"  { yybegin(YYINITIAL);  return XmlTokenType.XML_END_TAG_START; }
-
    {WHITESPACE} { return XmlTokenType.XML_WHITE_SPACE; }
 
    [^]      { return XmlTokenType.XML_DATA_CHARACTERS; }
