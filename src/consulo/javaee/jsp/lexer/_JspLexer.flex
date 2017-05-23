@@ -20,11 +20,21 @@ import com.intellij.psi.xml.XmlTokenType;
 %eof{ return;
 %eof}
 
+ALPHA=[:letter:]
+DIGIT=[0-9]
+NAME=({ALPHA}|"_")({ALPHA}|{DIGIT}|"_"|"."|"-")*(":"({ALPHA}|"_")?({ALPHA}|{DIGIT}|"_"|"."|"-")*)?
+
 WHITESPACE=[ \n\r\t]+
 
 %state TAG
 %state JAVA
 %state COMMENT
+
+// xml part
+%state ATTR_LIST
+%state ATTR
+%state ATTR_VALUE_DQ
+%state ATTR_VALUE_SQ
 
 %%
 
@@ -54,14 +64,45 @@ WHITESPACE=[ \n\r\t]+
 
 <TAG>
 {
-    "%>"   { yybegin(YYINITIAL);  return XmlTokenType.XML_END_TAG_START; }
+    {NAME}        { yybegin(ATTR_LIST);  return XmlTokenType.XML_TAG_NAME;      }
 
-    //"}$>"  { yybegin(YYINITIAL);  return XmlTokenType.XML_END_TAG_START; }
+    "%>"          { yybegin(YYINITIAL);       return XmlTokenType.XML_END_TAG_START; }
 
-   {WHITESPACE} { return XmlTokenType.XML_WHITE_SPACE; }
+   {WHITESPACE}   { return XmlTokenType.XML_WHITE_SPACE; }
 
-   [^] { return TokenType.BAD_CHARACTER; }
+   [^]            { return TokenType.BAD_CHARACTER; }
 }
+
+<ATTR_LIST>
+{
+    {NAME}        { yybegin(ATTR);  return XmlTokenType.XML_NAME; }
+
+   "%>"           { yybegin(TAG); yypushback(yylength()); }
+
+   {WHITESPACE}   { return XmlTokenType.XML_WHITE_SPACE; }
+
+   [^]            { return TokenType.BAD_CHARACTER; }
+}
+
+<ATTR> "=" { return XmlTokenType.XML_EQ;}
+<ATTR> "'" { yybegin(ATTR_VALUE_SQ); return XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER;}
+<ATTR> "\"" { yybegin(ATTR_VALUE_DQ); return XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER;}
+<ATTR> [^\ \n\r\t\f] {yybegin(ATTR_LIST); yypushback(yylength()); }
+
+<ATTR_VALUE_DQ>{
+  "\"" { yybegin(ATTR_LIST); return XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER;}
+  "&" { return XmlTokenType.XML_BAD_CHARACTER; }
+  [^] { return XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN;}
+}
+
+<ATTR_VALUE_SQ>{
+  "&" { return XmlTokenType.XML_BAD_CHARACTER; }
+  "'" { yybegin(ATTR_LIST); return XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER;}
+  [^] { return XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN;}
+}
+
+
+<ATTR_LIST,ATTR> {WHITESPACE} { return XmlTokenType.XML_WHITE_SPACE; }
 
 <JAVA>
 {

@@ -11,7 +11,7 @@ import consulo.javaee.jsp.psi.JspTokens;
  */
 public class JspLexer extends MergingLexerAdapter
 {
-	private static final TokenSet ourMergeSet = TokenSet.create(XmlTokenType.XML_DATA_CHARACTERS, JspTokens.JAVA_FRAGMENT);
+	private static final TokenSet ourMergeSet = TokenSet.create(XmlTokenType.XML_DATA_CHARACTERS, JspTokens.JAVA_FRAGMENT, XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN);
 
 	public JspLexer()
 	{
