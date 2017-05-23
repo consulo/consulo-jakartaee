@@ -20,16 +20,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.ide.highlighter.HtmlFileType;
 import com.intellij.ide.highlighter.JavaFileType;
-import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
-import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.editor.ex.util.LayerDescriptor;
 import com.intellij.openapi.editor.ex.util.LayeredLexerEditorHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.JspTokens;
 
 /**
@@ -44,37 +41,11 @@ public class JspEditorHighlighter extends LayeredLexerEditorHighlighter
 
 		SyntaxHighlighter htmlHighlight = SyntaxHighlighterFactory.getSyntaxHighlighter(HtmlFileType.INSTANCE, project, virtualFile);
 		assert htmlHighlight != null;
-		registerLayer(JspTokens.HTML_FRAGMENT, new LayerDescriptor(new SyntaxHighlighter()
-		{
-			@NotNull
-			public Lexer getHighlightingLexer()
-			{
-				return htmlHighlight.getHighlightingLexer();
-			}
-
-			@NotNull
-			public TextAttributesKey[] getTokenHighlights(final IElementType tokenType)
-			{
-				return htmlHighlight.getTokenHighlights(tokenType);
-			}
-		}, ""));
+		registerLayer(JspTokens.HTML_FRAGMENT, new LayerDescriptor(htmlHighlight, ""));
 
 		SyntaxHighlighter javaHighlight = SyntaxHighlighterFactory.getSyntaxHighlighter(JavaFileType.INSTANCE, project, virtualFile);
 		assert javaHighlight != null;
-		registerLayer(JspTokens.JAVA_FRAGMENT, new LayerDescriptor(new SyntaxHighlighter()
-		{
-			@NotNull
-			public Lexer getHighlightingLexer()
-			{
-				return javaHighlight.getHighlightingLexer();
-			}
-
-			@NotNull
-			public TextAttributesKey[] getTokenHighlights(final IElementType tokenType)
-			{
-				return javaHighlight.getTokenHighlights(tokenType);
-			}
-		}, ""));
+		registerLayer(JspTokens.JAVA_FRAGMENT, new LayerDescriptor(javaHighlight, ""));
 	}
 
 }

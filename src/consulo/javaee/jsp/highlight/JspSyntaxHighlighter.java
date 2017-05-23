@@ -35,7 +35,7 @@ import consulo.javaee.jsp.psi.JspTokens;
  */
 public class JspSyntaxHighlighter extends SyntaxHighlighterBase
 {
-	private static final Map<IElementType, TextAttributesKey> ourMap = new HashMap<IElementType, TextAttributesKey>();
+	private static final Map<IElementType, TextAttributesKey> ourMap = new HashMap<>();
 
 	static
 	{
