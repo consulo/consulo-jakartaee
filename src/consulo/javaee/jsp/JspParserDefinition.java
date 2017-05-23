@@ -27,7 +27,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
-import consulo.javaee.jsp.lexer.JspMergedLexer;
+import consulo.javaee.jsp.lexer.JspLexer;
 import consulo.javaee.jsp.psi.JspTokens;
 import consulo.javaee.jsp.psi.impl.JspFileImpl;
 import consulo.lang.LanguageVersion;
@@ -44,7 +44,7 @@ public class JspParserDefinition implements ParserDefinition
 	@Override
 	public Lexer createLexer(@NotNull LanguageVersion languageVersion)
 	{
-		return new JspMergedLexer();
+		return new JspLexer();
 	}
 
 	@NotNull

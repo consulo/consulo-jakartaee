@@ -26,7 +26,7 @@ import com.intellij.openapi.editor.HighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.tree.IElementType;
-import consulo.javaee.jsp.lexer.JspMergedLexer;
+import consulo.javaee.jsp.lexer.JspHtmlLexer;
 import consulo.javaee.jsp.psi.JspTokens;
 
 /**
@@ -48,7 +48,7 @@ public class JspSyntaxHighlighter extends SyntaxHighlighterBase
 	@Override
 	public Lexer getHighlightingLexer()
 	{
-		return new JspMergedLexer();
+		return new JspHtmlLexer();
 	}
 
 	@NotNull

@@ -16,9 +16,13 @@
 
 package consulo.javaee.jsp.psi;
 
+import com.intellij.lexer.Lexer;
+import com.intellij.psi.PsiFile;
 import com.intellij.psi.templateLanguages.TemplateDataElementType;
+import com.intellij.psi.templateLanguages.TemplateLanguageFileViewProvider;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.JspLanguage;
+import consulo.javaee.jsp.lexer.JspHtmlLexer;
 
 /**
  * @author VISTALL
@@ -27,7 +31,14 @@ import consulo.javaee.jsp.JspLanguage;
 public interface JspTemplateTokens
 {
 	TemplateDataElementType HTML_TEMPLATE_DATA = new TemplateDataElementType("HTML_TEMPLATE_DATA", JspLanguage.INSTANCE, JspTokens.HTML_TEXT, new IElementType("HTML_OUTER_ELEMENT_TYPE",
-			JspLanguage.INSTANCE));
+			JspLanguage.INSTANCE))
+	{
+		@Override
+		protected Lexer createBaseLexer(PsiFile file, TemplateLanguageFileViewProvider viewProvider)
+		{
+			return new JspHtmlLexer();
+		}
+	};
 
 	TemplateDataElementType JAVA_TEMPLATE_DATA = new TemplateDataElementType("JAVA_TEMPLATE_DATA", JspLanguage.INSTANCE, JspTokens.JAVA_TEXT, new IElementType("JAVA_OUTER_ELEMENT_TYPE",
 			JspLanguage.INSTANCE));
