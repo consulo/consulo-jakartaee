@@ -6,14 +6,10 @@ import com.intellij.codeInsight.daemon.impl.HighlightInfoType;
 import com.intellij.codeInsight.daemon.impl.HighlightVisitor;
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
-import com.intellij.openapi.editor.colors.EditorColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiNameIdentifierOwner;
-import consulo.javaee.jsp.psi.JspAttribute;
-import consulo.javaee.jsp.psi.JspDirective;
-import consulo.javaee.jsp.psi.JspElement;
+import com.intellij.psi.xml.XmlAttribute;
 import consulo.javaee.jsp.psi.JspExpression;
 import consulo.javaee.jsp.psi.JspFile;
 import consulo.javaee.jsp.psi.JspFragment;
@@ -49,17 +45,15 @@ public class JspHighlightVisitor extends JspElementVisitor implements HighlightV
 	}
 
 	@Override
-	public void visitDirective(JspDirective directive)
+	public void visitDirective(com.intellij.psi.impl.source.jsp.jspXml.JspDirective directive)
 	{
 		super.visitDirective(directive);
-
-		highlightAsInjected(directive);
 
 		highlightName(directive, DefaultLanguageHighlighterColors.KEYWORD);
 	}
 
 	@Override
-	public void visitAttribute(JspAttribute attribute)
+	public void visitAttribute(XmlAttribute attribute)
 	{
 		highlightName(attribute, DefaultLanguageHighlighterColors.MARKUP_ATTRIBUTE);
 	}
@@ -67,33 +61,21 @@ public class JspHighlightVisitor extends JspElementVisitor implements HighlightV
 	@Override
 	public void visitFragment(JspFragment fragment)
 	{
-		highlightAsInjected(fragment);
 	}
 
 	@Override
 	public void visitLineFragment(JspLineFragment lineFragment)
 	{
-		highlightAsInjected(lineFragment);
 	}
 
 	@Override
 	public void visitExpression(JspExpression expression)
 	{
-		highlightAsInjected(expression);
 	}
 
-	private void highlightAsInjected(JspElement element)
-	{
-		myHighlightInfoHolder.add(HighlightInfo.newHighlightInfo(HighlightInfoType.INFORMATION).range(element).textAttributes(EditorColors.INJECTED_LANGUAGE_FRAGMENT).create());
-	}
 
-	private void highlightName(PsiNameIdentifierOwner owner, TextAttributesKey key)
+	private void highlightName(PsiElement nameIdentifier, TextAttributesKey key)
 	{
-		PsiElement nameIdentifier = owner.getNameIdentifier();
-		if(nameIdentifier == null)
-		{
-			return;
-		}
 		myHighlightInfoHolder.add(HighlightInfo.newHighlightInfo(HighlightInfoType.INFORMATION).range(nameIdentifier).textAttributes(key).create());
 	}
 

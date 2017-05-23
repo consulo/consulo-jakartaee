@@ -1,8 +1,7 @@
 package consulo.javaee.jsp.psi.impl;
 
 import com.intellij.psi.PsiElementVisitor;
-import consulo.javaee.jsp.psi.JspAttribute;
-import consulo.javaee.jsp.psi.JspDirective;
+import com.intellij.psi.xml.XmlAttribute;
 import consulo.javaee.jsp.psi.JspExpression;
 import consulo.javaee.jsp.psi.JspFragment;
 import consulo.javaee.jsp.psi.JspLineFragment;
@@ -13,12 +12,12 @@ import consulo.javaee.jsp.psi.JspLineFragment;
  */
 public class JspElementVisitor extends PsiElementVisitor
 {
-	public void visitDirective(JspDirective directive)
+	public void visitDirective(com.intellij.psi.impl.source.jsp.jspXml.JspDirective directive)
 	{
 		visitElement(directive);
 	}
 
-	public void visitAttribute(JspAttribute attribute)
+	public void visitAttribute(XmlAttribute attribute)
 	{
 		visitElement(attribute);
 	}

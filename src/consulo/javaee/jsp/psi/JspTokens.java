@@ -32,21 +32,13 @@ public interface JspTokens extends TokenType
 
 	IElementType STRING_LITERAL = new IElementType("STRING_LITERAL", JspLanguage.INSTANCE);
 
-	IElementType EQ = new IElementType("EQ", JspLanguage.INSTANCE);
-
-	IElementType IDENTIFIER = new IElementType("IDENTIFIER", JspLanguage.INSTANCE);
+	IElementType NAME = new IElementType("IDENTIFIER", JspLanguage.INSTANCE);
 
 	IElementType COMMENT = new IElementType("COMMENT", JspLanguage.INSTANCE);
 
-	IElementType DIRECTIVE_OPEN = new IElementType("DIRECTIVE_OPEN", JspLanguage.INSTANCE); // <%@
-	IElementType DIRECTIVE_CLOSE = new IElementType("DIRECTIVE_CLOSE", JspLanguage.INSTANCE); // %>
+	IElementType TAG_OPENER = new IElementType("TAG_OPENER", JspLanguage.INSTANCE);
 
-	IElementType FRAGMENT_OPEN = new IElementType("FRAGMENT_OPEN", JspLanguage.INSTANCE); // <%
-	IElementType FRAGMENT_CLOSE = new IElementType("FRAGMENT_CLOSE", JspLanguage.INSTANCE); // %>
+	IElementType TAG_NAME = new IElementType("TAG_NAME", JspLanguage.INSTANCE);
 
-	IElementType LINE_FRAGMENT_OPEN = new IElementType("LINE_FRAGMENT_OPEN", JspLanguage.INSTANCE); // <%=
-	IElementType LINE_FRAGMENT_CLOSE = new IElementType("FRAGMENT_CLOSE", JspLanguage.INSTANCE); // %>
-
-	IElementType EXPRESSION_OPEN = new IElementType("LINE_FRAGMENT_OPEN", JspLanguage.INSTANCE); // ${
-	IElementType EXPRESSION_CLOSE = new IElementType("FRAGMENT_CLOSE", JspLanguage.INSTANCE); //  }
+	IElementType TAG_CLOSER = new IElementType("TAG_CLOSER", JspLanguage.INSTANCE);
 }

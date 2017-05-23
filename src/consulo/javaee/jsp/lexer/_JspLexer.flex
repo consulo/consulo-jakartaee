@@ -50,7 +50,7 @@ WHITESPACE=[ \n\r\t]+
    "<%!"   { yybegin(JAVA);  return XmlTokenType.XML_START_TAG_START; }
 
     // tag
-   "<%@"   { yybegin(TAG);  return XmlTokenType.XML_START_TAG_START; }
+   "<%@"   { yybegin(TAG);  return JspTokens.TAG_OPENER; }
 
     // expression
    "<%="   { yybegin(JAVA);  return XmlTokenType.XML_START_TAG_START; }
@@ -64,9 +64,9 @@ WHITESPACE=[ \n\r\t]+
 
 <TAG>
 {
-    {NAME}        { yybegin(ATTR_LIST);  return XmlTokenType.XML_TAG_NAME;      }
+    {NAME}        { yybegin(ATTR_LIST);  return JspTokens.TAG_NAME; }
 
-    "%>"          { yybegin(YYINITIAL);       return XmlTokenType.XML_END_TAG_START; }
+    "%>"          { yybegin(YYINITIAL);       return JspTokens.TAG_CLOSER; }
 
    {WHITESPACE}   { return XmlTokenType.XML_WHITE_SPACE; }
 
@@ -106,7 +106,7 @@ WHITESPACE=[ \n\r\t]+
 
 <JAVA>
 {
-    "%>"   { yybegin(YYINITIAL);  return XmlTokenType.XML_END_TAG_START; }
+    "%>"   { yybegin(YYINITIAL);  return JspTokens.TAG_CLOSER; }
 
     [^]    { return JspTokens.JAVA_FRAGMENT; }
 }

@@ -6,6 +6,8 @@ import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilderUtil;
 import com.intellij.lang.PsiParser;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.xml.XmlElementType;
+import com.intellij.psi.xml.XmlTokenType;
 import consulo.javaee.jsp.psi.JspElements;
 import consulo.javaee.jsp.psi.JspTokens;
 import consulo.lang.LanguageVersion;
@@ -23,11 +25,11 @@ public class JspParser implements PsiParser
 		PsiBuilder.Marker marker = builder.mark();
 		while(!builder.eof())
 		{
-			if(builder.getTokenType() == JspTokens.DIRECTIVE_OPEN)
+			if(builder.getTokenType() == JspTokens.TAG_OPENER)
 			{
-				parseDirective(builder);
+				parseTag(builder);
 			}
-			else if(builder.getTokenType() == JspTokens.FRAGMENT_OPEN)
+			/*else if(builder.getTokenType() == JspTokens.FRAGMENT_OPEN)
 			{
 				PsiBuilder.Marker mark = builder.mark();
 
@@ -89,7 +91,7 @@ public class JspParser implements PsiParser
 				{
 					mark.error("} expected");
 				}
-			}
+			}  */
 			else
 			{
 				builder.advanceLexer();
@@ -99,13 +101,13 @@ public class JspParser implements PsiParser
 		return builder.getTreeBuilt();
 	}
 
-	private void parseDirective(PsiBuilder builder)
+	private void parseTag(PsiBuilder builder)
 	{
 		PsiBuilder.Marker mark = builder.mark();
 
 		builder.advanceLexer();
 
-		if(!PsiBuilderUtil.expect(builder, JspTokens.IDENTIFIER))
+		if(!PsiBuilderUtil.expect(builder, JspTokens.TAG_NAME))
 		{
 			builder.error("Identifier expected");
 		}
@@ -113,16 +115,30 @@ public class JspParser implements PsiParser
 		{
 			while(true)
 			{
-				if(builder.getTokenType() == JspTokens.IDENTIFIER)
+				if(builder.getTokenType() == XmlTokenType.XML_NAME)
 				{
 					PsiBuilder.Marker attMark = builder.mark();
 					builder.advanceLexer();
 
-					if(PsiBuilderUtil.expect(builder, JspTokens.EQ))
+					if(PsiBuilderUtil.expect(builder, XmlTokenType.XML_EQ))
 					{
-						if(!PsiBuilderUtil.expect(builder, JspTokens.STRING_LITERAL))
+						PsiBuilder.Marker attributeValueMarker = builder.mark();
+						if(PsiBuilderUtil.expect(builder, XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER))
 						{
-							builder.error("Value expected");
+							if(!PsiBuilderUtil.expect(builder, XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN))
+							{
+								builder.error("Value expected");
+							}
+							else if(!PsiBuilderUtil.expect(builder, XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER))
+							{
+								builder.error("Excted attribute value stopper");
+							}
+
+							attributeValueMarker.done(XmlElementType.XML_ATTRIBUTE_VALUE);
+						}
+						else
+						{
+							attributeValueMarker.error("Expected attribute start");
 						}
 					}
 					else
@@ -130,9 +146,9 @@ public class JspParser implements PsiParser
 						builder.error("'=' expected");
 					}
 
-					attMark.done(JspElements.ATTRIBUTE);
+					attMark.done(XmlElementType.XML_ATTRIBUTE);
 				}
-				else if(builder.getTokenType() == JspTokens.DIRECTIVE_CLOSE)
+				else if(builder.getTokenType() == JspTokens.TAG_CLOSER)
 				{
 					break;
 				}
@@ -144,13 +160,10 @@ public class JspParser implements PsiParser
 			}
 		}
 
-		if(PsiBuilderUtil.expect(builder, JspTokens.DIRECTIVE_CLOSE))
+		if(!PsiBuilderUtil.expect(builder, JspTokens.TAG_CLOSER))
 		{
-			mark.done(JspElements.DIRECTIVE);
+			builder.error("'%>' expected");
 		}
-		else
-		{
-			mark.error("%> expected");
-		}
+		mark.done(JspElements.DIRECTIVE);
 	}
 }
