@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
+<project>
   <component name="ModuleManager">
     <modules>
       <module name="consulo-javaee" dirurl="file://$PROJECT_DIR$" current-layer="Default">
@@ -18,6 +18,7 @@
           <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
           <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
           <orderEntry type="library" name="consulo-plugin: org.jetbrains.idea.maven" level="project" />
+          <orderEntry type="module" module-name="jsp-psi-api" />
         </module-layer>
       </module>
       <module name="java-web-maven" dirurl="file://$PROJECT_DIR$/java-web-maven" current-layer="Default">
@@ -34,6 +35,20 @@
           <orderEntry type="module" module-name="consulo-javaee" />
           <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
           <orderEntry type="library" name="consulo-plugin: org.jetbrains.idea.maven" level="project" />
+        </module-layer>
+      </module>
+      <module name="jsp-psi-api" dirurl="file://$PROJECT_DIR$/jsp-psi-api" current-layer="Default">
+        <module-layer name="Default">
+          <extension id="consulo-plugin" sdk-module-name="consulo-javaee" />
+          <extension id="java" sdk-module-name="consulo-javaee" language-level-module-name="consulo-javaee" bytecode-version="1.8" />
+          <content url="file://$MODULE_DIR$">
+            <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+          </content>
+          <orderEntry type="module-extension-sdk" extension-id="java" />
+          <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
+          <orderEntry type="sourceFolder" />
+          <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
+          <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
         </module-layer>
       </module>
     </modules>
