@@ -50,7 +50,9 @@
 		<lang.fileViewProviderFactory language="JSP" implementationClass="consulo.javaee.jsp.JspFileViewProviderFactory" />
 		<lang.parserDefinition language="JSP" implementationClass="consulo.javaee.jsp.JspParserDefinition" />
 
-		<lang.syntaxHighlighterFactory key="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighterFactory"/>
+		<lang.syntaxHighlighterFactory language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighterFactory"/>
+		<braceMatcher filetype="JSP" implementationClass="com.intellij.xml.impl.XmlBraceMatcher" />
+		<lang.braceMatcher language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspPairBraceMatcher" />
 		<syntaxHighlighter key="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighter"/>
 		<contentFolderSupportPatcher implementation="consulo.javaee.module.JavaWebContentFolderSupportPatcher" />
 
