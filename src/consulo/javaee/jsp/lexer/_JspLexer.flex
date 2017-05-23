@@ -27,9 +27,11 @@ NAME=({ALPHA}|"_")({ALPHA}|{DIGIT}|"_"|"."|"-")*(":"({ALPHA}|"_")?({ALPHA}|{DIGI
 
 WHITESPACE=[ \n\r\t]+
 
-%state DIRECTIVE
-%state JAVA
 %state COMMENT
+%state DIRECTIVE
+%state SCRIPTLET
+%state EXPRESSION
+%state DECLARATION
 
 // xml part
 %state ATTR_LIST
@@ -45,16 +47,16 @@ WHITESPACE=[ \n\r\t]+
    "<%--"  { yybegin(COMMENT);  return XmlTokenType.XML_COMMENT_START; }
 
     // code frament
-   "<%"    { yybegin(JAVA);  return XmlTokenType.XML_START_TAG_START; }
+   "<%"    { yybegin(SCRIPTLET);  return JspTokenType.JSP_SCRIPTLET_START; }
 
     // declaration
-   "<%!"   { yybegin(JAVA);  return XmlTokenType.XML_START_TAG_START; }
+   "<%!"   { yybegin(DECLARATION);  return JspTokenType.JSP_DECLARATION_START; }
 
     // tag
    "<%@"   { yybegin(DIRECTIVE);  return JspTokenType.JSP_DIRECTIVE_START; }
 
     // expression
-   "<%="   { yybegin(JAVA);  return XmlTokenType.XML_START_TAG_START; }
+   "<%="   { yybegin(EXPRESSION);  return JspTokenType.JSP_EXPRESSION_START; }
 
    //"<${"   { yybegin(TAG);  return XmlTokenType.XML_START_TAG_START; }
 
@@ -105,11 +107,25 @@ WHITESPACE=[ \n\r\t]+
 
 <ATTR_LIST,ATTR> {WHITESPACE} { return XmlTokenType.XML_WHITE_SPACE; }
 
-<JAVA>
+<DECLARATION>
 {
-    "%>"   { yybegin(YYINITIAL);  return JspTokens.TAG_CLOSER; }
+	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_DECLARATION_END; }
 
-    [^]    { return JspTokens.JAVA_FRAGMENT; }
+	[^]                { return JspTokens.JAVA_FRAGMENT; }
+}
+
+<SCRIPTLET>
+{
+	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_SCRIPTLET_END; }
+
+	[^]                { return JspTokens.JAVA_FRAGMENT; }
+}
+
+<EXPRESSION>
+{
+	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_EXPRESSION_END; }
+
+	[^]                { return JspTokens.JAVA_FRAGMENT; }
 }
 
 <COMMENT>
