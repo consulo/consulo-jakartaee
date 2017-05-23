@@ -5,11 +5,11 @@ import com.intellij.lang.ASTNode;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilderUtil;
 import com.intellij.lang.PsiParser;
+import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.xml.XmlElementType;
 import com.intellij.psi.xml.XmlTokenType;
 import consulo.javaee.jsp.psi.JspElements;
-import consulo.javaee.jsp.psi.JspTokens;
 import consulo.lang.LanguageVersion;
 
 /**
@@ -26,9 +26,9 @@ public class JspParser implements PsiParser
 		PsiBuilder.Marker rootMarker = builder.mark();
 		while(!builder.eof())
 		{
-			if(builder.getTokenType() == JspTokens.TAG_OPENER)
+			if(builder.getTokenType() == JspTokenType.JSP_DIRECTIVE_START)
 			{
-				parseTag(builder);
+				parseDirective(builder);
 			}
 			/*else if(builder.getTokenType() == JspTokens.FRAGMENT_OPEN)
 			{
@@ -103,13 +103,13 @@ public class JspParser implements PsiParser
 		return builder.getTreeBuilt();
 	}
 
-	private void parseTag(PsiBuilder builder)
+	private void parseDirective(PsiBuilder builder)
 	{
 		PsiBuilder.Marker mark = builder.mark();
 
 		builder.advanceLexer();
 
-		if(!PsiBuilderUtil.expect(builder, JspTokens.TAG_NAME))
+		if(!PsiBuilderUtil.expect(builder, XmlTokenType.XML_TAG_NAME))
 		{
 			builder.error("Identifier expected");
 		}
@@ -150,7 +150,7 @@ public class JspParser implements PsiParser
 
 					attMark.done(XmlElementType.XML_ATTRIBUTE);
 				}
-				else if(builder.getTokenType() == JspTokens.TAG_CLOSER)
+				else if(builder.getTokenType() == JspTokenType.JSP_DIRECTIVE_END)
 				{
 					break;
 				}
@@ -162,7 +162,7 @@ public class JspParser implements PsiParser
 			}
 		}
 
-		if(!PsiBuilderUtil.expect(builder, JspTokens.TAG_CLOSER))
+		if(!PsiBuilderUtil.expect(builder, JspTokenType.JSP_DIRECTIVE_END))
 		{
 			builder.error("'%>' expected");
 		}

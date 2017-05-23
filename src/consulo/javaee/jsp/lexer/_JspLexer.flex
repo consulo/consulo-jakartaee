@@ -4,6 +4,7 @@ import com.intellij.lexer.LexerBase;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.TokenType;
 import consulo.javaee.jsp.psi.JspTokens;
+import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.xml.XmlTokenType;
 %%
 
@@ -26,7 +27,7 @@ NAME=({ALPHA}|"_")({ALPHA}|{DIGIT}|"_"|"."|"-")*(":"({ALPHA}|"_")?({ALPHA}|{DIGI
 
 WHITESPACE=[ \n\r\t]+
 
-%state TAG
+%state DIRECTIVE
 %state JAVA
 %state COMMENT
 
@@ -50,7 +51,7 @@ WHITESPACE=[ \n\r\t]+
    "<%!"   { yybegin(JAVA);  return XmlTokenType.XML_START_TAG_START; }
 
     // tag
-   "<%@"   { yybegin(TAG);  return JspTokens.TAG_OPENER; }
+   "<%@"   { yybegin(DIRECTIVE);  return JspTokenType.JSP_DIRECTIVE_START; }
 
     // expression
    "<%="   { yybegin(JAVA);  return XmlTokenType.XML_START_TAG_START; }
@@ -62,11 +63,11 @@ WHITESPACE=[ \n\r\t]+
    [^]      { return XmlTokenType.XML_DATA_CHARACTERS; }
 }
 
-<TAG>
+<DIRECTIVE>
 {
-    {NAME}        { yybegin(ATTR_LIST);  return JspTokens.TAG_NAME; }
+    {NAME}        { yybegin(ATTR_LIST);  return XmlTokenType.XML_TAG_NAME; }
 
-    "%>"          { yybegin(YYINITIAL);       return JspTokens.TAG_CLOSER; }
+    "%>"          { yybegin(YYINITIAL);  return JspTokenType.JSP_DIRECTIVE_END; }
 
    {WHITESPACE}   { return XmlTokenType.XML_WHITE_SPACE; }
 
@@ -77,7 +78,7 @@ WHITESPACE=[ \n\r\t]+
 {
     {NAME}        { yybegin(ATTR);  return XmlTokenType.XML_NAME; }
 
-   "%>"           { yybegin(TAG); yypushback(yylength()); }
+   "%>"           { yybegin(DIRECTIVE); yypushback(yylength()); }
 
    {WHITESPACE}   { return XmlTokenType.XML_WHITE_SPACE; }
 

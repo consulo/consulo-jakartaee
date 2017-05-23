@@ -23,10 +23,12 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.HighlighterColors;
+import com.intellij.openapi.editor.XmlHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.xml.XmlTokenType;
 import consulo.javaee.jsp.lexer._JspHighlightLexer;
 import consulo.javaee.jsp.psi.JspTokens;
 
@@ -41,7 +43,6 @@ public class JspSyntaxHighlighter extends SyntaxHighlighterBase
 	static
 	{
 		ourMap.put(JspTokenType.JSP_COMMENT, DefaultLanguageHighlighterColors.BLOCK_COMMENT);
-		ourMap.put(JspTokens.STRING_LITERAL, DefaultLanguageHighlighterColors.STRING);
 		ourMap.put(JspTokens.BAD_CHARACTER, HighlighterColors.BAD_CHARACTER);
 
 		ourMap.put(JspTokenType.JSP_DIRECTIVE_START, DefaultLanguageHighlighterColors.KEYWORD);
@@ -52,6 +53,10 @@ public class JspSyntaxHighlighter extends SyntaxHighlighterBase
 		ourMap.put(JspTokenType.JSP_DECLARATION_END, DefaultLanguageHighlighterColors.KEYWORD);
 		ourMap.put(JspTokenType.JSP_SCRIPTLET_START, DefaultLanguageHighlighterColors.KEYWORD);
 		ourMap.put(JspTokenType.JSP_SCRIPTLET_END, DefaultLanguageHighlighterColors.KEYWORD);
+
+		ourMap.put(XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
+		ourMap.put(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
+		ourMap.put(XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
 	}
 
 	@NotNull

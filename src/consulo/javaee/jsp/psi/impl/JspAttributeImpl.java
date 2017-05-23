@@ -11,9 +11,9 @@ import com.intellij.psi.xml.XmlAttribute;
 import com.intellij.psi.xml.XmlAttributeValue;
 import com.intellij.psi.xml.XmlElement;
 import com.intellij.psi.xml.XmlTag;
+import com.intellij.psi.xml.XmlTokenType;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.xml.XmlAttributeDescriptor;
-import consulo.javaee.jsp.psi.JspTokens;
 
 /**
  * @author VISTALL
@@ -41,7 +41,7 @@ public class JspAttributeImpl extends JspElementImpl implements XmlAttribute
 	@Nullable
 	public PsiElement getNameIdentifier()
 	{
-		return findChildByType(JspTokens.NAME);
+		return findChildByType(XmlTokenType.XML_NAME);
 	}
 
 	@Override

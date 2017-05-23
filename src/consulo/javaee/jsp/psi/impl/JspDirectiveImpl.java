@@ -14,11 +14,11 @@ import com.intellij.psi.xml.XmlAttribute;
 import com.intellij.psi.xml.XmlTag;
 import com.intellij.psi.xml.XmlTagChild;
 import com.intellij.psi.xml.XmlTagValue;
+import com.intellij.psi.xml.XmlTokenType;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.xml.XmlElementDescriptor;
 import com.intellij.xml.XmlExtension;
 import com.intellij.xml.XmlNSDescriptor;
-import consulo.javaee.jsp.psi.JspTokens;
 
 /**
  * @author VISTALL
@@ -40,7 +40,7 @@ public class JspDirectiveImpl extends JspElementImpl implements com.intellij.psi
 	@Nullable
 	public PsiElement getNameIdentifier()
 	{
-		return findChildByType(JspTokens.TAG_NAME);
+		return findChildByType(XmlTokenType.XML_TAG_NAME);
 	}
 
 	@Override
