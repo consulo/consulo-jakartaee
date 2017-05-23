@@ -31,19 +31,19 @@ import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiImportList;
 import com.intellij.psi.PsiJavaCodeReferenceElement;
+import com.intellij.psi.PsiJavaFile;
 import com.intellij.psi.PsiJavaModule;
 import com.intellij.psi.PsiPackageStatement;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.ObjectUtil;
 import consulo.annotations.RequiredReadAction;
 import consulo.java.module.extension.JavaModuleExtension;
-import consulo.javaee.jsp.psi.JspJavaFile;
 
 /**
  * @author VISTALL
  * @since 08.11.13.
  */
-public class JspJavaFileImpl extends PsiFileBase implements JspJavaFile
+public class JspJavaFileImpl extends PsiFileBase implements PsiJavaFile
 {
 	public JspJavaFileImpl(FileViewProvider viewProvider)
 	{

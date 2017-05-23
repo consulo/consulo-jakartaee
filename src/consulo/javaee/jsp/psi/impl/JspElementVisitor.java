@@ -1,10 +1,11 @@
 package consulo.javaee.jsp.psi.impl;
 
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.impl.source.jsp.jspXml.JspDeclaration;
+import com.intellij.psi.impl.source.jsp.jspXml.JspDirective;
+import com.intellij.psi.impl.source.jsp.jspXml.JspExpression;
+import com.intellij.psi.impl.source.jsp.jspXml.JspScriptlet;
 import com.intellij.psi.xml.XmlAttribute;
-import consulo.javaee.jsp.psi.JspExpression;
-import consulo.javaee.jsp.psi.JspFragment;
-import consulo.javaee.jsp.psi.JspLineFragment;
 
 /**
  * @author VISTALL
@@ -12,7 +13,7 @@ import consulo.javaee.jsp.psi.JspLineFragment;
  */
 public class JspElementVisitor extends PsiElementVisitor
 {
-	public void visitDirective(com.intellij.psi.impl.source.jsp.jspXml.JspDirective directive)
+	public void visitDirective(JspDirective directive)
 	{
 		visitElement(directive);
 	}
@@ -22,12 +23,12 @@ public class JspElementVisitor extends PsiElementVisitor
 		visitElement(attribute);
 	}
 
-	public void visitFragment(JspFragment fragment)
+	public void visitDeclaration(JspDeclaration fragment)
 	{
 		visitElement(fragment);
 	}
 
-	public void visitLineFragment(JspLineFragment lineFragment)
+	public void visitScriptlet(JspScriptlet lineFragment)
 	{
 		visitElement(lineFragment);
 	}

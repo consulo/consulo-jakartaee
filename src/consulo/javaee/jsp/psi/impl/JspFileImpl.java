@@ -26,6 +26,7 @@ import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.jsp.JspDirectiveKind;
+import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.PsiElementProcessor;
 import com.intellij.psi.xml.XmlDocument;
@@ -37,7 +38,7 @@ import consulo.javaee.jsp.JspLanguage;
  * @author VISTALL
  * @since 08.11.13.
  */
-public class JspFileImpl extends PsiFileBase implements com.intellij.psi.jsp.JspFile
+public class JspFileImpl extends PsiFileBase implements JspFile
 {
 	public JspFileImpl(@NotNull FileViewProvider viewProvider)
 	{

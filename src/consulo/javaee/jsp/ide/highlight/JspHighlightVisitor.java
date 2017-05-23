@@ -10,9 +10,6 @@ import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.xml.XmlAttribute;
-import consulo.javaee.jsp.psi.JspExpression;
-import consulo.javaee.jsp.psi.JspFragment;
-import consulo.javaee.jsp.psi.JspLineFragment;
 import consulo.javaee.jsp.psi.impl.JspElementVisitor;
 
 /**
@@ -56,22 +53,6 @@ public class JspHighlightVisitor extends JspElementVisitor implements HighlightV
 	{
 		highlightName(attribute, DefaultLanguageHighlighterColors.MARKUP_ATTRIBUTE);
 	}
-
-	@Override
-	public void visitFragment(JspFragment fragment)
-	{
-	}
-
-	@Override
-	public void visitLineFragment(JspLineFragment lineFragment)
-	{
-	}
-
-	@Override
-	public void visitExpression(JspExpression expression)
-	{
-	}
-
 
 	private void highlightName(PsiElement nameIdentifier, TextAttributesKey key)
 	{

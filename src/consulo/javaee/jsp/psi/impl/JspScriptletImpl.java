@@ -2,15 +2,15 @@ package consulo.javaee.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.lang.ASTNode;
-import com.intellij.psi.impl.source.jsp.jspXml.JspExpression;
+import com.intellij.psi.impl.source.jsp.jspXml.JspScriptlet;
 
 /**
  * @author VISTALL
  * @since 16.11.13.
  */
-public class JspExpressionImpl extends JspXmlTagBaseImpl implements JspExpression
+public class JspScriptletImpl extends JspXmlTagBaseImpl implements JspScriptlet
 {
-	public JspExpressionImpl(@NotNull ASTNode node)
+	public JspScriptletImpl(@NotNull ASTNode node)
 	{
 		super(node);
 	}
@@ -18,6 +18,6 @@ public class JspExpressionImpl extends JspXmlTagBaseImpl implements JspExpressio
 	@Override
 	public void accept(@NotNull JspElementVisitor visitor)
 	{
-		visitor.visitExpression(this);
+		visitor.visitScriptlet(this);
 	}
 }

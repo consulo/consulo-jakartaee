@@ -4,8 +4,8 @@ import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.JspLanguage;
 import consulo.javaee.jsp.psi.impl.JspDirectiveImpl;
 import consulo.javaee.jsp.psi.impl.JspExpressionImpl;
-import consulo.javaee.jsp.psi.impl.JspFragmentImpl;
-import consulo.javaee.jsp.psi.impl.JspLineFragmentImpl;
+import consulo.javaee.jsp.psi.impl.JspDeclarationImpl;
+import consulo.javaee.jsp.psi.impl.JspScriptletImpl;
 import consulo.javaee.jsp.psi.impl.JspXmlRootTagImpl;
 import consulo.psi.tree.ElementTypeAsPsiFactory;
 
@@ -15,13 +15,13 @@ import consulo.psi.tree.ElementTypeAsPsiFactory;
  */
 public interface JspElements
 {
+	IElementType JSP_ROOT_TAG = new ElementTypeAsPsiFactory("JSP_ROOT_TAG", JspLanguage.INSTANCE, JspXmlRootTagImpl.class);
+
 	IElementType DIRECTIVE = new ElementTypeAsPsiFactory("DIRECTIVE", JspLanguage.INSTANCE, JspDirectiveImpl.class);
 
-	IElementType JSP_ROOT_TAG = new ElementTypeAsPsiFactory("XML_ROOT_TAG", JspLanguage.INSTANCE, JspXmlRootTagImpl.class);
+	IElementType DECLARATION = new ElementTypeAsPsiFactory("DECLARATION", JspLanguage.INSTANCE, JspDeclarationImpl.class);
 
-	IElementType FRAGMENT = new ElementTypeAsPsiFactory("FRAGMENT", JspLanguage.INSTANCE, JspFragmentImpl.class);
-
-	IElementType LINE_FRAGMENT = new ElementTypeAsPsiFactory("LINE_FRAGMENT", JspLanguage.INSTANCE, JspLineFragmentImpl.class);
+	IElementType SCRIPTLET = new ElementTypeAsPsiFactory("SCRIPTLET", JspLanguage.INSTANCE, JspScriptletImpl.class);
 
 	IElementType EXPRESSION = new ElementTypeAsPsiFactory("EXPRESSION", JspLanguage.INSTANCE, JspExpressionImpl.class);
 }
