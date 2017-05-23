@@ -36,9 +36,9 @@ WHITESPACE=[ \n\r\t]+
 
    "<${"   { yybegin(JSP_FRAGMENT); return JspTokens.JSP_FRAGMENT; }
 
-   {WHITESPACE} { return JspTokens.HTML_TEXT; }
+   {WHITESPACE} { return JspTokens.HTML_FRAGMENT; }
 
-   . { return JspTokens.HTML_TEXT; }
+   . { return JspTokens.HTML_FRAGMENT; }
 }
 
 <JSP_FRAGMENT>

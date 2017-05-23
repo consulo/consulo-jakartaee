@@ -3,6 +3,7 @@ package consulo.javaee.jsp.lexer;
 import com.intellij.lexer.MergingLexerAdapter;
 import com.intellij.psi.tree.TokenSet;
 import com.intellij.psi.xml.XmlTokenType;
+import consulo.javaee.jsp.psi.JspTokens;
 
 /**
  * @author VISTALL
@@ -10,7 +11,7 @@ import com.intellij.psi.xml.XmlTokenType;
  */
 public class JspLexer extends MergingLexerAdapter
 {
-	private static final TokenSet ourMergeSet = TokenSet.create(XmlTokenType.XML_DATA_CHARACTERS);
+	private static final TokenSet ourMergeSet = TokenSet.create(XmlTokenType.XML_DATA_CHARACTERS, JspTokens.JAVA_FRAGMENT);
 
 	public JspLexer()
 	{

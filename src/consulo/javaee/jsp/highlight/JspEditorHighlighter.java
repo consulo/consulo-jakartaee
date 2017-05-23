@@ -44,7 +44,7 @@ public class JspEditorHighlighter extends LayeredLexerEditorHighlighter
 
 		SyntaxHighlighter htmlHighlight = SyntaxHighlighterFactory.getSyntaxHighlighter(HtmlFileType.INSTANCE, project, virtualFile);
 		assert htmlHighlight != null;
-		registerLayer(JspTokens.HTML_TEXT, new LayerDescriptor(new SyntaxHighlighter()
+		registerLayer(JspTokens.HTML_FRAGMENT, new LayerDescriptor(new SyntaxHighlighter()
 		{
 			@NotNull
 			public Lexer getHighlightingLexer()
@@ -61,7 +61,7 @@ public class JspEditorHighlighter extends LayeredLexerEditorHighlighter
 
 		SyntaxHighlighter javaHighlight = SyntaxHighlighterFactory.getSyntaxHighlighter(JavaFileType.INSTANCE, project, virtualFile);
 		assert javaHighlight != null;
-		registerLayer(JspTokens.JAVA_TEXT, new LayerDescriptor(new SyntaxHighlighter()
+		registerLayer(JspTokens.JAVA_FRAGMENT, new LayerDescriptor(new SyntaxHighlighter()
 		{
 			@NotNull
 			public Lexer getHighlightingLexer()
