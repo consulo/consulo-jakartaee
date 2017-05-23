@@ -30,69 +30,18 @@ public class JspParser implements PsiParser
 			{
 				parseDirective(builder);
 			}
-			/*else if(builder.getTokenType() == JspTokens.FRAGMENT_OPEN)
+			else if(builder.getTokenType() == JspTokenType.JSP_DECLARATION_START)
 			{
-				PsiBuilder.Marker mark = builder.mark();
-
-				builder.advanceLexer();
-
-				while(!builder.eof() && builder.getTokenType() != JspTokens.FRAGMENT_CLOSE)
-				{
-					builder.advanceLexer();
-				}
-
-				if(builder.getTokenType() == JspTokens.FRAGMENT_CLOSE)
-				{
-					builder.advanceLexer();
-					mark.done(JspElements.FRAGMENT);
-				}
-				else
-				{
-					mark.error("%> expected");
-				}
+				parseSimpleTag(builder, JspTokenType.JSP_DECLARATION_END, JspElements.DECLARATION);
 			}
-			else if(builder.getTokenType() == JspTokens.LINE_FRAGMENT_OPEN)
+			else if(builder.getTokenType() == JspTokenType.JSP_EXPRESSION_START)
 			{
-				PsiBuilder.Marker mark = builder.mark();
-
-				builder.advanceLexer();
-
-				while(!builder.eof() && builder.getTokenType() != JspTokens.LINE_FRAGMENT_CLOSE)
-				{
-					builder.advanceLexer();
-				}
-
-				if(builder.getTokenType() == JspTokens.LINE_FRAGMENT_CLOSE)
-				{
-					builder.advanceLexer();
-					mark.done(JspElements.LINE_FRAGMENT);
-				}
-				else
-				{
-					mark.error("%> expected");
-				}
+				parseSimpleTag(builder, JspTokenType.JSP_EXPRESSION_END, JspElements.EXPRESSION);
 			}
-			else if(builder.getTokenType() == JspTokens.EXPRESSION_OPEN)
+			else if(builder.getTokenType() == JspTokenType.JSP_SCRIPTLET_START)
 			{
-				PsiBuilder.Marker mark = builder.mark();
-
-				builder.advanceLexer();
-
-				while(!builder.eof() && builder.getTokenType() != JspTokens.EXPRESSION_CLOSE)
-				{
-					builder.advanceLexer();
-				}
-
-				if(builder.getTokenType() == JspTokens.EXPRESSION_CLOSE)
-				{
-					builder.advanceLexer();
-					mark.done(JspElements.EXPRESSION);
-				}
-				else
-				{
-					mark.error("} expected");
-				}
-			}  */
+				parseSimpleTag(builder, JspTokenType.JSP_SCRIPTLET_END, JspElements.SCRIPTLET);
+			}
 			else
 			{
 				builder.advanceLexer();
@@ -101,6 +50,24 @@ public class JspParser implements PsiParser
 		rootMarker.done(JspElements.JSP_ROOT_TAG);
 		marker.done(elementType);
 		return builder.getTreeBuilt();
+	}
+
+	private void parseSimpleTag(PsiBuilder builder, IElementType endElementType, IElementType to)
+	{
+		PsiBuilder.Marker mark = builder.mark();
+
+		builder.advanceLexer();
+
+		while(builder.getTokenType() != endElementType)
+		{
+			builder.advanceLexer();
+		}
+
+		if(!PsiBuilderUtil.expect(builder, endElementType))
+		{
+			builder.error("%> expected");
+		}
+		mark.done(to);
 	}
 
 	private void parseDirective(PsiBuilder builder)
