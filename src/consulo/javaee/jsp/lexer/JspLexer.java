@@ -16,18 +16,20 @@
 
 package consulo.javaee.jsp.lexer;
 
-import java.io.Reader;
-
-import com.intellij.lexer.FlexAdapter;
+import com.intellij.lexer.MergingLexerAdapter;
+import com.intellij.psi.tree.TokenSet;
+import consulo.javaee.jsp.psi.JspTokens;
 
 /**
  * @author VISTALL
  * @since 08.11.13.
  */
-public class JspLexer extends FlexAdapter
+public class JspLexer extends MergingLexerAdapter
 {
+	private static final TokenSet ourSet = TokenSet.create(JspTokens.JSP_FRAGMENT);
+
 	public JspLexer()
 	{
-		super(new _JspLexer((Reader) null));
+		super(new _JspLexer(), ourSet);
 	}
 }

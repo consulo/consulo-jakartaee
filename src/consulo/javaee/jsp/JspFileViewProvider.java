@@ -82,7 +82,7 @@ public class JspFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProv
 	@Override
 	public Set<Language> getLanguages()
 	{
-		return new HashSet<Language>(Arrays.asList(getBaseLanguage(), getTemplateDataLanguage(), JavaLanguage.INSTANCE));
+		return new HashSet<>(Arrays.asList(getBaseLanguage(), getTemplateDataLanguage(), JavaLanguage.INSTANCE));
 	}
 
 	@NotNull

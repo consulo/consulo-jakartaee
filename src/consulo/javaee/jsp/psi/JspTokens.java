@@ -26,6 +26,8 @@ import consulo.javaee.jsp.JspLanguage;
  */
 public interface JspTokens extends TokenType
 {
+	IElementType JSP_FRAGMENT = new IElementType("JSP_FRAGMENT", JspLanguage.INSTANCE);
+
 	IElementType HTML_TEXT = new IElementType("HTML_TEXT", JspLanguage.INSTANCE);
 	IElementType JAVA_TEXT = new IElementType("JAVA_TEXT", JspLanguage.INSTANCE);
 

@@ -1,93 +1,57 @@
 package consulo.javaee.jsp.lexer;
 
-import com.intellij.lexer.FlexLexer;
+import com.intellij.lexer.LexerBase;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.JspTokens;
 %%
 
+%public
 %class _JspLexer
-%implements FlexLexer
+%extends LexerBase
 %public
 %unicode
 %public
 
-%function advance
+%function advanceImpl
 %type IElementType
 
 %eof{ return;
 %eof}
 
-COMMENT="<%--"[^]*"--%>"
 WHITESPACE=[ \n\r\t]+
 
-IDENTIFIER=[:jletter:] [:jletterdigit:]*
-
-//CHARACTER_LITERAL="'"([^\\\'\r\n]|{ESCAPE_SEQUENCE})*("'"|\\)?
-STRING_LITERAL=\"([^\\\"\r\n]|{ESCAPE_SEQUENCE})*(\"|\\)?
-ESCAPE_SEQUENCE=\\[^\r\n]
-
-%state DIRECTIVE
-%state FRAGMENT
-%state LINE_FRAGMENT
-%state EXPRESSION
+%state JSP_FRAGMENT
 
 %%
 
 <YYINITIAL>
 {
-   {COMMENT} { return JspTokens.COMMENT;}
+   "<%--"  { yybegin(JSP_FRAGMENT);  return JspTokens.JSP_FRAGMENT; }
 
-   "<%"  { yybegin(FRAGMENT);  return JspTokens.FRAGMENT_OPEN; }
+   "<%"    { yybegin(JSP_FRAGMENT);  return JspTokens.JSP_FRAGMENT; }
 
-   "<%@" { yybegin(DIRECTIVE); return JspTokens.DIRECTIVE_OPEN; }
+   "<%@"   { yybegin(JSP_FRAGMENT); return JspTokens.JSP_FRAGMENT; }
 
-   "<%=" { yybegin(LINE_FRAGMENT); return JspTokens.LINE_FRAGMENT_OPEN; }
+   "<%="   { yybegin(JSP_FRAGMENT); return JspTokens.JSP_FRAGMENT; }
 
-   "<${" { yybegin(EXPRESSION); return JspTokens.EXPRESSION_OPEN; }
+   "<${"   { yybegin(JSP_FRAGMENT); return JspTokens.JSP_FRAGMENT; }
 
    {WHITESPACE} { return JspTokens.HTML_TEXT; }
 
    . { return JspTokens.HTML_TEXT; }
 }
 
-<DIRECTIVE>
+<JSP_FRAGMENT>
 {
-	{STRING_LITERAL}   {return JspTokens.STRING_LITERAL; }
+	"%>"               { yybegin(YYINITIAL); return JspTokens.JSP_FRAGMENT; }
 
-	{IDENTIFIER}       {return JspTokens.IDENTIFIER; }
+	"--%>"             { yybegin(YYINITIAL); return JspTokens.JSP_FRAGMENT; }
 
-	{WHITESPACE}       {return JspTokens.WHITE_SPACE; }
+	"@%>"              { yybegin(YYINITIAL); return JspTokens.JSP_FRAGMENT; }
 
-	"="                { return JspTokens.EQ; }
+	"=%>"              { yybegin(YYINITIAL); return JspTokens.JSP_FRAGMENT; }
 
-	"%>"               { yybegin(YYINITIAL); return JspTokens.DIRECTIVE_CLOSE; }
+	"}$>"              { yybegin(YYINITIAL); return JspTokens.JSP_FRAGMENT; }
 
-	.                  { yybegin(YYINITIAL); return JspTokens.BAD_CHARACTER; }
-}
-
-<FRAGMENT>
-{
-   "%>" { yybegin(YYINITIAL); return JspTokens.FRAGMENT_CLOSE; }
-
-   {WHITESPACE} { return JspTokens.JAVA_TEXT; }
-
-   . { return JspTokens.JAVA_TEXT; }
-}
-
-<LINE_FRAGMENT>
-{
-   "%>" { yybegin(YYINITIAL); return JspTokens.LINE_FRAGMENT_CLOSE; }
-
-   {WHITESPACE} { return JspTokens.JAVA_TEXT; }
-
-   . { return JspTokens.JAVA_TEXT; }
-}
-
-<EXPRESSION>
-{
-   "}" { yybegin(YYINITIAL); return JspTokens.EXPRESSION_CLOSE; }
-
-   {WHITESPACE} { return JspTokens.JAVA_TEXT; }
-
-   . { return JspTokens.JAVA_TEXT; }
+	[^]                { return JspTokens.JSP_FRAGMENT; }
 }
