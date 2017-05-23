@@ -34,8 +34,6 @@ public interface JspTokens extends TokenType
 
 	IElementType NAME = new IElementType("IDENTIFIER", JspLanguage.INSTANCE);
 
-	IElementType COMMENT = new IElementType("COMMENT", JspLanguage.INSTANCE);
-
 	IElementType TAG_OPENER = new IElementType("TAG_OPENER", JspLanguage.INSTANCE);
 
 	IElementType TAG_NAME = new IElementType("TAG_NAME", JspLanguage.INSTANCE);

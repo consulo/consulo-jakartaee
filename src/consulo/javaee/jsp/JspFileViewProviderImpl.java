@@ -17,6 +17,7 @@
 package consulo.javaee.jsp;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,6 +32,7 @@ import com.intellij.lang.PsiParser;
 import com.intellij.lang.html.HTMLLanguage;
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.lang.java.parser.JavaParserUtil;
+import com.intellij.lang.jsp.JspFileViewProvider;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.pom.java.LanguageLevel;
@@ -40,7 +42,6 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.impl.source.PsiFileImpl;
 import com.intellij.psi.impl.source.tree.ElementType;
-import com.intellij.psi.templateLanguages.TemplateLanguageFileViewProvider;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
 import consulo.javaee.jsp.lexer.JspJavaLexer;
@@ -53,9 +54,9 @@ import consulo.lang.LanguageVersion;
  * @author VISTALL
  * @since 08.11.13.
  */
-public class JspFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvider implements TemplateLanguageFileViewProvider
+public class JspFileViewProviderImpl extends MultiplePsiFilesPerDocumentFileViewProvider implements JspFileViewProvider
 {
-	public JspFileViewProvider(PsiManager manager, VirtualFile virtualFile, boolean physical)
+	public JspFileViewProviderImpl(PsiManager manager, VirtualFile virtualFile, boolean physical)
 	{
 		super(manager, virtualFile, physical);
 	}
@@ -90,7 +91,7 @@ public class JspFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProv
 					LanguageVersion languageVersion = tempLanguageVersion == null ? psi.getLanguageVersion() : tempLanguageVersion;
 
 					PsiBuilder builder = PsiBuilderFactory.getInstance().createBuilder(project, chameleon, new JspJavaLexer(), languageForParser, languageVersion, chameleon.getChars());
-					builder.enforceCommentTokens(TokenSet.orSet(ElementType.JAVA_COMMENT_BIT_SET,TokenSet.create(_JspJavaLexer.JSP_IN_JAVA)));
+					builder.enforceCommentTokens(TokenSet.orSet(ElementType.JAVA_COMMENT_BIT_SET, TokenSet.create(_JspJavaLexer.JSP_IN_JAVA)));
 					JavaParserUtil.setLanguageLevel(builder, LanguageLevel.HIGHEST);
 					PsiParser parser = LanguageParserDefinitions.INSTANCE.forLanguage(languageForParser).createParser(languageVersion);
 					return parser.parse(this, builder, languageVersion).getFirstChildNode();
@@ -125,6 +126,12 @@ public class JspFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProv
 	@Override
 	protected MultiplePsiFilesPerDocumentFileViewProvider cloneInner(VirtualFile virtualFile)
 	{
-		return new JspFileViewProvider(getManager(), virtualFile, false);
+		return new JspFileViewProviderImpl(getManager(), virtualFile, false);
+	}
+
+	@Override
+	public Set<String> getXmlNsPrefixes(CharSequence buffer)
+	{
+		return Collections.emptySet();
 	}
 }

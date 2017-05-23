@@ -6,6 +6,7 @@ import consulo.javaee.jsp.psi.impl.JspDirectiveImpl;
 import consulo.javaee.jsp.psi.impl.JspExpressionImpl;
 import consulo.javaee.jsp.psi.impl.JspFragmentImpl;
 import consulo.javaee.jsp.psi.impl.JspLineFragmentImpl;
+import consulo.javaee.jsp.psi.impl.JspXmlRootTagImpl;
 import consulo.psi.tree.ElementTypeAsPsiFactory;
 
 /**
@@ -15,6 +16,8 @@ import consulo.psi.tree.ElementTypeAsPsiFactory;
 public interface JspElements
 {
 	IElementType DIRECTIVE = new ElementTypeAsPsiFactory("DIRECTIVE", JspLanguage.INSTANCE, JspDirectiveImpl.class);
+
+	IElementType JSP_ROOT_TAG = new ElementTypeAsPsiFactory("XML_ROOT_TAG", JspLanguage.INSTANCE, JspXmlRootTagImpl.class);
 
 	IElementType FRAGMENT = new ElementTypeAsPsiFactory("FRAGMENT", JspLanguage.INSTANCE, JspFragmentImpl.class);
 

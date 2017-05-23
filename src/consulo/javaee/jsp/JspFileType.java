@@ -20,8 +20,8 @@ import javax.swing.Icon;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.intellij.ide.highlighter.XmlLikeFileType;
 import com.intellij.openapi.fileTypes.FileTypeEditorHighlighterProviders;
-import com.intellij.openapi.fileTypes.LanguageFileType;
 import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
 import consulo.javaee.JavaWebIcons;
 import consulo.javaee.jsp.highlight.JspEditorHighlighter;
@@ -30,7 +30,7 @@ import consulo.javaee.jsp.highlight.JspEditorHighlighter;
  * @author VISTALL
  * @since 07.11.13.
  */
-public class JspFileType extends LanguageFileType implements TemplateLanguageFileType
+public class JspFileType extends XmlLikeFileType implements TemplateLanguageFileType
 {
 	public static final JspFileType INSTANCE = new JspFileType();
 

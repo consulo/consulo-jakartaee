@@ -32,6 +32,6 @@ public class JspFileViewProviderFactory implements FileViewProviderFactory
 	@Override
 	public FileViewProvider createFileViewProvider(@NotNull VirtualFile virtualFile, Language language, @NotNull PsiManager psiManager, boolean b)
 	{
-		return new JspFileViewProvider(psiManager, virtualFile, b);
+		return new JspFileViewProviderImpl(psiManager, virtualFile, b);
 	}
 }

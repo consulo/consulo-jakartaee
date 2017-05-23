@@ -17,18 +17,27 @@
 package consulo.javaee.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import com.intellij.extapi.psi.PsiFileBase;
+import com.intellij.lang.jsp.JspxFileViewProvider;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
+import com.intellij.psi.PsiClass;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiFile;
+import com.intellij.psi.jsp.JspDirectiveKind;
+import com.intellij.psi.search.GlobalSearchScope;
+import com.intellij.psi.search.PsiElementProcessor;
+import com.intellij.psi.xml.XmlDocument;
+import com.intellij.psi.xml.XmlTag;
 import consulo.javaee.jsp.JspFileType;
 import consulo.javaee.jsp.JspLanguage;
-import consulo.javaee.jsp.psi.JspFile;
 
 /**
  * @author VISTALL
  * @since 08.11.13.
  */
-public class JspFileImpl extends PsiFileBase implements JspFile
+public class JspFileImpl extends PsiFileBase implements com.intellij.psi.jsp.JspFile
 {
 	public JspFileImpl(@NotNull FileViewProvider viewProvider)
 	{
@@ -37,8 +46,114 @@ public class JspFileImpl extends PsiFileBase implements JspFile
 
 	@NotNull
 	@Override
+	public JspxFileViewProvider getViewProvider()
+	{
+		return (JspxFileViewProvider) super.getViewProvider();
+	}
+
+	@NotNull
+	@Override
 	public FileType getFileType()
 	{
 		return JspFileType.INSTANCE;
+	}
+
+	@Override
+	public PsiElement[] getContentsElements()
+	{
+		return new PsiElement[0];
+	}
+
+	@Override
+	public boolean isErrorPage()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isSessionPage()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isTagPage()
+	{
+		return false;
+	}
+
+	@Override
+	public XmlTag[] getDirectiveTags(JspDirectiveKind directiveKind, boolean searchInIncludes)
+	{
+		return new XmlTag[0];
+	}
+
+	@Override
+	public XmlTag createDirective(XmlTag context, JspDirectiveKind directiveKind)
+	{
+		return null;
+	}
+
+	@Override
+	public XmlTag createDirective(JspDirectiveKind directiveKind)
+	{
+		return null;
+	}
+
+	@Override
+	public PsiFile getBaseLanguageRoot()
+	{
+		return null;
+	}
+
+	@Override
+	public PsiFile getErrorPage()
+	{
+		return null;
+	}
+
+	@Nullable
+	@Override
+	public XmlDocument getDocument()
+	{
+		return null;
+	}
+
+	@NotNull
+	@Override
+	public XmlTag getRootTag()
+	{
+		return findChildByClass(XmlTag.class);
+	}
+
+	@Override
+	public GlobalSearchScope getFileResolveScope()
+	{
+		return null;
+	}
+
+	@Override
+	public boolean ignoreReferencedElementAccessibility()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean processElements(PsiElementProcessor psiElementProcessor, PsiElement psiElement)
+	{
+		return false;
+	}
+
+	@Override
+	public XmlTag[] getDirectiveTagsInContext(JspDirectiveKind directiveKind)
+	{
+		return new XmlTag[0];
+	}
+
+	@Nullable
+	@Override
+	public PsiClass getJavaClass()
+	{
+		return null;
 	}
 }

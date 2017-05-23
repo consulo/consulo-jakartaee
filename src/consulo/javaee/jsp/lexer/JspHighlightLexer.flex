@@ -3,6 +3,7 @@ package consulo.javaee.jsp.lexer;
 import com.intellij.lexer.LexerBase;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.JspTokens;
+import com.intellij.psi.jsp.JspTokenType;
 %%
 
 %public
@@ -20,22 +21,25 @@ import consulo.javaee.jsp.psi.JspTokens;
 
 WHITESPACE=[ \n\r\t]+
 
-%state JSP_FRAGMENT
-
 %state COMMENT
-%state JAVA_FRAGMENT
+%state DIRECTIVE
+%state SCRIPTLET
+%state EXPRESSION
+%state DECLARATION
 
 %%
 
 <YYINITIAL>
 {
-   "<%--"  { yybegin(COMMENT);  return JspTokens.COMMENT; }
+   "<%--"  { yybegin(COMMENT);  return JspTokenType.JSP_COMMENT; }
 
-   "<%"    { yybegin(JAVA_FRAGMENT);  return JspTokens.JSP_FRAGMENT; }
+   "<%"    { yybegin(SCRIPTLET);  return JspTokenType.JSP_SCRIPTLET_START; }
 
-   "<%@"   { yybegin(JSP_FRAGMENT); return JspTokens.JAVA_FRAGMENT; }
+   "<%!"   { yybegin(DECLARATION);  return JspTokenType.JSP_DECLARATION_START; }
 
-   "<%="   { yybegin(JAVA_FRAGMENT); return JspTokens.JAVA_FRAGMENT; }
+   "<%@"   { yybegin(DIRECTIVE); return JspTokenType.JSP_DIRECTIVE_START; }
+
+   "<%="   { yybegin(EXPRESSION); return JspTokenType.JSP_EXPRESSION_START; }
 
 
    {WHITESPACE} { return JspTokens.HTML_FRAGMENT; }
@@ -43,23 +47,37 @@ WHITESPACE=[ \n\r\t]+
    . { return JspTokens.HTML_FRAGMENT; }
 }
 
-<JSP_FRAGMENT>
+<DIRECTIVE>
 {
-	"%>"              { yybegin(YYINITIAL); return JspTokens.JAVA_FRAGMENT; }
+	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_DIRECTIVE_END; }
 
 	[^]                { return JspTokens.JSP_FRAGMENT; }
 }
 
-<JAVA_FRAGMENT>
+<DECLARATION>
 {
-	"%>"              { yybegin(YYINITIAL); return JspTokens.JAVA_FRAGMENT; }
+	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_DECLARATION_END; }
+
+	[^]                { return JspTokens.JAVA_FRAGMENT; }
+}
+
+<SCRIPTLET>
+{
+	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_SCRIPTLET_END; }
+
+	[^]                { return JspTokens.JAVA_FRAGMENT; }
+}
+
+<EXPRESSION>
+{
+	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_EXPRESSION_END; }
 
 	[^]                { return JspTokens.JAVA_FRAGMENT; }
 }
 
 <COMMENT>
 {
-	"--%>"              { yybegin(YYINITIAL); return JspTokens.COMMENT; }
+	"--%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_COMMENT; }
 
-	[^]                { return JspTokens.COMMENT; }
+	[^]                { return JspTokenType.JSP_COMMENT; }
 }

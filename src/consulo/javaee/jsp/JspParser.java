@@ -23,6 +23,7 @@ public class JspParser implements PsiParser
 	public ASTNode parse(@NotNull IElementType elementType, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
 	{
 		PsiBuilder.Marker marker = builder.mark();
+		PsiBuilder.Marker rootMarker = builder.mark();
 		while(!builder.eof())
 		{
 			if(builder.getTokenType() == JspTokens.TAG_OPENER)
@@ -97,6 +98,7 @@ public class JspParser implements PsiParser
 				builder.advanceLexer();
 			}
 		}
+		rootMarker.done(JspElements.JSP_ROOT_TAG);
 		marker.done(elementType);
 		return builder.getTreeBuilt();
 	}

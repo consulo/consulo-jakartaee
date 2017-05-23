@@ -11,7 +11,6 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.xml.XmlAttribute;
 import consulo.javaee.jsp.psi.JspExpression;
-import consulo.javaee.jsp.psi.JspFile;
 import consulo.javaee.jsp.psi.JspFragment;
 import consulo.javaee.jsp.psi.JspLineFragment;
 import consulo.javaee.jsp.psi.impl.JspElementVisitor;
@@ -27,7 +26,7 @@ public class JspHighlightVisitor extends JspElementVisitor implements HighlightV
 	@Override
 	public boolean suitableForFile(@NotNull PsiFile psiFile)
 	{
-		return psiFile instanceof JspFile;
+		return psiFile instanceof com.intellij.psi.jsp.JspFile;
 	}
 
 	@Override
@@ -49,7 +48,7 @@ public class JspHighlightVisitor extends JspElementVisitor implements HighlightV
 	{
 		super.visitDirective(directive);
 
-		highlightName(directive, DefaultLanguageHighlighterColors.KEYWORD);
+		//highlightName(directive, DefaultLanguageHighlighterColors.KEYWORD);
 	}
 
 	@Override

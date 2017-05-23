@@ -7,6 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiReference;
 import com.intellij.psi.meta.PsiMetaData;
 import com.intellij.psi.search.PsiElementProcessor;
 import com.intellij.psi.xml.XmlAttribute;
@@ -15,6 +16,7 @@ import com.intellij.psi.xml.XmlTagChild;
 import com.intellij.psi.xml.XmlTagValue;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.xml.XmlElementDescriptor;
+import com.intellij.xml.XmlExtension;
 import com.intellij.xml.XmlNSDescriptor;
 import consulo.javaee.jsp.psi.JspTokens;
 
@@ -266,5 +268,12 @@ public class JspDirectiveImpl extends JspElementImpl implements com.intellij.psi
 	public boolean processElements(PsiElementProcessor psiElementProcessor, PsiElement psiElement)
 	{
 		return false;
+	}
+
+	@Override
+	public PsiReference getReference()
+	{
+		XmlExtension extension = XmlExtension.getExtensionByElement(this);
+		return extension == null ? null : extension.createTagNameReference(getNameIdentifier().getNode(), true);
 	}
 }
