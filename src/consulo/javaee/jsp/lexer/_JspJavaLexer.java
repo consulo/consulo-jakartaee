@@ -79,23 +79,27 @@ public class _JspJavaLexer extends LookAheadLexer
 				// simple <%
 				if(baseLexer.getTokenType() == JavaTokenType.WHITE_SPACE)
 				{
+					addToken(JSP_IN_JAVA);
+
 					baseLexer.restore(currentPosition);
 
 					baseLexer.advance(); // <
 					baseLexer.advance(); // %
-					addToken(JSP_IN_JAVA);
+
 					myEnabledJavaTokens = true;
 					return;
 				}
 				// <%!
-				else if(baseLexer.getTokenType() == JavaTokenType.EXCL || baseLexer.getTokenType() == JavaTokenType.EQ)
+				else if(baseLexer.getTokenType() == JavaTokenType.EXCL)
 				{
 					baseLexer.restore(currentPosition);
 
+					addToken(JSP_IN_JAVA);
+
 					baseLexer.advance(); // <
 					baseLexer.advance(); // %
-					baseLexer.advance(); // ! or =
-					addToken(JSP_IN_JAVA);
+					baseLexer.advance(); // !
+
 					myEnabledJavaTokens = true;
 					return;
 				}
@@ -106,23 +110,15 @@ public class _JspJavaLexer extends LookAheadLexer
 			}
 			else if(token2 == JavaTokenType.PERCEQ)
 			{
-				baseLexer.advance();
+				addToken(JSP_IN_JAVA);
 
-				// simple <%
-				if(baseLexer.getTokenType() == JavaTokenType.WHITE_SPACE)
-				{
-					baseLexer.restore(currentPosition);
+				baseLexer.restore(currentPosition);
 
-					baseLexer.advance(); // <
-					baseLexer.advance(); // %=
-					addToken(JSP_IN_JAVA);
-					myEnabledJavaTokens = true;
-					return;
-				}
-				else
-				{
-					baseLexer.restore(currentPosition);
-				}
+				baseLexer.advance(); // <
+				baseLexer.advance(); // %=
+
+				myEnabledJavaTokens = true;
+				return;
 			}
 			else
 			{
