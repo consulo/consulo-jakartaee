@@ -21,7 +21,10 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.scope.PsiScopeProcessor;
+import com.intellij.psi.util.CachedValueProvider;
+import com.intellij.psi.util.CachedValuesManager;
 import com.intellij.psi.util.PsiUtil;
+import com.intellij.util.containers.ContainerUtil;
 import consulo.javaee.jsp.ServletApiClassNames;
 
 /**
@@ -30,29 +33,34 @@ import consulo.javaee.jsp.ServletApiClassNames;
  */
 public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 {
-	private final List<PsiField> myImplicitFields = new ArrayList<>();
-
 	public JspClassImpl(@NotNull ASTNode node)
 	{
 		super(node);
-		addField("out", PrintWriter.class.getName());
-		addField("response", ServletApiClassNames.HttpServletResponse);
-		addField("request", ServletApiClassNames.HttpServletRequest);
-		addField("session", ServletApiClassNames.HttpSession);
-		addField("page", Object.class.getName());
-		addField("application", ServletApiClassNames.ServletContext);
-		addField("config", ServletApiClassNames.ServletConfig);
-		addField("pageContext", ServletApiClassNames.PageContext);
 	}
 
-	private void addField(String name, String type)
+	@NotNull
+	private PsiField[] buildFields()
+	{
+		List<PsiField> fields = new ArrayList<>();
+		addField(fields, "out", PrintWriter.class.getName());
+		addField(fields, "response", ServletApiClassNames.HttpServletResponse);
+		addField(fields, "request", ServletApiClassNames.HttpServletRequest);
+		addField(fields, "session", ServletApiClassNames.HttpSession);
+		addField(fields, "page", Object.class.getName());
+		addField(fields, "application", ServletApiClassNames.ServletContext);
+		addField(fields, "config", ServletApiClassNames.ServletConfig);
+		addField(fields, "pageContext", ServletApiClassNames.PageContext);
+		return ContainerUtil.toArray(fields, PsiField.ARRAY_FACTORY);
+	}
+
+	private void addField(List<PsiField> fields, String name, String type)
 	{
 		PsiClassType classType = JavaPsiFacade.getElementFactory(getProject()).createTypeByFQClassName(type, getResolveScope());
 
 		LightFieldBuilder builder = new LightFieldBuilder(getManager(), name, classType);
 		builder.setModifiers(PsiModifier.PRIVATE, PsiModifier.FINAL);
 		builder.setContainingClass(this);
-		myImplicitFields.add(builder);
+		fields.add(builder);
 	}
 
 	@Override
@@ -151,7 +159,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	@Override
 	public PsiField[] getFields()
 	{
-		return myImplicitFields.toArray(new PsiField[myImplicitFields.size()]);
+		return CachedValuesManager.getCachedValue(this, () -> CachedValueProvider.Result.create(buildFields(), this));
 	}
 
 	@NotNull
