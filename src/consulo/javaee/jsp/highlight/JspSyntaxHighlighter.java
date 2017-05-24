@@ -71,6 +71,7 @@ public class JspSyntaxHighlighter extends SyntaxHighlighterBase
 		ourMap2.put(XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
 		ourMap2.put(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
 		ourMap2.put(XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(XmlTokenType.XML_EQ, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
 
 		ourMap2.put(XmlTokenType.TAG_WHITE_SPACE, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
 		ourMap2.put(XmlTokenType.XML_WHITE_SPACE, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
