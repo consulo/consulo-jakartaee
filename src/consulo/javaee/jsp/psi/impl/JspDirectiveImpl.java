@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiReference;
+import com.intellij.psi.impl.source.jsp.jspXml.JspDirective;
 import com.intellij.psi.meta.PsiMetaData;
 import com.intellij.psi.search.PsiElementProcessor;
 import com.intellij.psi.xml.XmlAttribute;
@@ -24,7 +25,7 @@ import com.intellij.xml.XmlNSDescriptor;
  * @author VISTALL
  * @since 15.11.13.
  */
-public class JspDirectiveImpl extends JspElementImpl implements com.intellij.psi.impl.source.jsp.jspXml.JspDirective
+public class JspDirectiveImpl extends JspElementImpl implements JspDirective
 {
 	public JspDirectiveImpl(@NotNull ASTNode node)
 	{
