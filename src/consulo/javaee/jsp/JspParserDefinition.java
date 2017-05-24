@@ -38,7 +38,7 @@ import consulo.lang.LanguageVersion;
  */
 public class JspParserDefinition implements ParserDefinition
 {
-	private static final IFileElementType FILE_ELEMENT_TYPE = new IFileElementType("JSP_FILE_ELEMENT_TYPE", JspLanguage.INSTANCE);
+	public static final IFileElementType FILE_ELEMENT_TYPE = new IFileElementType("JSP_FILE_ELEMENT_TYPE", JspLanguage.INSTANCE);
 
 	@NotNull
 	@Override

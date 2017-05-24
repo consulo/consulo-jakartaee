@@ -4,13 +4,18 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.java.JavaLanguage;
+import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiImportList;
 import com.intellij.psi.PsiImportStatement;
 import com.intellij.psi.PsiImportStatementBase;
 import com.intellij.psi.PsiImportStaticStatement;
-import com.intellij.psi.PsiManager;
 import com.intellij.psi.impl.light.LightElement;
 import com.intellij.psi.impl.source.jsp.jspJava.JspxImportList;
+import com.intellij.psi.jsp.JspDirectiveKind;
+import com.intellij.psi.jsp.JspFile;
+import com.intellij.psi.xml.XmlTag;
+import consulo.javaee.jsp.JspLanguage;
+import consulo.javaee.jsp.psi.impl.JspJavaFileImpl;
 
 /**
  * @author VISTALL
@@ -18,15 +23,23 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspxImportList;
  */
 public class JspxImportListImpl extends LightElement implements JspxImportList
 {
-	public JspxImportListImpl(PsiManager manager)
+	private JspJavaFileImpl myJspJavaFile;
+
+	public JspxImportListImpl(JspJavaFileImpl jspJavaFile)
 	{
-		super(manager, JavaLanguage.INSTANCE);
+		super(jspJavaFile.getManager(), JavaLanguage.INSTANCE);
+		myJspJavaFile = jspJavaFile;
 	}
 
 	@NotNull
 	@Override
 	public PsiImportStatement[] getImportStatements()
 	{
+		FileViewProvider viewProvider = myJspJavaFile.getContainingFile().getViewProvider();
+
+		JspFile psi = (JspFile) viewProvider.getPsi(JspLanguage.INSTANCE);
+
+		XmlTag[] directiveTags = psi.getDirectiveTags(JspDirectiveKind.PAGE, false);
 		return new PsiImportStatement[0];
 	}
 

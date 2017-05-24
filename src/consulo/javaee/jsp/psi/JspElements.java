@@ -17,6 +17,8 @@ public interface JspElements
 {
 	IElementType JSP_ROOT_TAG = new ElementTypeAsPsiFactory("JSP_ROOT_TAG", JspLanguage.INSTANCE, JspXmlRootTagImpl.class);
 
+	IElementType JSP_DOCUMENT = new IElementType("JSP_DOCUMENT", JspLanguage.INSTANCE);
+
 	IElementType DIRECTIVE = new ElementTypeAsPsiFactory("DIRECTIVE", JspLanguage.INSTANCE, JspDirectiveImpl.class);
 
 	IElementType DECLARATION = new ElementTypeAsPsiFactory("DECLARATION", JspLanguage.INSTANCE, JspDeclarationImpl.class);

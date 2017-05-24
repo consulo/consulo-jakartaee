@@ -23,6 +23,7 @@ public class JspParser implements PsiParser
 	public ASTNode parse(@NotNull IElementType elementType, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
 	{
 		PsiBuilder.Marker marker = builder.mark();
+		PsiBuilder.Marker documentMarker = builder.mark();
 		PsiBuilder.Marker rootMarker = builder.mark();
 		while(!builder.eof())
 		{
@@ -48,6 +49,7 @@ public class JspParser implements PsiParser
 			}
 		}
 		rootMarker.done(JspElements.JSP_ROOT_TAG);
+		documentMarker.done(JspElements.JSP_DOCUMENT);
 		marker.done(elementType);
 		return builder.getTreeBuilt();
 	}

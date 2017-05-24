@@ -33,7 +33,7 @@ import consulo.javaee.jsp.psi.impl.java.psi.JspxImportListImpl;
  */
 public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 {
-	private JspxImportListImpl myImportList = new JspxImportListImpl(getManager());
+	private JspxImportListImpl myImportList = new JspxImportListImpl(this);
 
 	public JspJavaFileImpl(FileViewProvider viewProvider)
 	{

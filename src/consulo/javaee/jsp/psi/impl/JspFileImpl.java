@@ -18,31 +18,29 @@ package consulo.javaee.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.lang.jsp.JspxFileViewProvider;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.impl.source.xml.XmlFileImpl;
 import com.intellij.psi.jsp.JspDirectiveKind;
 import com.intellij.psi.jsp.JspFile;
-import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.psi.search.PsiElementProcessor;
 import com.intellij.psi.xml.XmlDocument;
 import com.intellij.psi.xml.XmlTag;
 import consulo.javaee.jsp.JspFileType;
-import consulo.javaee.jsp.JspLanguage;
+import consulo.javaee.jsp.JspParserDefinition;
 
 /**
  * @author VISTALL
  * @since 08.11.13.
  */
-public class JspFileImpl extends PsiFileBase implements JspFile
+public class JspFileImpl extends XmlFileImpl implements JspFile
 {
 	public JspFileImpl(@NotNull FileViewProvider viewProvider)
 	{
-		super(viewProvider, JspLanguage.INSTANCE);
+		super(viewProvider, JspParserDefinition.FILE_ELEMENT_TYPE);
 	}
 
 	@NotNull
@@ -86,6 +84,10 @@ public class JspFileImpl extends PsiFileBase implements JspFile
 	@Override
 	public XmlTag[] getDirectiveTags(JspDirectiveKind directiveKind, boolean searchInIncludes)
 	{
+		XmlDocument document = getDocument();
+		
+		XmlTag[] subTags = getRootTag().getSubTags();
+		
 		return new XmlTag[0];
 	}
 
@@ -113,41 +115,11 @@ public class JspFileImpl extends PsiFileBase implements JspFile
 		return null;
 	}
 
-	@Nullable
-	@Override
-	public XmlDocument getDocument()
-	{
-		return null;
-	}
-
-	@NotNull
-	@Override
-	public XmlTag getRootTag()
-	{
-		return findChildByClass(XmlTag.class);
-	}
-
-	@Override
-	public GlobalSearchScope getFileResolveScope()
-	{
-		return null;
-	}
-
-	@Override
-	public boolean ignoreReferencedElementAccessibility()
-	{
-		return false;
-	}
-
-	@Override
-	public boolean processElements(PsiElementProcessor psiElementProcessor, PsiElement psiElement)
-	{
-		return false;
-	}
-
 	@Override
 	public XmlTag[] getDirectiveTagsInContext(JspDirectiveKind directiveKind)
 	{
+		XmlTag[] subTags = getRootTag().getSubTags();
+
 		return new XmlTag[0];
 	}
 

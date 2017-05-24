@@ -24,40 +24,42 @@
 	<resource-bundle>messages.J2EEBundle</resource-bundle>
 
 	<extensionPoints>
-		<extensionPoint name="contextParamsProvider" interface="com.intellij.javaee.model.xml.converters.ContextParamsProvider" />
+		<extensionPoint name="contextParamsProvider" interface="com.intellij.javaee.model.xml.converters.ContextParamsProvider"/>
 	</extensionPoints>
 
 	<extensions defaultExtensionNs="com.intellij.xml">
-		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" path="/standardSchemas/web-app_2_5.xsd" version="2.5" />
-		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" path="/standardSchemas/web-app_3_0.xsd" version="3.0" />
-		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd" path="/standardSchemas/web-app_3_1.xsd" version="3.1" />
+		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" path="/standardSchemas/web-app_2_5.xsd" version="2.5"/>
+		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" path="/standardSchemas/web-app_3_0.xsd" version="3.0"/>
+		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd" path="/standardSchemas/web-app_3_1.xsd" version="3.1"/>
 	</extensions>
 
 	<extensions defaultExtensionNs="com.intellij.xml.dom">
-		<fileDescription implementation="consulo.javaee.dom.web.WebAppDescriptor" />
+		<fileDescription implementation="consulo.javaee.dom.web.WebAppDescriptor"/>
 	</extensions>
 
 	<extensions defaultExtensionNs="com.intellij">
-		<highlightVisitor implementation="consulo.javaee.jsp.ide.highlight.JspHighlightVisitor" />
+		<highlightVisitor implementation="consulo.javaee.jsp.ide.highlight.JspHighlightVisitor"/>
 
-		<packaging.artifactType implementation="consulo.javaee.artifact.ExplodedWarArtifactType" />
-		<packaging.artifactType implementation="consulo.javaee.artifact.WarArtifactType" />
-		<packaging.elementType implementation="consulo.javaee.artifact.WebResourceModuleOutputElementType" />
+		<packaging.artifactType implementation="consulo.javaee.artifact.ExplodedWarArtifactType"/>
+		<packaging.artifactType implementation="consulo.javaee.artifact.WarArtifactType"/>
+		<packaging.elementType implementation="consulo.javaee.artifact.WebResourceModuleOutputElementType"/>
 
-		<fileTypeFactory implementation="consulo.javaee.jsp.JspFileTypeFactory" />
-		<fileTypeFactory implementation="consulo.javaee.artifact.WarFileTypeFactory" />
+		<fileTypeFactory implementation="consulo.javaee.jsp.JspFileTypeFactory"/>
+		<fileTypeFactory implementation="consulo.javaee.artifact.WarFileTypeFactory"/>
 
-		<lang.fileViewProviderFactory language="JSP" implementationClass="consulo.javaee.jsp.JspFileViewProviderFactory" />
-		<lang.parserDefinition language="JSP" implementationClass="consulo.javaee.jsp.JspParserDefinition" />
+		<lang.fileViewProviderFactory language="JSP" implementationClass="consulo.javaee.jsp.JspFileViewProviderFactory"/>
+		<lang.parserDefinition language="JSP" implementationClass="consulo.javaee.jsp.JspParserDefinition"/>
 
-		<highlightVisitor implementation="consulo.javaee.jsp.codeInsigh.daemon.analysis.JspHighlightVisitorImpl" />
+		<lang.ast.compositeFactory implementation="consulo.javaee.jsp.psi.impl.JspCompositeElementFactory"/>
+
+		<highlightVisitor implementation="consulo.javaee.jsp.codeInsigh.daemon.analysis.JspHighlightVisitorImpl"/>
 		<problemFileHighlightFilter implementation="consulo.javaee.jsp.codeInsigh.daemon.JspProblemFileHighlightFilter"/>
-		<problemHighlightFilter implementation="consulo.javaee.jsp.codeInsigh.daemon.JspProblemHighlightFilter" />
+		<problemHighlightFilter implementation="consulo.javaee.jsp.codeInsigh.daemon.JspProblemHighlightFilter"/>
 		<lang.syntaxHighlighterFactory language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighterFactory"/>
-		<braceMatcher filetype="JSP" implementationClass="com.intellij.xml.impl.XmlBraceMatcher" />
-		<lang.braceMatcher language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspPairBraceMatcher" />
+		<braceMatcher filetype="JSP" implementationClass="com.intellij.xml.impl.XmlBraceMatcher"/>
+		<lang.braceMatcher language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspPairBraceMatcher"/>
 		<syntaxHighlighter key="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighter"/>
-		<contentFolderSupportPatcher implementation="consulo.javaee.module.JavaWebContentFolderSupportPatcher" />
+		<contentFolderSupportPatcher implementation="consulo.javaee.module.JavaWebContentFolderSupportPatcher"/>
 
 		<moduleExtensionProvider key="java-web"
 								 parentKey="java"
