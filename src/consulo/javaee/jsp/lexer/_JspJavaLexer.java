@@ -71,7 +71,8 @@ public class _JspJavaLexer extends LookAheadLexer
 			baseLexer.advance();
 
 			// <%
-			if(baseLexer.getTokenType() == JavaTokenType.PERC)
+			IElementType token2 = baseLexer.getTokenType();
+			if(token2 == JavaTokenType.PERC)
 			{
 				baseLexer.advance();
 
@@ -94,6 +95,26 @@ public class _JspJavaLexer extends LookAheadLexer
 					baseLexer.advance(); // <
 					baseLexer.advance(); // %
 					baseLexer.advance(); // ! or =
+					addToken(JSP_IN_JAVA);
+					myEnabledJavaTokens = true;
+					return;
+				}
+				else
+				{
+					baseLexer.restore(currentPosition);
+				}
+			}
+			else if(token2 == JavaTokenType.PERCEQ)
+			{
+				baseLexer.advance();
+
+				// simple <%
+				if(baseLexer.getTokenType() == JavaTokenType.WHITE_SPACE)
+				{
+					baseLexer.restore(currentPosition);
+
+					baseLexer.advance(); // <
+					baseLexer.advance(); // %=
 					addToken(JSP_IN_JAVA);
 					myEnabledJavaTokens = true;
 					return;

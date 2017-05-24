@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.ASTNode;
+import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.impl.source.jsp.jspXml.JspXmlTagBase;
 import com.intellij.psi.meta.PsiMetaData;
@@ -17,6 +18,7 @@ import com.intellij.psi.xml.XmlTagValue;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.xml.XmlElementDescriptor;
 import com.intellij.xml.XmlNSDescriptor;
+import consulo.annotations.RequiredReadAction;
 import consulo.annotations.RequiredWriteAction;
 
 /**
@@ -36,18 +38,30 @@ public abstract class JspXmlTagBaseImpl extends JspElementImpl implements JspXml
 		return null;
 	}
 
+	@RequiredReadAction
+	@Override
+	public String getName()
+	{
+		String namespace = getNamespace();
+		if(StringUtil.isEmpty(namespace))
+		{
+			return getLocalName();
+		}
+		return namespace + ":" + getLocalName();
+	}
+
 	@NotNull
 	@Override
 	public String getNamespace()
 	{
-		return null;
+		return "";
 	}
 
 	@NotNull
 	@Override
 	public String getLocalName()
 	{
-		return null;
+		return "";
 	}
 
 	@Nullable

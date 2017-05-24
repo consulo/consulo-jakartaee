@@ -18,139 +18,40 @@ package consulo.javaee.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import com.intellij.extapi.psi.PsiFileBase;
-import com.intellij.ide.highlighter.JavaFileType;
-import com.intellij.lang.java.JavaLanguage;
 import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.openapi.module.ModuleUtilCore;
-import com.intellij.openapi.roots.impl.DirectoryIndex;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiImportList;
-import com.intellij.psi.PsiJavaCodeReferenceElement;
 import com.intellij.psi.PsiJavaFile;
-import com.intellij.psi.PsiJavaModule;
-import com.intellij.psi.PsiPackageStatement;
-import com.intellij.util.IncorrectOperationException;
-import com.intellij.util.ObjectUtil;
+import com.intellij.psi.impl.source.PsiJavaFileBaseImpl;
 import consulo.annotations.RequiredReadAction;
-import consulo.java.module.extension.JavaModuleExtension;
+import consulo.javaee.jsp.JspFileType;
+import consulo.javaee.jsp.psi.impl.java.parsing.JavaInJspParser;
+import consulo.javaee.jsp.psi.impl.java.psi.JspxImportListImpl;
 
 /**
  * @author VISTALL
  * @since 08.11.13.
  */
-public class JspJavaFileImpl extends PsiFileBase implements PsiJavaFile
+public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 {
+	private JspxImportListImpl myImportList = new JspxImportListImpl(getManager());
+
 	public JspJavaFileImpl(FileViewProvider viewProvider)
 	{
-		super(viewProvider, JavaLanguage.INSTANCE);
+		super(JavaInJspParser.JAVA_IN_JSP_FILE_TYPE, JavaInJspParser.JAVA_IN_JSP_FILE_TYPE, viewProvider);
+	}
+
+	@RequiredReadAction
+	@Nullable
+	@Override
+	public JspxImportListImpl getImportList()
+	{
+		return myImportList;
 	}
 
 	@NotNull
 	@Override
 	public FileType getFileType()
 	{
-		return JavaFileType.INSTANCE;
-	}
-
-	@Nullable
-	@Override
-	public PsiPackageStatement getPackageStatement()
-	{
-		return null;
-	}
-
-	@NotNull
-	@Override
-	public PsiClass[] getClasses()
-	{
-		return new PsiClass[0];
-	}
-
-	@NotNull
-	@Override
-	public String getPackageName()
-	{
-		VirtualFile virtualFile = getVirtualFile();
-		if(virtualFile == null)
-		{
-			return "";
-		}
-		return ObjectUtil.notNull(DirectoryIndex.getInstance(getProject()).getPackageName(virtualFile), "");
-	}
-
-	@Override
-	public void setPackageName(String s) throws IncorrectOperationException
-	{
-
-	}
-
-	@Nullable
-	@Override
-	public PsiImportList getImportList()
-	{
-		return null;
-	}
-
-	@NotNull
-	@Override
-	public PsiElement[] getOnDemandImports(boolean b, @Deprecated boolean b2)
-	{
-		return new PsiElement[0];
-	}
-
-	@NotNull
-	@Override
-	public PsiClass[] getSingleClassImports(@Deprecated boolean b)
-	{
-		return new PsiClass[0];
-	}
-
-	@NotNull
-	@Override
-	public String[] getImplicitlyImportedPackages()
-	{
-		return new String[0];
-	}
-
-	@NotNull
-	@Override
-	public PsiJavaCodeReferenceElement[] getImplicitlyImportedPackageReferences()
-	{
-		return new PsiJavaCodeReferenceElement[0];
-	}
-
-	@Nullable
-	@Override
-	public PsiJavaCodeReferenceElement findImportReferenceTo(PsiClass psiClass)
-	{
-		return null;
-	}
-
-	@NotNull
-	@Override
-	@RequiredReadAction
-	public LanguageLevel getLanguageLevel()
-	{
-		JavaModuleExtension javaModuleExtension = ModuleUtilCore.getExtension(this, JavaModuleExtension.class);
-		return javaModuleExtension == null ? LanguageLevel.JDK_1_8 : javaModuleExtension.getLanguageLevel();
-	}
-
-	@RequiredReadAction
-	@Nullable
-	@Override
-	public PsiJavaModule getModuleDeclaration()
-	{
-		return null;
-	}
-
-	@Override
-	public boolean importClass(PsiClass psiClass)
-	{
-		return false;
+		return JspFileType.INSTANCE;
 	}
 }

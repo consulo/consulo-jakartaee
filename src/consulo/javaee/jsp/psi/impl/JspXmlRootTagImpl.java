@@ -15,6 +15,20 @@ public class JspXmlRootTagImpl extends JspXmlTagBaseImpl implements JspXmlRootTa
 		super(node);
 	}
 
+	@NotNull
+	@Override
+	public String getNamespace()
+	{
+		return "jsp";
+	}
+
+	@NotNull
+	@Override
+	public String getLocalName()
+	{
+		return "root";
+	}
+
 	@Override
 	public void accept(@NotNull JspElementVisitor visitor)
 	{
