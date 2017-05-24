@@ -12,5 +12,8 @@
       <root url="jar://$PROJECT_DIR$/dep/com.intellij.xml/lib/jsr173_1.0_api.jar!/" />
       <root url="jar://$PROJECT_DIR$/dep/com.intellij.xml/lib/rngom-20051226-patched.jar!/" />
     </binaries>
+    <sources>
+      <root url="file://$PROJECT_DIR$/../consulo-xml/xml-impl/src" />
+    </sources>
   </library>
 </component>

@@ -38,25 +38,52 @@ import consulo.javaee.jsp.psi.JspTokens;
  */
 public class JspSyntaxHighlighter extends SyntaxHighlighterBase
 {
-	private static final Map<IElementType, TextAttributesKey> ourMap = new HashMap<>();
+	private static final Map<IElementType, TextAttributesKey> ourMap1 = new HashMap<>();
+	private static final Map<IElementType, TextAttributesKey> ourMap2 = new HashMap<>();
 
 	static
 	{
-		ourMap.put(JspTokenType.JSP_COMMENT, DefaultLanguageHighlighterColors.BLOCK_COMMENT);
-		ourMap.put(JspTokens.BAD_CHARACTER, HighlighterColors.BAD_CHARACTER);
+		ourMap1.put(JspTokenType.JSP_COMMENT, DefaultLanguageHighlighterColors.BLOCK_COMMENT);
+		ourMap1.put(JspTokens.BAD_CHARACTER, HighlighterColors.BAD_CHARACTER);
 
-		ourMap.put(JspTokenType.JSP_DIRECTIVE_START, DefaultLanguageHighlighterColors.KEYWORD);
-		ourMap.put(JspTokenType.JSP_DIRECTIVE_END, DefaultLanguageHighlighterColors.KEYWORD);
-		ourMap.put(JspTokenType.JSP_EXPRESSION_START, DefaultLanguageHighlighterColors.KEYWORD);
-		ourMap.put(JspTokenType.JSP_EXPRESSION_END, DefaultLanguageHighlighterColors.KEYWORD);
-		ourMap.put(JspTokenType.JSP_DECLARATION_START, DefaultLanguageHighlighterColors.KEYWORD);
-		ourMap.put(JspTokenType.JSP_DECLARATION_END, DefaultLanguageHighlighterColors.KEYWORD);
-		ourMap.put(JspTokenType.JSP_SCRIPTLET_START, DefaultLanguageHighlighterColors.KEYWORD);
-		ourMap.put(JspTokenType.JSP_SCRIPTLET_END, DefaultLanguageHighlighterColors.KEYWORD);
+		ourMap1.put(JspTokenType.JSP_DIRECTIVE_START, DefaultLanguageHighlighterColors.KEYWORD);
+		ourMap1.put(JspTokenType.JSP_DIRECTIVE_END, DefaultLanguageHighlighterColors.KEYWORD);
+		ourMap1.put(JspTokenType.JSP_EXPRESSION_START, DefaultLanguageHighlighterColors.KEYWORD);
+		ourMap1.put(JspTokenType.JSP_EXPRESSION_END, DefaultLanguageHighlighterColors.KEYWORD);
+		ourMap1.put(JspTokenType.JSP_DECLARATION_START, DefaultLanguageHighlighterColors.KEYWORD);
+		ourMap1.put(JspTokenType.JSP_DECLARATION_END, DefaultLanguageHighlighterColors.KEYWORD);
+		ourMap1.put(JspTokenType.JSP_SCRIPTLET_START, DefaultLanguageHighlighterColors.KEYWORD);
+		ourMap1.put(JspTokenType.JSP_SCRIPTLET_END, DefaultLanguageHighlighterColors.KEYWORD);
 
-		ourMap.put(XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
-		ourMap.put(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
-		ourMap.put(XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
+		ourMap2.put(JspTokenType.JSP_DIRECTIVE_START, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(JspTokenType.JSP_DIRECTIVE_END, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(JspTokenType.JSP_EXPRESSION_START, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(JspTokenType.JSP_EXPRESSION_END, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(JspTokenType.JSP_DECLARATION_START, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(JspTokenType.JSP_DECLARATION_END, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(JspTokenType.JSP_SCRIPTLET_START, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(JspTokenType.JSP_SCRIPTLET_END, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+
+		ourMap1.put(XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
+		ourMap1.put(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
+		ourMap1.put(XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
+
+		ourMap2.put(XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+
+		ourMap2.put(XmlTokenType.TAG_WHITE_SPACE, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(XmlTokenType.XML_WHITE_SPACE, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+
+		ourMap2.put(JspTokens.JAVA_FRAGMENT, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(JspTokens.HTML_FRAGMENT, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(JspTokens.JSP_FRAGMENT, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+
+		ourMap1.put(XmlTokenType.XML_TAG_NAME, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(XmlTokenType.XML_TAG_NAME, XmlHighlighterColors.XML_TAG_NAME);
+
+		ourMap1.put(XmlTokenType.XML_NAME, DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+		ourMap2.put(XmlTokenType.XML_NAME, XmlHighlighterColors.XML_ATTRIBUTE_NAME);
 	}
 
 	@NotNull
@@ -70,6 +97,6 @@ public class JspSyntaxHighlighter extends SyntaxHighlighterBase
 	@Override
 	public TextAttributesKey[] getTokenHighlights(IElementType elementType)
 	{
-		return pack(ourMap.get(elementType));
+		return pack(ourMap1.get(elementType), ourMap2.get(elementType));
 	}
 }
