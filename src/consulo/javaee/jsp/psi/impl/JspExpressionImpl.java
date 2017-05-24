@@ -1,8 +1,8 @@
 package consulo.javaee.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
-import com.intellij.lang.ASTNode;
 import com.intellij.psi.impl.source.jsp.jspXml.JspExpression;
+import consulo.javaee.jsp.psi.JspElements;
 
 /**
  * @author VISTALL
@@ -10,9 +10,9 @@ import com.intellij.psi.impl.source.jsp.jspXml.JspExpression;
  */
 public class JspExpressionImpl extends JspXmlTagBaseImpl implements JspExpression
 {
-	public JspExpressionImpl(@NotNull ASTNode node)
+	public JspExpressionImpl()
 	{
-		super(node);
+		super(JspElements.EXPRESSION);
 	}
 
 	@Override

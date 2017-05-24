@@ -1,8 +1,8 @@
 package consulo.javaee.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
-import com.intellij.lang.ASTNode;
 import com.intellij.psi.impl.source.jsp.jspXml.JspScriptlet;
+import consulo.javaee.jsp.psi.JspElements;
 
 /**
  * @author VISTALL
@@ -10,9 +10,9 @@ import com.intellij.psi.impl.source.jsp.jspXml.JspScriptlet;
  */
 public class JspScriptletImpl extends JspXmlTagBaseImpl implements JspScriptlet
 {
-	public JspScriptletImpl(@NotNull ASTNode node)
+	public JspScriptletImpl()
 	{
-		super(node);
+		super(JspElements.SCRIPTLET);
 	}
 
 	@Override

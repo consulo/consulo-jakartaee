@@ -10,11 +10,11 @@ import com.intellij.psi.jsp.JspFile;
  * @author VISTALL
  * @since 24-May-17
  */
-public class JspHighlightVisitorImpl extends HighlightVisitorImpl
+public class JspJavaHighlightVisitorImpl extends HighlightVisitorImpl
 {
 	private PsiResolveHelper myResolveHelper;
 
-	public JspHighlightVisitorImpl(@NotNull PsiResolveHelper resolveHelper)
+	public JspJavaHighlightVisitorImpl(@NotNull PsiResolveHelper resolveHelper)
 	{
 		super(resolveHelper);
 		myResolveHelper = resolveHelper;
@@ -24,7 +24,7 @@ public class JspHighlightVisitorImpl extends HighlightVisitorImpl
 	@Override
 	public HighlightVisitorImpl clone()
 	{
-		return new JspHighlightVisitorImpl(myResolveHelper);
+		return new JspJavaHighlightVisitorImpl(myResolveHelper);
 	}
 
 	@Override

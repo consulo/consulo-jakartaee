@@ -2,12 +2,6 @@ package consulo.javaee.jsp.psi;
 
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.JspLanguage;
-import consulo.javaee.jsp.psi.impl.JspDirectiveImpl;
-import consulo.javaee.jsp.psi.impl.JspExpressionImpl;
-import consulo.javaee.jsp.psi.impl.JspDeclarationImpl;
-import consulo.javaee.jsp.psi.impl.JspScriptletImpl;
-import consulo.javaee.jsp.psi.impl.JspXmlRootTagImpl;
-import consulo.psi.tree.ElementTypeAsPsiFactory;
 
 /**
  * @author VISTALL
@@ -15,15 +9,15 @@ import consulo.psi.tree.ElementTypeAsPsiFactory;
  */
 public interface JspElements
 {
-	IElementType JSP_ROOT_TAG = new ElementTypeAsPsiFactory("JSP_ROOT_TAG", JspLanguage.INSTANCE, JspXmlRootTagImpl.class);
+	IElementType JSP_ROOT_TAG = new IElementType("JSP_ROOT_TAG", JspLanguage.INSTANCE);
 
 	IElementType JSP_DOCUMENT = new IElementType("JSP_DOCUMENT", JspLanguage.INSTANCE);
 
-	IElementType DIRECTIVE = new ElementTypeAsPsiFactory("DIRECTIVE", JspLanguage.INSTANCE, JspDirectiveImpl.class);
+	IElementType DIRECTIVE = new IElementType("DIRECTIVE", JspLanguage.INSTANCE);
 
-	IElementType DECLARATION = new ElementTypeAsPsiFactory("DECLARATION", JspLanguage.INSTANCE, JspDeclarationImpl.class);
+	IElementType DECLARATION = new IElementType("DECLARATION", JspLanguage.INSTANCE);
 
-	IElementType SCRIPTLET = new ElementTypeAsPsiFactory("SCRIPTLET", JspLanguage.INSTANCE, JspScriptletImpl.class);
+	IElementType SCRIPTLET = new IElementType("SCRIPTLET", JspLanguage.INSTANCE);
 
-	IElementType EXPRESSION = new ElementTypeAsPsiFactory("EXPRESSION", JspLanguage.INSTANCE, JspExpressionImpl.class);
+	IElementType EXPRESSION = new IElementType("EXPRESSION", JspLanguage.INSTANCE);
 }

@@ -38,8 +38,6 @@
 	</extensions>
 
 	<extensions defaultExtensionNs="com.intellij">
-		<highlightVisitor implementation="consulo.javaee.jsp.ide.highlight.JspHighlightVisitor"/>
-
 		<packaging.artifactType implementation="consulo.javaee.artifact.ExplodedWarArtifactType"/>
 		<packaging.artifactType implementation="consulo.javaee.artifact.WarArtifactType"/>
 		<packaging.elementType implementation="consulo.javaee.artifact.WebResourceModuleOutputElementType"/>
@@ -52,7 +50,7 @@
 
 		<lang.ast.compositeFactory implementation="consulo.javaee.jsp.psi.impl.JspCompositeElementFactory"/>
 
-		<highlightVisitor implementation="consulo.javaee.jsp.codeInsigh.daemon.analysis.JspHighlightVisitorImpl"/>
+		<highlightVisitor implementation="consulo.javaee.jsp.codeInsigh.daemon.analysis.JspJavaHighlightVisitorImpl"/>
 		<problemFileHighlightFilter implementation="consulo.javaee.jsp.codeInsigh.daemon.JspProblemFileHighlightFilter"/>
 		<problemHighlightFilter implementation="consulo.javaee.jsp.codeInsigh.daemon.JspProblemHighlightFilter"/>
 		<lang.syntaxHighlighterFactory language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighterFactory"/>

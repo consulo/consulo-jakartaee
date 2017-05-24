@@ -21,12 +21,33 @@ public class JspCompositeElementFactory implements ASTCompositeFactory
 		{
 			return new JspDocumentImpl();
 		}
+		if(type == JspElements.JSP_ROOT_TAG)
+		{
+			return new JspXmlRootTagImpl();
+		}
+		if(type == JspElements.SCRIPTLET)
+		{
+			return new JspScriptletImpl();
+		}
+		if(type == JspElements.EXPRESSION)
+		{
+			return new JspExpressionImpl();
+		}
+		if(type == JspElements.DECLARATION)
+		{
+			return new JspDeclarationImpl();
+		}
+		if(type == JspElements.DIRECTIVE)
+		{
+			return new JspDirectiveImpl();
+		}
 		throw new UnsupportedOperationException(type.toString());
 	}
 
 	@Override
 	public boolean apply(@Nullable IElementType type)
 	{
-		return type == JspElements.JSP_DOCUMENT;
+		return type == JspElements.JSP_DOCUMENT || type == JspElements.JSP_ROOT_TAG || type == JspElements.SCRIPTLET || type == JspElements.EXPRESSION || type == JspElements.DIRECTIVE || type ==
+				JspElements.DECLARATION;
 	}
 }

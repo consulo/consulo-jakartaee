@@ -1,8 +1,8 @@
 package consulo.javaee.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
-import com.intellij.lang.ASTNode;
 import com.intellij.psi.impl.source.jsp.jspXml.JspDeclaration;
+import consulo.javaee.jsp.psi.JspElements;
 
 /**
  * @author VISTALL
@@ -10,9 +10,9 @@ import com.intellij.psi.impl.source.jsp.jspXml.JspDeclaration;
  */
 public class JspDeclarationImpl extends JspXmlTagBaseImpl implements JspDeclaration
 {
-	public JspDeclarationImpl(@NotNull ASTNode node)
+	public JspDeclarationImpl()
 	{
-		super(node);
+		super(JspElements.DECLARATION);
 	}
 
 	@Override
