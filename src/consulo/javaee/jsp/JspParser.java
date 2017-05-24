@@ -96,11 +96,9 @@ public class JspParser implements PsiParser
 						PsiBuilder.Marker attributeValueMarker = builder.mark();
 						if(PsiBuilderUtil.expect(builder, XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER))
 						{
-							if(!PsiBuilderUtil.expect(builder, XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN))
-							{
-								builder.error("Value expected");
-							}
-							else if(!PsiBuilderUtil.expect(builder, XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER))
+							PsiBuilderUtil.expect(builder, XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN);
+
+							if(!PsiBuilderUtil.expect(builder, XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER))
 							{
 								builder.error("Excted attribute value stopper");
 							}
