@@ -1,11 +1,11 @@
 package consulo.javaee.jsp.lexer;
 
+import static consulo.javaee.jsp.psi.JspTokens.JAVA_FRAGMENT;
+
 import com.intellij.lexer.JavaLexer;
 import com.intellij.lexer.Lexer;
-import com.intellij.lexer.LexerPosition;
 import com.intellij.lexer.LookAheadLexer;
 import com.intellij.pom.java.LanguageLevel;
-import com.intellij.psi.JavaTokenType;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.java.IJavaElementType;
 
@@ -17,115 +17,40 @@ public class _JspJavaLexer extends LookAheadLexer
 {
 	public static final IElementType JSP_IN_JAVA = new IJavaElementType("JSP_IN_JAVA");
 
-	private boolean myEnabledJavaTokens;
-
 	public _JspJavaLexer()
 	{
-		super(new JavaLexer(LanguageLevel.HIGHEST));
+		super(new JspLexer());
 	}
 
 	@Override
 	protected void lookAhead(Lexer baseLexer)
 	{
-		IElementType tokenType = baseLexer.getTokenType();
-		if(tokenType == null)
+		if(baseLexer.getTokenType() == null)
 		{
 			super.lookAhead(baseLexer);
 			return;
 		}
 
-		if(myEnabledJavaTokens)
+		if(baseLexer.getTokenType() == JAVA_FRAGMENT)
 		{
-			if(tokenType == JavaTokenType.PERC)
+			int start = baseLexer.getTokenStart();
+
+			CharSequence tokenSequence = baseLexer.getTokenSequence();
+			JavaLexer lexer = new JavaLexer(LanguageLevel.JDK_1_8);
+			lexer.start(tokenSequence);
+
+			IElementType elementType;
+			while((elementType = lexer.getTokenType()) != null)
 			{
-				LexerPosition currentPosition = baseLexer.getCurrentPosition();
-
-				boolean tagClosed = false;
-				baseLexer.advance();
-
-				if(baseLexer.getTokenType() == JavaTokenType.GT)
-				{
-					tagClosed = true;
-				}
-				baseLexer.restore(currentPosition);
-
-				if(tagClosed)
-				{
-					myEnabledJavaTokens = false;
-					baseLexer.advance();
-					baseLexer.advance();
-					addToken(JSP_IN_JAVA);
-					return;
-				}
+				addToken(start + lexer.getTokenEnd(), elementType);
+				lexer.advance();
 			}
 
-			super.lookAhead(baseLexer);
-			return;
-		}
-
-		if(tokenType == JavaTokenType.LT)
-		{
-			LexerPosition currentPosition = baseLexer.getCurrentPosition();
-
-			// this <
 			baseLexer.advance();
-
-			// <%
-			IElementType token2 = baseLexer.getTokenType();
-			if(token2 == JavaTokenType.PERC)
-			{
-				baseLexer.advance();
-
-				// simple <%
-				if(baseLexer.getTokenType() == JavaTokenType.WHITE_SPACE)
-				{
-					addToken(JSP_IN_JAVA);
-
-					baseLexer.restore(currentPosition);
-
-					baseLexer.advance(); // <
-					baseLexer.advance(); // %
-
-					myEnabledJavaTokens = true;
-					return;
-				}
-				// <%!
-				else if(baseLexer.getTokenType() == JavaTokenType.EXCL)
-				{
-					baseLexer.restore(currentPosition);
-
-					addToken(JSP_IN_JAVA);
-
-					baseLexer.advance(); // <
-					baseLexer.advance(); // %
-					baseLexer.advance(); // !
-
-					myEnabledJavaTokens = true;
-					return;
-				}
-				else
-				{
-					baseLexer.restore(currentPosition);
-				}
-			}
-			else if(token2 == JavaTokenType.PERCEQ)
-			{
-				addToken(JSP_IN_JAVA);
-
-				baseLexer.restore(currentPosition);
-
-				baseLexer.advance(); // <
-				baseLexer.advance(); // %=
-
-				myEnabledJavaTokens = true;
-				return;
-			}
-			else
-			{
-				baseLexer.restore(currentPosition);
-			}
 		}
-
-		advanceAs(baseLexer, JSP_IN_JAVA);
+		else
+		{
+			advanceAs(baseLexer, JSP_IN_JAVA);
+		}
 	}
 }
