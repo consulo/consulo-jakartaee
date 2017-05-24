@@ -27,7 +27,7 @@ public class JspParser implements PsiParser
 		PsiBuilder.Marker rootMarker = builder.mark();
 		while(!builder.eof())
 		{
-			if(builder.getTokenType() == JspTokenType.JSP_DIRECTIVE_START)
+			if(builder.getTokenType() == XmlTokenType.XML_START_TAG_START)
 			{
 				parseDirective(builder);
 			}
@@ -119,7 +119,7 @@ public class JspParser implements PsiParser
 
 					attMark.done(XmlElementType.XML_ATTRIBUTE);
 				}
-				else if(builder.getTokenType() == JspTokenType.JSP_DIRECTIVE_END)
+				else if(builder.getTokenType() == XmlTokenType.XML_EMPTY_ELEMENT_END)
 				{
 					break;
 				}
@@ -131,7 +131,7 @@ public class JspParser implements PsiParser
 			}
 		}
 
-		if(!PsiBuilderUtil.expect(builder, JspTokenType.JSP_DIRECTIVE_END))
+		if(!PsiBuilderUtil.expect(builder, XmlTokenType.XML_EMPTY_ELEMENT_END))
 		{
 			builder.error("'%>' expected");
 		}

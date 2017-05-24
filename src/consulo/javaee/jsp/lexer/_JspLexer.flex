@@ -53,7 +53,7 @@ WHITESPACE=[ \n\r\t]+
    "<%!"   { yybegin(DECLARATION);  return JspTokenType.JSP_DECLARATION_START; }
 
     // tag
-   "<%@"   { yybegin(DIRECTIVE);  return JspTokenType.JSP_DIRECTIVE_START; }
+   "<%@"   { yybegin(DIRECTIVE);  return XmlTokenType.XML_START_TAG_START; }
 
     // expression
    "<%="   { yybegin(EXPRESSION);  return JspTokenType.JSP_EXPRESSION_START; }
@@ -69,7 +69,7 @@ WHITESPACE=[ \n\r\t]+
 {
     {NAME}        { yybegin(ATTR_LIST);  return XmlTokenType.XML_TAG_NAME; }
 
-    "%>"          { yybegin(YYINITIAL);  return JspTokenType.JSP_DIRECTIVE_END; }
+    "%>"          { yybegin(YYINITIAL);  return XmlTokenType.XML_EMPTY_ELEMENT_END; }
 
    {WHITESPACE}   { return XmlTokenType.XML_WHITE_SPACE; }
 
