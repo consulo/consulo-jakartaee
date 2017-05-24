@@ -16,6 +16,8 @@
 
 package consulo.javaee.jsp.psi.impl;
 
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.lang.jsp.JspxFileViewProvider;
@@ -24,11 +26,14 @@ import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.impl.source.jsp.jspXml.JspDirective;
 import com.intellij.psi.impl.source.xml.XmlFileImpl;
 import com.intellij.psi.jsp.JspDirectiveKind;
 import com.intellij.psi.jsp.JspFile;
-import com.intellij.psi.xml.XmlDocument;
 import com.intellij.psi.xml.XmlTag;
+import com.intellij.util.SmartList;
+import com.intellij.util.containers.ContainerUtil;
+import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspFileType;
 import consulo.javaee.jsp.JspParserDefinition;
 
@@ -63,9 +68,20 @@ public class JspFileImpl extends XmlFileImpl implements JspFile
 		return new PsiElement[0];
 	}
 
+	@RequiredReadAction
 	@Override
 	public boolean isErrorPage()
 	{
+		XmlTag[] directiveTags = getDirectiveTags(JspDirectiveKind.PAGE, false);
+
+		for(XmlTag directiveTag : directiveTags)
+		{
+			String isErrorPage = directiveTag.getAttributeValue("isErrorPage");
+			if(isErrorPage != null && "true".equals(isErrorPage))
+			{
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -81,14 +97,39 @@ public class JspFileImpl extends XmlFileImpl implements JspFile
 		return false;
 	}
 
+	@NotNull
+	@RequiredReadAction
 	@Override
 	public XmlTag[] getDirectiveTags(JspDirectiveKind directiveKind, boolean searchInIncludes)
 	{
-		XmlDocument document = getDocument();
-		
-		XmlTag[] subTags = getRootTag().getSubTags();
-		
-		return new XmlTag[0];
+		XmlTag rootTag = getRootTag();
+		if(rootTag == null)
+		{
+			return XmlTag.EMPTY;
+		}
+		List<XmlTag> list = new SmartList<>();
+		XmlTag[] subTags = rootTag.getSubTags();
+		for(XmlTag subTag : subTags)
+		{
+			if(kind(subTag) == directiveKind)
+			{
+				list.add(subTag);
+			}
+		}
+		return ContainerUtil.toArray(list, XmlTag.EMPTY);
+	}
+
+	@Nullable
+	private JspDirectiveKind kind(XmlTag tag)
+	{
+		if(tag instanceof JspDirective)
+		{
+			return JspDirectiveKind.PAGE;
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	@Override
@@ -118,8 +159,6 @@ public class JspFileImpl extends XmlFileImpl implements JspFile
 	@Override
 	public XmlTag[] getDirectiveTagsInContext(JspDirectiveKind directiveKind)
 	{
-		XmlTag[] subTags = getRootTag().getSubTags();
-
 		return new XmlTag[0];
 	}
 

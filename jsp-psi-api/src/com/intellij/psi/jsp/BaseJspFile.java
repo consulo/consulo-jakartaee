@@ -15,40 +15,51 @@
  */
 package com.intellij.psi.jsp;
 
+import org.jetbrains.annotations.NotNull;
 import com.intellij.lang.jsp.JspxFileViewProvider;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.psi.xml.XmlTag;
-import org.jetbrains.annotations.NotNull;
+import consulo.annotations.RequiredReadAction;
 
-public interface BaseJspFile extends XmlFile {
-  BaseJspFile[] EMPTY_ARRAY = new BaseJspFile[0];
+public interface BaseJspFile extends XmlFile
+{
+	BaseJspFile[] EMPTY_ARRAY = new BaseJspFile[0];
 
-  PsiElement[] getContentsElements();
+	PsiElement[] getContentsElements();
 
-  boolean isErrorPage();
-  boolean isSessionPage();
-  boolean isTagPage();
+	@RequiredReadAction
+	boolean isErrorPage();
 
-  XmlTag[] getDirectiveTags(JspDirectiveKind directiveKind, final boolean searchInIncludes);
-  XmlTag createDirective(XmlTag context, JspDirectiveKind directiveKind);
-  XmlTag createDirective(JspDirectiveKind directiveKind);
+	boolean isSessionPage();
 
-  /**
-   * Method with a bad name. Returns file corresponding to getTemplateDataLanguage() method of ViewProvider
-   * @see com.intellij.psi.templateLanguages.TemplateLanguageFileViewProvider#getTemplateDataLanguage()
-   */
-  PsiFile getBaseLanguageRoot();
-  /**
-   * @return file which the errorPage directive references,
-   * or null, if there is no errorPage directive or directive references invalid file
-   */
-  PsiFile getErrorPage();
+	boolean isTagPage();
 
-  @NotNull
-  JspxFileViewProvider getViewProvider();
+	@RequiredReadAction
+	@NotNull
+	XmlTag[] getDirectiveTags(JspDirectiveKind directiveKind, final boolean searchInIncludes);
 
-  @NotNull
-  XmlTag getRootTag();
+	XmlTag createDirective(XmlTag context, JspDirectiveKind directiveKind);
+
+	XmlTag createDirective(JspDirectiveKind directiveKind);
+
+	/**
+	 * Method with a bad name. Returns file corresponding to getTemplateDataLanguage() method of ViewProvider
+	 *
+	 * @see com.intellij.psi.templateLanguages.TemplateLanguageFileViewProvider#getTemplateDataLanguage()
+	 */
+	PsiFile getBaseLanguageRoot();
+
+	/**
+	 * @return file which the errorPage directive references,
+	 * or null, if there is no errorPage directive or directive references invalid file
+	 */
+	PsiFile getErrorPage();
+
+	@NotNull
+	JspxFileViewProvider getViewProvider();
+
+	@NotNull
+	XmlTag getRootTag();
 }

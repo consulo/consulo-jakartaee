@@ -25,6 +25,7 @@ import com.intellij.psi.util.CachedValueProvider;
 import com.intellij.psi.util.CachedValuesManager;
 import com.intellij.psi.util.PsiUtil;
 import com.intellij.util.containers.ContainerUtil;
+import consulo.javaee.jsp.JspLanguage;
 import consulo.javaee.jsp.ServletApiClassNames;
 
 /**
@@ -50,6 +51,12 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 		addField(fields, "application", ServletApiClassNames.ServletContext);
 		addField(fields, "config", ServletApiClassNames.ServletConfig);
 		addField(fields, "pageContext", ServletApiClassNames.PageContext);
+
+		JspFile jspxFile = getJspxFile();
+		if(jspxFile.isErrorPage())
+		{
+			addField(fields, "exception", Throwable.class.getName());
+		}
 		return ContainerUtil.toArray(fields, PsiField.ARRAY_FACTORY);
 	}
 
@@ -72,7 +79,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	@Override
 	public JspFile getJspxFile()
 	{
-		return (JspFile) getContainingFile();
+		return (JspFile) getContainingFile().getViewProvider().getPsi(JspLanguage.INSTANCE);
 	}
 
 	@Nullable
