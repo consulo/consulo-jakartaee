@@ -1,6 +1,9 @@
 package consulo.javaee.jsp.psi.impl.java.psi;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.jetbrains.annotations.NonNls;
@@ -12,12 +15,14 @@ import com.intellij.openapi.util.Pair;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.PsiClassImplUtil;
+import com.intellij.psi.impl.light.LightFieldBuilder;
 import com.intellij.psi.impl.source.jsp.jspJava.JspClass;
 import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.scope.PsiScopeProcessor;
 import com.intellij.psi.util.PsiUtil;
+import consulo.javaee.jsp.ServletApiClassNames;
 
 /**
  * @author VISTALL
@@ -25,9 +30,29 @@ import com.intellij.psi.util.PsiUtil;
  */
 public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 {
+	private final List<PsiField> myImplicitFields = new ArrayList<>();
+
 	public JspClassImpl(@NotNull ASTNode node)
 	{
 		super(node);
+		addField("out", PrintWriter.class.getName());
+		addField("response", ServletApiClassNames.HttpServletResponse);
+		addField("request", ServletApiClassNames.HttpServletRequest);
+		addField("session", ServletApiClassNames.HttpSession);
+		addField("page", Object.class.getName());
+		addField("application", ServletApiClassNames.ServletContext);
+		addField("config", ServletApiClassNames.ServletConfig);
+		addField("pageContext", ServletApiClassNames.PageContext);
+	}
+
+	private void addField(String name, String type)
+	{
+		PsiClassType classType = JavaPsiFacade.getElementFactory(getProject()).createTypeByFQClassName(type, getResolveScope());
+
+		LightFieldBuilder builder = new LightFieldBuilder(getManager(), name, classType);
+		builder.setModifiers(PsiModifier.PRIVATE, PsiModifier.FINAL);
+		builder.setContainingClass(this);
+		myImplicitFields.add(builder);
 	}
 
 	@Override
@@ -126,7 +151,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	@Override
 	public PsiField[] getFields()
 	{
-		return new PsiField[0];
+		return myImplicitFields.toArray(new PsiField[myImplicitFields.size()]);
 	}
 
 	@NotNull
@@ -161,7 +186,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	@Override
 	public PsiField[] getAllFields()
 	{
-		return new PsiField[0];
+		return getFields();
 	}
 
 	@NotNull
@@ -210,14 +235,14 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	@Override
 	public List<Pair<PsiMethod, PsiSubstitutor>> findMethodsAndTheirSubstitutorsByName(@NonNls String s, boolean b)
 	{
-		return null;
+		return Collections.emptyList();
 	}
 
 	@NotNull
 	@Override
 	public List<Pair<PsiMethod, PsiSubstitutor>> getAllMethodsAndTheirSubstitutors()
 	{
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Nullable
@@ -277,7 +302,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	@Override
 	public Collection<HierarchicalMethodSignature> getVisibleSignatures()
 	{
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override
