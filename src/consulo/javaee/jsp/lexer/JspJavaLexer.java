@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.lexer;
 
 import com.intellij.lexer.MergingLexerAdapter;
+import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.tree.TokenSet;
 
 /**
@@ -11,8 +12,8 @@ public class JspJavaLexer extends MergingLexerAdapter
 {
 	private static final TokenSet ourMergetSet = TokenSet.create(_JspJavaLexer.JSP_IN_JAVA);
 
-	public JspJavaLexer()
+	public JspJavaLexer(LanguageLevel languageLevel)
 	{
-		super(new _JspJavaLexer(), ourMergetSet);
+		super(new _JspJavaLexer(languageLevel), ourMergetSet);
 	}
 }

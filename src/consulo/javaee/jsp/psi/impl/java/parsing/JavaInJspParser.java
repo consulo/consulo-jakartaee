@@ -38,10 +38,11 @@ public class JavaInJspParser implements PsiParser
 			LanguageVersion tempLanguageVersion = chameleon.getUserData(LanguageVersion.KEY);
 			LanguageVersion languageVersion = tempLanguageVersion == null ? psi.getLanguageVersion() : tempLanguageVersion;
 
-			PsiBuilder builder = PsiBuilderFactory.getInstance().createBuilder(project, chameleon, new JspJavaLexer(), languageForParser, languageVersion, chameleon.getChars());
+			LanguageLevel languageLevel = LanguageLevel.HIGHEST;
+			PsiBuilder builder = PsiBuilderFactory.getInstance().createBuilder(project, chameleon, new JspJavaLexer(languageLevel), languageForParser, languageVersion, chameleon.getChars());
 			//FIXME [VISTALL] we need this? maybe another way for skip it
 			builder.enforceCommentTokens(TokenSet.orSet(ElementType.JAVA_COMMENT_BIT_SET, TokenSet.create(_JspJavaLexer.JSP_IN_JAVA)));
-			JavaParserUtil.setLanguageLevel(builder, LanguageLevel.HIGHEST);
+			JavaParserUtil.setLanguageLevel(builder, languageLevel);
 			PsiParser parser = new JavaInJspParser();
 			return parser.parse(this, builder, languageVersion).getFirstChildNode();
 		}

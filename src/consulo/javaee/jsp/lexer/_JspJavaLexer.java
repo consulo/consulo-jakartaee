@@ -17,9 +17,12 @@ public class _JspJavaLexer extends LookAheadLexer
 {
 	public static final IElementType JSP_IN_JAVA = new IJavaElementType("JSP_IN_JAVA");
 
-	public _JspJavaLexer()
+	private JavaLexer myJavaLexer;
+
+	public _JspJavaLexer(LanguageLevel languageLevel)
 	{
 		super(new JspLexer());
+		myJavaLexer = new JavaLexer(languageLevel);
 	}
 
 	@Override
@@ -35,15 +38,14 @@ public class _JspJavaLexer extends LookAheadLexer
 		{
 			int start = baseLexer.getTokenStart();
 
-			CharSequence tokenSequence = baseLexer.getTokenSequence();
-			JavaLexer lexer = new JavaLexer(LanguageLevel.JDK_1_8);
-			lexer.start(tokenSequence);
+			CharSequence bufferSequence = getBufferSequence();
+			myJavaLexer.start(bufferSequence, start, baseLexer.getTokenEnd());
 
 			IElementType elementType;
-			while((elementType = lexer.getTokenType()) != null)
+			while((elementType = myJavaLexer.getTokenType()) != null)
 			{
-				addToken(start + lexer.getTokenEnd(), elementType);
-				lexer.advance();
+				addToken(myJavaLexer.getTokenEnd(), elementType);
+				myJavaLexer.advance();
 			}
 
 			baseLexer.advance();
