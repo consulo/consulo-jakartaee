@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.Pair;
+import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.InheritanceImplUtil;
@@ -73,6 +74,13 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 		builder.setModifiers(PsiModifier.PRIVATE, PsiModifier.FINAL);
 		builder.setContainingClass(this);
 		fields.add(builder);
+	}
+
+	@RequiredReadAction
+	@Override
+	public String getName()
+	{
+		return StringUtil.capitalize(getContainingFile().getVirtualFile().getNameWithoutExtension());
 	}
 
 	@Override
@@ -186,7 +194,6 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	public List<PsiMethod> getOwnMethods()
 	{
 		List<PsiMethod> methods = new ArrayList<>();
-		Collections.addAll(methods, findChildrenByClass(PsiMethod.class));
 		PsiStatement[] statements = getHolderMethod().getBody().getStatements();
 		for(PsiStatement statement : statements)
 		{
