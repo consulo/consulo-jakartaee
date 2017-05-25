@@ -16,7 +16,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.JavaTokenType;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.impl.source.tree.JavaElementType;
 import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.IFileElementType;
@@ -98,7 +97,7 @@ public class JavaInJspParser implements PsiParser
 				}
 				else
 				{
-					marker.done(JavaElementType.EXPRESSION_STATEMENT);
+					marker.done(JspJavaElements.JSP_EXRESSION_STATEMENT);
 				}
 
 				while(!builder.eof() && builder.getTokenType() != JspTokenType.JSP_EXPRESSION_END)

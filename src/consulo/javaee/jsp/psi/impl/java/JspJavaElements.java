@@ -5,6 +5,7 @@ import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.impl.java.psi.JspClassImpl;
 import consulo.javaee.jsp.psi.impl.java.psi.JspClassLevelDeclarationStatementImpl;
 import consulo.javaee.jsp.psi.impl.java.psi.JspCodeBlockImpl;
+import consulo.javaee.jsp.psi.impl.java.psi.JspExpressionStatementImpl;
 import consulo.javaee.jsp.psi.impl.java.psi.JspHolderMethodImpl;
 import consulo.javaee.jsp.psi.impl.java.psi.JspTemplateStatementImpl;
 import consulo.psi.tree.ElementTypeAsPsiFactory;
@@ -21,4 +22,5 @@ public interface JspJavaElements
 
 	IElementType JSP_TEMPLATE_STATEMENT = new ElementTypeAsPsiFactory("JSP_TEMPLATE_STATEMENT", JavaLanguage.INSTANCE, JspTemplateStatementImpl.class);
 	IElementType JSP_CLASS_DECLARATION_STATEMENT = new ElementTypeAsPsiFactory("JSP_CLASS_DECLARATION_STATEMENT", JavaLanguage.INSTANCE, JspClassLevelDeclarationStatementImpl.class);
+	IElementType JSP_EXRESSION_STATEMENT = new ElementTypeAsPsiFactory("JSP_EXRESSION_STATEMENT", JavaLanguage.INSTANCE, JspExpressionStatementImpl.class);
 }
