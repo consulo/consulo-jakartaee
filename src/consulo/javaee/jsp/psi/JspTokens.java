@@ -17,6 +17,7 @@
 package consulo.javaee.jsp.psi;
 
 import com.intellij.psi.TokenType;
+import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.JspLanguage;
 
@@ -26,7 +27,10 @@ import consulo.javaee.jsp.JspLanguage;
  */
 public interface JspTokens extends TokenType
 {
-	IElementType JSP_FRAGMENT = new IElementType("JSP_FRAGMENT", JspLanguage.INSTANCE);
-	IElementType JAVA_FRAGMENT = new IElementType("JAVA_FRAGMENT", JspLanguage.INSTANCE);
+	@Deprecated
+	IElementType JSP_FRAGMENT = JspTokenType.JSP_FRAGMENT;
+	@Deprecated
+	IElementType JAVA_FRAGMENT = JspTokenType.JAVA_CODE;
+
 	IElementType HTML_FRAGMENT = new IElementType("HTML_FRAGMENT", JspLanguage.INSTANCE);
 }

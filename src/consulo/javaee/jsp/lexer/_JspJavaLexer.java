@@ -1,13 +1,12 @@
 package consulo.javaee.jsp.lexer;
 
-import static consulo.javaee.jsp.psi.JspTokens.JAVA_FRAGMENT;
-
 import com.intellij.lexer.JavaLexer;
 import com.intellij.lexer.Lexer;
 import com.intellij.lexer.LookAheadLexer;
 import com.intellij.pom.java.LanguageLevel;
+import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.java.IJavaElementType;
+import com.intellij.psi.tree.TokenSet;
 
 /**
  * @author VISTALL
@@ -15,9 +14,10 @@ import com.intellij.psi.tree.java.IJavaElementType;
  */
 public class _JspJavaLexer extends LookAheadLexer
 {
-	public static final IElementType JSP_IN_JAVA = new IJavaElementType("JSP_IN_JAVA");
+	private static final TokenSet ourPassTokens = TokenSet.create(JspTokenType.JSP_SCRIPTLET_START, JspTokenType.JSP_EXPRESSION_START, JspTokenType.JSP_DECLARATION_START, JspTokenType
+			.JSP_SCRIPTLET_END, JspTokenType.JSP_EXPRESSION_END, JspTokenType.JSP_DECLARATION_END);
 
-	private JavaLexer myJavaLexer;
+	private final JavaLexer myJavaLexer;
 
 	public _JspJavaLexer(LanguageLevel languageLevel)
 	{
@@ -34,7 +34,7 @@ public class _JspJavaLexer extends LookAheadLexer
 			return;
 		}
 
-		if(baseLexer.getTokenType() == JAVA_FRAGMENT)
+		if(baseLexer.getTokenType() == JspTokenType.JAVA_CODE)
 		{
 			int start = baseLexer.getTokenStart();
 
@@ -52,7 +52,7 @@ public class _JspJavaLexer extends LookAheadLexer
 		}
 		else
 		{
-			advanceAs(baseLexer, JSP_IN_JAVA);
+			advanceAs(baseLexer, ourPassTokens.contains(baseLexer.getTokenType()) ? baseLexer.getTokenType() : JspTokenType.JSP_FRAGMENT);
 		}
 	}
 }

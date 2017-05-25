@@ -14,17 +14,19 @@ import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.Pair;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.*;
+import com.intellij.psi.impl.InheritanceImplUtil;
 import com.intellij.psi.impl.PsiClassImplUtil;
 import com.intellij.psi.impl.light.LightFieldBuilder;
+import com.intellij.psi.impl.source.ClassInnerStuffCache;
+import com.intellij.psi.impl.source.PsiExtensibleClass;
 import com.intellij.psi.impl.source.jsp.jspJava.JspClass;
+import com.intellij.psi.impl.source.jsp.jspJava.JspClassLevelDeclarationStatement;
 import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.scope.PsiScopeProcessor;
-import com.intellij.psi.util.CachedValueProvider;
-import com.intellij.psi.util.CachedValuesManager;
 import com.intellij.psi.util.PsiUtil;
-import com.intellij.util.containers.ContainerUtil;
+import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspLanguage;
 import consulo.javaee.jsp.ServletApiClassNames;
 
@@ -32,15 +34,18 @@ import consulo.javaee.jsp.ServletApiClassNames;
  * @author VISTALL
  * @since 24-May-17
  */
-public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
+public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiExtensibleClass
 {
+	private final ClassInnerStuffCache myInnersCache = new ClassInnerStuffCache(this);
+
 	public JspClassImpl(@NotNull ASTNode node)
 	{
 		super(node);
 	}
 
 	@NotNull
-	private PsiField[] buildFields()
+	@RequiredReadAction
+	private List<PsiField> buildImplicitFields()
 	{
 		List<PsiField> fields = new ArrayList<>();
 		addField(fields, "out", PrintWriter.class.getName());
@@ -57,7 +62,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 		{
 			addField(fields, "exception", Throwable.class.getName());
 		}
-		return ContainerUtil.toArray(fields, PsiField.ARRAY_FACTORY);
+		return fields;
 	}
 
 	private void addField(List<PsiField> fields, String name, String type)
@@ -139,41 +144,114 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	@Override
 	public PsiClass getSuperClass()
 	{
-		return null;
+		return PsiClassImplUtil.getSuperClass(this);
 	}
 
 	@Override
 	public PsiClass[] getInterfaces()
 	{
-		return new PsiClass[0];
+		return PsiClassImplUtil.getInterfaces(this);
 	}
 
 	@NotNull
 	@Override
 	public PsiClass[] getSupers()
 	{
-		return new PsiClass[0];
+		return PsiClassImplUtil.getSupers(this);
 	}
 
 	@NotNull
 	@Override
 	public PsiClassType[] getSuperTypes()
 	{
-		return new PsiClassType[0];
+		return PsiClassImplUtil.getSuperTypes(this);
 	}
 
 	@NotNull
 	@Override
 	public PsiField[] getFields()
 	{
-		return CachedValuesManager.getCachedValue(this, () -> CachedValueProvider.Result.create(buildFields(), this));
+		return myInnersCache.getFields();
 	}
 
 	@NotNull
 	@Override
 	public PsiMethod[] getMethods()
 	{
-		return findChildrenByClass(PsiMethod.class);
+		return myInnersCache.getMethods();
+	}
+
+	@NotNull
+	@Override
+	public List<PsiMethod> getOwnMethods()
+	{
+		List<PsiMethod> methods = new ArrayList<>();
+		Collections.addAll(methods, findChildrenByClass(PsiMethod.class));
+		PsiStatement[] statements = getHolderMethod().getBody().getStatements();
+		for(PsiStatement statement : statements)
+		{
+			if(statement instanceof JspClassLevelDeclarationStatement)
+			{
+				statement.acceptChildren(new JavaElementVisitor()
+				{
+					@Override
+					public void visitMethod(PsiMethod method)
+					{
+						method.add(method);
+					}
+				});
+			}
+		}
+		return methods;
+	}
+
+	@NotNull
+	@Override
+	@RequiredReadAction
+	public List<PsiField> getOwnFields()
+	{
+		List<PsiField> fields = buildImplicitFields();
+		PsiStatement[] statements = getHolderMethod().getBody().getStatements();
+		for(PsiStatement statement : statements)
+		{
+			if(statement instanceof JspClassLevelDeclarationStatement)
+			{
+				statement.acceptChildren(new JavaElementVisitor()
+				{
+					@Override
+					public void visitField(PsiField field)
+					{
+						fields.add(field);
+					}
+				});
+			}
+		}
+		return fields;
+	}
+
+	@NotNull
+	@Override
+	@RequiredReadAction
+	public List<PsiClass> getOwnInnerClasses()
+	{
+		List<PsiClass> classes = new ArrayList<>();
+
+		PsiStatement[] statements = getHolderMethod().getBody().getStatements();
+		for(PsiStatement statement : statements)
+		{
+			if(statement instanceof JspClassLevelDeclarationStatement)
+			{
+				statement.acceptChildren(new JavaElementVisitor()
+				{
+					@Override
+					public void visitClass(PsiClass aClass)
+					{
+						classes.add(aClass);
+					}
+				});
+			}
+		}
+		return classes;
 	}
 
 	@NotNull
@@ -187,7 +265,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	@Override
 	public PsiClass[] getInnerClasses()
 	{
-		return new PsiClass[0];
+		return myInnersCache.getInnerClasses();
 	}
 
 	@NotNull
@@ -201,49 +279,49 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	@Override
 	public PsiField[] getAllFields()
 	{
-		return getFields();
+		return PsiClassImplUtil.getAllFields(this);
 	}
 
 	@NotNull
 	@Override
 	public PsiMethod[] getAllMethods()
 	{
-		return getMethods();
+		return PsiClassImplUtil.getAllMethods(this);
 	}
 
 	@NotNull
 	@Override
 	public PsiClass[] getAllInnerClasses()
 	{
-		return new PsiClass[0];
+		return PsiClassImplUtil.getAllInnerClasses(this);
 	}
 
 	@Nullable
 	@Override
-	public PsiField findFieldByName(@NonNls String s, boolean b)
+	public PsiField findFieldByName(@NonNls String name, boolean checkBases)
 	{
-		return null;
+		return myInnersCache.findFieldByName(name, checkBases);
 	}
 
 	@Nullable
 	@Override
-	public PsiMethod findMethodBySignature(PsiMethod psiMethod, boolean b)
+	public PsiMethod findMethodBySignature(PsiMethod psiMethod, boolean checkBases)
 	{
 		return null;
 	}
 
 	@NotNull
 	@Override
-	public PsiMethod[] findMethodsBySignature(PsiMethod psiMethod, boolean b)
+	public PsiMethod[] findMethodsBySignature(PsiMethod psiMethod, boolean checkBases)
 	{
 		return new PsiMethod[0];
 	}
 
 	@NotNull
 	@Override
-	public PsiMethod[] findMethodsByName(@NonNls String s, boolean b)
+	public PsiMethod[] findMethodsByName(@NonNls String name, boolean checkBases)
 	{
-		return new PsiMethod[0];
+		return myInnersCache.findMethodsByName(name, checkBases);
 	}
 
 	@NotNull
@@ -262,9 +340,9 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 
 	@Nullable
 	@Override
-	public PsiClass findInnerClassByName(@NonNls String s, boolean b)
+	public PsiClass findInnerClassByName(@NonNls String name, boolean checkBases)
 	{
-		return null;
+		return myInnersCache.findInnerClassByName(name, checkBases);
 	}
 
 	@Nullable
@@ -295,15 +373,15 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass
 	}
 
 	@Override
-	public boolean isInheritor(@NotNull PsiClass psiClass, boolean b)
+	public boolean isInheritor(@NotNull PsiClass baseClass, boolean checkDeep)
 	{
-		return false;
+		return InheritanceImplUtil.isInheritor(this, baseClass, checkDeep);
 	}
 
 	@Override
-	public boolean isInheritorDeep(PsiClass psiClass, @Nullable PsiClass psiClass1)
+	public boolean isInheritorDeep(PsiClass baseClass, PsiClass classToByPass)
 	{
-		return false;
+		return InheritanceImplUtil.isInheritorDeep(this, baseClass, classToByPass);
 	}
 
 	@Nullable
