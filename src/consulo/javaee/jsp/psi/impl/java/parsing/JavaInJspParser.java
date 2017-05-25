@@ -47,14 +47,6 @@ public class JavaInJspParser implements PsiParser
 		}
 	};
 
-	enum NextItem
-	{
-		UNKNOWN,
-		UNEXPECTED,
-		EXPESSION,
-		DECLARATION,
-		STATEMENT
-	}
 
 	@NotNull
 	@Override
