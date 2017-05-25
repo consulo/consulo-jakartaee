@@ -50,19 +50,19 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	private List<PsiField> buildImplicitFields()
 	{
 		List<PsiField> fields = new ArrayList<>();
-		addField(fields, "out", PrintWriter.class.getName());
-		addField(fields, "response", ServletApiClassNames.HttpServletResponse);
-		addField(fields, "request", ServletApiClassNames.HttpServletRequest);
-		addField(fields, "session", ServletApiClassNames.HttpSession);
-		addField(fields, "page", Object.class.getName());
-		addField(fields, "application", ServletApiClassNames.ServletContext);
-		addField(fields, "config", ServletApiClassNames.ServletConfig);
-		addField(fields, "pageContext", ServletApiClassNames.PageContext);
+		addField(fields, JspHolderMethod.OUT_VAR_NAME, PrintWriter.class.getName());
+		addField(fields, JspHolderMethod.RESPONSE_VAR_NAME, ServletApiClassNames.HttpServletResponse);
+		addField(fields, JspHolderMethod.REQUEST_VAR_NAME, ServletApiClassNames.HttpServletRequest);
+		addField(fields, JspHolderMethod.SESSION_VAR_NAME, ServletApiClassNames.HttpSession);
+		addField(fields, JspHolderMethod.PAGE_VAR_NAME, Object.class.getName());
+		addField(fields, JspHolderMethod.APPLICATION_VAR_NAME, ServletApiClassNames.ServletContext);
+		addField(fields, JspHolderMethod.CONFIG_VAR_NAME, ServletApiClassNames.ServletConfig);
+		addField(fields, JspHolderMethod.CONTEXT_VAR_NAME, ServletApiClassNames.PageContext);
 
 		JspFile jspxFile = getJspxFile();
 		if(jspxFile.isErrorPage())
 		{
-			addField(fields, "exception", Throwable.class.getName());
+			addField(fields, JspHolderMethod.EXCEPTION_VAR_NAME, Throwable.class.getName());
 		}
 		return fields;
 	}
