@@ -9,14 +9,15 @@ import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.PsiSuperMethodImplUtil;
-import com.intellij.psi.impl.light.LightEmptyImplementsList;
 import com.intellij.psi.impl.light.LightModifierList;
 import com.intellij.psi.impl.light.LightParameterListBuilder;
+import com.intellij.psi.impl.light.LightReferenceListBuilder;
 import com.intellij.psi.impl.source.jsp.jspJava.JspClass;
 import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.util.MethodSignature;
 import com.intellij.psi.util.MethodSignatureBackedByPsiMethod;
+import consulo.java.module.util.JavaClassNames;
 
 /**
  * @author VISTALL
@@ -39,7 +40,7 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 	@Override
 	public PsiType getReturnType()
 	{
-		return null;
+		return PsiType.VOID;
 	}
 
 	@Nullable
@@ -60,7 +61,9 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 	@Override
 	public PsiReferenceList getThrowsList()
 	{
-		return new LightEmptyImplementsList(PsiManager.getInstance(getProject()));
+		LightReferenceListBuilder builder = new LightReferenceListBuilder(getManager(), PsiReferenceList.Role.THROWS_LIST);
+		builder.addReference(JavaClassNames.JAVA_LANG_THROWABLE);
+		return builder;
 	}
 
 	@Nullable
