@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.Pair;
+import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.*;
@@ -80,7 +81,13 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public String getName()
 	{
-		return StringUtil.capitalize(getContainingFile().getVirtualFile().getNameWithoutExtension()) + "_jsp";
+		PsiFile containingFile = getContainingFile();
+		if(containingFile == null)
+		{
+			return null;
+		}
+
+		return StringUtil.capitalize(FileUtil.getNameWithoutExtension(containingFile.getName())) + "_jsp";
 	}
 
 	@Override

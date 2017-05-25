@@ -20,8 +20,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiJavaFile;
 import com.intellij.psi.impl.source.PsiJavaFileBaseImpl;
+import com.intellij.util.ArrayUtil;
 import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspFileType;
 import consulo.javaee.jsp.psi.impl.java.parsing.JavaInJspParser;
@@ -46,6 +48,14 @@ public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 	public JspxImportListImpl getImportList()
 	{
 		return myImportList;
+	}
+
+	@RequiredReadAction
+	@NotNull
+	@Override
+	public PsiElement[] getChildren()
+	{
+		return ArrayUtil.prepend(myImportList, super.getChildren());
 	}
 
 	@NotNull
