@@ -80,7 +80,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public String getName()
 	{
-		return StringUtil.capitalize(getContainingFile().getVirtualFile().getNameWithoutExtension());
+		return StringUtil.capitalize(getContainingFile().getVirtualFile().getNameWithoutExtension()) + "_jsp";
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public String getQualifiedName()
 	{
-		return null;
+		return getName();
 	}
 
 	@Override
@@ -138,14 +138,14 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public PsiClassType[] getExtendsListTypes()
 	{
-		return new PsiClassType[0];
+		return PsiClassType.EMPTY_ARRAY;
 	}
 
 	@NotNull
 	@Override
 	public PsiClassType[] getImplementsListTypes()
 	{
-		return new PsiClassType[0];
+		return PsiClassType.EMPTY_ARRAY;
 	}
 
 	@Nullable
