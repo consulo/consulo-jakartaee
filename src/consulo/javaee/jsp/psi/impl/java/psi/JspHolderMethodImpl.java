@@ -17,6 +17,7 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.util.MethodSignature;
 import com.intellij.psi.util.MethodSignatureBackedByPsiMethod;
+import consulo.annotations.RequiredReadAction;
 import consulo.java.module.util.JavaClassNames;
 
 /**
@@ -28,6 +29,13 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 	public JspHolderMethodImpl(@NotNull ASTNode node)
 	{
 		super(node);
+	}
+
+	@RequiredReadAction
+	@Override
+	public String getName()
+	{
+		return "_holder";
 	}
 
 	@Override
