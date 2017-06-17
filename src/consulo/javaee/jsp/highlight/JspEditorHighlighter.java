@@ -31,6 +31,7 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.JspTokens;
 
@@ -50,7 +51,7 @@ public class JspEditorHighlighter extends LayeredLexerEditorHighlighter
 
 		SyntaxHighlighter javaHighlight = SyntaxHighlighterFactory.getSyntaxHighlighter(JavaFileType.INSTANCE, project, virtualFile);
 		assert javaHighlight != null;
-		registerLayer(JspTokens.JAVA_FRAGMENT, new LayerDescriptor(new SyntaxHighlighterBase()
+		registerLayer(JspTokenType.JAVA_CODE, new LayerDescriptor(new SyntaxHighlighterBase()
 		{
 			@NotNull
 			@Override
@@ -63,7 +64,7 @@ public class JspEditorHighlighter extends LayeredLexerEditorHighlighter
 			@Override
 			public TextAttributesKey[] getTokenHighlights(IElementType iElementType)
 			{
-				return pack(javaHighlight.getTokenHighlights(iElementType), DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR);
+				return pack(DefaultLanguageHighlighterColors.TEMPLATE_LANGUAGE_COLOR, javaHighlight.getTokenHighlights(iElementType));
 			}
 		}, ""));
 	}

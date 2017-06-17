@@ -17,8 +17,8 @@
 package consulo.javaee.jsp.lexer;
 
 import com.intellij.lexer.MergingLexerAdapter;
+import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.TokenSet;
-import consulo.javaee.jsp.psi.JspTokens;
 
 /**
  * @author VISTALL
@@ -26,7 +26,7 @@ import consulo.javaee.jsp.psi.JspTokens;
  */
 public class JspHtmlLexer extends MergingLexerAdapter
 {
-	private static final TokenSet ourSet = TokenSet.create(JspTokens.JSP_FRAGMENT);
+	private static final TokenSet ourSet = TokenSet.create(JspTokenType.JSP_FRAGMENT);
 
 	public JspHtmlLexer()
 	{

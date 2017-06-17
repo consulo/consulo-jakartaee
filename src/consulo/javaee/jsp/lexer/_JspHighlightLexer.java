@@ -631,7 +631,7 @@ public class _JspHighlightLexer extends LexerBase {
           }
         case 32: break;
         case 6: 
-          { return JspTokens.JAVA_FRAGMENT;
+          { return JspTokenType.JAVA_CODE;
           }
         case 33: break;
         case 14: 

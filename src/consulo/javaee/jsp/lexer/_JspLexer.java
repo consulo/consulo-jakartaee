@@ -5,7 +5,6 @@ package consulo.javaee.jsp.lexer;
 import com.intellij.lexer.LexerBase;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.TokenType;
-import consulo.javaee.jsp.psi.JspTokens;
 import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.xml.XmlTokenType;
 
@@ -633,7 +632,7 @@ public class _JspLexer extends LexerBase {
           }
         case 33: break;
         case 6: 
-          { return JspTokens.JAVA_FRAGMENT;
+          { return JspTokenType.JAVA_CODE;
           }
         case 34: break;
         case 15: 

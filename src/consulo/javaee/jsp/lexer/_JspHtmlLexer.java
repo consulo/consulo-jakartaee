@@ -3,6 +3,7 @@
 package consulo.javaee.jsp.lexer;
 
 import com.intellij.lexer.LexerBase;
+import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.JspTokens;
 
@@ -501,7 +502,7 @@ public class _JspHtmlLexer extends LexerBase {
 
       switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
         case 3: 
-          { yybegin(JSP_FRAGMENT);  return JspTokens.JSP_FRAGMENT;
+          { yybegin(JSP_FRAGMENT);  return JspTokenType.JSP_FRAGMENT;
           }
         case 6: break;
         case 1: 
@@ -509,15 +510,15 @@ public class _JspHtmlLexer extends LexerBase {
           }
         case 7: break;
         case 5: 
-          { yybegin(JSP_FRAGMENT); return JspTokens.JSP_FRAGMENT;
+          { yybegin(JSP_FRAGMENT); return JspTokenType.JSP_FRAGMENT;
           }
         case 8: break;
         case 4: 
-          { yybegin(YYINITIAL); return JspTokens.JSP_FRAGMENT;
+          { yybegin(YYINITIAL); return JspTokenType.JSP_FRAGMENT;
           }
         case 9: break;
         case 2: 
-          { return JspTokens.JSP_FRAGMENT;
+          { return JspTokenType.JSP_FRAGMENT;
           }
         case 10: break;
         default:
