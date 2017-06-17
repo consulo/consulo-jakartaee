@@ -1,4 +1,4 @@
-package consulo.javaee.jsp.codeInsigh.daemon.analysis;
+package consulo.javaee.jsp.codeInsight.daemon.analysis;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightVisitorImpl;

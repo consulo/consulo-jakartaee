@@ -1,4 +1,4 @@
-package consulo.javaee.jsp.codeInsigh.daemon;
+package consulo.javaee.jsp.codeInsight.daemon;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.codeInsight.daemon.ProblemHighlightFilter;

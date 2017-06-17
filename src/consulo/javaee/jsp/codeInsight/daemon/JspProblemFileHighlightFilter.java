@@ -1,4 +1,4 @@
-package consulo.javaee.jsp.codeInsigh.daemon;
+package consulo.javaee.jsp.codeInsight.daemon;
 
 import com.intellij.openapi.util.Condition;
 import com.intellij.openapi.vfs.VirtualFile;

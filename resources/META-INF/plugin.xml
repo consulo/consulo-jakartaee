@@ -50,9 +50,9 @@
 
 		<lang.ast.compositeFactory implementation="consulo.javaee.jsp.psi.impl.JspCompositeElementFactory"/>
 
-		<highlightVisitor implementation="consulo.javaee.jsp.codeInsigh.daemon.analysis.JspJavaHighlightVisitorImpl"/>
-		<problemFileHighlightFilter implementation="consulo.javaee.jsp.codeInsigh.daemon.JspProblemFileHighlightFilter"/>
-		<problemHighlightFilter implementation="consulo.javaee.jsp.codeInsigh.daemon.JspProblemHighlightFilter"/>
+		<highlightVisitor implementation="consulo.javaee.jsp.codeInsight.daemon.analysis.JspJavaHighlightVisitorImpl"/>
+		<problemFileHighlightFilter implementation="consulo.javaee.jsp.codeInsight.daemon.JspProblemFileHighlightFilter"/>
+		<problemHighlightFilter implementation="consulo.javaee.jsp.codeInsight.daemon.JspProblemHighlightFilter"/>
 		<lang.syntaxHighlighterFactory language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighterFactory"/>
 		<braceMatcher filetype="JSP" implementationClass="com.intellij.xml.impl.XmlBraceMatcher"/>
 		<lang.braceMatcher language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspPairBraceMatcher"/>
