@@ -60,7 +60,7 @@ public class JspParser implements PsiParser
 
 		builder.advanceLexer();
 
-		while(builder.getTokenType() != endElementType)
+		while(!builder.eof() && builder.getTokenType() != endElementType)
 		{
 			builder.advanceLexer();
 		}
