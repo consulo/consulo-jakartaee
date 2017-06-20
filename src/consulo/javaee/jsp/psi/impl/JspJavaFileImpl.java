@@ -20,6 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
+import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiJavaCodeReferenceElement;
 import com.intellij.psi.PsiJavaFile;
@@ -49,6 +50,13 @@ public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 	public JspJavaFileImpl(FileViewProvider viewProvider)
 	{
 		super(JavaInJspParser.JAVA_IN_JSP_FILE_TYPE, JavaInJspParser.JAVA_IN_JSP_FILE_TYPE, viewProvider);
+	}
+
+	@NotNull
+	@Override
+	public PsiClass[] getClasses()
+	{
+		return findChildrenByClass(PsiClass.class);
 	}
 
 	@NotNull
