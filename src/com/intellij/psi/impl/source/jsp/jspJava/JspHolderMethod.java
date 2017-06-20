@@ -30,7 +30,7 @@ public interface JspHolderMethod extends PsiMethod, SyntheticElement {
   @NonNls String PAGE_VAR_NAME = "page";
   @NonNls String EXCEPTION_VAR_NAME = "exception";
   @NonNls String SESSION_VAR_NAME = "session";
-  @NonNls String CONTEXT_VAR_NAME = "context";
+  @NonNls String CONTEXT_VAR_NAME = "pageContext";
   @NonNls String REQUEST_VAR_NAME = "request";
   @NonNls String RESPONSE_VAR_NAME = "response";
 
