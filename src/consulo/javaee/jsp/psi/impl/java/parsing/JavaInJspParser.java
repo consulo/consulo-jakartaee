@@ -110,7 +110,19 @@ public class JavaInJspParser implements PsiParser
 
 				while(!builder.eof() && builder.getTokenType() != JspTokenType.JSP_DECLARATION_END)
 				{
-					parser.getDeclarationParser().parse(builder, DeclarationParser.Context.CLASS);
+					PsiBuilder.Marker declarationMarker = parser.getDeclarationParser().parse(builder, DeclarationParser.Context.CLASS);
+					if(declarationMarker != null && builder.getTokenType() == JavaTokenType.SEMICOLON)
+					{
+						builder.advanceLexer();
+						continue;
+					}
+
+					if(declarationMarker == null && builder.getTokenType() != null)
+					{
+						PsiBuilder.Marker errorMarker = builder.mark();
+						builder.advanceLexer();
+						errorMarker.error("Unexpected symbol");
+					}
 				}
 
 				marker.done(JspJavaElements.JSP_CLASS_DECLARATION_STATEMENT);
