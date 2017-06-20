@@ -11,22 +11,18 @@ import com.intellij.lang.java.JavaLanguage;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.JavaElementVisitor;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiElementVisitor;
-import com.intellij.psi.PsiImportList;
-import com.intellij.psi.PsiImportStatement;
-import com.intellij.psi.PsiImportStatementBase;
-import com.intellij.psi.PsiImportStaticStatement;
+import com.intellij.psi.*;
 import com.intellij.psi.impl.light.LightElement;
 import com.intellij.psi.impl.source.jsp.jspJava.JspxImportList;
+import com.intellij.psi.impl.source.jsp.jspXml.JspDirective;
 import com.intellij.psi.jsp.JspDirectiveKind;
 import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.xml.XmlAttribute;
 import com.intellij.psi.xml.XmlAttributeValue;
 import com.intellij.psi.xml.XmlTag;
+import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.containers.ContainerUtil;
+import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspLanguage;
 import consulo.javaee.jsp.psi.impl.JspJavaFileImpl;
 
@@ -42,6 +38,44 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 	{
 		super(jspJavaFile.getManager(), JavaLanguage.INSTANCE);
 		myJspJavaFile = jspJavaFile;
+	}
+
+	@Override
+	@RequiredReadAction
+	public PsiElement add(@NotNull PsiElement element) throws IncorrectOperationException
+	{
+		if(element instanceof PsiImportStatement)
+		{
+			JspFile jspFile = (JspFile) myJspJavaFile.getViewProvider().getPsi(JspLanguage.INSTANCE);
+
+			String text = "<%@ page import=\"" + ((PsiImportStatement) element).getQualifiedName() + "\"%>";
+
+			JspFile dummyJsp = (JspFile) PsiFileFactory.getInstance(element.getProject()).createFileFromText("dummy.jsp", JspLanguage.INSTANCE, text);
+
+			JspDirective dummyJspDirective = (JspDirective) dummyJsp.getDocument().getRootTag().getSubTags()[0];
+
+			XmlTag[] directiveTags = jspFile.getDirectiveTags(JspDirectiveKind.PAGE, false);
+			if(directiveTags.length == 0)
+			{
+				XmlTag rootTag = jspFile.getRootTag();
+				PsiElement result = rootTag.addBefore(dummyJspDirective, rootTag.getFirstChild());
+
+				result.getNode().addLeaf(TokenType.WHITE_SPACE, "\n", null);
+				return this;
+			}
+			else
+			{
+				XmlTag lastTag = directiveTags[directiveTags.length - 1];
+				XmlTag parentTag = lastTag.getParentTag();
+
+				PsiElement result = parentTag.addAfter(dummyJspDirective, lastTag);
+
+				parentTag.getNode().addLeaf(TokenType.WHITE_SPACE, "\n", result.getNode());
+				return this;
+			}
+		}
+
+		throw new UnsupportedOperationException(element.getClass().getName());
 	}
 
 	@Override

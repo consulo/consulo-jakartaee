@@ -16,6 +16,12 @@ public class JspDirectiveImpl extends JspXmlTagBaseImpl implements JspDirective
 	}
 
 	@Override
+	public boolean isEmpty()
+	{
+		return true;
+	}
+
+	@Override
 	public void accept(@NotNull JspElementVisitor visitor)
 	{
 		visitor.visitDirective(this);

@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.psi.impl;
 
 import org.jetbrains.annotations.NotNull;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.impl.source.jsp.jspXml.JspXmlTagBase;
 import com.intellij.psi.impl.source.xml.XmlTagImpl;
@@ -21,6 +22,11 @@ public abstract class JspXmlTagBaseImpl extends XmlTagImpl implements JspXmlTagB
 	@Override
 	public XmlTag findParentTag()
 	{
+		PsiElement parent = getParent();
+		if(parent instanceof XmlTag)
+		{
+			return (XmlTag) parent;
+		}
 		return null;
 	}
 
