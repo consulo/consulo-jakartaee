@@ -21,7 +21,9 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiJavaCodeReferenceElement;
 import com.intellij.psi.PsiJavaFile;
+import com.intellij.psi.impl.PsiImplUtil;
 import com.intellij.psi.impl.source.PsiJavaFileBaseImpl;
 import com.intellij.util.ArrayUtil;
 import consulo.annotations.RequiredReadAction;
@@ -35,11 +37,32 @@ import consulo.javaee.jsp.psi.impl.java.psi.JspxImportListImpl;
  */
 public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 {
+	private static final String[] ourImplicityImports = {
+			"java.lang",
+			"javax.servlet",
+			"javax.servlet.jsp",
+			"javax.servlet.http"
+	};
+
 	private JspxImportListImpl myImportList = new JspxImportListImpl(this);
 
 	public JspJavaFileImpl(FileViewProvider viewProvider)
 	{
 		super(JavaInJspParser.JAVA_IN_JSP_FILE_TYPE, JavaInJspParser.JAVA_IN_JSP_FILE_TYPE, viewProvider);
+	}
+
+	@NotNull
+	@Override
+	public String[] getImplicitlyImportedPackages()
+	{
+		return ourImplicityImports;
+	}
+
+	@Override
+	@NotNull
+	public PsiJavaCodeReferenceElement[] getImplicitlyImportedPackageReferences()
+	{
+		return PsiImplUtil.namesToPackageReferences(myManager, getImplicitlyImportedPackages());
 	}
 
 	@RequiredReadAction
