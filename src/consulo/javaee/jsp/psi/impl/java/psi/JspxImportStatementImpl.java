@@ -52,6 +52,7 @@ public class JspxImportStatementImpl extends LightElement implements JspxImportS
 		}
 	}
 
+	@RequiredReadAction
 	@NotNull
 	@Override
 	public PsiElement[] getChildren()

@@ -185,7 +185,7 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 	@Override
 	public PsiImportStatementBase[] getAllImportStatements()
 	{
-		return getImportStatements();
+		return PsiImportStatementBase.EMPTY_ARRAY;
 	}
 
 	@Nullable
