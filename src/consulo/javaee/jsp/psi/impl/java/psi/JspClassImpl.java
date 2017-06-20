@@ -91,9 +91,10 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	}
 
 	@Override
+	@NotNull
 	public JspHolderMethod getHolderMethod()
 	{
-		return findChildByClass(JspHolderMethod.class);
+		return findNotNullChildByClass(JspHolderMethod.class);
 	}
 
 	@Override
@@ -211,7 +212,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 					@Override
 					public void visitMethod(PsiMethod method)
 					{
-						method.add(method);
+						methods.add(method);
 					}
 				});
 			}
