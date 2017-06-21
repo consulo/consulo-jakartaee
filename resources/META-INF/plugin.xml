@@ -59,6 +59,7 @@
 		<syntaxHighlighter key="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighter"/>
 		<contentFolderSupportPatcher implementation="consulo.javaee.module.JavaWebContentFolderSupportPatcher"/>
 
+		<stubElementTypeHolder class="consulo.javaee.jsp.psi.JspStubElements" />
 		<psi.referenceContributor language="JSP" implementation="consulo.javaee.jsp.psi.impl.reference.JspReferenceContributor"/>
 
 		<moduleExtensionProvider key="java-web"
