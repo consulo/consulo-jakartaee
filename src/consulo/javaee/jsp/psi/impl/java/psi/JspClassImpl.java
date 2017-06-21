@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.java.JavaLanguage;
+import com.intellij.openapi.roots.ProjectFileIndex;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
@@ -20,7 +21,7 @@ import com.intellij.psi.*;
 import com.intellij.psi.impl.InheritanceImplUtil;
 import com.intellij.psi.impl.PsiClassImplUtil;
 import com.intellij.psi.impl.light.LightFieldBuilder;
-import com.intellij.psi.impl.light.LightModifierList;
+import com.intellij.psi.impl.light.LightMethodBuilder;
 import com.intellij.psi.impl.source.ClassInnerStuffCache;
 import com.intellij.psi.impl.source.PsiExtensibleClass;
 import com.intellij.psi.impl.source.jsp.jspJava.JspClass;
@@ -42,7 +43,6 @@ import consulo.javaee.jsp.ServletApiClassNames;
 public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiExtensibleClass
 {
 	private final ClassInnerStuffCache myInnersCache = new ClassInnerStuffCache(this);
-	private final LightModifierList myModifierList = new LightModifierList(getManager(), JavaLanguage.INSTANCE, PsiModifier.STATIC, PsiModifier.PUBLIC);
 
 	public JspClassImpl(@NotNull ASTNode node)
 	{
@@ -108,10 +108,16 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	}
 
 	@Nullable
+	@RequiredReadAction
 	@Override
 	public String getQualifiedName()
 	{
-		return getName();
+		String packageName = ProjectFileIndex.SERVICE.getInstance(getProject()).getPackageNameByDirectory(getContainingFile().getVirtualFile().getParent());
+		if(StringUtil.isEmpty(packageName))
+		{
+			return getName();
+		}
+		return packageName + "." + getName();
 	}
 
 	@Override
@@ -277,7 +283,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public PsiMethod[] getConstructors()
 	{
-		return new PsiMethod[0];
+		return new PsiMethod[]{new LightMethodBuilder(this, JavaLanguage.INSTANCE).setConstructor(true)};
 	}
 
 	@NotNull
@@ -291,7 +297,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public PsiClassInitializer[] getInitializers()
 	{
-		return new PsiClassInitializer[0];
+		return PsiClassInitializer.EMPTY_ARRAY;
 	}
 
 	@NotNull
@@ -333,7 +339,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public PsiMethod[] findMethodsBySignature(PsiMethod psiMethod, boolean checkBases)
 	{
-		return new PsiMethod[0];
+		return PsiMethod.EMPTY_ARRAY;
 	}
 
 	@NotNull
@@ -460,13 +466,13 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public PsiModifierList getModifierList()
 	{
-		return myModifierList;
+		return null;
 	}
 
 	@Override
 	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @NotNull String modifier)
 	{
-		return getModifierList().hasModifierProperty(modifier);
+		return PsiModifier.STATIC.equals(modifier) || PsiModifier.PUBLIC.equals(modifier);
 	}
 
 	@Override
@@ -475,5 +481,18 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	{
 		LanguageLevel level = PsiUtil.getLanguageLevel(place);
 		return PsiClassImplUtil.processDeclarationsInClass(this, processor, state, null, lastParent, place, level, false);
+	}
+
+	@Override
+	public void accept(@NotNull PsiElementVisitor visitor)
+	{
+		if(visitor instanceof JavaElementVisitor)
+		{
+			((JavaElementVisitor) visitor).visitClass(this);
+		}
+		else
+		{
+			visitor.visitElement(this);
+		}
 	}
 }
