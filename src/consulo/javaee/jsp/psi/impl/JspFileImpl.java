@@ -20,17 +20,20 @@ import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.intellij.lang.java.JavaLanguage;
 import com.intellij.lang.jsp.JspxFileViewProvider;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiJavaFile;
 import com.intellij.psi.impl.source.jsp.jspXml.JspDirective;
 import com.intellij.psi.impl.source.xml.XmlFileImpl;
 import com.intellij.psi.jsp.JspDirectiveKind;
 import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.xml.XmlTag;
+import com.intellij.util.ArrayUtil;
 import com.intellij.util.SmartList;
 import com.intellij.util.containers.ContainerUtil;
 import consulo.annotations.RequiredReadAction;
@@ -122,13 +125,19 @@ public class JspFileImpl extends XmlFileImpl implements JspFile
 	@Nullable
 	private JspDirectiveKind kind(XmlTag tag)
 	{
-		if(tag instanceof JspDirective)
-		{
-			return JspDirectiveKind.PAGE;
-		}
-		else
+		if(!(tag instanceof JspDirective))
 		{
 			return null;
+		}
+		String localName = tag.getLocalName();
+		switch(localName)
+		{
+			case "page":
+				return JspDirectiveKind.PAGE;
+			case "include":
+				return JspDirectiveKind.INCLUDE;
+			default:
+				return null;
 		}
 	}
 
@@ -166,6 +175,11 @@ public class JspFileImpl extends XmlFileImpl implements JspFile
 	@Override
 	public PsiClass getJavaClass()
 	{
-		return null;
+		PsiFile file = getViewProvider().getPsi(JavaLanguage.INSTANCE);
+		if(!(file instanceof PsiJavaFile))
+		{
+			return null;
+		}
+		return ArrayUtil.getFirstElement(((PsiJavaFile) file).getClasses());
 	}
 }

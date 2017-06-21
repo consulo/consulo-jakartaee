@@ -11,18 +11,31 @@ import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.util.Ref;
+import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiJavaToken;
 import com.intellij.psi.PsiLocalVariable;
+import com.intellij.psi.PsiReference;
 import com.intellij.psi.PsiStatement;
 import com.intellij.psi.ResolveState;
+import com.intellij.psi.impl.PsiClassImplUtil;
+import com.intellij.psi.impl.source.jsp.jspJava.JspClass;
 import com.intellij.psi.impl.source.jsp.jspJava.JspCodeBlock;
+import com.intellij.psi.impl.source.resolve.reference.impl.providers.FileReference;
+import com.intellij.psi.jsp.JspDirectiveKind;
+import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.scope.BaseScopeProcessor;
 import com.intellij.psi.scope.ElementClassHint;
 import com.intellij.psi.scope.NameHint;
 import com.intellij.psi.scope.PsiScopeProcessor;
 import com.intellij.psi.scope.util.PsiScopesUtil;
+import com.intellij.psi.util.PsiTreeUtil;
+import com.intellij.psi.util.PsiUtil;
+import com.intellij.psi.xml.XmlAttribute;
+import com.intellij.psi.xml.XmlAttributeValue;
+import com.intellij.psi.xml.XmlTag;
+import consulo.annotations.RequiredReadAction;
 
 /**
  * @author VISTALL
@@ -137,7 +150,78 @@ public class JspCodeBlockImpl extends ASTWrapperPsiElement implements JspCodeBlo
 	}
 
 	@Override
+	@RequiredReadAction
 	public boolean processDeclarations(@NotNull PsiScopeProcessor processor, @NotNull ResolveState state, PsiElement lastParent, @NotNull PsiElement place)
+	{
+		if(!processImpl(processor, state, lastParent, place))
+		{
+			return false;
+		}
+
+		LanguageLevel level = PsiUtil.getLanguageLevel(place);
+
+		JspClass jspClass = PsiTreeUtil.getParentOfType(this, JspClass.class);
+
+		if(jspClass == null)
+		{
+			return true;
+		}
+
+		XmlTag[] directiveTags = jspClass.getJspxFile().getDirectiveTags(JspDirectiveKind.INCLUDE, false);
+		for(XmlTag directiveTag : directiveTags)
+		{
+			if(directiveTag.getStartOffsetInParent() > getStartOffsetInParent())
+			{
+				return true;
+			}
+
+			XmlAttribute attribute = directiveTag.getAttribute("file");
+			if(attribute == null)
+			{
+				continue;
+			}
+			XmlAttributeValue valueElement = attribute.getValueElement();
+			if(valueElement == null)
+			{
+				continue;
+			}
+			PsiReference lastRef = null;
+			PsiReference[] references = valueElement.getReferences();
+			for(PsiReference reference : references)
+			{
+				if(reference instanceof FileReference)
+				{
+					lastRef = ((FileReference) reference).getLastFileReference();
+					break;
+				}
+			}
+
+			if(lastRef == null)
+			{
+				continue;
+			}
+
+			PsiElement element = lastRef.resolve();
+			if(!(element instanceof JspFile))
+			{
+				continue;
+			}
+
+			PsiClass javaClass = ((JspFile) element).getJavaClass();
+			if(javaClass == null)
+			{
+				continue;
+			}
+
+			if(!PsiClassImplUtil.processDeclarationsInClass(javaClass, processor, state, null, lastParent, place, level, false))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private boolean processImpl(@NotNull PsiScopeProcessor processor, @NotNull ResolveState state, PsiElement lastParent, @NotNull PsiElement place)
 	{
 		processor.handleEvent(PsiScopeProcessor.Event.SET_DECLARATION_HOLDER, this);
 		if(lastParent == null)

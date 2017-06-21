@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
+import com.intellij.lang.java.JavaLanguage;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
@@ -19,6 +20,7 @@ import com.intellij.psi.*;
 import com.intellij.psi.impl.InheritanceImplUtil;
 import com.intellij.psi.impl.PsiClassImplUtil;
 import com.intellij.psi.impl.light.LightFieldBuilder;
+import com.intellij.psi.impl.light.LightModifierList;
 import com.intellij.psi.impl.source.ClassInnerStuffCache;
 import com.intellij.psi.impl.source.PsiExtensibleClass;
 import com.intellij.psi.impl.source.jsp.jspJava.JspClass;
@@ -27,6 +29,7 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.scope.PsiScopeProcessor;
+import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.psi.util.PsiUtil;
 import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspLanguage;
@@ -39,6 +42,7 @@ import consulo.javaee.jsp.ServletApiClassNames;
 public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiExtensibleClass
 {
 	private final ClassInnerStuffCache myInnersCache = new ClassInnerStuffCache(this);
+	private final LightModifierList myModifierList = new LightModifierList(getManager(), JavaLanguage.INSTANCE, PsiModifier.STATIC, PsiModifier.PUBLIC);
 
 	public JspClassImpl(@NotNull ASTNode node)
 	{
@@ -403,7 +407,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public PsiClass getContainingClass()
 	{
-		return null;
+		return PsiTreeUtil.getParentOfType(this, PsiClass.class);
 	}
 
 	@NotNull
@@ -449,23 +453,24 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public PsiTypeParameter[] getTypeParameters()
 	{
-		return new PsiTypeParameter[0];
+		return PsiTypeParameter.EMPTY_ARRAY;
 	}
 
 	@Nullable
 	@Override
 	public PsiModifierList getModifierList()
 	{
-		return null;
+		return myModifierList;
 	}
 
 	@Override
-	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @NotNull String s)
+	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @NotNull String modifier)
 	{
-		return PsiModifier.STATIC.equals(s);
+		return getModifierList().hasModifierProperty(modifier);
 	}
 
 	@Override
+	@RequiredReadAction
 	public boolean processDeclarations(@NotNull PsiScopeProcessor processor, @NotNull ResolveState state, PsiElement lastParent, @NotNull PsiElement place)
 	{
 		LanguageLevel level = PsiUtil.getLanguageLevel(place);
