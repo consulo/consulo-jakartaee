@@ -29,7 +29,7 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.xml.XmlTokenType;
-import consulo.javaee.jsp.lexer._JspHighlightLexer;
+import consulo.javaee.jsp.lexer.JspHighlightLexer;
 import consulo.javaee.jsp.psi.JspTokens;
 
 /**
@@ -66,7 +66,7 @@ public class JspSyntaxHighlighter extends SyntaxHighlighterBase
 	@Override
 	public Lexer getHighlightingLexer()
 	{
-		return new _JspHighlightLexer();
+		return new JspHighlightLexer();
 	}
 
 	@NotNull

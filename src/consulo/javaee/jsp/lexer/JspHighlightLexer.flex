@@ -104,21 +104,21 @@ NAME=({ALPHA}|"_")({ALPHA}|{DIGIT}|"_"|"."|"-")*(":"({ALPHA}|"_")?({ALPHA}|{DIGI
 {
 	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_DECLARATION_END; }
 
-	[^]                { return JspTokens.JAVA_FRAGMENT; }
+	[^]                { return JspTokenType.JAVA_CODE; }
 }
 
 <SCRIPTLET>
 {
 	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_SCRIPTLET_END; }
 
-	[^]                { return JspTokens.JAVA_FRAGMENT; }
+	[^]                { return JspTokenType.JAVA_CODE; }
 }
 
 <EXPRESSION>
 {
 	"%>"              { yybegin(YYINITIAL); return JspTokenType.JSP_EXPRESSION_END; }
 
-	[^]                { return JspTokens.JAVA_FRAGMENT; }
+	[^]                { return JspTokenType.JAVA_CODE; }
 }
 
 <COMMENT>
