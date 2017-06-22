@@ -9,6 +9,7 @@ import com.intellij.lang.PsiParser;
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.lang.java.parser.JavaParserUtil;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
@@ -35,6 +36,12 @@ public interface JspStubElements
 			final LanguageVersion languageVersion = psi.getLanguageVersion();
 
 			return doParse(chameleon, project, languageVersion).getLightTree();
+		}
+
+		@Override
+		public boolean shouldBuildStubFor(VirtualFile file)
+		{
+			return false;
 		}
 
 		@NotNull
