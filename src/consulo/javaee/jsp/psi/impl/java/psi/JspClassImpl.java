@@ -16,6 +16,7 @@ import com.intellij.openapi.roots.ProjectFileIndex;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.InheritanceImplUtil;
@@ -112,7 +113,13 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public String getQualifiedName()
 	{
-		String packageName = ProjectFileIndex.SERVICE.getInstance(getProject()).getPackageNameByDirectory(getContainingFile().getVirtualFile().getParent());
+		VirtualFile virtualFile = getContainingFile().getVirtualFile();
+		if(virtualFile == null)
+		{
+			return getName();
+		}
+
+		String packageName = ProjectFileIndex.SERVICE.getInstance(getProject()).getPackageNameByDirectory(virtualFile.getParent());
 		if(StringUtil.isEmpty(packageName))
 		{
 			return getName();
@@ -472,7 +479,7 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	@Override
 	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @NotNull String modifier)
 	{
-		return PsiModifier.STATIC.equals(modifier) || PsiModifier.PUBLIC.equals(modifier);
+		return false;
 	}
 
 	@Override

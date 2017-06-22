@@ -1,0 +1,11 @@
+<list>
+	<directive name="page">
+		<attribute name="import"/>
+		<attribute name="contentType"/>
+		<attribute name="pageEncoding"/>
+	</directive>
+
+	<directive name="include">
+		<attribute name="file"/>
+	</directive>
+</list>
