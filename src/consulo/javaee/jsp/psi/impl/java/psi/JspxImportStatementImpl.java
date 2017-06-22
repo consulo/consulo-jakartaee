@@ -15,7 +15,6 @@ import com.intellij.psi.impl.light.LightElement;
 import com.intellij.psi.impl.light.LightPackageReference;
 import com.intellij.psi.impl.source.jsp.jspJava.JspxImportStatement;
 import consulo.annotations.RequiredReadAction;
-import consulo.javaee.jsp.psi.impl.JspJavaFileImpl;
 
 /**
  * @author VISTALL

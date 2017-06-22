@@ -24,7 +24,6 @@ import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.containers.ContainerUtil;
 import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspLanguage;
-import consulo.javaee.jsp.psi.impl.JspJavaFileImpl;
 
 /**
  * @author VISTALL

@@ -34,7 +34,7 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.impl.source.PsiFileImpl;
 import consulo.javaee.jsp.psi.JspTemplateTokens;
-import consulo.javaee.jsp.psi.impl.JspJavaFileImpl;
+import consulo.javaee.jsp.psi.impl.java.psi.JspJavaFileImpl;
 
 /**
  * @author VISTALL
