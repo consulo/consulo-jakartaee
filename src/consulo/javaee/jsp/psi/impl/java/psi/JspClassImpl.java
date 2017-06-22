@@ -9,7 +9,7 @@ import java.util.List;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.openapi.roots.ProjectFileIndex;
@@ -21,6 +21,7 @@ import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.InheritanceImplUtil;
 import com.intellij.psi.impl.PsiClassImplUtil;
+import com.intellij.psi.impl.java.stubs.PsiClassStub;
 import com.intellij.psi.impl.light.LightFieldBuilder;
 import com.intellij.psi.impl.light.LightMethodBuilder;
 import com.intellij.psi.impl.source.ClassInnerStuffCache;
@@ -31,6 +32,7 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.scope.PsiScopeProcessor;
+import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.psi.util.PsiUtil;
 import consulo.annotations.RequiredReadAction;
@@ -41,13 +43,18 @@ import consulo.javaee.jsp.ServletApiClassNames;
  * @author VISTALL
  * @since 24-May-17
  */
-public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiExtensibleClass
+public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>> implements JspClass, PsiExtensibleClass, StubBasedPsiElement<PsiClassStub<JspClass>>
 {
 	private final ClassInnerStuffCache myInnersCache = new ClassInnerStuffCache(this);
 
 	public JspClassImpl(@NotNull ASTNode node)
 	{
 		super(node);
+	}
+
+	public JspClassImpl(@NotNull PsiClassStub<JspClass> stub, @NotNull IStubElementType nodeType)
+	{
+		super(stub, nodeType);
 	}
 
 	@NotNull
@@ -87,11 +94,6 @@ public class JspClassImpl extends ASTWrapperPsiElement implements JspClass, PsiE
 	public String getName()
 	{
 		PsiFile containingFile = getContainingFile();
-		if(containingFile == null)
-		{
-			return null;
-		}
-
 		return StringUtil.capitalize(FileUtil.getNameWithoutExtension(containingFile.getName())) + "_jsp";
 	}
 

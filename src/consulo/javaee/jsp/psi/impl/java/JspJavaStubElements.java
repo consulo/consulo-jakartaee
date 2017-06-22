@@ -1,4 +1,4 @@
-package consulo.javaee.jsp.psi;
+package consulo.javaee.jsp.psi.impl.java;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.lang.ASTNode;
@@ -17,13 +17,14 @@ import com.intellij.psi.tree.ILightStubFileElementType;
 import com.intellij.util.diff.FlyweightCapableTreeStructure;
 import consulo.javaee.jsp.lexer.JspJavaLexer;
 import consulo.javaee.jsp.psi.impl.java.parsing.JavaInJspParser;
+import consulo.javaee.jsp.psi.impl.java.psi.stub.JspClassStubElementType;
 import consulo.lang.LanguageVersion;
 
 /**
  * @author VISTALL
  * @since 21-Jun-17
  */
-public interface JspStubElements
+public interface JspJavaStubElements
 {
 	IElementType JAVA_IN_JSP_FILE_TYPE = new ILightStubFileElementType("JAVA_JSP_FILE", JavaLanguage.INSTANCE)
 	{
@@ -79,4 +80,5 @@ public interface JspStubElements
 		}
 	};
 
+	JspClassStubElementType JSP_CLASS = new JspClassStubElementType();
 }

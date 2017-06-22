@@ -29,7 +29,7 @@ import com.intellij.psi.impl.source.PsiJavaFileBaseImpl;
 import com.intellij.util.ArrayUtil;
 import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspFileType;
-import consulo.javaee.jsp.psi.JspStubElements;
+import consulo.javaee.jsp.psi.impl.java.JspJavaStubElements;
 
 /**
  * @author VISTALL
@@ -48,7 +48,7 @@ public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 
 	public JspJavaFileImpl(FileViewProvider viewProvider)
 	{
-		super(JspStubElements.JAVA_IN_JSP_FILE_TYPE, JspStubElements.JAVA_IN_JSP_FILE_TYPE, viewProvider);
+		super(JspJavaStubElements.JAVA_IN_JSP_FILE_TYPE, JspJavaStubElements.JAVA_IN_JSP_FILE_TYPE, viewProvider);
 	}
 
 	@NotNull
