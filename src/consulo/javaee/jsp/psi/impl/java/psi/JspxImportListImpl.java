@@ -163,10 +163,14 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 
 			endOffset -= trimLeading.length() - trimTrailing.length();
 
-			TextRange textRange = new TextRange(startOffset, endOffset);
-
 			offset = offset + token.length() + 1;
 
+			if((endOffset - startOffset) <= 0)
+			{
+				continue;
+			}
+
+			TextRange textRange = new TextRange(startOffset, endOffset);
 			list.add(Pair.create(trimTrailing, textRange));
 		}
 
