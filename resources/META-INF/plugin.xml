@@ -67,6 +67,8 @@
 		<stubElementTypeHolder class="consulo.javaee.jsp.psi.impl.java.JspJavaStubElements"/>
 		<psi.referenceContributor language="JSP" implementation="consulo.javaee.jsp.psi.impl.reference.JspReferenceContributor"/>
 
+		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.impl.JspPsiTreeChangePreprocessor" />
+
 		<moduleExtensionProvider key="java-web"
 								 parentKey="java"
 								 icon="/general/web.png"
