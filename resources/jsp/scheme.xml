@@ -2,6 +2,7 @@
 	<directive name="page">
 		<attribute name="import"/>
 		<attribute name="contentType"/>
+		<attribute name="language"/>
 		<attribute name="pageEncoding"/>
 	</directive>
 

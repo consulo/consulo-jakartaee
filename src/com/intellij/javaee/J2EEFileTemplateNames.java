@@ -107,9 +107,9 @@ public abstract class J2EEFileTemplateNames
 	public static final String LISTENER_ANNOTATED_CLASS_TEMPLATE = "Listener Annotated Class.java";
 
 	@NonNls
-	public static final String JSP_FILE = "Jsp File.jsp";
+	public static final String JSP_FILE = "JSP File.jsp";
 	@NonNls
-	public static final String JSPX_FILE = "Jspx File.jspx";
+	public static final String JSPX_FILE = "JSPX File.jspx";
 	@NonNls
 	public static final String TLD_FILE = "Tag Library Descriptor.tld";
 

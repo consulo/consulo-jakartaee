@@ -23,6 +23,12 @@
 	<depends optional="true" config-file="org.jetbrains.idea.maven.xml">org.jetbrains.idea.maven</depends>
 	<resource-bundle>messages.J2EEBundle</resource-bundle>
 
+	<actions>
+		<action id="CreateJSPAction" class="consulo.javaee.actions.CreateJSPFileAction">
+			<add-to-group group-id="NewGroup1" anchor="first"/>
+		</action>
+	</actions>
+
 	<extensionPoints>
 		<extensionPoint name="contextParamsProvider" interface="com.intellij.javaee.model.xml.converters.ContextParamsProvider"/>
 	</extensionPoints>
@@ -35,7 +41,7 @@
 
 	<extensions defaultExtensionNs="com.intellij.xml">
 		<xmlExtension implementation="consulo.javaee.jsp.psi.impl.descriptor.JspXmlExtension"/>
-		<elementDescriptorProvider implementation="consulo.javaee.jsp.psi.impl.descriptor.JspXmlElementDescriptorProvider" />
+		<elementDescriptorProvider implementation="consulo.javaee.jsp.psi.impl.descriptor.JspXmlElementDescriptorProvider"/>
 	</extensions>
 
 	<extensions defaultExtensionNs="com.intellij.xml.dom">
@@ -43,6 +49,9 @@
 	</extensions>
 
 	<extensions defaultExtensionNs="com.intellij">
+		<internalFileTemplate name="JSP File"/>
+		<internalFileTemplate name="JSPX File"/>
+
 		<packaging.artifactType implementation="consulo.javaee.artifact.ExplodedWarArtifactType"/>
 		<packaging.artifactType implementation="consulo.javaee.artifact.WarArtifactType"/>
 		<packaging.elementType implementation="consulo.javaee.artifact.WebResourceModuleOutputElementType"/>
@@ -67,7 +76,7 @@
 		<stubElementTypeHolder class="consulo.javaee.jsp.psi.impl.java.JspJavaStubElements"/>
 		<psi.referenceContributor language="JSP" implementation="consulo.javaee.jsp.psi.impl.reference.JspReferenceContributor"/>
 
-		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.impl.JspPsiTreeChangePreprocessor" />
+		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.impl.JspPsiTreeChangePreprocessor"/>
 
 		<moduleExtensionProvider key="java-web"
 								 parentKey="java"
