@@ -12,6 +12,8 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.java.JavaLanguage;
+import com.intellij.navigation.ItemPresentation;
+import com.intellij.navigation.ItemPresentationProviders;
 import com.intellij.openapi.roots.ProjectFileIndex;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.util.io.FileUtil;
@@ -32,8 +34,8 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.scope.PsiScopeProcessor;
+import com.intellij.psi.search.SearchScope;
 import com.intellij.psi.stubs.IStubElementType;
-import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.psi.util.PsiUtil;
 import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspLanguage;
@@ -165,14 +167,14 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	@Override
 	public PsiClassType[] getExtendsListTypes()
 	{
-		return PsiClassType.EMPTY_ARRAY;
+		return PsiClassImplUtil.getExtendsListTypes(this);
 	}
 
 	@NotNull
 	@Override
 	public PsiClassType[] getImplementsListTypes()
 	{
-		return PsiClassType.EMPTY_ARRAY;
+		return PsiClassImplUtil.getImplementsListTypes(this);
 	}
 
 	@Nullable
@@ -422,7 +424,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	@Override
 	public PsiClass getContainingClass()
 	{
-		return PsiTreeUtil.getParentOfType(this, PsiClass.class);
+		return null;
 	}
 
 	@NotNull
@@ -481,7 +483,26 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	@Override
 	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @NotNull String modifier)
 	{
-		return false;
+		return PsiModifier.STATIC.equals(modifier);
+	}
+
+	@Override
+	public ItemPresentation getPresentation()
+	{
+		return ItemPresentationProviders.getItemPresentation(this);
+	}
+
+	@Override
+	public boolean isEquivalentTo(final PsiElement another)
+	{
+		return PsiClassImplUtil.isClassEquivalentTo(this, another);
+	}
+
+	@Override
+	@NotNull
+	public SearchScope getUseScope()
+	{
+		return PsiClassImplUtil.getClassUseScope(this);
 	}
 
 	@Override
