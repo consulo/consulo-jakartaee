@@ -8,12 +8,14 @@ import com.intellij.psi.JavaElementVisitor;
 import com.intellij.psi.JavaPsiFacade;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.PsiErrorElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiJavaCodeReferenceElement;
 import com.intellij.psi.impl.light.LightClassReference;
 import com.intellij.psi.impl.light.LightElement;
 import com.intellij.psi.impl.light.LightPackageReference;
 import com.intellij.psi.impl.source.jsp.jspJava.JspxImportStatement;
+import com.intellij.psi.impl.source.tree.PsiErrorElementImpl;
 import consulo.annotations.RequiredReadAction;
 
 /**
@@ -22,20 +24,30 @@ import consulo.annotations.RequiredReadAction;
  */
 public class JspxImportStatementImpl extends LightElement implements JspxImportStatement
 {
-	private boolean myPackageReference;
-	private String myQName;
-	private TextRange myRange;
-	private JspJavaFileImpl myJspJavaFile;
+	private final TextRange myRange;
+	private final JspJavaFileImpl myJspJavaFile;
 
-	public JspxImportStatementImpl(String qName, TextRange range, JspJavaFileImpl jspJavaFile)
+	private String myQName;
+	private boolean myPackageReference;
+
+	private PsiErrorElement myErrorElement;
+
+	public JspxImportStatementImpl(String imporText, TextRange range, JspJavaFileImpl jspJavaFile, boolean error)
 	{
 		super(jspJavaFile.getManager(), JavaLanguage.INSTANCE);
-		myQName = qName;
 		myRange = range;
 		myJspJavaFile = jspJavaFile;
 
-		myPackageReference = myQName.endsWith(".*");
-		myQName = myQName.replace(".*", "");
+		if(error)
+		{
+			myErrorElement = new PsiErrorElementImpl(imporText);
+		}
+		else
+		{
+			myQName = imporText;
+			myPackageReference = myQName.endsWith(".*");
+			myQName = myQName.replace(".*", "");
+		}
 	}
 
 	@Override
@@ -51,12 +63,25 @@ public class JspxImportStatementImpl extends LightElement implements JspxImportS
 		}
 	}
 
+	@Override
+	public PsiElement getFirstChild()
+	{
+		return null;
+	}
+
 	@RequiredReadAction
 	@NotNull
 	@Override
 	public PsiElement[] getChildren()
 	{
-		return new PsiElement[]{getImportReference()};
+		if(myErrorElement != null)
+		{
+			return new PsiElement[]{myErrorElement};
+		}
+		else
+		{
+			return new PsiElement[]{getImportReference()};
+		}
 	}
 
 	@Override
@@ -96,6 +121,11 @@ public class JspxImportStatementImpl extends LightElement implements JspxImportS
 	@Override
 	public PsiJavaCodeReferenceElement getImportReference()
 	{
+		if(myErrorElement != null)
+		{
+			return null;
+		}
+
 		if(isOnDemand())
 		{
 			return new LightPackageReference(getManager(), myQName);
@@ -110,6 +140,11 @@ public class JspxImportStatementImpl extends LightElement implements JspxImportS
 	@Override
 	public PsiElement resolve()
 	{
+		if(myErrorElement != null)
+		{
+			return null;
+		}
+
 		if(isOnDemand())
 		{
 			return JavaPsiFacade.getInstance(myJspJavaFile.getProject()).findPackage(myQName);

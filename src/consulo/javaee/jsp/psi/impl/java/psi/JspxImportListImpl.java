@@ -2,7 +2,6 @@ package consulo.javaee.jsp.psi.impl.java.psi;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -17,9 +16,12 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspxImportList;
 import com.intellij.psi.impl.source.jsp.jspXml.JspDirective;
 import com.intellij.psi.jsp.JspDirectiveKind;
 import com.intellij.psi.jsp.JspFile;
+import com.intellij.psi.util.CachedValueProvider;
+import com.intellij.psi.util.PsiModificationTracker;
 import com.intellij.psi.xml.XmlAttribute;
 import com.intellij.psi.xml.XmlAttributeValue;
 import com.intellij.psi.xml.XmlTag;
+import com.intellij.util.CachedValuesManagerImpl;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.containers.ContainerUtil;
 import consulo.annotations.RequiredReadAction;
@@ -90,6 +92,7 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 		}
 	}
 
+	@RequiredReadAction
 	@NotNull
 	@Override
 	public PsiElement[] getChildren()
@@ -100,6 +103,13 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 	@NotNull
 	@Override
 	public PsiImportStatement[] getImportStatements()
+	{
+		return CachedValuesManagerImpl.getCachedValue(myJspJavaFile, () -> CachedValueProvider.Result.create(calcImportStatements(), PsiModificationTracker.MODIFICATION_COUNT));
+	}
+
+	@NotNull
+	@RequiredReadAction
+	private PsiImportStatement[] calcImportStatements()
 	{
 		FileViewProvider viewProvider = myJspJavaFile.getContainingFile().getViewProvider();
 
@@ -123,58 +133,59 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 				continue;
 			}
 
-			int startOffsetInParent = valueElement.getStartOffsetInParent();
+			int startOffset = valueElement.getTextRange().getStartOffset();
 
-			List<Pair<String, TextRange>> importList = parseImportList(valueElement.getValue());
+			List<Pair<String, TextRange>> importList = parseImportList2(valueElement.getValue());
 
 			for(Pair<String, TextRange> pair : importList)
 			{
 				String first = pair.getFirst();
 				TextRange second = pair.getSecond();
 
-				list.add(new JspxImportStatementImpl(first, second.shiftRight(startOffsetInParent), myJspJavaFile));
+				boolean error = StringUtil.isEmptyOrSpaces(first);
+
+				// skip start delimiter
+				TextRange textRange = new TextRange(second.getStartOffset() + startOffset + 1, second.getEndOffset() + startOffset + 1) ;
+
+				list.add(new JspxImportStatementImpl(first.trim(), textRange, myJspJavaFile, error));
 			}
 
 		}
 		return ContainerUtil.toArray(list, PsiImportStatement.EMPTY_ARRAY);
 	}
 
-	@NotNull
-	private static List<Pair<String, TextRange>> parseImportList(@NotNull String string)
+	private static List<Pair<String, TextRange>> parseImportList2(@NotNull String string)
 	{
-		StringTokenizer tokenizer = new StringTokenizer(string, ",");
-
-		int offset = 0;
-
 		List<Pair<String, TextRange>> list = new ArrayList<>();
 
-		while(tokenizer.hasMoreTokens())
+		int startOffset = 0;
+		while(true)
 		{
-			final String token = tokenizer.nextToken();
-
-			int startOffset = offset > 0 ? offset + 1 : offset;
-			int endOffset = offset + token.length();
-
-			String trimLeading = StringUtil.trimLeading(token);
-
-			startOffset += token.length() - trimLeading.length();
-
-			String trimTrailing = StringUtil.trimTrailing(trimLeading);
-
-			endOffset -= trimLeading.length() - trimTrailing.length();
-
-			offset = offset + token.length() + 1;
-
-			if((endOffset - startOffset) <= 0)
+			int i =  string.indexOf(',', startOffset);
+			if(i == -1)
 			{
-				continue;
+				break;
 			}
 
-			TextRange textRange = new TextRange(startOffset, endOffset);
-			list.add(Pair.create(trimTrailing, textRange));
+			String text = string.substring(startOffset, i);
+
+			list.add(Pair.create(text, new TextRange(startOffset, i + 1)));
+
+			// +1 comma
+			startOffset = i + 2;
 		}
 
+		if(startOffset != string.length())
+		{
+			list.add(Pair.create(string.substring(startOffset, string.length()), new TextRange(startOffset, string.length())));
+		}
 		return list;
+	}
+
+	public static void main(String[] args)
+	{
+		List<Pair<String, TextRange>> list = parseImportList2("test, java.test.dsadas.*, dsa dsadas, ,, ,");
+		System.out.println();
 	}
 
 	@NotNull
@@ -188,7 +199,7 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 	@Override
 	public PsiImportStatementBase[] getAllImportStatements()
 	{
-		return PsiImportStatementBase.EMPTY_ARRAY;
+		return getImportStatements();
 	}
 
 	@Nullable
