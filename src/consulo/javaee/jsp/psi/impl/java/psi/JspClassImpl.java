@@ -96,7 +96,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	public String getName()
 	{
 		PsiFile containingFile = getContainingFile();
-		return StringUtil.capitalize(FileUtil.getNameWithoutExtension(containingFile.getName())) + "_jsp";
+		return FileUtil.getNameWithoutExtension(containingFile.getName()) + "_jsp";
 	}
 
 	@Override
