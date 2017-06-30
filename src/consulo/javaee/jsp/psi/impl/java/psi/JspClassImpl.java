@@ -15,6 +15,7 @@ import com.intellij.lang.java.JavaLanguage;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.navigation.ItemPresentationProviders;
 import com.intellij.openapi.roots.ProjectFileIndex;
+import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
@@ -34,6 +35,7 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.jsp.JspFile;
 import com.intellij.psi.scope.PsiScopeProcessor;
+import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.SearchScope;
 import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.util.PsiUtil;
@@ -411,7 +413,17 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	@Override
 	public PsiElement getScope()
 	{
-		return getContainingClass();
+		ASTNode treeElement = getNode();
+
+		for(ASTNode parent = treeElement.getTreeParent(); parent != null; parent = parent.getTreeParent())
+		{
+			if(parent.getElementType() instanceof IStubElementType)
+			{
+				return parent.getPsi();
+			}
+		}
+
+		return this.getContainingFile();
 	}
 
 	@Override
@@ -501,14 +513,14 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	@Override
 	public boolean isEquivalentTo(final PsiElement another)
 	{
-		return PsiClassImplUtil.isClassEquivalentTo(this, another);
+		return Comparing.equal(another.getContainingFile(), getContainingFile());
 	}
 
 	@Override
 	@NotNull
 	public SearchScope getUseScope()
 	{
-		return PsiClassImplUtil.getClassUseScope(this);
+		return GlobalSearchScope.fileScope(getContainingFile());
 	}
 
 	@Override
