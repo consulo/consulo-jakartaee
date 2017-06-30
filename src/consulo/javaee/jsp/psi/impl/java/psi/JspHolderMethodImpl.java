@@ -35,7 +35,7 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 	@Override
 	public String getName()
 	{
-		return "_holder";
+		return "jsp_holder_method";
 	}
 
 	@Override
