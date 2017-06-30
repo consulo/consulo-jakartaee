@@ -123,7 +123,13 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 			return getName();
 		}
 
-		String packageName = ProjectFileIndex.SERVICE.getInstance(getProject()).getPackageNameByDirectory(virtualFile.getParent());
+		VirtualFile parent = virtualFile.getParent();
+		if(parent == null)
+		{
+			return null;
+		}
+
+		String packageName = ProjectFileIndex.getInstance(getProject()).getPackageNameByDirectory(parent);
 		if(StringUtil.isEmpty(packageName))
 		{
 			return getName();
