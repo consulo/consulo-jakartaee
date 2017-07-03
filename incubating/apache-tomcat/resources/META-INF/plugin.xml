@@ -1,0 +1,24 @@
+<idea-plugin>
+	<name>Tomcat</name>
+	<id>consulo.apache.tomcat</id>
+	<version>SNAPSHOT</version>
+	<depends>consulo.javaee</depends>
+	<vendor>JetBrains</vendor>
+	<resource-bundle>org.jetbrains.idea.tomcat.TomcatBundle</resource-bundle>
+	<category>Application Servers</category>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<applicationService serviceImplementation="org.jetbrains.idea.tomcat.TomcatSystemBaseDirManager"/>
+		<configurationType implementation="org.jetbrains.idea.tomcat.server.TomcatConfiguration"/>
+		<configurationProducer implementation="org.jetbrains.idea.tomcat.TomcatConfigurationProducer"/>
+		<javaee.appServerIntegration implementation="org.jetbrains.idea.tomcat.server.TomcatIntegration"/>
+		<javaee.descriptorMetaDataProvider implementation="org.jetbrains.idea.tomcat.descriptor.TomcatDescriptorsProvider"/>
+		<fileTemplateGroup implementation="org.jetbrains.idea.tomcat.descriptor.TomcatTemplates"/>
+
+		<configurationType implementation="org.jetbrains.idea.tomcat.server.tomee.TomeeConfiguration"/>
+		<javaee.appServerIntegration implementation="org.jetbrains.idea.tomcat.server.tomee.TomeeIntegration"/>
+		<applicationService serviceInterface="org.jetbrains.idea.tomcat.server.tomee.TomeeExtensions"
+							serviceImplementation="org.jetbrains.idea.tomcat.server.tomee.TomeeExtensions"/>
+	</extensions>
+
+</idea-plugin>

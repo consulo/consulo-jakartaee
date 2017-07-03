@@ -10,6 +10,18 @@
             <element id="module-production-resource-output" name="java-web-maven" />
             <element id="module-output" name="java-web-maven" />
             <element id="module-output" name="jsp-psi-api" />
+            <element id="module-output" name="web-server-impl" />
+            <element id="module-production-resource-output" name="web-server-impl" />
+            <element id="module-output" name="jam-api" />
+            <element id="module-output" name="jsp-impl" />
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="consulo.apache.tomcat">
+        <element id="directory" name="lib">
+          <element id="zip-archive" name="tomcat.jar">
+            <element id="module-production-resource-output" name="apache-tomcat" />
+            <element id="module-output" name="apache-tomcat" />
           </element>
         </element>
       </element>

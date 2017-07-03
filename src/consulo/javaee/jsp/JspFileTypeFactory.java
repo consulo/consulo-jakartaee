@@ -30,5 +30,6 @@ public class JspFileTypeFactory extends FileTypeFactory
 	public void createFileTypes(@NotNull FileTypeConsumer fileTypeConsumer)
 	{
 		fileTypeConsumer.consume(JspFileType.INSTANCE);
+		fileTypeConsumer.consume(JspxFileType.INSTANCE);
 	}
 }
