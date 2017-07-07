@@ -31,8 +31,11 @@ class JavaeePersistentDataEditor extends ApplicationServerPersistentDataEditor<J
 
 	private JLabel error;
 
-	protected JavaeePersistentDataEditor()
+	private JavaeeIntegration myIntegration;
+
+	protected JavaeePersistentDataEditor(JavaeeIntegration integration)
 	{
+		myIntegration = integration;
 		for(Component component : panel.getComponents())
 		{
 			if(component instanceof JLabel)
@@ -82,7 +85,7 @@ class JavaeePersistentDataEditor extends ApplicationServerPersistentDataEditor<J
 
 	private String getServerName()
 	{
-		return JavaeeIntegration.getInstance().getName();
+		return myIntegration.getName();
 	}
 
 	private void updateVersion()
@@ -91,7 +94,7 @@ class JavaeePersistentDataEditor extends ApplicationServerPersistentDataEditor<J
 		try
 		{
 			version.setText(getVersion());
-			JavaeeIntegration.getInstance().checkValidServerHome(home.getText(), version.getText());
+			myIntegration.checkValidServerHome(home.getText(), version.getText());
 			error.setVisible(false);
 		}
 		catch(Exception e)
@@ -105,7 +108,7 @@ class JavaeePersistentDataEditor extends ApplicationServerPersistentDataEditor<J
 	{
 		try
 		{
-			return JavaeeIntegration.getInstance().getServerVersion(home.getText());
+			return myIntegration.getServerVersion(home.getText());
 		}
 		catch(Exception e)
 		{

@@ -69,6 +69,8 @@
           <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
           <orderEntry type="module" module-name="web-server-impl" />
           <orderEntry type="module" module-name="jsp-impl" />
+          <orderEntry type="module" module-name="jam-api" />
+          <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
         </module-layer>
       </module>
       <module name="web-server-impl" dirurl="file://$PROJECT_DIR$/web-server-impl" current-layer="Default">

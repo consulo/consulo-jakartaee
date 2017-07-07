@@ -24,8 +24,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptor;
 import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptorFactory;
+import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentProvider;
+import com.intellij.javaee.deployment.DeploymentSource;
+import com.intellij.javaee.run.configuration.CommonModel;
+import com.intellij.javaee.run.localRun.ExecutableObject;
 import com.intellij.openapi.extensions.ExtensionPointName;
+import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.packaging.artifacts.ArtifactType;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
@@ -52,7 +57,7 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
   }*/
 
 	@Nullable
-	public ApplicationServerHelper getApplicationServerHelper()
+	protected ApplicationServerHelper createServerHelper()
 	{
 		return null;
 	}
@@ -76,6 +81,21 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
 
 	@Nullable
 	public AppServerSpecificValidator getAppServerSpecificValidator(@NotNull ApplicationServer server, final ArtifactType artifactType, @NotNull Project project)
+	{
+		return null;
+	}
+
+	public boolean isStartupScriptTerminating(@NotNull ExecutableObject startupScript)
+	{
+		return false;
+	}
+
+	public DeploymentModel createNewDeploymentModel(CommonModel commonModel, DeploymentSource source)
+	{
+		return null;
+	}
+
+	public SettingsEditor<DeploymentModel> createAdditionalDeploymentSettingsEditor(CommonModel commonModel, DeploymentSource source)
 	{
 		return null;
 	}

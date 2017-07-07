@@ -41,6 +41,7 @@ import com.intellij.javaee.run.execution.DefaultOutputProcessor;
 import com.intellij.javaee.run.execution.OutputProcessor;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.openapi.deployment.DeploymentUtil;
+import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.roots.OrderRootType;
 import com.intellij.openapi.util.DefaultJDOMExternalizer;
 import com.intellij.openapi.util.InvalidDataException;
@@ -93,9 +94,6 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		}
 	}
 
-	@NonNls
-	private static final String LOG_FILE_ID = JavaeeIntegration.getInstance().getName();
-
 	public String USERNAME = getDefaultUsername();
 
 	public String PASSWORD = getDefaultPassword();
@@ -123,6 +121,11 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 	protected JavaeeAdmin createServerAdmin(JavaeeServerInstance serverInstance) throws Exception
 	{
 		//TODO [VISTALL] STUB
+		return null;
+	}
+
+	public String getVmArgument(String key)
+	{
 		return null;
 	}
 
@@ -182,6 +185,17 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		return null;
 	}
 
+	public Sdk getJre()
+	{
+		//TODO [VISTALL] STUB
+		return null;
+	}
+
+	public String getJrePath()
+	{
+		//TODO [VISTALL] STUB
+		return null;
+	}
 
 	public boolean undeployBeforeDeploy(DeploymentModel deploymentModel)
 	{
@@ -288,7 +302,10 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		return (config instanceof CommonStrategy) ? ((CommonStrategy) config).getSettingsBean().COMMON_VM_ARGUMENTS : "";
 	}
 
-	protected abstract boolean isDeploymentSourceSupported(DeploymentSource source);
+	protected boolean isDeploymentSourceSupported(DeploymentSource source)
+	{
+		return true;
+	}
 
 	@NonNls
 	protected abstract String getDefaultUsername();
@@ -448,18 +465,18 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 	@NotNull
 	public PredefinedLogFile[] getPredefinedLogFiles()
 	{
-		return new PredefinedLogFile[]{new PredefinedLogFile(LOG_FILE_ID, true)};
+		return new PredefinedLogFile[]{new PredefinedLogFile(getLogFileId(), true)};
 	}
 
 	@Nullable
 	public LogFileOptions getOptionsForPredefinedLogFile(PredefinedLogFile file)
 	{
-		if(LOG_FILE_ID.equals(file.getId()))
+		if(getLogFileId().equals(file.getId()))
 		{
 			String path = getLogFilePath(getHome());
 			if(path != null)
 			{
-				String name = JavaeeBundle.getText("ServerModel.logfile", LOG_FILE_ID);
+				String name = JavaeeBundle.getText("ServerModel.logfile", getLogFileId());
 				return new LogFileOptions(name, path, file.isEnabled(), true, false);
 			}
 		}

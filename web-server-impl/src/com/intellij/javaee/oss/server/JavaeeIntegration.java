@@ -20,97 +20,114 @@ import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerHelper;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerUrlMapping;
 import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.openapi.ex.AppServerIntegrationsManager;
 import com.intellij.javaee.oss.JavaeeBundle;
+import com.intellij.javaee.oss.descriptor.JavaeeDescriptorsManager;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.openapi.deployment.DeploymentUtil;
 import com.intellij.util.Function;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 
-public abstract class JavaeeIntegration extends AppServerIntegration {
+public abstract class JavaeeIntegration extends AppServerIntegration
+{
+	public static boolean checkDir(File f)
+	{
+		return true;
+	}
 
-    @SuppressWarnings({"StaticNonFinalField"})
-    private static JavaeeIntegration instance;
+	@Override
+	public String getPresentableName()
+	{
+		return JavaeeBundle.getText("Integration.name", getName());
+	}
 
-    @SuppressWarnings({"NonThreadSafeLazyInitialization"})
-    public static JavaeeIntegration getInstance() {
-        if (instance == null) {
-            instance = AppServerIntegrationsManager.getInstance().getIntegration(JavaeeIntegration.class);
-        }
-        return instance;
-    }
+	@Override
+	@Nullable
+	protected ApplicationServerHelper createServerHelper()
+	{
+		return new JavaeeServerHelper(this);
+	}
 
-    @NotNull
-    @NonNls
-    public String getComponentName() {
-        return getClass().getSimpleName();
-    }
+	@Override
+	@NotNull
+	public AppServerDeployedFileUrlProvider getDeployedFileUrlProvider()
+	{
+		return new ApplicationServerUrlMapping()
+		{
+			@Override
+			@Nullable
+			public String getUrlForDeployedFile(@NotNull J2EEServerInstance instance, @NotNull DeploymentModel deployment, @NotNull JavaEEModuleExtension<?> facet, @NotNull String path)
+			{
+				if(instance instanceof JavaeeServerInstance)
+				{
+					String root = ((JavaeeServerInstance) instance).getContextRoot(facet);
+					if(root != null)
+					{
+						JavaeeServerModel model = (JavaeeServerModel) instance.getCommonModel().getServerModel();
+						return DeploymentUtil.concatPaths(model.getDefaultUrlForBrowser(false), root, path);
+					}
+				}
+				return null;
+			}
+		};
+	}
 
-    @Override
-    public String getPresentableName() {
-        return JavaeeBundle.getText("Integration.name", getName());
-    }
+	@NotNull
+	public abstract String getName();
 
-    @Override
-    @Nullable
-    public ApplicationServerHelper getApplicationServerHelper() {
-        return new JavaeeServerHelper();
-    }
+	@NotNull
+	public abstract Icon getIcon();
 
-    @Override
-    @NotNull
-    public AppServerDeployedFileUrlProvider getDeployedFileUrlProvider() {
-        return new ApplicationServerUrlMapping() {
-            @Override
-            @Nullable
-            public String getUrlForDeployedFile(@NotNull J2EEServerInstance instance, @NotNull DeploymentModel deployment,
-                                                @NotNull JavaEEModuleExtension<?> facet, @NotNull String path) {
-                if (instance instanceof JavaeeServerInstance) {
-                    String root = ((JavaeeServerInstance) instance).getContextRoot(facet);
-                    if (root != null) {
-                        JavaeeServerModel model = (JavaeeServerModel) instance.getCommonModel().getServerModel();
-                        return DeploymentUtil.concatPaths(model.getDefaultUrlForBrowser(false), root, path);
-                    }
-                }
-                return null;
-            }
-        };
-    }
+	@NotNull
+	public abstract Icon getBigIcon();
 
-    @NotNull
-    public abstract String getName();
+	@Nullable
+	@NonNls
+	public abstract String getNameFromTemplate(String template) throws Exception;
 
-    @NotNull
-    public abstract Icon getIcon();
+	@Nullable
+	@NonNls
+	public abstract String getVersionFromTemplate(String template) throws Exception;
 
-    @NotNull
-    public abstract Icon getBigIcon();
+	@NotNull
+	@NonNls
+	protected String getServerVersion(String home) throws Exception
+	{
+		return null;
+	}
 
-    public abstract void registerDescriptors();
+	protected abstract void checkValidServerHome(String home, String version) throws Exception;
 
-    @Nullable
-    @NonNls
-    public abstract String getNameFromTemplate(String template) throws Exception;
+	protected abstract void addLibraryLocations(String home, List<File> locations);
 
-    @Nullable
-    @NonNls
-    public abstract String getVersionFromTemplate(String template) throws Exception;
+	protected boolean allLibrariesFound(Collection<String> classes, Function<String, String> mapper)
+	{
+		return classes.isEmpty();
+	}
 
-    @NotNull
-    @NonNls
-    protected abstract String getServerVersion(String home) throws Exception;
+	protected boolean allLibrariesExceptEjbFound(Collection<String> classes, Function<String, String> mapper)
+	{
+		return classes.isEmpty();
+	}
 
-    protected abstract void checkValidServerHome(String home, String version) throws Exception;
+	protected void collectDescriptors(JavaeeDescriptorsManager descriptorsManager)
+	{
+	}
 
-    protected abstract void addLibraryLocations(String home, List<File> locations);
+	public String getContextRoot(JavaEEModuleExtension facet)
+	{
+		return null;
+	}
 
-    protected boolean allLibrariesFound(Collection<String> classes, Function<String, String> mapper) {
-        return classes.isEmpty();
-    }
+	public String getServerVersion(JavaeePersistentData persistentData) throws Exception
+	{
+		return null;
+	}
 
-    protected void checkFile(@NonNls String home, @NonNls String path) throws IOException {
-        if (!new File(home, path).exists()) {
-            throw new FileNotFoundException(JavaeeBundle.getText("Error.fileNotFound", path));
-        }
-    }
+	protected void checkFile(@NonNls String home, @NonNls String path) throws IOException
+	{
+		if(!new File(home, path).exists())
+		{
+			throw new FileNotFoundException(JavaeeBundle.getText("Error.fileNotFound", path));
+		}
+	}
 }

@@ -15,4 +15,9 @@ public class Version
 	{
 		return 0;
 	}
+
+	public int getMajor()
+	{
+		return 0;
+	}
 }

@@ -27,6 +27,16 @@ import com.intellij.openapi.util.text.StringUtil;
 public abstract class JavaeeStartupPolicy<T extends JavaeeServerModel> implements ExecutableObjectStartupPolicy
 {
 
+	protected ExecutableObject getDefaultStartupScript(T serverModel, boolean debug)
+	{
+		return null;
+	}
+
+	protected ExecutableObject getDefaultShutdownScript(T serverModel, boolean debug)
+	{
+		return null;
+	}
+
 	@Deprecated
 	@Nullable
 	public ScriptsHelper getStartupHelper()

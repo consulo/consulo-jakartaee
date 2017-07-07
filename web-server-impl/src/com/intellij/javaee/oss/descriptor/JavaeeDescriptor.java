@@ -26,7 +26,6 @@ import com.intellij.javaee.oss.util.FileWrapper;
 import com.intellij.openapi.util.JDOMUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.psi.xml.XmlFile;
-import com.intellij.ui.LayeredIcon;
 import com.intellij.util.descriptors.ConfigFile;
 import com.intellij.util.descriptors.ConfigFileMetaData;
 import com.intellij.util.descriptors.ConfigFileVersion;
@@ -46,35 +45,6 @@ public abstract class JavaeeDescriptor
 	protected JavaeeDescriptor(Icon icon)
 	{
 		this.icon = icon;
-	}
-
-	public void init(Class<?> type, @NonNls final String name)
-	{
-		final JavaeeIntegration integration = JavaeeIntegration.getInstance();
-		final List<ConfigFileVersion> versions = new ArrayList<ConfigFileVersion>();
-		new DirectoryScanner(".+\\.xml\\.ft")
-		{
-			@Override
-			protected void handle(FileWrapper file) throws Exception
-			{
-				String template = file.getName().replaceFirst("\\.ft$", "");
-				if(name.equals(integration.getNameFromTemplate(template)))
-				{
-					String version = integration.getVersionFromTemplate(template);
-					versions.add(new ConfigFileVersion(version, template));
-					namespaces.add(getNamespace(file));
-				}
-			}
-		}.scan("fileTemplates/j2ee", type);
-		ConfigFileVersion[] tmp = versions.toArray(new ConfigFileVersion[versions.size()]);
-		Arrays.sort(tmp, new Comparator<ConfigFileVersion>()
-		{
-			public int compare(ConfigFileVersion v1, ConfigFileVersion v2)
-			{
-				return v1.getName().compareTo(v2.getName());
-			}
-		});
-		meta = new ConfigFileMetaData(getTitle(integration), name + ".xml", getPath(), tmp, null, true, true, true);
 	}
 
 	@Nullable
@@ -107,14 +77,6 @@ public abstract class JavaeeDescriptor
 	public ConfigFileMetaData getMetaData()
 	{
 		return meta;
-	}
-
-	Icon getIcon()
-	{
-		LayeredIcon layered = new LayeredIcon(2);
-		layered.setIcon(JavaeeIntegration.getInstance().getIcon(), 0);
-		layered.setIcon(icon, 1);
-		return layered;
 	}
 
 	abstract String getTitle(JavaeeIntegration integration);

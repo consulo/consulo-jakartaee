@@ -42,6 +42,8 @@ public abstract class JavaeeJmxAdminServerBase
 		}
 	}
 
+	protected abstract JmxAdminCommandBase<Boolean> createConnectCommand();
+
 	protected abstract boolean isUndeploySyncNeeded();
 
 	protected abstract DeploymentStatus doGetDeploymentStatus(DeploymentContext context) throws JmxAdminException;

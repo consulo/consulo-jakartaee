@@ -32,17 +32,17 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 
 	public Icon getIcon()
 	{
-		return JavaeeIntegration.getInstance().getIcon();
+		return myIntegration.getIcon();
 	}
 
 	public String getDisplayName()
 	{
-		return JavaeeBundle.getText("ConfigurationType.name", JavaeeIntegration.getInstance().getName());
+		return JavaeeBundle.getText("ConfigurationType.name", myIntegration.getName());
 	}
 
 	public String getConfigurationTypeDescription()
 	{
-		return JavaeeBundle.getText("ConfigurationType.description", JavaeeIntegration.getInstance().getName());
+		return JavaeeBundle.getText("ConfigurationType.description", myIntegration.getName());
 	}
 
 	@Override

@@ -18,6 +18,6 @@ package com.intellij.javaee.deployment;
 /**
  * @author nik
  */
-//todo[nik] deprecate
+@Deprecated
 public interface DeploymentSource extends com.intellij.remoteServer.configuration.deployment.DeploymentSource {
 }
