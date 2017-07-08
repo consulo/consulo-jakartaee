@@ -12,4 +12,9 @@ public class JavaeeDescriptorsManager
 	{
 
 	}
+
+	public JavaeeDescriptor getItem(Class<? extends JavaeeDomModelElement> tomcatContextRootClass)
+	{
+		return null;
+	}
 }

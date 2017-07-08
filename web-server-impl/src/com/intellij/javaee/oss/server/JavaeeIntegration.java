@@ -109,6 +109,11 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 		return classes.isEmpty();
 	}
 
+	public JavaeeDescriptorsManager getDescriptorsManager()
+	{
+		return new JavaeeDescriptorsManager();
+	}
+
 	protected void collectDescriptors(JavaeeDescriptorsManager descriptorsManager)
 	{
 	}

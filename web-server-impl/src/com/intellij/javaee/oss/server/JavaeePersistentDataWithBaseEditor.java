@@ -1,5 +1,9 @@
 package com.intellij.javaee.oss.server;
 
+import java.io.FileNotFoundException;
+
+import javax.swing.JPanel;
+
 import org.jetbrains.annotations.NotNull;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerPersistentDataEditor;
@@ -13,6 +17,29 @@ public class JavaeePersistentDataWithBaseEditor<T extends JavaeePersistentDataWi
 {
 	public JavaeePersistentDataWithBaseEditor(AppServerIntegration appServerIntegration)
 	{
+	}
+
+	protected JPanel getCustomPanelPlaceHolder()
+	{
+		return new JPanel();
+	}
+
+	protected void onHomeChanged()
+	{
+	}
+
+	protected void doValidateBaseDir(String baseDir) throws FileNotFoundException
+	{
+	}
+
+	public boolean isValidHomeSelected()
+	{
+		return false;
+	}
+
+	public String getHome()
+	{
+		return null;
 	}
 
 	@Override

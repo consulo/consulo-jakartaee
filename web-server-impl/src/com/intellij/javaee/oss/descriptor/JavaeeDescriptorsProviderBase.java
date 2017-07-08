@@ -8,7 +8,7 @@ import com.intellij.javaee.oss.server.JavaeeIntegration;
  * @author VISTALL
  * @since 03-Jul-17
  */
-public class JavaeeDescriptorsProviderBase extends DescriptorMetaDataProvider
+public abstract class JavaeeDescriptorsProviderBase extends DescriptorMetaDataProvider
 {
 	private JavaeeIntegration myJavaeeIntegration;
 

@@ -19,7 +19,6 @@ import com.intellij.util.EventDispatcher;
 
 public abstract class JavaeeRunSettingsEditor<T extends JavaeeServerModel> extends SettingsEditor<CommonModel> implements PredefinedLogFilesProviderEditor
 {
-
 	private final EventDispatcher<PredefinedLogFilesListener> dispatcher = EventDispatcher.create(PredefinedLogFilesListener.class);
 
 	private JavaeeIntegration myAppServerIntegration;
@@ -79,7 +78,7 @@ public abstract class JavaeeRunSettingsEditor<T extends JavaeeServerModel> exten
 		}
 	}
 
-	protected int getPort(JTextField text, String message) throws ConfigurationException
+	protected static int getPort(JTextField text, String message) throws ConfigurationException
 	{
 		return Integer.parseInt(text.getText());
 	}

@@ -280,7 +280,7 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 	}
 
 	@Override
-	public final Object clone() throws CloneNotSupportedException
+	public Object clone() throws CloneNotSupportedException
 	{
 		return super.clone();
 	}
@@ -334,6 +334,11 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 			libraries.add(new File(file.getPresentableUrl()));
 		}
 		return libraries;
+	}
+
+	protected File getPathUnderHome(String name)
+	{
+		return null;
 	}
 
 	protected Set<Class<?>> getExcludes()

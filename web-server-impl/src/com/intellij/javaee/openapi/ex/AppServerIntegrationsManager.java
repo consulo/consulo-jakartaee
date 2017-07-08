@@ -19,22 +19,39 @@ package com.intellij.javaee.openapi.ex;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
-import com.intellij.openapi.components.ServiceManager;
 
 /**
  * author: lesya
  */
-public abstract class AppServerIntegrationsManager
+public class AppServerIntegrationsManager
 {
+	public static final AppServerIntegrationsManager ourInstance = new AppServerIntegrationsManager();
+
 	public static AppServerIntegrationsManager getInstance()
 	{
-		return ServiceManager.getService(AppServerIntegrationsManager.class);
+		return ourInstance;
 	}
 
-	public abstract <T extends AppServerIntegration> T getIntegration(@NotNull Class<T> aClass);
+	public <T extends AppServerIntegration> T getIntegration(@NotNull Class<T> aClass)
+	{
+		return AppServerIntegration.EXTENSION_POINT.findExtension(aClass);
+	}
 
 	@Nullable
-	public abstract AppServerIntegration findIntegrationByName(String name);
+	public AppServerIntegration findIntegrationByName(String name)
+	{
+		for(AppServerIntegration integration : getAllIntegrations())
+		{
+			if(name.equals(integration.getPresentableName()))
+			{
+				return integration;
+			}
+		}
+		return null;
+	}
 
-	public abstract AppServerIntegration[] getAllIntegrations();
+	public AppServerIntegration[] getAllIntegrations()
+	{
+		return AppServerIntegration.EXTENSION_POINT.getExtensions();
+	}
 }

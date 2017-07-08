@@ -14,6 +14,8 @@
             <element id="module-production-resource-output" name="web-server-impl" />
             <element id="module-output" name="jam-api" />
             <element id="module-output" name="jsp-impl" />
+            <element id="module-output" name="javaee-api" />
+            <element id="module-production-resource-output" name="javaee-api" />
           </element>
         </element>
       </element>
