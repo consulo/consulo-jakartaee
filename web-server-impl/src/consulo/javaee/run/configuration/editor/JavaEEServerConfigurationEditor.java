@@ -5,14 +5,15 @@ import javax.swing.JPanel;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.javaee.J2EEBundle;
-import com.intellij.javaee.oss.server.JavaeeIntegration;
 import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel;
 import com.intellij.openapi.ui.LabeledComponent;
 import com.intellij.openapi.ui.VerticalFlowLayout;
+import com.intellij.openapi.util.Conditions;
 import com.intellij.openapi.util.Disposer;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 import consulo.roots.ui.configuration.SdkComboBox;
 
@@ -22,16 +23,16 @@ import consulo.roots.ui.configuration.SdkComboBox;
  */
 public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfigurationImpl>
 {
-	private final JavaeeIntegration myIntegration;
+	private final JavaEEServerBundleType myBundleType;
 	private final ServerModel myServerModel;
 
 	private final SettingsEditor myServerEditor;
 
 	private SdkComboBox myBundleBox;
 
-	public JavaEEServerConfigurationEditor(JavaeeIntegration integration, ServerModel serverModel)
+	public JavaEEServerConfigurationEditor(JavaEEServerBundleType bundleType, ServerModel serverModel)
 	{
-		myIntegration = integration;
+		myBundleType = bundleType;
 		myServerModel = serverModel;
 		myServerEditor = myServerModel.getEditor();
 
@@ -47,7 +48,7 @@ public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfig
 		ProjectSdksModel model = new ProjectSdksModel();
 		model.reset();
 
-		myBundleBox = new SdkComboBox(model);
+		myBundleBox = new SdkComboBox(model, Conditions.equalTo(myBundleType), true);
 
 		verticalLayout.add(LabeledComponent.left(myBundleBox, J2EEBundle.message("label.run.configuration.properties.application.server")));
 		verticalLayout.add(myServerEditor.getComponent());

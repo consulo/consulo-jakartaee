@@ -28,6 +28,7 @@ import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiFile;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 
 public abstract class J2EEConfigurationType implements ConfigurationType
 {
@@ -57,9 +58,16 @@ public abstract class J2EEConfigurationType implements ConfigurationType
 	}
 
 	@Nullable
-	public AppServerIntegration getIntegration()
+	@Deprecated
+	public AppServerIntegration getBundle()
 	{
-		return null;
+		return getBundleType().getIntegration();
+	}
+
+	@NotNull
+	public JavaEEServerBundleType getBundleType()
+	{
+		throw new UnsupportedOperationException();
 	}
 
 	@Nullable

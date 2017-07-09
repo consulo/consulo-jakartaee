@@ -9,16 +9,18 @@
 
 	<extensions defaultExtensionNs="com.intellij">
 		<applicationService serviceImplementation="org.jetbrains.idea.tomcat.TomcatSystemBaseDirManager"/>
-		<configurationType implementation="org.jetbrains.idea.tomcat.server.TomcatConfiguration"/>
 		<configurationProducer implementation="org.jetbrains.idea.tomcat.TomcatConfigurationProducer"/>
 		<javaee.appServerIntegration implementation="org.jetbrains.idea.tomcat.server.TomcatIntegration"/>
 		<javaee.descriptorMetaDataProvider implementation="org.jetbrains.idea.tomcat.descriptor.TomcatDescriptorsProvider"/>
 		<fileTemplateGroup implementation="org.jetbrains.idea.tomcat.descriptor.TomcatTemplates"/>
 
-		<configurationType implementation="org.jetbrains.idea.tomcat.server.tomee.TomeeConfiguration"/>
+		<configurationType implementation="org.jetbrains.idea.tomcat.server.TomcatConfiguration"/>
+		<!--<configurationType implementation="org.jetbrains.idea.tomcat.server.tomee.TomeeConfiguration"/> -->
+
 		<javaee.appServerIntegration implementation="org.jetbrains.idea.tomcat.server.tomee.TomeeIntegration"/>
 		<applicationService serviceInterface="org.jetbrains.idea.tomcat.server.tomee.TomeeExtensions"
 							serviceImplementation="org.jetbrains.idea.tomcat.server.tomee.TomeeExtensions"/>
-	</extensions>
 
+		<sdkType implementation="consulo.apache.tomcat.bundle.TomcatBundleType"/>
+	</extensions>
 </idea-plugin>

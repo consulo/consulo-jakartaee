@@ -16,21 +16,22 @@ import com.intellij.javaee.run.configuration.J2EEConfigurationFactory;
 import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.openapi.project.Project;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 
 public abstract class JavaeeConfigurationFactory extends ConfigurationFactory
 {
 	private final String myName;
 	private final Icon myIcon;
 	protected final boolean myLocal;
-	protected JavaeeIntegration myIntegration;
+	protected JavaEEServerBundleType myBundleType;
 
-	protected JavaeeConfigurationFactory(ConfigurationType type, String name, Icon icon, boolean local, JavaeeIntegration integration)
+	protected JavaeeConfigurationFactory(ConfigurationType type, String name, Icon icon, boolean local, JavaEEServerBundleType bundleType)
 	{
 		super(type);
 		myName = name;
 		myIcon = icon;
 		myLocal = local;
-		myIntegration = integration;
+		myBundleType = bundleType;
 	}
 
 	@Override
@@ -57,7 +58,7 @@ public abstract class JavaeeConfigurationFactory extends ConfigurationFactory
 	public RunConfiguration createTemplateConfiguration(Project project)
 	{
 		J2EEConfigurationFactory factory = J2EEConfigurationFactory.getInstance();
-		return factory.createJ2EERunConfiguration(this, project, createServerModel(), myIntegration, myLocal, createPolicy());
+		return factory.createJ2EERunConfiguration(this, project, createServerModel(), myBundleType, myLocal, createPolicy());
 	}
 
 	@NotNull

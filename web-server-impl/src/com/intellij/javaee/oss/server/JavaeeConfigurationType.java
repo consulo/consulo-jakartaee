@@ -7,7 +7,6 @@ package com.intellij.javaee.oss.server;
 import javax.swing.Icon;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.javaee.oss.JavaeeBundle;
@@ -15,22 +14,23 @@ import com.intellij.javaee.run.configuration.J2EEConfigurationType;
 import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.openapi.project.Project;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 
 public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 {
-	private JavaeeIntegration myIntegration;
+	private JavaEEServerBundleType myBundleType;
 
-	protected JavaeeConfigurationType(JavaeeIntegration integration)
+	protected JavaeeConfigurationType(JavaEEServerBundleType bundleType)
 	{
-		myIntegration = integration;
+		myBundleType = bundleType;
 		init();
 	}
 
-	@Nullable
+	@NotNull
 	@Override
-	public JavaeeIntegration getIntegration()
+	public JavaEEServerBundleType getBundleType()
 	{
-		return myIntegration;
+		return myBundleType;
 	}
 
 	@Override
@@ -43,19 +43,19 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 	@Override
 	public Icon getIcon()
 	{
-		return myIntegration.getIcon();
+		return myBundleType.getIcon();
 	}
 
 	@Override
 	public String getDisplayName()
 	{
-		return JavaeeBundle.getText("ConfigurationType.name", myIntegration.getName());
+		return JavaeeBundle.getText("ConfigurationType.name", myBundleType.getPresentableName());
 	}
 
 	@Override
 	public String getConfigurationTypeDescription()
 	{
-		return JavaeeBundle.getText("ConfigurationType.description", myIntegration.getName());
+		return JavaeeBundle.getText("ConfigurationType.description", myBundleType.getPresentableName());
 	}
 
 	@Override

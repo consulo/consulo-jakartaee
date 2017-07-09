@@ -7,11 +7,11 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.javaee.oss.server.JavaeeConfigurationFactory;
 import com.intellij.javaee.oss.server.JavaeeConfigurationType;
-import com.intellij.javaee.oss.server.JavaeeIntegration;
 import com.intellij.javaee.run.configuration.J2EEConfigurationFactory;
 import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.openapi.project.Project;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 
 /**
  * @author VISTALL
@@ -19,9 +19,9 @@ import com.intellij.openapi.project.Project;
  */
 public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory
 {
-	public JavaEEConfigurationFactoryImpl(ConfigurationType type, String name, Icon icon, boolean local, JavaeeIntegration integration)
+	public JavaEEConfigurationFactoryImpl(ConfigurationType type, String name, Icon icon, boolean local, JavaEEServerBundleType bundleType)
 	{
-		super(type, name, icon, local, integration);
+		super(type, name, icon, local, bundleType);
 	}
 
 	@Override

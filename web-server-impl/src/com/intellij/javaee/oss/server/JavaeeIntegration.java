@@ -27,6 +27,7 @@ import com.intellij.openapi.deployment.DeploymentUtil;
 import com.intellij.util.Function;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 
+@Deprecated
 public abstract class JavaeeIntegration extends AppServerIntegration
 {
 	public static boolean checkDir(File f)

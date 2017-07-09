@@ -20,7 +20,6 @@ import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentSettings;
-import com.intellij.javaee.oss.server.JavaeeIntegration;
 import com.intellij.javaee.run.configuration.CommonStrategy;
 import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.openapi.compiler.CompileScope;
@@ -29,6 +28,7 @@ import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.options.SettingsEditorGroup;
 import com.intellij.openapi.project.Project;
 import com.intellij.packaging.artifacts.Artifact;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.run.configuration.editor.JavaEEDeploymentConfigurationEditor;
 import consulo.javaee.run.configuration.editor.JavaEEServerConfigurationEditor;
 
@@ -38,15 +38,15 @@ import consulo.javaee.run.configuration.editor.JavaEEServerConfigurationEditor;
  */
 public class JavaEEConfigurationImpl extends LocatableConfigurationBase implements CommonStrategy
 {
-	private final JavaeeIntegration myIntegration;
+	private final JavaEEServerBundleType myBundleType;
 	private final ServerModel myServerModel;
 
 	private SettingsBean mySettingsBean = new SettingsBean();
 
-	public JavaEEConfigurationImpl(Project project, ConfigurationFactory factory, String name, JavaeeIntegration integration, ServerModel serverModel)
+	public JavaEEConfigurationImpl(Project project, ConfigurationFactory factory, String name, JavaEEServerBundleType bundleType, ServerModel serverModel)
 	{
 		super(project, factory, name);
-		myIntegration = integration;
+		myBundleType = bundleType;
 		myServerModel = serverModel;
 	}
 
@@ -59,7 +59,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	@Override
 	public AppServerIntegration getIntegration()
 	{
-		return myIntegration;
+		return myBundleType.getIntegration();
 	}
 
 	@Override
@@ -154,7 +154,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	public SettingsEditor<? extends RunConfiguration> getConfigurationEditor()
 	{
 		SettingsEditorGroup group = new SettingsEditorGroup<>();
-		group.addEditor(J2EEBundle.message("title.run.configuration.editor.server"), new JavaEEServerConfigurationEditor(myIntegration, myServerModel));
+		group.addEditor(J2EEBundle.message("title.run.configuration.editor.server"), new JavaEEServerConfigurationEditor(myBundleType, myServerModel));
 		group.addEditor(J2EEBundle.message("title.run.configuration.editor.deployment"), new JavaEEDeploymentConfigurationEditor());
 		group.addEditor(ExecutionBundle.message("logs.tab.title"), new LogConfigurationPanel<>());
 		JavaRunConfigurationExtensionManager.getInstance().appendEditors(this, group);

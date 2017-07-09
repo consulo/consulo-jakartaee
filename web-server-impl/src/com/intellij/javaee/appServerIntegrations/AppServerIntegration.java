@@ -39,6 +39,7 @@ import consulo.javaee.module.extension.JavaEEModuleExtension;
  * Application server integration component
  * Specific app server integrations should implement it
  */
+@Deprecated
 public abstract class AppServerIntegration implements FileTemplateGroupDescriptorFactory
 {
 	public static final ExtensionPointName<AppServerIntegration> EXTENSION_POINT = ExtensionPointName.create("com.intellij.javaee.appServerIntegration");

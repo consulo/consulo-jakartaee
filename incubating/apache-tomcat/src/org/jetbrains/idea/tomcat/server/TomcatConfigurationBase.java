@@ -13,6 +13,7 @@ import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.javaee.web.WebUtil;
 import com.intellij.openapi.deployment.DeploymentUtil;
 import com.intellij.psi.PsiFile;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
 
 /**
@@ -21,38 +22,48 @@ import consulo.javaee.module.extension.JavaWebModuleExtension;
  */
 public class TomcatConfigurationBase extends JavaeeConfigurationType
 {
+	public TomcatConfigurationBase(JavaEEServerBundleType integration)
+	{
+		super(integration);
+	}
 
-  public TomcatConfigurationBase(TomcatIntegration integration) {
-    super(integration);
-  }
+	@Override
+	@NotNull
+	public ServerModel createLocalModel()
+	{
+		return new TomcatLocalModel();
+	}
 
-  @Override
-  @NotNull
-  public ServerModel createLocalModel() {
-    return new TomcatLocalModel();
-  }
+	@Override
+	@NotNull
+	public ServerModel createRemoteModel()
+	{
+		return new TomcatRemoteModel();
+	}
 
-  @Override
-  @NotNull
-  public ServerModel createRemoteModel() {
-    return new TomcatRemoteModel();
-  }
+	@Override
+	@NotNull
+	public ExecutableObjectStartupPolicy createStartupPolicy()
+	{
+		return new TomcatStartupPolicy();
+	}
 
-  @Override
-  @NotNull
-  public ExecutableObjectStartupPolicy createStartupPolicy() {
-    return new TomcatStartupPolicy();
-  }
+	@Override
+	public String getUrlToOpenInBrowser(@NotNull ApplicationServer server, @NotNull PsiFile psiFile)
+	{
+		final JavaWebModuleExtension webFacet = WebUtil.getWebFacet(psiFile);
+		if(webFacet == null)
+		{
+			return null;
+		}
 
-  @Override
-  public String getUrlToOpenInBrowser(@NotNull ApplicationServer server, @NotNull PsiFile psiFile) {
-    final JavaWebModuleExtension webFacet = WebUtil.getWebFacet(psiFile);
-    if (webFacet == null) return null;
-
-    final int port = new TomcatPersistentDataWrapper(server).getSourceLocalPort();
-    @NonNls final String root = "http://" + CommonModel.LOCALHOST + ":" + port;
-    final String relativePath = JspDeploymentManager.getInstance().computeRelativeTargetPath(psiFile, webFacet);
-    if (relativePath == null) return null;
-    return DeploymentUtil.concatPaths(root, relativePath);
-  }
+		final int port = new TomcatPersistentDataWrapper(server).getSourceLocalPort();
+		@NonNls final String root = "http://" + CommonModel.LOCALHOST + ":" + port;
+		final String relativePath = JspDeploymentManager.getInstance().computeRelativeTargetPath(psiFile, webFacet);
+		if(relativePath == null)
+		{
+			return null;
+		}
+		return DeploymentUtil.concatPaths(root, relativePath);
+	}
 }

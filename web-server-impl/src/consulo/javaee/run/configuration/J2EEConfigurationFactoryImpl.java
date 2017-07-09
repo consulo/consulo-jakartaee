@@ -5,9 +5,7 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
-import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.appServerIntegrations.ApplicationServer;
-import com.intellij.javaee.oss.server.JavaeeIntegration;
 import com.intellij.javaee.run.configuration.J2EEConfigurationFactory;
 import com.intellij.javaee.run.configuration.J2EEConfigurationType;
 import com.intellij.javaee.run.configuration.JavaCommandLineStartupPolicy;
@@ -15,6 +13,7 @@ import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiFile;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 
 /**
  * @author VISTALL
@@ -26,22 +25,22 @@ public class J2EEConfigurationFactoryImpl extends J2EEConfigurationFactory
 	public RunConfiguration createJ2EERunConfiguration(ConfigurationFactory factory,
 			Project project,
 			ServerModel serverSpecific,
-			AppServerIntegration integration,
+			JavaEEServerBundleType integration,
 			boolean isLocal,
 			JavaCommandLineStartupPolicy startupPolicy)
 	{
-		return new JavaEEConfigurationImpl(project, factory, "Unnamed", (JavaeeIntegration) integration, serverSpecific);
+		return new JavaEEConfigurationImpl(project, factory, "Unnamed", integration, serverSpecific);
 	}
 
 	@Override
 	public RunConfiguration createJ2EERunConfiguration(ConfigurationFactory factory,
 			Project project,
 			ServerModel serverSpecific,
-			AppServerIntegration integration,
+			JavaEEServerBundleType integration,
 			boolean isLocal,
 			ExecutableObjectStartupPolicy startupPolicy)
 	{
-		return new JavaEEConfigurationImpl(project, factory, "Unnamed", (JavaeeIntegration) integration, serverSpecific);
+		return new JavaEEConfigurationImpl(project, factory, "Unnamed", integration, serverSpecific);
 	}
 
 	@Nullable
@@ -60,7 +59,7 @@ public class J2EEConfigurationFactoryImpl extends J2EEConfigurationFactory
 	@Override
 	public ConfigurationFactory createFactory(J2EEConfigurationType type, boolean isLocal, String name)
 	{
-		return new JavaEEConfigurationFactoryImpl(type, name, isLocal ? type.getLocalIcon() : type.getRemoteIcon(), isLocal, (JavaeeIntegration) type.getIntegration());
+		return new JavaEEConfigurationFactoryImpl(type, name, isLocal ? type.getLocalIcon() : type.getRemoteIcon(), isLocal, type.getBundleType());
 	}
 
 	@Override

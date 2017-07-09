@@ -15,44 +15,45 @@
  */
 package com.intellij.javaee.run.configuration;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
-import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiFile;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 
-public abstract class J2EEConfigurationFactory {
-  public static J2EEConfigurationFactory getInstance() {
-    return ServiceManager.getService(J2EEConfigurationFactory.class);
-  }
+public abstract class J2EEConfigurationFactory
+{
+	public static J2EEConfigurationFactory getInstance()
+	{
+		return ServiceManager.getService(J2EEConfigurationFactory.class);
+	}
 
-  public abstract RunConfiguration createJ2EERunConfiguration(ConfigurationFactory factory,
-                                                              Project project,
-                                                              ServerModel serverSpecific,
-                                                              AppServerIntegration integration,
-                                                              boolean isLocal,
-                                                              JavaCommandLineStartupPolicy startupPolicy);
+	public abstract RunConfiguration createJ2EERunConfiguration(ConfigurationFactory factory,
+			Project project,
+			ServerModel serverSpecific,
+			JavaEEServerBundleType integration,
+			boolean isLocal,
+			JavaCommandLineStartupPolicy startupPolicy);
 
-  public abstract RunConfiguration createJ2EERunConfiguration(ConfigurationFactory factory,
-                                                              Project project,
-                                                              ServerModel serverSpecific,
-                                                              AppServerIntegration integration,
-                                                              boolean isLocal,
-                                                              ExecutableObjectStartupPolicy startupPolicy);
+	public abstract RunConfiguration createJ2EERunConfiguration(ConfigurationFactory factory,
+			Project project,
+			ServerModel serverSpecific,
+			JavaEEServerBundleType integration,
+			boolean isLocal,
+			ExecutableObjectStartupPolicy startupPolicy);
 
-  @Nullable
-  public abstract RunnerAndConfigurationSettings createSettingsByFile(@NotNull PsiFile psiFile, @NotNull J2EEConfigurationType configurationType);
+	@Nullable
+	public abstract RunnerAndConfigurationSettings createSettingsByFile(@NotNull PsiFile psiFile, @NotNull J2EEConfigurationType configurationType);
 
-  public abstract RunnerAndConfigurationSettings addAppServerConfiguration(@NotNull Project project, @NotNull ConfigurationFactory type,
-                                                                           @NotNull ApplicationServer appServer);
+	public abstract RunnerAndConfigurationSettings addAppServerConfiguration(@NotNull Project project, @NotNull ConfigurationFactory type, @NotNull ApplicationServer appServer);
 
-  public abstract ConfigurationFactory createFactory(J2EEConfigurationType type, boolean isLocal, String name);
+	public abstract ConfigurationFactory createFactory(J2EEConfigurationType type, boolean isLocal, String name);
 
-  public abstract boolean isConfigurationApplicable(@NotNull J2EEConfigurationType type, @NotNull Project project);
+	public abstract boolean isConfigurationApplicable(@NotNull J2EEConfigurationType type, @NotNull Project project);
 }
