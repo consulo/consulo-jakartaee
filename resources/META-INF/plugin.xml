@@ -83,6 +83,8 @@
 
 		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.impl.JspPsiTreeChangePreprocessor"/>
 
+		<applicationService serviceInterface="com.intellij.javaee.run.configuration.J2EEConfigurationFactory"
+						serviceImplementation="consulo.javaee.run.configuration.J2EEConfigurationFactoryImpl"/>
 		<moduleExtensionProvider key="java-web"
 								 parentKey="java"
 								 icon="/general/web.png"

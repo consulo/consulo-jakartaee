@@ -19,30 +19,30 @@ import com.intellij.openapi.project.Project;
 
 public abstract class JavaeeConfigurationFactory extends ConfigurationFactory
 {
-	private final String name;
-	private final Icon icon;
-	private final boolean local;
-	private JavaeeIntegration myIntegration;
+	private final String myName;
+	private final Icon myIcon;
+	protected final boolean myLocal;
+	protected JavaeeIntegration myIntegration;
 
 	protected JavaeeConfigurationFactory(ConfigurationType type, String name, Icon icon, boolean local, JavaeeIntegration integration)
 	{
 		super(type);
-		this.name = name;
-		this.icon = icon;
-		this.local = local;
+		myName = name;
+		myIcon = icon;
+		myLocal = local;
 		myIntegration = integration;
 	}
 
 	@Override
 	public String getName()
 	{
-		return name;
+		return myName;
 	}
 
 	@Override
 	public Icon getIcon()
 	{
-		return icon;
+		return myIcon;
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public abstract class JavaeeConfigurationFactory extends ConfigurationFactory
 	public RunConfiguration createTemplateConfiguration(Project project)
 	{
 		J2EEConfigurationFactory factory = J2EEConfigurationFactory.getInstance();
-		return factory.createJ2EERunConfiguration(this, project, createServerModel(), myIntegration, local, createPolicy());
+		return factory.createJ2EERunConfiguration(this, project, createServerModel(), myIntegration, myLocal, createPolicy());
 	}
 
 	@NotNull

@@ -7,6 +7,7 @@ package com.intellij.javaee.oss.server;
 import javax.swing.Icon;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.javaee.oss.JavaeeBundle;
@@ -22,24 +23,36 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 	protected JavaeeConfigurationType(JavaeeIntegration integration)
 	{
 		myIntegration = integration;
+		init();
 	}
 
+	@Nullable
+	@Override
+	public JavaeeIntegration getIntegration()
+	{
+		return myIntegration;
+	}
+
+	@Override
 	@NotNull
 	public String getId()
 	{
 		return getClass().getSimpleName();
 	}
 
+	@Override
 	public Icon getIcon()
 	{
 		return myIntegration.getIcon();
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return JavaeeBundle.getText("ConfigurationType.name", myIntegration.getName());
 	}
 
+	@Override
 	public String getConfigurationTypeDescription()
 	{
 		return JavaeeBundle.getText("ConfigurationType.description", myIntegration.getName());
@@ -52,11 +65,11 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 	}
 
 	@NotNull
-	protected abstract ServerModel createLocalModel();
+	public abstract ServerModel createLocalModel();
 
 	@NotNull
-	protected abstract ServerModel createRemoteModel();
+	public abstract ServerModel createRemoteModel();
 
 	@NotNull
-	protected abstract ExecutableObjectStartupPolicy createStartupPolicy();
+	public abstract ExecutableObjectStartupPolicy createStartupPolicy();
 }

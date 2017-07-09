@@ -28,19 +28,19 @@ public class TomcatConfigurationBase extends JavaeeConfigurationType
 
   @Override
   @NotNull
-  protected ServerModel createLocalModel() {
+  public ServerModel createLocalModel() {
     return new TomcatLocalModel();
   }
 
   @Override
   @NotNull
-  protected ServerModel createRemoteModel() {
+  public ServerModel createRemoteModel() {
     return new TomcatRemoteModel();
   }
 
   @Override
   @NotNull
-  protected ExecutableObjectStartupPolicy createStartupPolicy() {
+  public ExecutableObjectStartupPolicy createStartupPolicy() {
     return new TomcatStartupPolicy();
   }
 
