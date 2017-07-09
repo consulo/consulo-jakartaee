@@ -5,11 +5,7 @@
 package com.intellij.javaee.oss.descriptor;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.swing.Icon;
@@ -21,14 +17,12 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
-import com.intellij.javaee.oss.util.DirectoryScanner;
 import com.intellij.javaee.oss.util.FileWrapper;
 import com.intellij.openapi.util.JDOMUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.util.descriptors.ConfigFile;
 import com.intellij.util.descriptors.ConfigFileMetaData;
-import com.intellij.util.descriptors.ConfigFileVersion;
 import com.intellij.util.xml.DomElement;
 import com.intellij.util.xml.DomFileElement;
 import com.intellij.util.xml.DomManager;
