@@ -155,7 +155,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	{
 		SettingsEditorGroup group = new SettingsEditorGroup<>();
 		group.addEditor(J2EEBundle.message("title.run.configuration.editor.server"), new JavaEEServerConfigurationEditor(myBundleType, myServerModel));
-		group.addEditor(J2EEBundle.message("title.run.configuration.editor.deployment"), new JavaEEDeploymentConfigurationEditor());
+		group.addEditor(J2EEBundle.message("title.run.configuration.editor.deployment"), new JavaEEDeploymentConfigurationEditor(getProject(), myBundleType, this));
 		group.addEditor(ExecutionBundle.message("logs.tab.title"), new LogConfigurationPanel<>());
 		JavaRunConfigurationExtensionManager.getInstance().appendEditors(this, group);
 		return group;

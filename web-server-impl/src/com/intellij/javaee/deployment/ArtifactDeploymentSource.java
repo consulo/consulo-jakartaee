@@ -19,5 +19,7 @@ package com.intellij.javaee.deployment;
  * @author nik
  */
 //todo[nik] deprecate
-public interface ArtifactDeploymentSource extends com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource, DeploymentSource {
+@Deprecated
+public interface ArtifactDeploymentSource extends com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource, DeploymentSource
+{
 }

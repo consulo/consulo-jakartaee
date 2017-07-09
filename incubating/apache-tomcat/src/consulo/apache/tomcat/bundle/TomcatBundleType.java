@@ -24,9 +24,15 @@ import javax.swing.Icon;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.idea.tomcat.TomcatDeploymentSettingsEditor;
+import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
 import org.jetbrains.idea.tomcat.server.TomcatIntegration;
+import com.intellij.javaee.deployment.DeploymentModel;
+import com.intellij.javaee.deployment.DeploymentSource;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
 import com.intellij.javaee.oss.util.VersionUtil;
+import com.intellij.javaee.run.configuration.CommonModel;
+import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.projectRoots.JavaSdk;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkModificator;
@@ -84,6 +90,18 @@ public class TomcatBundleType extends JavaEEServerBundleType
 	public boolean isJreCustomizable()
 	{
 		return true;
+	}
+
+	@Override
+	public DeploymentModel createNewDeploymentModel(CommonModel commonModel, DeploymentSource source)
+	{
+		return new TomcatModuleDeploymentModel(commonModel, source);
+	}
+
+	@Override
+	public SettingsEditor<DeploymentModel> createAdditionalDeploymentSettingsEditor(CommonModel commonModel, DeploymentSource source)
+	{
+		return new TomcatDeploymentSettingsEditor(commonModel, source);
 	}
 
 	@Override
