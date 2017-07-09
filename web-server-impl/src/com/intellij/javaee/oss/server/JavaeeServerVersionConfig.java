@@ -6,13 +6,14 @@ package com.intellij.javaee.oss.server;
  */
 public abstract class JavaeeServerVersionConfig
 {
-	protected static class Factory<T>
+	protected abstract static class Factory<T extends JavaeePersistentData>
 	{
+		public abstract JavaeeServerVersionConfig createConfig(T data);
 	}
 
 	protected abstract JavaeeServerVersionDescriptor getVersionDescriptor(String home) throws Exception;
 
-	public static <T> String get(Factory<T> persistentData, T value) throws Exception
+	public static <T extends JavaeePersistentData> String get(Factory<T> persistentData, T value) throws Exception
 	{
 		return null;
 	}
