@@ -4,7 +4,6 @@
 
 package com.intellij.javaee.oss.server;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
 
@@ -15,24 +14,28 @@ import com.intellij.javaee.run.configuration.PredefinedLogFilesListener;
 import com.intellij.javaee.run.configuration.PredefinedLogFilesProviderEditor;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SettingsEditor;
+import com.intellij.ui.IdeBorderFactory;
 import com.intellij.util.EventDispatcher;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 
 public abstract class JavaeeRunSettingsEditor<T extends JavaeeServerModel> extends SettingsEditor<CommonModel> implements PredefinedLogFilesProviderEditor
 {
 	private final EventDispatcher<PredefinedLogFilesListener> dispatcher = EventDispatcher.create(PredefinedLogFilesListener.class);
 
-	private JavaeeIntegration myAppServerIntegration;
+	private JavaEEServerBundleType myBundleType;
 
-	protected JavaeeRunSettingsEditor(JavaeeIntegration appServerIntegration)
+	protected JavaeeRunSettingsEditor(JavaEEServerBundleType bundleType)
 	{
-		myAppServerIntegration = appServerIntegration;
+		myBundleType = bundleType;
 	}
 
+	@Override
 	public void addListener(PredefinedLogFilesListener listener)
 	{
 		dispatcher.addListener(listener);
 	}
 
+	@Override
 	public void removeListener(PredefinedLogFilesListener listener)
 	{
 		dispatcher.removeListener(listener);
@@ -57,8 +60,7 @@ public abstract class JavaeeRunSettingsEditor<T extends JavaeeServerModel> exten
 	protected JComponent createEditor()
 	{
 		JComponent editor = getEditor();
-		String name = myAppServerIntegration.getName();
-		editor.setBorder(BorderFactory.createTitledBorder(JavaeeBundle.getText("RunEditor.title", name)));
+		editor.setBorder(IdeBorderFactory.createTitledBorder(JavaeeBundle.getText("RunEditor.title", myBundleType.getPresentableName())));
 		return editor;
 	}
 

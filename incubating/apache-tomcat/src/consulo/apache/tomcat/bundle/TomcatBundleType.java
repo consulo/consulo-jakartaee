@@ -51,16 +51,6 @@ public class TomcatBundleType extends JavaEEServerBundleType
 		return EP_NAME.findExtension(TomcatBundleType.class);
 	}
 
-	public TomcatBundleType()
-	{
-		this("APACHE_TOMCAT_SDK");
-	}
-
-	protected TomcatBundleType(@NonNls String name)
-	{
-		super(name);
-	}
-
 	public static String getExecutablePath(String home)
 	{
 		StringBuilder builder = new StringBuilder();
@@ -78,6 +68,22 @@ public class TomcatBundleType extends JavaEEServerBundleType
 			builder.append(".sh");
 		}
 		return builder.toString();
+	}
+
+	public TomcatBundleType()
+	{
+		this("APACHE_TOMCAT_SDK");
+	}
+
+	protected TomcatBundleType(@NonNls String name)
+	{
+		super(name);
+	}
+
+	@Override
+	public boolean isJreCustomizable()
+	{
+		return true;
 	}
 
 	@Override

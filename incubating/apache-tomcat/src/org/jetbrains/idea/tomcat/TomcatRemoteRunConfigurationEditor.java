@@ -24,7 +24,6 @@ import com.intellij.openapi.options.ConfigurationException;
  */
 public class TomcatRemoteRunConfigurationEditor extends TomcatRunSettingsEditor<TomcatRemoteModel> implements ApplicationServerSelectionListener
 {
-
 	private JTextField myJndiPortField;
 	private MultiTargetRemoteStagingEditor myRemoteStagingEditor;
 	private JPanel myMainPanel;

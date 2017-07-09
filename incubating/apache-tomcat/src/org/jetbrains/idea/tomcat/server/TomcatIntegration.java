@@ -1,5 +1,24 @@
 package org.jetbrains.idea.tomcat.server;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import javax.swing.Icon;
+
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.idea.tomcat.TomcatBundle;
+import org.jetbrains.idea.tomcat.TomcatConstants;
+import org.jetbrains.idea.tomcat.TomcatDeploymentSettingsEditor;
+import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
+import org.jetbrains.idea.tomcat.TomcatStartupPolicy;
+import org.jetbrains.idea.tomcat.TomcatUrlMapping;
+import org.jetbrains.idea.tomcat.descriptor.TomcatContextDescriptor;
+import org.jetbrains.idea.tomcat.model.TomcatContextRoot;
 import com.intellij.icons.AllIcons;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerPersistentDataEditor;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerUrlMapping;
@@ -8,7 +27,12 @@ import com.intellij.javaee.deployment.DeploymentProvider;
 import com.intellij.javaee.deployment.DeploymentSource;
 import com.intellij.javaee.openapi.ex.AppServerIntegrationsManager;
 import com.intellij.javaee.oss.descriptor.JavaeeDescriptorsManager;
-import com.intellij.javaee.oss.server.*;
+import com.intellij.javaee.oss.server.DefaultTemplateMatcher;
+import com.intellij.javaee.oss.server.JavaeeDeploymentProvider;
+import com.intellij.javaee.oss.server.JavaeeIntegration;
+import com.intellij.javaee.oss.server.JavaeePersistentData;
+import com.intellij.javaee.oss.server.JavaeePersistentDataWithBaseEditor;
+import com.intellij.javaee.oss.server.JavaeeServerHelper;
 import com.intellij.javaee.oss.util.Version;
 import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.run.localRun.ColoredCommandLineExecutableObject;
@@ -17,24 +41,12 @@ import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.Function;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
-import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.idea.tomcat.*;
-import org.jetbrains.idea.tomcat.descriptor.TomcatContextDescriptor;
-import org.jetbrains.idea.tomcat.model.TomcatContextRoot;
-
-import javax.swing.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.regex.Pattern;
 
 /**
  * Created by IntelliJ IDEA.
  * User: michael.golubev
  */
+@Deprecated
 public class TomcatIntegration extends JavaeeIntegration
 {
   @NonNls

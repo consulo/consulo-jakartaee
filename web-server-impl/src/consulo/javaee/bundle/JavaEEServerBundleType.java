@@ -15,6 +15,11 @@ public abstract class JavaEEServerBundleType extends SdkType
 		super(name);
 	}
 
+	public boolean isJreCustomizable()
+	{
+		return false;
+	}
+
 	@Deprecated
 	public abstract JavaeeIntegration getIntegration();
 }
