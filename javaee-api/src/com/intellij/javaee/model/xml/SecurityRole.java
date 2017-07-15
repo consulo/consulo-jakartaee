@@ -19,15 +19,15 @@
 
 package com.intellij.javaee.model.xml;
 
+import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
 import com.intellij.ide.presentation.Presentation;
 import com.intellij.jam.view.DeleteHandler;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.NameValue;
 import com.intellij.util.xml.Required;
 import com.intellij.util.xml.Stubbed;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:security-roleType interface.

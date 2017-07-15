@@ -135,6 +135,9 @@
           <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
           <orderEntry type="module-extension-sdk" extension-id="java" />
           <orderEntry type="sourceFolder" />
+          <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
+          <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
+          <orderEntry type="module" module-name="jam-api" />
         </module-layer>
       </module>
     </modules>

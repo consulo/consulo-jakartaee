@@ -17,7 +17,8 @@ import com.intellij.psi.tree.ILightStubFileElementType;
 import com.intellij.util.diff.FlyweightCapableTreeStructure;
 import consulo.javaee.jsp.lexer.JspJavaLexer;
 import consulo.javaee.jsp.psi.impl.java.parsing.JavaInJspParser;
-import consulo.javaee.jsp.psi.impl.java.psi.stub.JspClassStubElementType;
+import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspClassLevelDeclarationStatementElementType;
+import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspClassStubElementType;
 import consulo.lang.LanguageVersion;
 
 /**
@@ -28,6 +29,7 @@ public interface JspJavaStubElements
 {
 	IElementType JAVA_IN_JSP_FILE_TYPE = new ILightStubFileElementType("JAVA_JSP_FILE", JavaLanguage.INSTANCE)
 	{
+		@Override
 		public FlyweightCapableTreeStructure<LighterASTNode> parseContentsLight(final ASTNode chameleon)
 		{
 			final PsiElement psi = chameleon.getPsi();
@@ -42,7 +44,7 @@ public interface JspJavaStubElements
 		@Override
 		public boolean shouldBuildStubFor(VirtualFile file)
 		{
-			return false;
+			return true;
 		}
 
 		@NotNull
@@ -76,9 +78,11 @@ public interface JspJavaStubElements
 		@Override
 		public int getStubVersion()
 		{
-			return 2;
+			return 5;
 		}
 	};
 
 	JspClassStubElementType JSP_CLASS = new JspClassStubElementType();
+
+	JspClassLevelDeclarationStatementElementType JSP_CLASS_LEVEL_DECLARATION_STATEMENT = new JspClassLevelDeclarationStatementElementType();
 }

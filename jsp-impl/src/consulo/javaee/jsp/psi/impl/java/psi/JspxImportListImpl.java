@@ -182,12 +182,6 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 		return list;
 	}
 
-	public static void main(String[] args)
-	{
-		List<Pair<String, TextRange>> list = parseImportList2("test, java.test.dsadas.*, dsa dsadas, ,, ,");
-		System.out.println();
-	}
-
 	@NotNull
 	@Override
 	public PsiImportStaticStatement[] getImportStaticStatements()

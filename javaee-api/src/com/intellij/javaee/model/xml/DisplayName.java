@@ -19,8 +19,8 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.util.xml.GenericAttributeValue;
 import org.jetbrains.annotations.NotNull;
+import com.intellij.util.xml.GenericAttributeValue;
 
 /**
  * http://java.sun.com/xml/ns/javaee:display-nameType interface.

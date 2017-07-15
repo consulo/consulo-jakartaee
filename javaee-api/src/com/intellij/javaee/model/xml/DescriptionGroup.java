@@ -44,6 +44,4 @@ public interface DescriptionGroup extends DescriptionOwner{
 
 	List<Icon> getIcons();
 	Icon addIcon();
-
-
 }

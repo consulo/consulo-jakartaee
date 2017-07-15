@@ -19,14 +19,17 @@
 
 package com.intellij.javaee.model.xml.application;
 
-import com.intellij.javaee.model.common.JavaeeCommonConstants;
-import com.intellij.javaee.model.xml.*;
+import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
+import com.intellij.javaee.model.xml.Description;
+import com.intellij.javaee.model.xml.DescriptionGroup;
+import com.intellij.javaee.model.xml.DisplayName;
+import com.intellij.javaee.model.xml.Icon;
+import com.intellij.javaee.model.xml.JavaeeDomModelElement;
+import com.intellij.javaee.model.xml.SecurityRole;
 import com.intellij.util.xml.GenericAttributeValue;
 import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Namespace;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:applicationType interface.
@@ -36,7 +39,8 @@ import java.util.List;
  * 	application.
  * </pre>
  */
-public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGroup {
+public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGroup
+{
 
 	/**
 	 * Returns the value of the version child.
@@ -44,6 +48,7 @@ public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGro
 	 * <h3>Attribute null:version documentation</h3>
 	 * The required value for the version is 5.
 	 * </pre>
+	 *
 	 * @return the value of the version child.
 	 */
 	@NotNull
@@ -59,23 +64,29 @@ public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGro
 	 * 	    application package. A module element is defined
 	 * 	    by moduleType definition.
 	 * </pre>
+	 *
 	 * @return the list of module children.
 	 */
 	@NotNull
 	List<JavaeeModule> getModules();
+
 	/**
 	 * Adds new child to the list of module children.
+	 *
 	 * @return created child
 	 */
 	JavaeeModule addModule();
 
-  /**
+	/**
 	 * Returns the list of security-role children.
+	 *
 	 * @return the list of security-role children.
 	 */
 	List<SecurityRole> getSecurityRoles();
+
 	/**
 	 * Adds new child to the list of security-role children.
+	 *
 	 * @return created child
 	 */
 	SecurityRole addSecurityRole();
@@ -107,6 +118,7 @@ public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGro
 	 * 	are preferred.  The exception is .war files where absolute
 	 * 	names are preferred for consistency with the Servlet API.
 	 * </pre>
+	 *
 	 * @return the value of the library-directory child.
 	 */
 	GenericDomValue<String> getLibraryDirectory();
@@ -114,11 +126,14 @@ public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGro
 
 	/**
 	 * Returns the list of description children.
+	 *
 	 * @return the list of description children.
 	 */
 	List<Description> getDescriptions();
+
 	/**
 	 * Adds new child to the list of description children.
+	 *
 	 * @return created child
 	 */
 	Description addDescription();
@@ -126,11 +141,14 @@ public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGro
 
 	/**
 	 * Returns the list of display-name children.
+	 *
 	 * @return the list of display-name children.
 	 */
 	List<DisplayName> getDisplayNames();
+
 	/**
 	 * Adds new child to the list of display-name children.
+	 *
 	 * @return created child
 	 */
 	DisplayName addDisplayName();
@@ -138,17 +156,20 @@ public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGro
 
 	/**
 	 * Returns the list of icon children.
+	 *
 	 * @return the list of icon children.
 	 */
 	List<Icon> getIcons();
+
 	/**
 	 * Adds new child to the list of icon children.
+	 *
 	 * @return created child
 	 */
 	Icon addIcon();
 
-  /**
-   * since version 6
-   */
-  GenericDomValue<String> getApplicationName();
+	/**
+	 * since version 6
+	 */
+	GenericDomValue<String> getApplicationName();
 }

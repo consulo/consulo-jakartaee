@@ -98,6 +98,12 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	public String getName()
 	{
 		PsiFile containingFile = getContainingFile();
+		return buildName(containingFile);
+	}
+
+	@NotNull
+	public static String buildName(@NotNull PsiFile containingFile)
+	{
 		return FileUtil.getNameWithoutExtension(containingFile.getName()) + "_jsp";
 	}
 
@@ -119,6 +125,12 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	@Override
 	public String getQualifiedName()
 	{
+		PsiClassStub<JspClass> stub = getGreenStub();
+		if(stub != null)
+		{
+			return stub.getQualifiedName();
+		}
+
 		VirtualFile virtualFile = getContainingFile().getVirtualFile();
 		if(virtualFile == null)
 		{
