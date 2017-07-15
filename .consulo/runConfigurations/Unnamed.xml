@@ -21,9 +21,8 @@
     <method>
       <option name="BuildArtifacts" enabled="true">
         <artifact name="dist" />
-      </option>
-      <option name="BuildArtifacts" enabled="true">
         <artifact name="plugin" />
+        <artifact name="plugin-incubator" />
       </option>
     </method>
   </configuration>

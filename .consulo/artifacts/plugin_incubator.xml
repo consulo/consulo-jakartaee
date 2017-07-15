@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact name="plugin-incubator">
+    <output-path>$PROJECT_DIR$/out/artifacts/plugin_incubator</output-path>
+    <root id="root">
+      <element id="artifact" artifact-name="plugin" />
+      <element id="directory" name="consulo.apache.tomcat">
+        <element id="directory" name="lib">
+          <element id="zip-archive" name="apache-tomcat.jar">
+            <element id="module-production-resource-output" name="apache-tomcat" />
+            <element id="module-output" name="apache-tomcat" />
+          </element>
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

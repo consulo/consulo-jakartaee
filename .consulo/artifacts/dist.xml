@@ -19,14 +19,6 @@
           </element>
         </element>
       </element>
-      <element id="directory" name="consulo.apache.tomcat">
-        <element id="directory" name="lib">
-          <element id="zip-archive" name="tomcat.jar">
-            <element id="module-production-resource-output" name="apache-tomcat" />
-            <element id="module-output" name="apache-tomcat" />
-          </element>
-        </element>
-      </element>
     </root>
   </artifact>
 </component>
