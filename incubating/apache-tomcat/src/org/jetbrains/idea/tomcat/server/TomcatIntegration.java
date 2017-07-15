@@ -13,8 +13,6 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.idea.tomcat.TomcatBundle;
 import org.jetbrains.idea.tomcat.TomcatConstants;
-import org.jetbrains.idea.tomcat.TomcatDeploymentSettingsEditor;
-import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
 import org.jetbrains.idea.tomcat.TomcatStartupPolicy;
 import org.jetbrains.idea.tomcat.TomcatUrlMapping;
 import org.jetbrains.idea.tomcat.descriptor.TomcatContextDescriptor;
@@ -22,22 +20,15 @@ import org.jetbrains.idea.tomcat.model.TomcatContextRoot;
 import com.intellij.icons.AllIcons;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerPersistentDataEditor;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerUrlMapping;
-import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentProvider;
-import com.intellij.javaee.deployment.DeploymentSource;
 import com.intellij.javaee.openapi.ex.AppServerIntegrationsManager;
 import com.intellij.javaee.oss.descriptor.JavaeeDescriptorsManager;
-import com.intellij.javaee.oss.server.DefaultTemplateMatcher;
 import com.intellij.javaee.oss.server.JavaeeDeploymentProvider;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
-import com.intellij.javaee.oss.server.JavaeePersistentData;
 import com.intellij.javaee.oss.server.JavaeePersistentDataWithBaseEditor;
-import com.intellij.javaee.oss.server.JavaeeServerHelper;
 import com.intellij.javaee.oss.util.Version;
-import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.run.localRun.ColoredCommandLineExecutableObject;
 import com.intellij.javaee.run.localRun.ExecutableObject;
-import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.Function;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
@@ -83,27 +74,6 @@ public class TomcatIntegration extends JavaeeIntegration
   @Override
   protected void collectDescriptors(JavaeeDescriptorsManager descriptorsManager) {
     descriptorsManager.addItem(TomcatContextDescriptor.class, TomcatContextRoot.class, "context");
-  }
-
-  @Override
-  public String getNameFromTemplate(String template) throws Exception {
-    return DefaultTemplateMatcher.getNameFromTemplate(template);
-  }
-
-  @Override
-  public String getVersionFromTemplate(String template) throws Exception {
-    return DefaultTemplateMatcher.getVersionFromTemplate(template);
-  }
-
-  @Override
-  protected JavaeeServerHelper createServerHelper() {
-    return new TomcatServerHelper(this, false);
-  }
-
-  @NotNull
-  @Override
-  public String getServerVersion(JavaeePersistentData persistentData) throws Exception {
-    return TomcatServerVersionConfig.get(persistentData);
   }
 
   public static boolean isTomEE(String home) {
@@ -192,16 +162,6 @@ public class TomcatIntegration extends JavaeeIntegration
       }
     }
     return false;
-  }
-
-  @Override
-  public DeploymentModel createNewDeploymentModel(CommonModel commonModel, DeploymentSource source) {
-    return new TomcatModuleDeploymentModel(commonModel, source);
-  }
-
-  @Override
-  public SettingsEditor<DeploymentModel> createAdditionalDeploymentSettingsEditor(CommonModel commonModel, DeploymentSource source) {
-    return new TomcatDeploymentSettingsEditor(commonModel, source);
   }
 
   @Override

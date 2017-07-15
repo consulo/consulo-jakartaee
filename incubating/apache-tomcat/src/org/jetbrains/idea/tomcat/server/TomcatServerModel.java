@@ -37,6 +37,7 @@ import com.intellij.packaging.impl.artifacts.ArtifactUtil;
 import com.intellij.packaging.impl.elements.ArtifactPackagingElement;
 import com.intellij.packaging.impl.elements.DirectoryPackagingElement;
 import com.intellij.util.Processor;
+import consulo.annotations.DeprecationInfo;
 import consulo.javaee.artifact.ExplodedWarArtifactType;
 import consulo.javaee.artifact.WarArtifactType;
 
@@ -194,6 +195,8 @@ public abstract class TomcatServerModel extends JavaeeServerModel {
     return isVersion5OrHigher();
   }
 
+  @Deprecated
+  @DeprecationInfo("TomcatEE is not supported for now")
   public boolean isTomEE() {
     return TomcatIntegration.isTomEE(getHome());
   }

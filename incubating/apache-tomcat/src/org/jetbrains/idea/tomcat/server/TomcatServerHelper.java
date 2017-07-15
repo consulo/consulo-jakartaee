@@ -8,6 +8,7 @@ import com.intellij.javaee.oss.server.JavaeeServerHelper;
  * Created by IntelliJ IDEA.
  * User: michael.golubev
  */
+@Deprecated
 public class TomcatServerHelper extends JavaeeServerHelper {
 
   private final TomcatIntegration myIntegration;

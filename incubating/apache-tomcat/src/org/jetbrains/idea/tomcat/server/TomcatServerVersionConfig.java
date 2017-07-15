@@ -14,6 +14,7 @@ import com.intellij.openapi.util.text.StringUtil;
 /**
  * @author michael.golubev
  */
+@Deprecated
 public class TomcatServerVersionConfig extends JavaeeServerVersionConfig {
 
   private static final Factory<JavaeePersistentData> ourFactory;

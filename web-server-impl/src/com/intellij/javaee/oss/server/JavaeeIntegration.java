@@ -83,11 +83,19 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 
 	@Nullable
 	@NonNls
-	public abstract String getNameFromTemplate(String template) throws Exception;
+	@Deprecated
+	public String getNameFromTemplate(String template) throws Exception
+	{
+		return null;
+	}
 
 	@Nullable
 	@NonNls
-	public abstract String getVersionFromTemplate(String template) throws Exception;
+	@Deprecated
+	public String getVersionFromTemplate(String template) throws Exception
+	{
+		return null;
+	}
 
 	@NotNull
 	@NonNls

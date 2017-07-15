@@ -31,6 +31,7 @@ import com.intellij.packaging.artifacts.Artifact;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.run.configuration.editor.JavaEEDeploymentConfigurationEditor;
 import consulo.javaee.run.configuration.editor.JavaEEServerConfigurationEditor;
+import consulo.javaee.run.configuration.editor.JavaEEStartupConfigurationEditor;
 
 /**
  * @author VISTALL
@@ -158,6 +159,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 		group.addEditor(J2EEBundle.message("title.run.configuration.editor.deployment"), new JavaEEDeploymentConfigurationEditor(getProject(), myBundleType, this));
 		group.addEditor(ExecutionBundle.message("logs.tab.title"), new LogConfigurationPanel<>());
 		JavaRunConfigurationExtensionManager.getInstance().appendEditors(this, group);
+		group.addEditor("Startup/Connection", new JavaEEStartupConfigurationEditor());
 		return group;
 	}
 
