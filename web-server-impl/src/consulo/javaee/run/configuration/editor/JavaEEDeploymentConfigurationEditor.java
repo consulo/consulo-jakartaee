@@ -31,6 +31,7 @@ import com.intellij.packaging.artifacts.ArtifactPointer;
 import com.intellij.packaging.impl.ui.ChooseArtifactsDialog;
 import com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
+import com.intellij.remoteServer.impl.configuration.deploySource.impl.ArtifactDeploymentSourceImpl;
 import com.intellij.ui.ColoredListCellRenderer;
 import com.intellij.ui.IdeBorderFactory;
 import com.intellij.ui.SimpleTextAttributes;
@@ -39,8 +40,8 @@ import com.intellij.ui.components.JBList;
 import com.intellij.util.ui.JBUI;
 import consulo.javaee.artifact.ExplodedWarArtifactType;
 import consulo.javaee.bundle.JavaEEServerBundleType;
-import consulo.javaee.deployment.JavaEEArtifactDeploymentSourceImpl;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+import consulo.javaee.run.configuration.JavaEEDeploymentSettings;
 import consulo.packaging.artifacts.ArtifactPointerUtil;
 
 /**
@@ -53,14 +54,16 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 
 	private final Project myProject;
 	private final JavaEEServerBundleType myBundleType;
+	private final JavaEEDeploymentSettings myDeploymentSettings;
 	private final CommonModel myCommonModel;
 
-	private JBList<JavaEEDeployItem> myDeploySourceList = new JBList<>(new DefaultListModel<>());
+	private JBList<DeployItem> myDeploySourceList = new JBList<>(new DefaultListModel<>());
 
-	public JavaEEDeploymentConfigurationEditor(Project project, JavaEEServerBundleType bundleType, CommonModel commonModel)
+	public JavaEEDeploymentConfigurationEditor(Project project, JavaEEServerBundleType bundleType, JavaEEDeploymentSettings deploymentSettings, CommonModel commonModel)
 	{
 		myProject = project;
 		myBundleType = bundleType;
+		myDeploymentSettings = deploymentSettings;
 		myCommonModel = commonModel;
 	}
 
@@ -68,12 +71,12 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 	@Override
 	protected JComponent createEditor()
 	{
-		DefaultListModel<JavaEEDeployItem> model = (DefaultListModel<JavaEEDeployItem>) myDeploySourceList.getModel();
+		DefaultListModel<DeployItem> model = (DefaultListModel<DeployItem>) myDeploySourceList.getModel();
 
-		myDeploySourceList.setCellRenderer(new ColoredListCellRenderer<JavaEEDeployItem>()
+		myDeploySourceList.setCellRenderer(new ColoredListCellRenderer<DeployItem>()
 		{
 			@Override
-			protected void customizeCellRenderer(@NotNull JList<? extends JavaEEDeployItem> list, JavaEEDeployItem value, int index, boolean selected, boolean hasFocus)
+			protected void customizeCellRenderer(@NotNull JList<? extends DeployItem> list, DeployItem value, int index, boolean selected, boolean hasFocus)
 			{
 				DeploymentSource deploymentSource = value.getDeploymentSource();
 				if(deploymentSource instanceof ArtifactDeploymentSource)
@@ -141,7 +144,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 
 		decorator.setRemoveAction(anActionButton ->
 		{
-			JavaEEDeployItem selectedValue = myDeploySourceList.getSelectedValue();
+			DeployItem selectedValue = myDeploySourceList.getSelectedValue();
 			if(selectedValue != null)
 			{
 				Disposer.dispose(selectedValue);
@@ -157,7 +160,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 
 		myDeploySourceList.addListSelectionListener(e ->
 		{
-			JavaEEDeployItem selectedValue = myDeploySourceList.getSelectedValue();
+			DeployItem selectedValue = myDeploySourceList.getSelectedValue();
 
 			settingsPanel.removeAll();
 
@@ -181,7 +184,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 		return rootPanel;
 	}
 
-	private void selectArtifact(DefaultListModel<JavaEEDeployItem> model)
+	private void selectArtifact(DefaultListModel<DeployItem> model)
 	{
 		Artifact[] artifacts = ArtifactManager.getInstance(myProject).getArtifacts();
 
@@ -194,10 +197,10 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 				continue;
 			}
 
-			Enumeration<JavaEEDeployItem> elements = model.elements();
+			Enumeration<DeployItem> elements = model.elements();
 			while(elements.hasMoreElements())
 			{
-				JavaEEDeployItem item = elements.nextElement();
+				DeployItem item = elements.nextElement();
 
 				Artifact tempArtifact = item.getArtifactPointer().get();
 				if(artifact.equals(tempArtifact))
@@ -216,9 +219,9 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 			for(Artifact artifact : dialog.getChosenElements())
 			{
 				ArtifactPointer artifactPointer = ArtifactPointerUtil.getPointerManager(myProject).create(artifact);
-				JavaEEArtifactDeploymentSourceImpl deploymentSource = new JavaEEArtifactDeploymentSourceImpl(artifactPointer);
+				ArtifactDeploymentSourceImpl deploymentSource = new ArtifactDeploymentSourceImpl(artifactPointer);
 
-				JavaEEDeployItem element = new JavaEEDeployItem(myCommonModel, deploymentSource, myBundleType);
+				DeployItem element = new DeployItem(myCommonModel, deploymentSource, myBundleType);
 				model.addElement(element);
 				myDeploySourceList.setSelectedValue(element, true);
 			}
@@ -230,8 +233,8 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 	{
 		super.disposeEditor();
 
-		DefaultListModel<JavaEEDeployItem> model = (DefaultListModel<JavaEEDeployItem>) myDeploySourceList.getModel();
-		Enumeration<JavaEEDeployItem> elements = model.elements();
+		DefaultListModel<DeployItem> model = (DefaultListModel<DeployItem>) myDeploySourceList.getModel();
+		Enumeration<DeployItem> elements = model.elements();
 		while(elements.hasMoreElements())
 		{
 			Disposer.dispose(elements.nextElement());

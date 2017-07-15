@@ -3,6 +3,7 @@ package consulo.javaee.run.configuration;
 import java.util.Collection;
 import java.util.List;
 
+import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.diagnostic.logging.LogConfigurationPanel;
@@ -27,6 +28,8 @@ import com.intellij.openapi.module.Module;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.options.SettingsEditorGroup;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.InvalidDataException;
+import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.packaging.artifacts.Artifact;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.run.configuration.editor.JavaEEDeploymentConfigurationEditor;
@@ -44,11 +47,14 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 
 	private SettingsBean mySettingsBean = new SettingsBean();
 
+	private JavaEEDeploymentSettings myDeploymentSettings;
+
 	public JavaEEConfigurationImpl(Project project, ConfigurationFactory factory, String name, JavaEEServerBundleType bundleType, ServerModel serverModel)
 	{
 		super(project, factory, name);
 		myBundleType = bundleType;
 		myServerModel = serverModel;
+		myDeploymentSettings = new JavaEEDeploymentSettings(project);
 	}
 
 	@Override
@@ -102,26 +108,26 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	@Override
 	public Collection<? extends DeploymentModel> getDeploymentModels()
 	{
-		return null;
+		return myDeploymentSettings.getDeploymentModels();
 	}
 
 	@Override
 	public List<Artifact> getDeployedArtifacts()
 	{
-		return null;
+		return myDeploymentSettings.getDeployedArtifacts();
 	}
 
 	@Override
 	public List<Artifact> getArtifactsToBuild()
 	{
-		return null;
+		return myDeploymentSettings.getArtifacts2Build();
 	}
 
 	@Nullable
 	@Override
 	public DeploymentModel getDeploymentModel(Artifact artifact)
 	{
-		return null;
+		return myDeploymentSettings.getOrCreateModel(artifact);
 	}
 
 	@Override
@@ -134,7 +140,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	@Override
 	public DeploymentSettings getDeploymentSettings()
 	{
-		return null;
+		return myDeploymentSettings;
 	}
 
 	@Override
@@ -149,6 +155,20 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 		return null;
 	}
 
+	@Override
+	public void readExternal(Element element) throws InvalidDataException
+	{
+		super.readExternal(element);
+		myDeploymentSettings.readExternal(element);
+	}
+
+	@Override
+	public void writeExternal(Element element) throws WriteExternalException
+	{
+		super.writeExternal(element);
+		myDeploymentSettings.writeExternal(element);
+	}
+
 	@NotNull
 	@Override
 	@SuppressWarnings("unchecked")
@@ -156,7 +176,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	{
 		SettingsEditorGroup group = new SettingsEditorGroup<>();
 		group.addEditor(J2EEBundle.message("title.run.configuration.editor.server"), new JavaEEServerConfigurationEditor(myBundleType, myServerModel));
-		group.addEditor(J2EEBundle.message("title.run.configuration.editor.deployment"), new JavaEEDeploymentConfigurationEditor(getProject(), myBundleType, this));
+		group.addEditor(J2EEBundle.message("title.run.configuration.editor.deployment"), new JavaEEDeploymentConfigurationEditor(getProject(), myBundleType, myDeploymentSettings, this));
 		group.addEditor(ExecutionBundle.message("logs.tab.title"), new LogConfigurationPanel<>());
 		JavaRunConfigurationExtensionManager.getInstance().appendEditors(this, group);
 		group.addEditor("Startup/Connection", new JavaEEStartupConfigurationEditor());

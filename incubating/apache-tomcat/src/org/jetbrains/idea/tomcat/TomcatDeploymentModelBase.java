@@ -1,8 +1,8 @@
 package org.jetbrains.idea.tomcat;
 
 import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.deployment.DeploymentSource;
 import com.intellij.javaee.run.configuration.CommonModel;
+import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 
 /**
  * Created by IntelliJ IDEA.

@@ -34,13 +34,13 @@ public abstract class JavaeeDeploymentUtil {
   }
 
   @NotNull
-  public abstract ArtifactDeploymentSource createArtifactDeploymentSource(@NotNull ArtifactPointer artifactPointer);
+  public abstract com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource createArtifactDeploymentSource(@NotNull ArtifactPointer artifactPointer);
 
   @NotNull
-  public abstract DeploymentSource createExternalFileDeploymentSource(@NotNull File file);
+  public abstract com.intellij.remoteServer.configuration.deployment.DeploymentSource createExternalFileDeploymentSource(@NotNull File file);
 
   @NotNull
-  public abstract ModuleDeploymentSource createModuleDeploymentSource(@NotNull NamedPointer<Module> modulePointer);
+  public abstract com.intellij.remoteServer.configuration.deployment.ModuleDeploymentSource createModuleDeploymentSource(@NotNull NamedPointer<Module> modulePointer);
 
   @NotNull
   public abstract ExternalFileDeploymentProvider createExternalFileDeploymentProvider(@NotNull Collection<? extends ArtifactType> supportedArtifactTypes);

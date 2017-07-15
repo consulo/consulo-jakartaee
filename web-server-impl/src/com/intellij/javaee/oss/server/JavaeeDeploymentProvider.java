@@ -13,14 +13,10 @@ import com.intellij.javaee.artifact.JavaeeArtifactUtil;
 import com.intellij.javaee.deployment.DeploymentMethod;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentProviderEx;
-import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.javaee.web.artifact.WebArtifactUtil;
-import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
-import com.intellij.packaging.artifacts.ArtifactPointer;
 import com.intellij.packaging.artifacts.ArtifactType;
-import consulo.javaee.module.extension.JavaEEModuleExtension;
 
 public class JavaeeDeploymentProvider extends DeploymentProviderEx
 {
@@ -42,18 +38,6 @@ public class JavaeeDeploymentProvider extends DeploymentProviderEx
 	public DeploymentMethod[] getAvailableMethods()
 	{
 		return METHODS;
-	}
-
-	@Nullable
-	public SettingsEditor<DeploymentModel> createAdditionalDeploymentSettingsEditor(CommonModel config, JavaEEModuleExtension facet)
-	{
-		return null;
-	}
-
-	@Override
-	public DeploymentModel createNewDeploymentModel(CommonModel commonModel, ArtifactPointer artifactPointer)
-	{
-		return new JavaeeDeploymentModel(commonModel, artifactPointer);
 	}
 
 	public void doDeploy(Project project, J2EEServerInstance instance, DeploymentModel deployment)

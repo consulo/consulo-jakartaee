@@ -15,15 +15,15 @@
  */
 package org.jetbrains.idea.tomcat;
 
+import org.jdom.Element;
+import org.jetbrains.idea.tomcat.server.TomcatServerModel;
 import com.intellij.javaee.context.DeploymentModelContext;
-import com.intellij.javaee.deployment.DeploymentSource;
 import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.ui.packaging.WebApplicationArtifactType;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.packaging.artifacts.Artifact;
-import org.jdom.Element;
-import org.jetbrains.idea.tomcat.server.TomcatServerModel;
+import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 
 public class TomcatModuleDeploymentModel extends TomcatDeploymentModelBase implements DeploymentModelContext {
   public String CONTEXT_PATH = "/";

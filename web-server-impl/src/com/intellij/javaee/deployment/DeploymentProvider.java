@@ -23,10 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.javaee.artifact.JavaeeArtifactUtil;
 import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
-import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
-import com.intellij.packaging.artifacts.Artifact;
-import com.intellij.packaging.artifacts.ArtifactPointer;
 import com.intellij.packaging.artifacts.ArtifactType;
 
 public abstract class DeploymentProvider {
@@ -59,39 +56,6 @@ public abstract class DeploymentProvider {
 
   @Nullable @NonNls
   public String getHelpId() {
-    return null;
-  }
-
-  public DeploymentModel createNewDeploymentModel(CommonModel commonModel, DeploymentSource source) {
-    if (source instanceof ArtifactDeploymentSource) {
-      return createNewDeploymentModel(commonModel, ((ArtifactDeploymentSource)source).getArtifactPointer());
-    }
-    return null;
-  }
-
-  /**
-   * @deprecated override {@link #createNewDeploymentModel(com.intellij.javaee.run.configuration.CommonModel, DeploymentSource)} instead
-   */
-  public DeploymentModel createNewDeploymentModel(CommonModel commonModel, ArtifactPointer artifactPointer) {
-    return null;
-  }
-
-  @Nullable
-  public SettingsEditor<DeploymentModel> createAdditionalDeploymentSettingsEditor(CommonModel commonModel, DeploymentSource source) {
-    if (source instanceof ArtifactDeploymentSource) {
-      final Artifact artifact = ((ArtifactDeploymentSource)source).getArtifact();
-      if (artifact != null) {
-        return createAdditionalDeploymentSettingsEditor(commonModel, artifact);
-      }
-    }
-    return null;
-  }
-
-  /**
-   * @deprecated override {@link #createAdditionalDeploymentSettingsEditor(com.intellij.javaee.run.configuration.CommonModel, DeploymentSource)} instead
-   */
-  @Nullable
-  public SettingsEditor<DeploymentModel> createAdditionalDeploymentSettingsEditor(CommonModel commonModel, Artifact artifact) {
     return null;
   }
 

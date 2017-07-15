@@ -15,19 +15,19 @@ import consulo.javaee.bundle.JavaEEServerBundleType;
  * @author VISTALL
  * @since 09-Jul-17
  */
-class JavaEEDeployItem implements Disposable
+class DeployItem implements Disposable
 {
 	private final DeploymentSource myDeploymentSource;
 	private final DeploymentModel myDeploymentModel;
 
 	private SettingsEditor<DeploymentModel> myEditor;
 
-	JavaEEDeployItem(CommonModel commonModel, DeploymentSource deploymentSource, JavaEEServerBundleType bundleType)
+	DeployItem(CommonModel commonModel, DeploymentSource deploymentSource, JavaEEServerBundleType bundleType)
 	{
 		myDeploymentSource = deploymentSource;
 
-		myDeploymentModel = bundleType.createNewDeploymentModel(commonModel, (com.intellij.javaee.deployment.DeploymentSource) deploymentSource);
-		myEditor = bundleType.createAdditionalDeploymentSettingsEditor(commonModel, (com.intellij.javaee.deployment.DeploymentSource) deploymentSource);
+		myDeploymentModel = bundleType.createNewDeploymentModel(commonModel, deploymentSource);
+		myEditor = bundleType.createAdditionalDeploymentSettingsEditor(commonModel, deploymentSource);
 
 		Disposer.register(this, myEditor);
 	}

@@ -1,10 +1,10 @@
 package com.intellij.javaee.deployment;
 
-import com.intellij.packaging.artifacts.Artifact;
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
+import com.intellij.packaging.artifacts.Artifact;
 
 /**
  * @author nik
@@ -30,5 +30,5 @@ public interface DeploymentSettings {
   DeploymentModel getOrCreateModel(@NotNull Artifact artifact);
 
   @NotNull
-  DeploymentModel getOrCreateModel(@NotNull DeploymentSource source);
+  DeploymentModel getOrCreateModel(@NotNull com.intellij.remoteServer.configuration.deployment.DeploymentSource source);
 }

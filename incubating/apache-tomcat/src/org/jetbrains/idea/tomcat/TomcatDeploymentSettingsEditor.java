@@ -15,18 +15,20 @@
  */
 package org.jetbrains.idea.tomcat;
 
-import com.intellij.execution.ExecutionException;
-import com.intellij.execution.configurations.RuntimeConfigurationException;
-import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.deployment.DeploymentSource;
-import com.intellij.javaee.run.configuration.CommonModel;
-import com.intellij.openapi.options.ConfigurationException;
-import com.intellij.openapi.options.SettingsEditor;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.idea.tomcat.server.TomcatLocalModel;
 import org.jetbrains.idea.tomcat.server.TomcatServerModel;
-
-import javax.swing.*;
+import com.intellij.execution.ExecutionException;
+import com.intellij.execution.configurations.RuntimeConfigurationException;
+import com.intellij.javaee.deployment.DeploymentModel;
+import com.intellij.javaee.run.configuration.CommonModel;
+import com.intellij.openapi.options.ConfigurationException;
+import com.intellij.openapi.options.SettingsEditor;
+import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 
 public class TomcatDeploymentSettingsEditor extends SettingsEditor<DeploymentModel> {
   private JPanel myPanel;
