@@ -24,7 +24,7 @@
 	<resource-bundle>messages.J2EEBundle</resource-bundle>
 
 	<actions>
-		<action id="CreateJSPAction" class="consulo.javaee.actions.CreateJSPFileAction">
+		<action id="CreateJSPAction" class="consulo.javaee.jsp.actions.CreateJSPFileAction">
 			<add-to-group group-id="NewGroup1" anchor="first"/>
 		</action>
 	</actions>
@@ -67,7 +67,7 @@
 		<lang.fileViewProviderFactory language="JSP" implementationClass="consulo.javaee.jsp.JspFileViewProviderFactory"/>
 		<lang.parserDefinition language="JSP" implementationClass="consulo.javaee.jsp.JspParserDefinition"/>
 
-		<lang.ast.compositeFactory implementation="consulo.javaee.jsp.psi.impl.JspCompositeElementFactory"/>
+		<lang.ast.compositeFactory implementation="consulo.javaee.jsp.psi.JspCompositeElementFactory"/>
 
 		<highlightVisitor implementation="consulo.javaee.jsp.codeInsight.daemon.analysis.JspJavaHighlightVisitorImpl"/>
 		<problemFileHighlightFilter implementation="consulo.javaee.jsp.codeInsight.daemon.JspProblemFileHighlightFilter"/>
@@ -81,7 +81,7 @@
 		<stubElementTypeHolder class="consulo.javaee.jsp.psi.impl.java.JspJavaStubElements"/>
 		<psi.referenceContributor language="JSP" implementation="consulo.javaee.jsp.psi.impl.reference.JspReferenceContributor"/>
 
-		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.impl.JspPsiTreeChangePreprocessor"/>
+		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.JspPsiTreeChangePreprocessor"/>
 
 		<programRunner implementation="consulo.javaee.run.runner.JavaEEDebugRunner"/>
 
