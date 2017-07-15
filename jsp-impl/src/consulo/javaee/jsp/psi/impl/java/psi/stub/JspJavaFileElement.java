@@ -18,11 +18,11 @@ import com.intellij.psi.tree.IElementType;
  * @author VISTALL
  * @since 15-Jul-17
  */
-public class JspFileElement extends FileElement
+public class JspJavaFileElement extends FileElement
 {
-	private static final Logger LOG = Logger.getInstance(JspFileElement.class);
+	private static final Logger LOG = Logger.getInstance(JspJavaFileElement.class);
 
-	public JspFileElement(IElementType elementType, CharSequence text)
+	public JspJavaFileElement(IElementType elementType, CharSequence text)
 	{
 		super(elementType, text);
 	}

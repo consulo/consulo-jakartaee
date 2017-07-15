@@ -17,17 +17,17 @@ import consulo.javaee.jsp.psi.impl.java.JspJavaStubElements;
  * @author VISTALL
  * @since 15-Jul-17
  */
-public class JspFileStub extends PsiFileStubImpl<PsiJavaFile> implements PsiJavaFileStub
+public class JspJavaFileStub extends PsiFileStubImpl<PsiJavaFile> implements PsiJavaFileStub
 {
 	private final String myPackageName;
 	private final LanguageLevel myLanguageLevel;
 
-	public JspFileStub(String packageName)
+	public JspJavaFileStub(String packageName)
 	{
 		this(null, packageName, null);
 	}
 
-	public JspFileStub(PsiJavaFile file, String packageName, LanguageLevel languageLevel)
+	public JspJavaFileStub(PsiJavaFile file, String packageName, LanguageLevel languageLevel)
 	{
 		super(file);
 		myPackageName = packageName;

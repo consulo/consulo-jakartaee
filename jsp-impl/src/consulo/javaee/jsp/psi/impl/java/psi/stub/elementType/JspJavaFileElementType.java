@@ -23,19 +23,19 @@ import com.intellij.util.diff.FlyweightCapableTreeStructure;
 import com.intellij.util.io.StringRef;
 import consulo.javaee.jsp.lexer.JspJavaLexer;
 import consulo.javaee.jsp.psi.impl.java.parsing.JavaInJspParser;
-import consulo.javaee.jsp.psi.impl.java.psi.stub.JspFileElement;
-import consulo.javaee.jsp.psi.impl.java.psi.stub.JspFileStub;
+import consulo.javaee.jsp.psi.impl.java.psi.stub.JspJavaFileElement;
+import consulo.javaee.jsp.psi.impl.java.psi.stub.JspJavaFileStub;
 import consulo.lang.LanguageVersion;
 
 /**
  * @author VISTALL
  * @since 15-Jul-17
  */
-public class JspFileElementType extends ILightStubFileElementType<PsiJavaFileStub>
+public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFileStub>
 {
 	public static final int STUB_VERSION = 7;
 
-	public JspFileElementType()
+	public JspJavaFileElementType()
 	{
 		super("jsp.java.file", JavaLanguage.INSTANCE);
 	}
@@ -61,7 +61,7 @@ public class JspFileElementType extends ILightStubFileElementType<PsiJavaFileStu
 	@Override
 	public ASTNode createNode(final CharSequence text)
 	{
-		return new JspFileElement(this, text);
+		return new JspJavaFileElement(this, text);
 	}
 
 	@Override
@@ -118,6 +118,6 @@ public class JspFileElementType extends ILightStubFileElementType<PsiJavaFileStu
 	{
 		int level = dataStream.readByte();
 		StringRef packageName = dataStream.readName();
-		return new JspFileStub(null, StringRef.toString(packageName), level >= 0 ? LanguageLevel.values()[level] : null);
+		return new JspJavaFileStub(null, StringRef.toString(packageName), level >= 0 ? LanguageLevel.values()[level] : null);
 	}
 }

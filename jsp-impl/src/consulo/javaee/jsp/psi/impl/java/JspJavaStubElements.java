@@ -3,7 +3,7 @@ package consulo.javaee.jsp.psi.impl.java;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspClassLevelDeclarationStatementElementType;
 import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspClassStubElementType;
-import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspFileElementType;
+import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspJavaFileElementType;
 
 /**
  * @author VISTALL
@@ -11,7 +11,7 @@ import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspFileElementType;
  */
 public interface JspJavaStubElements
 {
-	IElementType JAVA_IN_JSP_FILE = new JspFileElementType();
+	IElementType JAVA_IN_JSP_FILE = new JspJavaFileElementType();
 
 	JspClassStubElementType JSP_CLASS = new JspClassStubElementType();
 
