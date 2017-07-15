@@ -55,6 +55,8 @@
 		<internalFileTemplate name="JSP File"/>
 		<internalFileTemplate name="JSPX File"/>
 
+		<filePropertyPusher implementation="consulo.javaee.jsp.roots.impl.JspWebRooLanguageLevelPusher"/>
+
 		<resolveScopeEnlarger implementation="consulo.javaee.jsp.psi.impl.java.JspJavaResolveScopeEnlarger"/>
 
 		<packaging.artifactType implementation="consulo.javaee.artifact.ExplodedWarArtifactType"/>
