@@ -48,7 +48,7 @@ public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 
 	public JspJavaFileImpl(FileViewProvider viewProvider)
 	{
-		super(JspJavaStubElements.JAVA_IN_JSP_FILE_TYPE, JspJavaStubElements.JAVA_IN_JSP_FILE_TYPE, viewProvider);
+		super(JspJavaStubElements.JAVA_IN_JSP_FILE, JspJavaStubElements.JAVA_IN_JSP_FILE, viewProvider);
 	}
 
 	@NotNull
