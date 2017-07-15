@@ -19,6 +19,8 @@
           <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
           <orderEntry type="library" name="consulo-plugin: org.jetbrains.idea.maven" level="project" />
           <orderEntry type="module" module-name="jsp-psi-api" />
+          <orderEntry type="module" module-name="jam-api" />
+          <orderEntry type="module" module-name="javaee-api" />
         </module-layer>
       </module>
       <module name="java-web-maven" dirurl="file://$PROJECT_DIR$/java-web-maven" current-layer="Default">
@@ -35,6 +37,7 @@
           <orderEntry type="module" module-name="consulo-javaee" />
           <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
           <orderEntry type="library" name="consulo-plugin: org.jetbrains.idea.maven" level="project" />
+          <orderEntry type="module" module-name="web-server-impl" />
         </module-layer>
       </module>
       <module name="jsp-psi-api" dirurl="file://$PROJECT_DIR$/jsp-psi-api" current-layer="Default">
@@ -49,6 +52,89 @@
           <orderEntry type="sourceFolder" />
           <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
           <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
+        </module-layer>
+      </module>
+      <module name="apache-tomcat" dirurl="file://$PROJECT_DIR$/incubating/apache-tomcat" current-layer="Default">
+        <module-layer name="Default">
+          <extension id="consulo-plugin" sdk-module-name="consulo-javaee" />
+          <extension id="java" sdk-name="1.8" language-level-name="JDK_1_8" bytecode-version="1.8" />
+          <content url="file://$MODULE_DIR$">
+            <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
+            <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+          </content>
+          <orderEntry type="module-extension-sdk" extension-id="java" />
+          <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
+          <orderEntry type="sourceFolder" />
+          <orderEntry type="module" module-name="consulo-javaee" />
+          <orderEntry type="module" module-name="jsp-psi-api" />
+          <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
+          <orderEntry type="module" module-name="web-server-impl" />
+          <orderEntry type="module" module-name="jsp-impl" />
+          <orderEntry type="module" module-name="jam-api" />
+          <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
+        </module-layer>
+      </module>
+      <module name="web-server-impl" dirurl="file://$PROJECT_DIR$/web-server-impl" current-layer="Default">
+        <module-layer name="Default">
+          <extension id="consulo-plugin" sdk-module-name="consulo-javaee" />
+          <extension id="java" sdk-module-name="consulo-javaee" language-level-module-name="consulo-javaee" bytecode-version="1.8" />
+          <content url="file://$MODULE_DIR$">
+            <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
+            <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+          </content>
+          <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
+          <orderEntry type="module-extension-sdk" extension-id="java" />
+          <orderEntry type="sourceFolder" />
+          <orderEntry type="module" module-name="consulo-javaee" />
+          <orderEntry type="module" module-name="jsp-psi-api" />
+          <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
+          <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
+          <orderEntry type="module" module-name="jam-api" />
+          <orderEntry type="module" module-name="javaee-api" />
+        </module-layer>
+      </module>
+      <module name="jsp-impl" dirurl="file://$PROJECT_DIR$/jsp-impl" current-layer="Default">
+        <module-layer name="Default">
+          <extension id="consulo-plugin" sdk-module-name="consulo-javaee" />
+          <extension id="java" sdk-module-name="consulo-javaee" language-level-module-name="consulo-javaee" bytecode-version="1.8" />
+          <content url="file://$MODULE_DIR$">
+            <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+          </content>
+          <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
+          <orderEntry type="module-extension-sdk" extension-id="java" />
+          <orderEntry type="sourceFolder" />
+          <orderEntry type="module" module-name="jsp-psi-api" />
+          <orderEntry type="module" module-name="web-server-impl" />
+          <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
+          <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
+          <orderEntry type="module" module-name="javaee-api" />
+        </module-layer>
+      </module>
+      <module name="jam-api" dirurl="file://$PROJECT_DIR$/jam-api" current-layer="Default">
+        <module-layer name="Default">
+          <extension id="consulo-plugin" sdk-module-name="consulo-javaee" />
+          <extension id="java" sdk-module-name="consulo-javaee" />
+          <content url="file://$MODULE_DIR$">
+            <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+          </content>
+          <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
+          <orderEntry type="module-extension-sdk" extension-id="java" />
+          <orderEntry type="sourceFolder" />
+          <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
+          <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
+        </module-layer>
+      </module>
+      <module name="javaee-api" dirurl="file://$PROJECT_DIR$/javaee-api" current-layer="Default">
+        <module-layer name="Default">
+          <extension id="consulo-plugin" sdk-module-name="consulo-javaee" />
+          <extension id="java" sdk-module-name="consulo-javaee" language-level-module-name="consulo-javaee" bytecode-version="1.8" />
+          <content url="file://$MODULE_DIR$">
+            <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
+            <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+          </content>
+          <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
+          <orderEntry type="module-extension-sdk" extension-id="java" />
+          <orderEntry type="sourceFolder" />
         </module-layer>
       </module>
     </modules>

@@ -31,6 +31,9 @@
 
 	<extensionPoints>
 		<extensionPoint name="contextParamsProvider" interface="com.intellij.javaee.model.xml.converters.ContextParamsProvider"/>
+
+		<extensionPoint qualifiedName="com.intellij.javaee.appServerIntegration" interface="com.intellij.javaee.appServerIntegrations.AppServerIntegration"/>
+		<extensionPoint qualifiedName="com.intellij.javaee.descriptorMetaDataProvider" interface="com.intellij.javaee.facet.DescriptorMetaDataProvider"/>
 	</extensionPoints>
 
 	<extensions defaultExtensionNs="com.intellij.xml">
@@ -80,6 +83,10 @@
 
 		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.impl.JspPsiTreeChangePreprocessor"/>
 
+		<programRunner implementation="consulo.javaee.run.runner.JavaEEDebugRunner"/>
+
+		<applicationService serviceInterface="com.intellij.javaee.run.configuration.J2EEConfigurationFactory"
+							serviceImplementation="consulo.javaee.run.configuration.J2EEConfigurationFactoryImpl"/>
 		<moduleExtensionProvider key="java-web"
 								 parentKey="java"
 								 icon="/general/web.png"
