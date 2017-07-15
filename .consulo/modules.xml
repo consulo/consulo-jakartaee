@@ -67,11 +67,12 @@
           <orderEntry type="sourceFolder" />
           <orderEntry type="module" module-name="consulo-javaee" />
           <orderEntry type="module" module-name="jsp-psi-api" />
-          <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
           <orderEntry type="module" module-name="web-server-impl" />
           <orderEntry type="module" module-name="jsp-impl" />
           <orderEntry type="module" module-name="jam-api" />
+          <orderEntry type="module" module-name="javaee-api" />
           <orderEntry type="library" name="consulo-plugin: com.intellij.xml" level="project" />
+          <orderEntry type="library" name="consulo-plugin: consulo.java" level="project" />
         </module-layer>
       </module>
       <module name="web-server-impl" dirurl="file://$PROJECT_DIR$/web-server-impl" current-layer="Default">
