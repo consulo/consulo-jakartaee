@@ -30,6 +30,7 @@ import com.intellij.psi.tree.TokenSet;
 import consulo.javaee.jsp.lexer.JspLexer;
 import consulo.javaee.jsp.psi.JspTokens;
 import consulo.javaee.jsp.psi.impl.JspFileImpl;
+import consulo.javaee.jsp.psi.impl.JspStubElements;
 import consulo.lang.LanguageVersion;
 
 /**
@@ -58,7 +59,7 @@ public class JspParserDefinition implements ParserDefinition
 	@Override
 	public IFileElementType getFileNodeType()
 	{
-		return FILE_ELEMENT_TYPE;
+		return JspStubElements.JSP_FILE;
 	}
 
 	@NotNull

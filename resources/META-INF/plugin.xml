@@ -81,6 +81,7 @@
 		<contentFolderSupportPatcher implementation="consulo.javaee.module.JavaWebContentFolderSupportPatcher"/>
 
 		<stubElementTypeHolder class="consulo.javaee.jsp.psi.impl.java.JspJavaStubElements"/>
+		<stubElementTypeHolder class="consulo.javaee.jsp.psi.impl.JspStubElements"/>
 		<psi.referenceContributor language="JSP" implementation="consulo.javaee.jsp.psi.impl.reference.JspReferenceContributor"/>
 
 		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.JspPsiTreeChangePreprocessor"/>
