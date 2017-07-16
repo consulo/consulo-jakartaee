@@ -76,10 +76,17 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 	public abstract String getName();
 
 	@NotNull
-	public abstract Icon getIcon();
+	public Icon getIcon()
+	{
+		throw new UnsupportedOperationException();
+	}
 
 	@NotNull
-	public abstract Icon getBigIcon();
+	public Icon getBigIcon()
+	{
+		throw new UnsupportedOperationException();
+	}
+
 
 	@Nullable
 	@NonNls

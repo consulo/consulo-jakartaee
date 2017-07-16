@@ -7,8 +7,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.swing.Icon;
-
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.idea.tomcat.TomcatBundle;
@@ -17,15 +15,12 @@ import org.jetbrains.idea.tomcat.TomcatStartupPolicy;
 import org.jetbrains.idea.tomcat.TomcatUrlMapping;
 import org.jetbrains.idea.tomcat.descriptor.TomcatContextDescriptor;
 import org.jetbrains.idea.tomcat.model.TomcatContextRoot;
-import com.intellij.icons.AllIcons;
-import com.intellij.javaee.appServerIntegrations.ApplicationServerPersistentDataEditor;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerUrlMapping;
 import com.intellij.javaee.deployment.DeploymentProvider;
 import com.intellij.javaee.openapi.ex.AppServerIntegrationsManager;
 import com.intellij.javaee.oss.descriptor.JavaeeDescriptorsManager;
 import com.intellij.javaee.oss.server.JavaeeDeploymentProvider;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
-import com.intellij.javaee.oss.server.JavaeePersistentDataWithBaseEditor;
 import com.intellij.javaee.oss.util.Version;
 import com.intellij.javaee.run.localRun.ColoredCommandLineExecutableObject;
 import com.intellij.javaee.run.localRun.ExecutableObject;
@@ -57,18 +52,6 @@ public class TomcatIntegration extends JavaeeIntegration
   @Override
   public String getName() {
     return TomcatBundle.message("tomcat.application.server.name");
-  }
-
-  @NotNull
-  @Override
-  public Icon getIcon() {
-    return AllIcons.RunConfigurations.Tomcat;
-  }
-
-  @NotNull
-  @Override
-  public Icon getBigIcon() {
-    return AllIcons.RunConfigurations.Tomcat;
   }
 
   @Override
@@ -138,11 +121,6 @@ public class TomcatIntegration extends JavaeeIntegration
   @Override
   public String getContextRoot(JavaEEModuleExtension facet) {
     return null;
-  }
-
-  @Override
-  public ApplicationServerPersistentDataEditor createNewServerEditor() {
-    return new JavaeePersistentDataWithBaseEditor(this);
   }
 
   @NotNull

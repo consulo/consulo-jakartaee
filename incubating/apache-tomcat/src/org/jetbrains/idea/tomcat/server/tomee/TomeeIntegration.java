@@ -1,11 +1,9 @@
 package org.jetbrains.idea.tomcat.server.tomee;
 
-import com.intellij.javaee.openapi.ex.AppServerIntegrationsManager;
-import com.intellij.javaee.oss.server.JavaeeServerHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.idea.tomcat.TomcatBundle;
 import org.jetbrains.idea.tomcat.server.TomcatIntegration;
-import org.jetbrains.idea.tomcat.server.TomcatServerHelper;
+import com.intellij.javaee.openapi.ex.AppServerIntegrationsManager;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,10 +27,5 @@ public class TomeeIntegration extends TomcatIntegration {
     if (!isTomEE(home)) {
       throw new Exception("The selected directory is not a TomEE home");
     }
-  }
-
-  @Override
-  protected JavaeeServerHelper createServerHelper() {
-    return new TomcatServerHelper(this, true);
   }
 }
