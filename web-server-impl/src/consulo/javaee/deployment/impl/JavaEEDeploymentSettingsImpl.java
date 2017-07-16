@@ -116,27 +116,28 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings
 	{
 		myItems.clear();
 
-		for(Element child : element.getChildren("deploy-item"))
+		Element deploymentElement = element.getChild("deployment");
+		if(deploymentElement == null)
 		{
-			Element sourceElement = child.getChild("source");
-			if(sourceElement == null)
-			{
-				continue;
-			}
+			return;
+		}
 
-			DeploymentSourceType<?> deploymentSourceType = findDeploymentSourceType(sourceElement.getAttributeValue("id"));
+		for(Element childElement : deploymentElement.getChildren())
+		{
+			DeploymentSourceType<?> deploymentSourceType = findDeploymentSourceType(childElement.getName());
 			if(deploymentSourceType == null)
 			{
 				continue;
 			}
-			DeploymentSource deploymentSource = deploymentSourceType.load(sourceElement, myProject);
+
+			DeploymentSource deploymentSource = deploymentSourceType.load(childElement, myProject);
 
 			DeploymentModel model = myBundleType.createNewDeploymentModel(myCommonModel, deploymentSource);
 
-			Element modelElement = child.getChild("model");
-			if(modelElement != null)
+			Element settingsElement = childElement.getChild("settings");
+			if(settingsElement != null)
 			{
-				model.readExternal(modelElement);
+				model.readExternal(settingsElement);
 			}
 
 			myItems.add(model);
@@ -159,24 +160,28 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings
 	@SuppressWarnings("unchecked")
 	public void writeExternal(Element rootElement)
 	{
+		if(myItems.isEmpty())
+		{
+			return;
+		}
+
+		Element deploymentElement = new Element("deployment");
+		rootElement.addContent(deploymentElement);
+
 		for(DeploymentModel item : myItems)
 		{
-			Element element = new Element("deploy-item");
-			rootElement.addContent(element);
-
 			DeploymentSource deploymentSource = item.getDeploymentSource();
 			DeploymentSourceType type = deploymentSource.getType();
 
-			Element sourceElement = new Element("source");
-			element.addContent(sourceElement);
-			sourceElement.setAttribute("id", type.getId());
+			Element childElement = new Element(type.getId());
+			deploymentElement.addContent(childElement);
 
-			Element modelElement = new Element("model");
-			item.writeExternal(modelElement);
+			type.save(deploymentSource, childElement);
 
-			element.addContent(modelElement);
+			Element settingsElement = new Element("settings");
+			item.writeExternal(settingsElement);
 
-			type.save(deploymentSource, sourceElement);
+			childElement.addContent(settingsElement);
 		}
 	}
 }
