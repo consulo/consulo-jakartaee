@@ -3,11 +3,16 @@ package consulo.javaee.run.configuration.state;
 import java.util.Collections;
 
 import org.jetbrains.annotations.NotNull;
+import com.intellij.execution.DefaultExecutionResult;
 import com.intellij.execution.ExecutionException;
+import com.intellij.execution.ExecutionResult;
+import com.intellij.execution.Executor;
 import com.intellij.execution.configurations.CommandLineState;
 import com.intellij.execution.configurations.PatchedRunnableState;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.runners.ExecutionEnvironment;
+import com.intellij.execution.runners.ProgramRunner;
+import com.intellij.execution.ui.ConsoleView;
 import com.intellij.javaee.oss.server.JavaeeStartupPolicy;
 import com.intellij.javaee.run.localRun.ExecutableObject;
 import com.intellij.javaee.run.localRun.ScriptHelper;
@@ -22,6 +27,16 @@ public class JavaEECommandLineState extends CommandLineState implements PatchedR
 	public JavaEECommandLineState(ExecutionEnvironment environment)
 	{
 		super(environment);
+	}
+
+	@Override
+	@NotNull
+	public ExecutionResult execute(@NotNull final Executor executor, @NotNull final ProgramRunner runner) throws ExecutionException
+	{
+		final ProcessHandler processHandler = startProcess();
+		final ConsoleView console = new JavaEEDeploymentConsole(executor, getEnvironment().getProject());
+		console.attachToProcess(processHandler);
+		return new DefaultExecutionResult(console, processHandler, createActions(console, processHandler, executor));
 	}
 
 	@NotNull

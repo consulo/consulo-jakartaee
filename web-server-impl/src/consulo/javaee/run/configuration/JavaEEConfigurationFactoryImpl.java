@@ -64,6 +64,12 @@ public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory
 		serverModel.onConfigurationCopied();
 	}
 
+	@Override
+	public boolean canConfigurationBeSingleton()
+	{
+		return false;
+	}
+
 	@NotNull
 	@Override
 	protected ServerModel createServerModel()
