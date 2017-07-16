@@ -29,7 +29,7 @@ public class J2EEConfigurationFactoryImpl extends J2EEConfigurationFactory
 			boolean isLocal,
 			JavaCommandLineStartupPolicy startupPolicy)
 	{
-		return new JavaEEConfigurationImpl(project, factory, "Unnamed", integration, serverSpecific);
+		return new JavaEEConfigurationImpl(project, factory, "Unnamed", integration, serverSpecific, isLocal);
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class J2EEConfigurationFactoryImpl extends J2EEConfigurationFactory
 			boolean isLocal,
 			ExecutableObjectStartupPolicy startupPolicy)
 	{
-		return new JavaEEConfigurationImpl(project, factory, "Unnamed", integration, serverSpecific);
+		return new JavaEEConfigurationImpl(project, factory, "Unnamed", integration, serverSpecific, isLocal);
 	}
 
 	@Nullable

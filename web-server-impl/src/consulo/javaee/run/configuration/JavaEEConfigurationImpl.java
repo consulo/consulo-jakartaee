@@ -32,8 +32,10 @@ import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.options.SettingsEditorGroup;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.projectRoots.Sdk;
+import com.intellij.openapi.projectRoots.SdkTable;
 import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.util.WriteExternalException;
+import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.packaging.artifacts.Artifact;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
@@ -48,16 +50,20 @@ import consulo.javaee.run.configuration.editor.JavaEEStartupConfigurationEditor;
 public class JavaEEConfigurationImpl extends LocatableConfigurationBase implements CommonStrategy
 {
 	private final JavaEEServerBundleType myBundleType;
+	private final boolean myIsLocal;
 	private final JavaeeServerModel myServerModel;
 
 	private SettingsBean mySettingsBean = new SettingsBean();
 
 	private JavaEEDeploymentSettingsImpl myDeploymentSettings;
 
-	public JavaEEConfigurationImpl(Project project, ConfigurationFactory factory, String name, JavaEEServerBundleType bundleType, ServerModel serverModel)
+	public String APPLICATION_SERVER_NAME;
+
+	public JavaEEConfigurationImpl(Project project, ConfigurationFactory factory, String name, JavaEEServerBundleType bundleType, ServerModel serverModel, boolean isLocal)
 	{
 		super(project, factory, name);
 		myBundleType = bundleType;
+		myIsLocal = isLocal;
 		myServerModel = (JavaeeServerModel) serverModel;
 		myDeploymentSettings = new JavaEEDeploymentSettingsImpl(project, bundleType, this);
 
@@ -79,14 +85,21 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	@Override
 	public boolean isLocal()
 	{
-		return false;
+		return myIsLocal;
+	}
+
+	@NotNull
+	@Override
+	public JavaEEServerBundleType getServerBundleType()
+	{
+		return myBundleType;
 	}
 
 	@Nullable
 	@Override
 	public Sdk getServerBundle()
 	{
-		return null;
+		return APPLICATION_SERVER_NAME == null ? null : SdkTable.getInstance().findSdk(APPLICATION_SERVER_NAME);
 	}
 
 	@Override
@@ -110,6 +123,8 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	@Override
 	public void initialize()
 	{
+		myServerModel.onNewConfigurationCreated();
+
 		for(PredefinedLogFile file : myServerModel.getPredefinedLogFiles())
 		{
 			addPredefinedLogFile(file);
@@ -188,6 +203,9 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	public void readExternal(Element element) throws InvalidDataException
 	{
 		super.readExternal(element);
+
+		APPLICATION_SERVER_NAME = StringUtil.nullize(element.getAttributeValue("APPLICATION_SERVER_NAME"));
+
 		myDeploymentSettings.readExternal(element);
 
 		Element serverSettingsElement = element.getChild("server-settings");
@@ -201,6 +219,12 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	public void writeExternal(Element element) throws WriteExternalException
 	{
 		super.writeExternal(element);
+
+		if(!StringUtil.isEmptyOrSpaces(APPLICATION_SERVER_NAME))
+		{
+			element.setAttribute("APPLICATION_SERVER_NAME", APPLICATION_SERVER_NAME);
+		}
+
 		myDeploymentSettings.writeExternal(element);
 
 		Element serverSettingsElement = new Element("server-settings");
@@ -214,7 +238,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	public SettingsEditor<? extends RunConfiguration> getConfigurationEditor()
 	{
 		SettingsEditorGroup group = new SettingsEditorGroup<>();
-		group.addEditor(J2EEBundle.message("title.run.configuration.editor.server"), new JavaEEServerConfigurationEditor(myBundleType, myServerModel));
+		group.addEditor(J2EEBundle.message("title.run.configuration.editor.server"), new JavaEEServerConfigurationEditor(myBundleType));
 		group.addEditor(J2EEBundle.message("title.run.configuration.editor.deployment"), new JavaEEDeploymentConfigurationEditor(getProject(), myBundleType, this));
 		group.addEditor(ExecutionBundle.message("logs.tab.title"), new LogConfigurationPanel<>());
 		JavaRunConfigurationExtensionManager.getInstance().appendEditors(this, group);

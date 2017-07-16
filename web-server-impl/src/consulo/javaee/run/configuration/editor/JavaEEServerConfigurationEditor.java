@@ -1,20 +1,25 @@
 package consulo.javaee.run.configuration.editor;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.execution.ui.AlternativeJREPanel;
 import com.intellij.javaee.J2EEBundle;
-import com.intellij.javaee.run.configuration.ServerModel;
+import com.intellij.javaee.run.configuration.ApplicationServerSelectionListener;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SettingsEditor;
+import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel;
 import com.intellij.openapi.ui.LabeledComponent;
 import com.intellij.openapi.ui.VerticalFlowLayout;
 import com.intellij.openapi.util.Conditions;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.ui.IdeBorderFactory;
+import com.intellij.ui.components.panels.Wrapper;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 import consulo.roots.ui.configuration.SdkComboBox;
@@ -26,19 +31,17 @@ import consulo.roots.ui.configuration.SdkComboBox;
 public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfigurationImpl>
 {
 	private final JavaEEServerBundleType myBundleType;
-	private final ServerModel myServerModel;
 
-	private final SettingsEditor myServerEditor;
+	private final Wrapper mySettingsWrapper = new Wrapper();
 
 	private SdkComboBox myBundleBox;
 
-	public JavaEEServerConfigurationEditor(JavaEEServerBundleType bundleType, ServerModel serverModel)
+	private ItemListener myBundleBoxListener;
+	private SettingsEditor myServerEditor;
+
+	public JavaEEServerConfigurationEditor(JavaEEServerBundleType bundleType)
 	{
 		myBundleType = bundleType;
-		myServerModel = serverModel;
-		myServerEditor = myServerModel.getEditor();
-
-		Disposer.register(this, myServerEditor);
 	}
 
 	@NotNull
@@ -63,8 +66,7 @@ public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfig
 			verticalLayout.add(panel);
 		}
 
-		JComponent component = myServerEditor.getComponent();
-		verticalLayout.add(component);
+		verticalLayout.add(mySettingsWrapper);
 
 		return verticalLayout;
 	}
@@ -73,6 +75,45 @@ public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfig
 	@SuppressWarnings("unchecked")
 	protected void resetEditorFrom(JavaEEConfigurationImpl configuration)
 	{
+		if(myBundleBoxListener != null)
+		{
+			myBundleBox.removeItemListener(myBundleBoxListener);
+			myBundleBoxListener = null;
+		}
+
+		if(myServerEditor != null)
+		{
+			Disposer.dispose(myServerEditor);
+			mySettingsWrapper.setContent(null);
+			myServerEditor = null;
+		}
+
+		myServerEditor = configuration.getServerModel().getEditor();
+		Disposer.register(this, myServerEditor);
+
+		mySettingsWrapper.setContent(myServerEditor.getComponent());
+
+		myBundleBox.setSelectedSdk(configuration.APPLICATION_SERVER_NAME);
+
+		myBundleBox.addItemListener(myBundleBoxListener = e ->
+		{
+			if(e.getStateChange() == ItemEvent.SELECTED)
+			{
+				Sdk selectedSdk = myBundleBox.getSelectedSdk();
+
+				configuration.APPLICATION_SERVER_NAME = selectedSdk == null ? null : selectedSdk.getName();
+
+				if(myServerEditor instanceof ApplicationServerSelectionListener)
+				{
+					((ApplicationServerSelectionListener) myServerEditor).serverSelected(selectedSdk);
+				}
+
+				myServerEditor.resetFrom(configuration);
+
+				fireEditorStateChanged();
+			}
+		});
+
 		myServerEditor.resetFrom(configuration);
 	}
 
@@ -81,5 +122,6 @@ public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfig
 	protected void applyEditorTo(JavaEEConfigurationImpl configuration) throws ConfigurationException
 	{
 		myServerEditor.applyTo(configuration);
+		configuration.APPLICATION_SERVER_NAME = myBundleBox.getSelectedSdkName();
 	}
 }

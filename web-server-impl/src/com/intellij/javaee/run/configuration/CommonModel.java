@@ -29,12 +29,15 @@ import com.intellij.openapi.compiler.CompileScope;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.packaging.artifacts.Artifact;
 import consulo.annotations.DeprecationInfo;
+import consulo.javaee.bundle.JavaEEServerBundleType;
 
 public interface CommonModel extends ModuleRunConfiguration
 {
 	@NonNls
 	String LOCALHOST = "localhost";
 
+	@Deprecated
+	@DeprecationInfo("Use #getServerBundleType()")
 	AppServerIntegration getIntegration();
 
 	boolean isLocal();
@@ -46,6 +49,9 @@ public interface CommonModel extends ModuleRunConfiguration
 	{
 		return getServerBundle();
 	}
+
+	@NotNull
+	JavaEEServerBundleType getServerBundleType();
 
 	@Nullable
 	Sdk getServerBundle();

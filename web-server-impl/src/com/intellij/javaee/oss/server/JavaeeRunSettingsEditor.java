@@ -82,7 +82,14 @@ public abstract class JavaeeRunSettingsEditor<T extends JavaeeServerModel> exten
 
 	protected static int getPort(JTextField text, String message) throws ConfigurationException
 	{
-		return Integer.parseInt(text.getText());
+		try
+		{
+			return Integer.parseInt(text.getText());
+		}
+		catch(NumberFormatException e)
+		{
+			throw new ConfigurationException(message);
+		}
 	}
 
 	@NotNull
