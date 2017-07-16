@@ -132,6 +132,7 @@ public class TomcatLocalModel extends TomcatServerModel
 	{
 		return ApplicationManager.getApplication().runReadAction(new Computable<String>()
 		{
+			@Override
 			public String compute()
 			{
 				try
@@ -166,6 +167,7 @@ public class TomcatLocalModel extends TomcatServerModel
 		return result.toArray(new PredefinedLogFile[result.size()]);
 	}
 
+	@NotNull
 	@Override
 	protected List<LogFileFactory> getLogFileFactories()
 	{
@@ -174,7 +176,6 @@ public class TomcatLocalModel extends TomcatServerModel
 
 		result.add(new TomcatLogFileFactory(true)
 		{
-
 			@Override
 			protected String getId()
 			{
@@ -219,7 +220,6 @@ public class TomcatLocalModel extends TomcatServerModel
 		});
 		result.add(new TomcatLogFileFactory()
 		{
-
 			@Override
 			protected String getId()
 			{
@@ -282,6 +282,7 @@ public class TomcatLocalModel extends TomcatServerModel
 		PRESERVE_SESSIONS = data.isPreserveSessions();
 	}
 
+	@Override
 	public void readExternal(Element element) throws InvalidDataException
 	{
 		boolean clearBaseDirectory = BASE_DIRECTORY_NAME == null;
@@ -296,6 +297,7 @@ public class TomcatLocalModel extends TomcatServerModel
 		}
 	}
 
+	@Override
 	public void writeExternal(Element element) throws WriteExternalException
 	{
 		TomcatModelData data = new TomcatModelData();
@@ -309,6 +311,7 @@ public class TomcatLocalModel extends TomcatServerModel
 		XmlSerializer.serializeInto(data, element, new SkipDefaultValuesSerializationFilters());
 	}
 
+	@Override
 	public SettingsEditor<CommonModel> getEditor()
 	{
 		return new TomcatLocalRunConfigurationEditor();
@@ -319,6 +322,7 @@ public class TomcatLocalModel extends TomcatServerModel
 		return HTTP_PORT == UNDEFINED_PORT;
 	}
 
+	@Override
 	public int getLocalPort()
 	{
 		Integer port = getHttpPort();

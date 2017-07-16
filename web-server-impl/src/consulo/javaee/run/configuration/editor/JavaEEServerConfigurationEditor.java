@@ -70,14 +70,16 @@ public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfig
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	protected void resetEditorFrom(JavaEEConfigurationImpl configuration)
 	{
-
+		myServerEditor.resetFrom(configuration);
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	protected void applyEditorTo(JavaEEConfigurationImpl configuration) throws ConfigurationException
 	{
-
+		myServerEditor.applyTo(configuration);
 	}
 }

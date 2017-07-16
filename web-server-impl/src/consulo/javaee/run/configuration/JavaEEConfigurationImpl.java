@@ -13,13 +13,17 @@ import com.intellij.execution.Executor;
 import com.intellij.execution.JavaRunConfigurationExtensionManager;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.LocatableConfigurationBase;
+import com.intellij.execution.configurations.LogFileOptions;
+import com.intellij.execution.configurations.PredefinedLogFile;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.execution.configurations.RunProfileState;
+import com.intellij.execution.configurations.RuntimeConfigurationException;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentSettings;
+import com.intellij.javaee.oss.server.JavaeeServerModel;
 import com.intellij.javaee.run.configuration.CommonStrategy;
 import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.openapi.compiler.CompileScope;
@@ -44,18 +48,17 @@ import consulo.javaee.run.configuration.editor.JavaEEStartupConfigurationEditor;
 public class JavaEEConfigurationImpl extends LocatableConfigurationBase implements CommonStrategy
 {
 	private final JavaEEServerBundleType myBundleType;
-	private final ServerModel myServerModel;
+	private final JavaeeServerModel myServerModel;
 
 	private SettingsBean mySettingsBean = new SettingsBean();
 
 	private JavaEEDeploymentSettingsImpl myDeploymentSettings;
 
-
 	public JavaEEConfigurationImpl(Project project, ConfigurationFactory factory, String name, JavaEEServerBundleType bundleType, ServerModel serverModel)
 	{
 		super(project, factory, name);
 		myBundleType = bundleType;
-		myServerModel = serverModel;
+		myServerModel = (JavaeeServerModel) serverModel;
 		myDeploymentSettings = new JavaEEDeploymentSettingsImpl(project, bundleType, this);
 
 		myServerModel.setCommonModel(this);
@@ -107,7 +110,28 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	@Override
 	public void initialize()
 	{
+		for(PredefinedLogFile file : myServerModel.getPredefinedLogFiles())
+		{
+			addPredefinedLogFile(file);
+		}
+	}
 
+	@Nullable
+	@Override
+	public LogFileOptions getOptionsForPredefinedLogFile(PredefinedLogFile predefinedLogFile)
+	{
+		LogFileOptions options = myServerModel.getOptionsForPredefinedLogFile(predefinedLogFile);
+		if(options != null)
+		{
+			return options;
+		}
+		return super.getOptionsForPredefinedLogFile(predefinedLogFile);
+	}
+
+	@Override
+	public void checkConfiguration() throws RuntimeConfigurationException
+	{
+		myServerModel.checkConfiguration();
 	}
 
 	@Override
@@ -165,6 +189,12 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	{
 		super.readExternal(element);
 		myDeploymentSettings.readExternal(element);
+
+		Element serverSettingsElement = element.getChild("server-settings");
+		if(serverSettingsElement != null)
+		{
+			myServerModel.readExternal(serverSettingsElement);
+		}
 	}
 
 	@Override
@@ -172,6 +202,10 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	{
 		super.writeExternal(element);
 		myDeploymentSettings.writeExternal(element);
+
+		Element serverSettingsElement = new Element("server-settings");
+		myServerModel.writeExternal(serverSettingsElement);
+		element.addContent(serverSettingsElement);
 	}
 
 	@NotNull

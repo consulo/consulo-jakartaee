@@ -128,9 +128,9 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		return null;
 	}
 
+	@NotNull
 	protected List<LogFileFactory> getLogFileFactories()
 	{
-		//TODO [VISTALL] STUB
 		return Collections.emptyList();
 	}
 
@@ -202,11 +202,13 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		return false;
 	}
 
+	@Override
 	public void setCommonModel(CommonModel config)
 	{
 		this.config = config;
 	}
 
+	@Override
 	public J2EEServerInstance createServerInstance() throws ExecutionException
 	{
 		/*try
@@ -229,37 +231,44 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public DeploymentProvider getDeploymentProvider()
 	{
 		return new JavaeeDeploymentProvider(false);
 	}
 
+	@Override
 	public int getDefaultPort()
 	{
 		return 8080;
 	}
 
+	@Override
 	public int getLocalPort()
 	{
 		return getDefaultPort();
 	}
 
+	@Override
 	public String getDefaultUrlForBrowser()
 	{
 		return getDefaultUrlForBrowser(true);
 	}
 
+	@Override
 	public OutputProcessor createOutputProcessor(ProcessHandler handler, J2EEServerInstance instance)
 	{
 		return new DefaultOutputProcessor(handler);
 	}
 
+	@Override
 	@Nullable
 	public List<Pair<String, Integer>> getAddressesToCheck()
 	{
 		return config.isLocal() ? Collections.singletonList(new Pair<>(getServerHost(), getServerPort())) : null;
 	}
 
+	@Override
 	public void checkConfiguration() throws RuntimeConfigurationException
 	{
 		if(StringUtil.isNotEmpty(USERNAME) && StringUtil.isEmpty(PASSWORD))
@@ -268,11 +277,13 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		}
 	}
 
+	@Override
 	public void readExternal(Element element) throws InvalidDataException
 	{
 		DefaultJDOMExternalizer.readExternal(this, element);
 	}
 
+	@Override
 	public void writeExternal(Element element) throws WriteExternalException
 	{
 		DefaultJDOMExternalizer.writeExternal(this, element);
@@ -473,12 +484,14 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		return (source != null) ? StringUtil.trimEnd(source.getName(), ".war") : null;
 	}
 
+	@Override
 	@NotNull
 	public PredefinedLogFile[] getPredefinedLogFiles()
 	{
 		return new PredefinedLogFile[]{new PredefinedLogFile(getLogFileId(), true)};
 	}
 
+	@Override
 	@Nullable
 	public LogFileOptions getOptionsForPredefinedLogFile(PredefinedLogFile file)
 	{
