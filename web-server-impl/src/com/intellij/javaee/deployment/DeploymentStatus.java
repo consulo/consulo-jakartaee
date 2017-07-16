@@ -15,74 +15,77 @@
  */
 package com.intellij.javaee.deployment;
 
-import com.intellij.icons.AllIcons;
-import com.intellij.javaee.J2EEBundle;
-import com.intellij.ui.LayeredIcon;
-import com.intellij.util.PlatformIcons;
-
-import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum DeploymentStatus {
-  DEPLOYED (J2EEBundle.message("deployment.status.name.deployed"), J2EEBundle.message("deployment.status.description.deployed"),
-            AllIcons.RunConfigurations.TestPassed),
-  NOT_DEPLOYED(J2EEBundle.message("deployment.status.name.not.deployed"), J2EEBundle.message("deployment.status.description.not.deployed"),
-               AllIcons.RunConfigurations.TestError),
-  FAILED(J2EEBundle.message("deployment.status.name.failed"), J2EEBundle.message("deployment.status.description.failed"),
-         AllIcons.RunConfigurations.TestFailed),
-  DEACTIVATING(J2EEBundle.message("deployment.status.name.deactivating"), J2EEBundle.message("deployment.status.description.deactivating"),
-               AllIcons.RunConfigurations.TestInProgress1),
-  PREPARING(J2EEBundle.message("deployment.status.name.preparing"), J2EEBundle.message("deployment.status.description.preparing"),
-            AllIcons.RunConfigurations.TestInProgress1),
-  PREPARED(J2EEBundle.message("deployment.status.name.prepared"), J2EEBundle.message("deployment.status.description.prepared"),
-           AllIcons.RunConfigurations.TestInProgress2),
-  ACTIVATING(J2EEBundle.message("deployment.status.name.activating"), J2EEBundle.message("deployment.status.description.activating"),
-             AllIcons.RunConfigurations.TestInProgress3),
-  UNPREPARED(J2EEBundle.message("deployment.status.name.unprepared"), J2EEBundle.message("deployment.status.description.unprepared"),
-             AllIcons.RunConfigurations.TestInProgress2),
-  UNPREPARING(J2EEBundle.message("deployment.status.name.unpreparing"), J2EEBundle.message("deployment.status.description.unpreparing"),
-              AllIcons.RunConfigurations.TestInProgress2),
-  UNKNOWN(J2EEBundle.message("deployment.status.name.unknown"), J2EEBundle.message("deployment.status.description.unknown"),
-          AllIcons.Actions.Help),
-  DISCONNECTED(J2EEBundle.message("deployment.status.name.disconnected"), J2EEBundle.message("deployment.status.description.desconnected"),
-               AllIcons.Nodes.Plugin),
-  EXCLUDED_FROM_DEPLOYMENT(J2EEBundle.message("deployment.status.name.excluded.from.deployment"), J2EEBundle.message("deployment.status.description.excluded.from.deployment"), null) {
-    private final Map<Icon, LayeredIcon> myPatchedIcon = new HashMap<>();
-    public Icon getIcon(Icon deploymentIcon) {
-      LayeredIcon icon = myPatchedIcon.get(deploymentIcon);
-      if (icon == null) {
-        icon = new LayeredIcon(2);
-        icon.setIcon(deploymentIcon, 0);
-        icon.setIcon(PlatformIcons.EXCLUDED_FROM_COMPILE_ICON, 1);
-        myPatchedIcon.put(deploymentIcon, icon);
-      }
-      return icon;
-    }};
+import javax.swing.Icon;
 
-  private final String myName; // for debug only
-  private final String myDescription;
-  private final Icon myIcon;
+import com.intellij.icons.AllIcons;
+import com.intellij.javaee.J2EEBundle;
+import com.intellij.openapi.util.IconLoader;
+import com.intellij.ui.LayeredIcon;
+import com.intellij.util.PlatformIcons;
 
-  private DeploymentStatus(String name, String description, Icon icon) {
-    myName = name;
-    myDescription = description;
-    myIcon = icon;
-  }
+public enum DeploymentStatus
+{
+	DEPLOYED(J2EEBundle.message("deployment.status.name.deployed"), J2EEBundle.message("deployment.status.description.deployed"), AllIcons.RunConfigurations.TestPassed),
+	NOT_DEPLOYED(J2EEBundle.message("deployment.status.name.not.deployed"), J2EEBundle.message("deployment.status.description.not.deployed"), AllIcons.RunConfigurations.TestError),
+	FAILED(J2EEBundle.message("deployment.status.name.failed"), J2EEBundle.message("deployment.status.description.failed"), AllIcons.RunConfigurations.TestFailed),
+	DEACTIVATING(J2EEBundle.message("deployment.status.name.deactivating"), J2EEBundle.message("deployment.status.description.deactivating"), AllIcons.RunConfigurations.TestInProgress1),
+	PREPARING(J2EEBundle.message("deployment.status.name.preparing"), J2EEBundle.message("deployment.status.description.preparing"), AllIcons.RunConfigurations.TestInProgress1),
+	PREPARED(J2EEBundle.message("deployment.status.name.prepared"), J2EEBundle.message("deployment.status.description.prepared"), AllIcons.RunConfigurations.TestInProgress2),
+	ACTIVATING(J2EEBundle.message("deployment.status.name.activating"), J2EEBundle.message("deployment.status.description.activating"), AllIcons.RunConfigurations.TestInProgress3),
+	UNPREPARED(J2EEBundle.message("deployment.status.name.unprepared"), J2EEBundle.message("deployment.status.description.unprepared"), AllIcons.RunConfigurations.TestInProgress2),
+	UNPREPARING(J2EEBundle.message("deployment.status.name.unpreparing"), J2EEBundle.message("deployment.status.description.unpreparing"), AllIcons.RunConfigurations.TestInProgress2),
+	UNKNOWN(J2EEBundle.message("deployment.status.name.unknown"), J2EEBundle.message("deployment.status.description.unknown"), AllIcons.Actions.Help),
+	DISCONNECTED(J2EEBundle.message("deployment.status.name.disconnected"), J2EEBundle.message("deployment.status.description.desconnected"), IconLoader.getDisabledIcon(AllIcons.Nodes.Plugin)),
+	EXCLUDED_FROM_DEPLOYMENT(J2EEBundle.message("deployment.status.name.excluded.from.deployment"), J2EEBundle.message("deployment.status.description.excluded.from.deployment"), null)
+			{
+				private final Map<Icon, LayeredIcon> myPatchedIcon = new HashMap<>();
 
-  public String toString() {
-    return myName;
-  }
+				@Override
+				public Icon getIcon(Icon deploymentIcon)
+				{
+					LayeredIcon icon = myPatchedIcon.get(deploymentIcon);
+					if(icon == null)
+					{
+						icon = new LayeredIcon(2);
+						icon.setIcon(deploymentIcon, 0);
+						icon.setIcon(PlatformIcons.EXCLUDED_FROM_COMPILE_ICON, 1);
+						myPatchedIcon.put(deploymentIcon, icon);
+					}
+					return icon;
+				}
+			};
 
-  public Icon getIcon(Icon deploymentIcon) {
-    return myIcon;
-  }
+	private final String myName; // for debug only
+	private final String myDescription;
+	private final Icon myIcon;
 
-  public String getName() {
-    return myName;
-  }
+	private DeploymentStatus(String name, String description, Icon icon)
+	{
+		myName = name;
+		myDescription = description;
+		myIcon = icon;
+	}
 
-  public String getDescription() {
-    return myDescription;
-  }
+	public String toString()
+	{
+		return myName;
+	}
+
+	public Icon getIcon(Icon deploymentIcon)
+	{
+		return myIcon;
+	}
+
+	public String getName()
+	{
+		return myName;
+	}
+
+	public String getDescription()
+	{
+		return myDescription;
+	}
 }

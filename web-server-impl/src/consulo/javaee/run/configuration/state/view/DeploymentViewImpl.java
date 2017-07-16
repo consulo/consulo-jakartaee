@@ -8,13 +8,14 @@ import javax.swing.JList;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.icons.AllIcons;
 import com.intellij.javaee.J2EEBundle;
+import com.intellij.javaee.deployment.DeploymentManager;
 import com.intellij.javaee.deployment.DeploymentModel;
+import com.intellij.javaee.deployment.DeploymentStatus;
 import com.intellij.javaee.deployment.DeploymentView;
 import com.intellij.openapi.actionSystem.ActionToolbarPosition;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.ToggleAction;
-import com.intellij.openapi.util.IconLoader;
 import com.intellij.ui.CollectionListModel;
 import com.intellij.ui.ColoredListCellRenderer;
 import com.intellij.ui.ToolbarDecorator;
@@ -48,8 +49,11 @@ public class DeploymentViewImpl implements DeploymentView
 			@Override
 			protected void customizeCellRenderer(@NotNull JList<? extends DeploymentModel> list, DeploymentModel value, int index, boolean selected, boolean hasFocus)
 			{
-				setIcon(IconLoader.getDisabledIcon(AllIcons.Nodes.Plugin));
+				DeploymentStatus deploymentStatus = DeploymentManager.getInstance(myConfiguration.getProject()).getDeploymentStatus(value, myConfiguration);
+
+				setIcon(deploymentStatus.getIcon(value.getDeploymentSource().getIcon()));
 				append(value.getDeploymentSource().getPresentableName());
+				setToolTipText(deploymentStatus.getDescription());
 			}
 		});
 

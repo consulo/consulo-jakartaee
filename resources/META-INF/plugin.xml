@@ -63,6 +63,9 @@
 		<packaging.artifactType implementation="consulo.javaee.artifact.WarArtifactType"/>
 		<packaging.elementType implementation="consulo.javaee.artifact.WebResourceModuleOutputElementType"/>
 
+		<projectService serviceInterface="com.intellij.javaee.deployment.DeploymentManager"
+							serviceImplementation="consulo.javaee.deployment.impl.DeploymentManagerImpl" />
+
 		<fileTypeFactory implementation="consulo.javaee.jsp.JspFileTypeFactory"/>
 		<fileTypeFactory implementation="consulo.javaee.artifact.WarFileTypeFactory"/>
 
