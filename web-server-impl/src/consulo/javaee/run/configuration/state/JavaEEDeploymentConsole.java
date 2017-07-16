@@ -62,7 +62,6 @@ public class JavaEEDeploymentConsole extends ConsoleViewImpl implements Executio
 		ToolbarDecorator decorator = ToolbarDecorator.createDecorator(deploymentList);
 		decorator.setToolbarPosition(ActionToolbarPosition.LEFT);
 		decorator.setPanelBorder(JBUI.Borders.empty());
-		decorator.setToolbarBorder(JBUI.Borders.empty());
 		decorator.disableUpDownActions();
 		decorator.disableRemoveAction();
 		decorator.addExtraAction(new AnAction("Deploy", null, AllIcons.Nodes.Deploy)
