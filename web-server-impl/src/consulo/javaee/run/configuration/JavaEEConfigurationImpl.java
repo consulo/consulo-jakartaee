@@ -12,6 +12,8 @@ import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
 import com.intellij.execution.JavaRunConfigurationExtensionManager;
 import com.intellij.execution.configurations.ConfigurationFactory;
+import com.intellij.execution.configurations.ConfigurationInfoProvider;
+import com.intellij.execution.configurations.ConfigurationPerRunnerSettings;
 import com.intellij.execution.configurations.LocatableConfigurationBase;
 import com.intellij.execution.configurations.LogFileOptions;
 import com.intellij.execution.configurations.PredefinedLogFile;
@@ -19,6 +21,7 @@ import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.execution.configurations.RunProfileState;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
 import com.intellij.execution.runners.ExecutionEnvironment;
+import com.intellij.execution.runners.ProgramRunner;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.deployment.DeploymentModel;
@@ -38,6 +41,7 @@ import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.packaging.artifacts.Artifact;
+import consulo.java.debugger.impl.GenericDebugRunnerConfiguration;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
 import consulo.javaee.run.configuration.editor.JavaEEDeploymentConfigurationEditor;
@@ -49,7 +53,7 @@ import consulo.javaee.run.configuration.state.JavaEECommandLineState;
  * @author VISTALL
  * @since 09-Jul-17
  */
-public class JavaEEConfigurationImpl extends LocatableConfigurationBase implements CommonStrategy
+public class JavaEEConfigurationImpl extends LocatableConfigurationBase implements CommonStrategy, GenericDebugRunnerConfiguration
 {
 	private JavaEEServerBundleType myBundleType;
 	private final boolean myIsLocal;
@@ -274,8 +278,20 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 		group.addEditor(J2EEBundle.message("title.run.configuration.editor.deployment"), new JavaEEDeploymentConfigurationEditor(getProject(), myBundleType, this));
 		group.addEditor(ExecutionBundle.message("logs.tab.title"), new LogConfigurationPanel<>());
 		JavaRunConfigurationExtensionManager.getInstance().appendEditors(this, group);
-		group.addEditor("Startup/Connection", new JavaEEStartupConfigurationEditor());
+		group.addEditor(ExecutionBundle.message("run.configuration.startup.connection.rab.title"), new JavaEEStartupConfigurationEditor());
 		return group;
+	}
+
+	@Override
+	public ConfigurationPerRunnerSettings createRunnerSettings(ConfigurationInfoProvider provider)
+	{
+		return super.createRunnerSettings(provider);
+	}
+
+	@Override
+	public SettingsEditor<ConfigurationPerRunnerSettings> getRunnerSettingsEditor(ProgramRunner runner)
+	{
+		return super.getRunnerSettingsEditor(runner);
 	}
 
 	@NotNull

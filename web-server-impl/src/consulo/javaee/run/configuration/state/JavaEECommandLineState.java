@@ -5,6 +5,7 @@ import java.util.Collections;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.CommandLineState;
+import com.intellij.execution.configurations.PatchedRunnableState;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.javaee.oss.server.JavaeeStartupPolicy;
@@ -16,7 +17,7 @@ import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
  * @author VISTALL
  * @since 16-Jul-17
  */
-public class JavaEECommandLineState extends CommandLineState
+public class JavaEECommandLineState extends CommandLineState implements PatchedRunnableState
 {
 	public JavaEECommandLineState(ExecutionEnvironment environment)
 	{

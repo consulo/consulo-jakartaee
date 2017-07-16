@@ -14,16 +14,5 @@
       <root url="jar://$PROJECT_DIR$/dep/consulo.java/lib/jdk-annotations.jar!/" />
       <root url="jar://$PROJECT_DIR$/dep/consulo.java/lib/instrumentation-util.jar!/" />
     </binaries>
-    <sources>
-      <root url="file://$PROJECT_DIR$/../consulo-java/java-psi-impl/src" />
-      <root url="file://$PROJECT_DIR$/../consulo-java/java-psi-api/src" />
-      <root url="file://$PROJECT_DIR$/../consulo-java/java-indexing-impl/src" />
-      <root url="file://$PROJECT_DIR$/../consulo-java/java-indexing-api/src" />
-      <root url="file://$PROJECT_DIR$/../consulo-java/java-impl/src" />
-      <root url="file://$PROJECT_DIR$/../consulo-java/java-execution-impl/src" />
-      <root url="file://$PROJECT_DIR$/../consulo-java/java-execution-api/src" />
-      <root url="file://$PROJECT_DIR$/../consulo-java/java-analysis-impl/src" />
-      <root url="file://$PROJECT_DIR$/../consulo-java/java-analysis-api/src" />
-    </sources>
   </library>
 </component>
