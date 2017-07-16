@@ -289,6 +289,6 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	@Override
 	public RunProfileState getState(@NotNull Executor executor, @NotNull ExecutionEnvironment environment) throws ExecutionException
 	{
-		return new JavaEECommandLineState(executor, environment);
+		return new JavaEECommandLineState(environment);
 	}
 }

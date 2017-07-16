@@ -4,7 +4,6 @@ import java.util.Collections;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.execution.ExecutionException;
-import com.intellij.execution.Executor;
 import com.intellij.execution.configurations.CommandLineState;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.runners.ExecutionEnvironment;
@@ -19,7 +18,7 @@ import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
  */
 public class JavaEECommandLineState extends CommandLineState
 {
-	public JavaEECommandLineState(Executor executor, ExecutionEnvironment environment)
+	public JavaEECommandLineState(ExecutionEnvironment environment)
 	{
 		super(environment);
 	}
