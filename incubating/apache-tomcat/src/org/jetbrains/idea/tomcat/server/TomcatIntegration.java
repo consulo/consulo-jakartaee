@@ -152,9 +152,4 @@ public class TomcatIntegration extends JavaeeIntegration
       }
     };
   }
-
-  @Override
-  public boolean isJreCustomizable() {
-    return true;
-  }
 }

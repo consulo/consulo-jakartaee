@@ -9,6 +9,7 @@ import com.intellij.javaee.openapi.ex.AppServerIntegrationsManager;
  * Created by IntelliJ IDEA.
  * User: michael.golubev
  */
+@Deprecated
 public class TomeeIntegration extends TomcatIntegration {
 
   public static TomeeIntegration getTomeeInstance() {

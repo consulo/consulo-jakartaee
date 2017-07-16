@@ -24,15 +24,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptor;
 import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptorFactory;
-import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentProvider;
-import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.run.localRun.ExecutableObject;
 import com.intellij.openapi.extensions.ExtensionPointName;
-import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.packaging.artifacts.ArtifactType;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 
 /**
@@ -79,7 +75,7 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
 		return false;
 	}
 
-	public DeploymentModel createNewDeploymentModel(CommonModel commonModel, DeploymentSource source)
+	/*public DeploymentModel createNewDeploymentModel(CommonModel commonModel, DeploymentSource source)
 	{
 		return null;
 	}
@@ -87,7 +83,7 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
 	public SettingsEditor<DeploymentModel> createAdditionalDeploymentSettingsEditor(CommonModel commonModel, DeploymentSource source)
 	{
 		return null;
-	}
+	} */
 
 	@Nullable
 	public DeploymentProvider getDeploymentProvider(boolean local)
@@ -128,9 +124,9 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
 	{
 		return true;
 	}
-
+	/*
 	public boolean isJreCustomizable()
 	{
 		return false;
-	}
+	}   */
 }
