@@ -252,7 +252,13 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 	protected void resetEditorFrom(JavaEEConfigurationImpl configuration)
 	{
 		DefaultListModel<DeployItem> model = (DefaultListModel<DeployItem>) myDeploySourceList.getModel();
-		model.removeAllElements();
+		Enumeration<DeployItem> enumeration = model.elements();
+		while(enumeration.hasMoreElements())
+		{
+			DeployItem item = enumeration.nextElement();
+			model.removeElement(item);
+			Disposer.dispose(item);
+		}
 
 		List<DeploymentModel> deploymentModels = configuration.getDeploymentSettings().getDeploymentModels();
 		for(DeploymentModel deploymentModel : deploymentModels)
