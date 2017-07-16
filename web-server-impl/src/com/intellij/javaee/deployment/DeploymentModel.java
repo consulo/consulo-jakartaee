@@ -30,6 +30,7 @@ import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactPointer;
 import com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
+import com.intellij.remoteServer.impl.configuration.deploySource.impl.ArtifactDeploymentSourceImpl;
 
 public abstract class DeploymentModel implements JDOMExternalizable, Cloneable
 {
@@ -45,7 +46,7 @@ public abstract class DeploymentModel implements JDOMExternalizable, Cloneable
 
 	protected DeploymentModel(@NotNull CommonModel parentConfiguration, ArtifactPointer artifactPointer)
 	{
-		this(parentConfiguration, JavaeeDeploymentUtil.getInstance().createArtifactDeploymentSource(artifactPointer));
+		this(parentConfiguration, new ArtifactDeploymentSourceImpl(artifactPointer));
 	}
 
 	protected DeploymentModel(CommonModel parentConfiguration, DeploymentSource deploymentSource)

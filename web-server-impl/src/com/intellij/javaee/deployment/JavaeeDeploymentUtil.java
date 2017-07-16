@@ -15,15 +15,11 @@
  */
 package com.intellij.javaee.deployment;
 
-import java.io.File;
 import java.util.Collection;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.components.ServiceManager;
-import com.intellij.openapi.module.Module;
-import com.intellij.packaging.artifacts.ArtifactPointer;
 import com.intellij.packaging.artifacts.ArtifactType;
-import consulo.util.pointers.NamedPointer;
 
 /**
  * @author nik
@@ -32,15 +28,6 @@ public abstract class JavaeeDeploymentUtil {
   public static JavaeeDeploymentUtil getInstance() {
     return ServiceManager.getService(JavaeeDeploymentUtil.class);
   }
-
-  @NotNull
-  public abstract com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource createArtifactDeploymentSource(@NotNull ArtifactPointer artifactPointer);
-
-  @NotNull
-  public abstract com.intellij.remoteServer.configuration.deployment.DeploymentSource createExternalFileDeploymentSource(@NotNull File file);
-
-  @NotNull
-  public abstract com.intellij.remoteServer.configuration.deployment.ModuleDeploymentSource createModuleDeploymentSource(@NotNull NamedPointer<Module> modulePointer);
 
   @NotNull
   public abstract ExternalFileDeploymentProvider createExternalFileDeploymentProvider(@NotNull Collection<? extends ArtifactType> supportedArtifactTypes);

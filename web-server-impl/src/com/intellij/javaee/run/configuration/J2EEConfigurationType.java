@@ -25,8 +25,8 @@ import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
-import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.psi.PsiFile;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 
@@ -72,7 +72,7 @@ public abstract class J2EEConfigurationType implements ConfigurationType
 
 	@Nullable
 	@NonNls
-	public String getUrlToOpenInBrowser(@NotNull ApplicationServer server, @NotNull PsiFile psiFile)
+	public String getUrlToOpenInBrowser(@NotNull Sdk server, @NotNull PsiFile psiFile)
 	{
 		return null;
 	}

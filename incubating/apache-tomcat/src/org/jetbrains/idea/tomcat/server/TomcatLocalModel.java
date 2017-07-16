@@ -27,7 +27,6 @@ import com.intellij.execution.configurations.LogFileOptions;
 import com.intellij.execution.configurations.PredefinedLogFile;
 import com.intellij.execution.configurations.RuntimeConfigurationError;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
-import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.oss.server.JavaeeServerInstance;
 import com.intellij.javaee.run.configuration.CommonModel;
@@ -36,6 +35,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileTypes.FileTypeManager;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.projectRoots.JavaSdkVersion;
+import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.util.Computable;
 import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.util.Pair;
@@ -110,7 +110,7 @@ public class TomcatLocalModel extends TomcatServerModel
 
 	private TomcatPersistentDataWrapper createPersistentDataWrapper() throws RuntimeConfigurationError
 	{
-		ApplicationServer applicationServer = getApplicationServer();
+		Sdk applicationServer = getApplicationServer();
 		if(applicationServer == null)
 		{
 			throw new RuntimeConfigurationError(TomcatBundle.message("exception.text.application.server.not.specified"));
@@ -246,7 +246,7 @@ public class TomcatLocalModel extends TomcatServerModel
 			list.add(Pair.create("CATALINA_BASE", FileUtil.toSystemIndependentName(directory.getAbsolutePath())));
 		}
 
-		final ApplicationServer server = getApplicationServer();
+		final Sdk server = getApplicationServer();
 		if(server != null)
 		{
 			final String tomcatHome = getHome();

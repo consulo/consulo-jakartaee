@@ -70,13 +70,13 @@ public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfig
 	}
 
 	@Override
-	protected void resetEditorFrom(JavaEEConfigurationImpl s)
+	protected void resetEditorFrom(JavaEEConfigurationImpl configuration)
 	{
 
 	}
 
 	@Override
-	protected void applyEditorTo(JavaEEConfigurationImpl s) throws ConfigurationException
+	protected void applyEditorTo(JavaEEConfigurationImpl configuration) throws ConfigurationException
 	{
 
 	}

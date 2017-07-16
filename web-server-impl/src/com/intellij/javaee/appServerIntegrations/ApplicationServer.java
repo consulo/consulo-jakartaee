@@ -15,12 +15,15 @@
  */
 package com.intellij.javaee.appServerIntegrations;
 
-import com.intellij.openapi.roots.libraries.Library;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.Collection;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import com.intellij.openapi.roots.libraries.Library;
+import consulo.annotations.DeprecationInfo;
+
+@Deprecated
+@DeprecationInfo("Not needed. Replaced by SDK")
 public interface ApplicationServer {
   String getName();
 

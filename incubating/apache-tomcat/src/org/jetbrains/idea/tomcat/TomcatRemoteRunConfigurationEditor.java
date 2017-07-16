@@ -10,13 +10,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.idea.tomcat.server.TomcatRemoteModel;
 import org.jetbrains.idea.tomcat.server.TomcatRunSettingsEditor;
-import com.intellij.javaee.appServerIntegrations.ApplicationServer;
-import com.intellij.javaee.oss.server.JavaeeServerVersionProvider;
 import com.intellij.javaee.oss.transport.MultiTargetRemoteServerModel;
 import com.intellij.javaee.oss.transport.MultiTargetRemoteStagingEditor;
 import com.intellij.javaee.oss.util.Version;
 import com.intellij.javaee.run.configuration.ApplicationServerSelectionListener;
 import com.intellij.openapi.options.ConfigurationException;
+import com.intellij.openapi.projectRoots.Sdk;
 
 /**
  * Created by IntelliJ IDEA.
@@ -31,18 +30,18 @@ public class TomcatRemoteRunConfigurationEditor extends TomcatRunSettingsEditor<
 
 
 	@Override
-	public void serverSelected(@Nullable ApplicationServer server)
+	public void serverSelected(@Nullable Sdk server)
 	{
 		updateUI(server);
 	}
 
 	@Override
-	public void serverProbablyEdited(@Nullable ApplicationServer server)
+	public void serverProbablyEdited(@Nullable Sdk server)
 	{
 
 	}
 
-	private void updateUI(@Nullable ApplicationServer server)
+	private void updateUI(@Nullable Sdk server)
 	{
 		boolean showDeployOptions;
 		if(server == null)
@@ -51,7 +50,7 @@ public class TomcatRemoteRunConfigurationEditor extends TomcatRunSettingsEditor<
 		}
 		else
 		{
-			showDeployOptions = new Version(new JavaeeServerVersionProvider(server).getValue()).getMajor() >= 5;
+			showDeployOptions = new Version(server.getVersionString()).getMajor() >= 5;
 		}
 		myMainPanel.setVisible(showDeployOptions);
 	}

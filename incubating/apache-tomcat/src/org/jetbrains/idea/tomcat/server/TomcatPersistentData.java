@@ -1,17 +1,18 @@
 package org.jetbrains.idea.tomcat.server;
 
+import org.jdom.Element;
+import org.jetbrains.idea.tomcat.TomcatUtil;
 import com.intellij.javaee.appServerIntegrations.DefaultPersistentData;
 import com.intellij.javaee.oss.server.JavaeePersistentDataWithBase;
 import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.openapi.util.io.FileUtil;
-import org.jdom.Element;
-import org.jetbrains.idea.tomcat.TomcatUtil;
 
 /**
  * Created by IntelliJ IDEA.
  * User: michael.golubev
  */
+@Deprecated
 public class TomcatPersistentData extends JavaeePersistentDataWithBase {
 
   public TomcatPersistentData() {

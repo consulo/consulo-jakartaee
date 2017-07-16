@@ -16,18 +16,18 @@
 
 package com.intellij.javaee.run.configuration;
 
-import com.intellij.javaee.appServerIntegrations.ApplicationServer;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.EventListener;
+
+import org.jetbrains.annotations.Nullable;
+import com.intellij.openapi.projectRoots.Sdk;
 
 /**
  * @author nik
  */
 public interface ApplicationServerSelectionListener extends EventListener {
 
-  void serverSelected(@Nullable ApplicationServer server);
+  void serverSelected(@Nullable Sdk server);
 
-  void serverProbablyEdited(@Nullable ApplicationServer server);
+  void serverProbablyEdited(@Nullable Sdk server);
 
 }

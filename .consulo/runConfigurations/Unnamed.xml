@@ -1,13 +1,13 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Unnamed" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Consulo In Sandbox" singleton="true">
-    <option name="VM_PARAMETERS" value="-Xms1G -Xmx1G -XX:MaxPermSize=512m -XX:ReservedCodeCacheSize=64m -XX:+UseCodeCacheFlushing -ea -XX:+HeapDumpOnOutOfMemoryError" />
+    <option name="VM_PARAMETERS" value="-Xms1G -Xmx1G -XX:ReservedCodeCacheSize=64m -XX:+UseCodeCacheFlushing -ea -XX:+HeapDumpOnOutOfMemoryError" />
     <option name="PROGRAM_PARAMETERS" value="" />
     <option name="USE_ALT_CONSULO_SDK" value="false" />
     <option name="ALT_CONSULO_SDK_PATH" />
     <option name="INTERNAL_MODE" value="true" />
     <java-sdk name="1.8" />
     <consulo-sdk name="Consulo SNAPSHOT" />
-    <artifact name="plugin" />
+    <artifact name="plugin-incubator" />
     <predefined_log_file id="IDEA_LOG" enabled="true" />
     <RunnerSettings RunnerId="Debug">
       <option name="DEBUG_PORT" value="" />

@@ -16,20 +16,22 @@
 
 package org.jetbrains.idea.tomcat;
 
-import com.intellij.javaee.appServerIntegrations.ApplicationServer;
-import com.intellij.javaee.oss.server.JavaeeServerHomeProvider;
-import com.intellij.javaee.oss.server.JavaeeServerVersionProvider;
-import com.intellij.javaee.oss.util.Version;
-import com.intellij.javaee.run.configuration.ApplicationServerSelectionListener;
-import com.intellij.openapi.options.ConfigurationException;
-import com.intellij.openapi.util.text.StringUtil;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.idea.tomcat.server.TomcatIntegration;
 import org.jetbrains.idea.tomcat.server.TomcatLocalModel;
 import org.jetbrains.idea.tomcat.server.TomcatRunSettingsEditor;
-
-import javax.swing.*;
+import com.intellij.javaee.oss.util.Version;
+import com.intellij.javaee.run.configuration.ApplicationServerSelectionListener;
+import com.intellij.openapi.options.ConfigurationException;
+import com.intellij.openapi.projectRoots.Sdk;
+import com.intellij.openapi.util.text.StringUtil;
 
 /**
  * @author nik
@@ -50,7 +52,7 @@ public class TomcatLocalRunConfigurationEditor extends TomcatRunSettingsEditor<T
   private String myOldLocalPort;
 
   @Override
-  public void serverSelected(@Nullable ApplicationServer server) {
+  public void serverSelected(@Nullable Sdk server) {
     updateSessionsCheckboxLabel(server);
     if (server != null && myOldLocalPortIsSource) {
       if (myOldLocalPort.equals(myHttpPortTextField.getText())) {
@@ -67,7 +69,7 @@ public class TomcatLocalRunConfigurationEditor extends TomcatRunSettingsEditor<T
   }
 
   @Override
-  public void serverProbablyEdited(@Nullable ApplicationServer server) {
+  public void serverProbablyEdited(@Nullable Sdk server) {
     updateSessionsCheckboxLabel(server);
   }
 
@@ -113,11 +115,11 @@ public class TomcatLocalRunConfigurationEditor extends TomcatRunSettingsEditor<T
     myHttpPortTextField.setText(myOldLocalPort);
   }
 
-  private void updateSessionsCheckboxLabel(ApplicationServer server) {
+  private void updateSessionsCheckboxLabel(Sdk server) {
     String sessionsCheckboxName = TomcatBundle.message("checkbox.preserve.sessions.across.restarts.and.redeploys");
     if (server != null) {
-      boolean isTomEE = TomcatIntegration.isTomEE(new JavaeeServerHomeProvider(server).getValue());
-      boolean isSpecificVersion = new Version(new JavaeeServerVersionProvider(server).getValue()).getMajor() < 7;
+      boolean isTomEE = TomcatIntegration.isTomEE(server.getVersionString());
+      boolean isSpecificVersion = new Version(server.getVersionString()).getMajor() < 7;
       if (isTomEE || isSpecificVersion) {
         sessionsCheckboxName = TomcatBundle.message("checkbox.preserve.sessions.across.restarts");
       }

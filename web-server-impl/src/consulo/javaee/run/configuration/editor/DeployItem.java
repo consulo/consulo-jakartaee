@@ -37,14 +37,14 @@ class DeployItem implements Disposable
 		return myEditor;
 	}
 
-	public void reset()
-	{
-		myEditor.resetFrom(myDeploymentModel);
-	}
-
 	public void apply() throws ConfigurationException
 	{
 		myEditor.applyTo(myDeploymentModel);
+	}
+
+	public DeploymentModel getDeploymentModel()
+	{
+		return myDeploymentModel;
 	}
 
 	public DeploymentSource getDeploymentSource()

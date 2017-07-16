@@ -37,11 +37,12 @@ import com.intellij.ui.IdeBorderFactory;
 import com.intellij.ui.SimpleTextAttributes;
 import com.intellij.ui.ToolbarDecorator;
 import com.intellij.ui.components.JBList;
+import com.intellij.ui.components.panels.Wrapper;
 import com.intellij.util.ui.JBUI;
 import consulo.javaee.artifact.ExplodedWarArtifactType;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
-import consulo.javaee.run.configuration.JavaEEDeploymentSettings;
 import consulo.packaging.artifacts.ArtifactPointerUtil;
 
 /**
@@ -54,16 +55,14 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 
 	private final Project myProject;
 	private final JavaEEServerBundleType myBundleType;
-	private final JavaEEDeploymentSettings myDeploymentSettings;
 	private final CommonModel myCommonModel;
 
 	private JBList<DeployItem> myDeploySourceList = new JBList<>(new DefaultListModel<>());
 
-	public JavaEEDeploymentConfigurationEditor(Project project, JavaEEServerBundleType bundleType, JavaEEDeploymentSettings deploymentSettings, CommonModel commonModel)
+	public JavaEEDeploymentConfigurationEditor(Project project, JavaEEServerBundleType bundleType, CommonModel commonModel)
 	{
 		myProject = project;
 		myBundleType = bundleType;
-		myDeploymentSettings = deploymentSettings;
 		myCommonModel = commonModel;
 	}
 
@@ -153,13 +152,20 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 			}
 		});
 		decorator.setToolbarPosition(ActionToolbarPosition.RIGHT);
-		mainPanel.add(decorator.createPanel(), BorderLayout.WEST);
+		JPanel panel = decorator.createPanel();
+		panel.setPreferredSize(JBUI.size(200, -1));
+		mainPanel.add(panel, BorderLayout.WEST);
 
-		JPanel settingsPanel = new JPanel(new BorderLayout());
+		Wrapper settingsPanel = new Wrapper();
 		settingsPanel.setBorder(JBUI.Borders.empty(5));
 
 		myDeploySourceList.addListSelectionListener(e ->
 		{
+			if(e.getValueIsAdjusting())
+			{
+				return;
+			}
+
 			DeployItem selectedValue = myDeploySourceList.getSelectedValue();
 
 			settingsPanel.removeAll();
@@ -173,8 +179,9 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 
 			JComponent component = editor.getComponent();
 
-			settingsPanel.add(component, BorderLayout.CENTER);
-			settingsPanel.repaint();
+			settingsPanel.setContent(component);
+
+			editor.resetFrom(selectedValue.getDeploymentModel());
 		});
 
 		mainPanel.add(settingsPanel, BorderLayout.CENTER);
@@ -242,14 +249,50 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 	}
 
 	@Override
-	protected void resetEditorFrom(JavaEEConfigurationImpl s)
+	protected void resetEditorFrom(JavaEEConfigurationImpl configuration)
 	{
+		DefaultListModel<DeployItem> model = (DefaultListModel<DeployItem>) myDeploySourceList.getModel();
+		model.removeAllElements();
 
+		List<DeploymentModel> deploymentModels = configuration.getDeploymentSettings().getDeploymentModels();
+		for(DeploymentModel deploymentModel : deploymentModels)
+		{
+			DeploymentSource deploymentSource = deploymentModel.getDeploymentSource();
+
+			DeployItem item = new DeployItem(myCommonModel, deploymentSource, myBundleType);
+			item.getEditor().resetFrom(deploymentModel);
+			try
+			{
+				item.getEditor().applyTo(item.getDeploymentModel());
+			}
+			catch(ConfigurationException ignored)
+			{
+			}
+
+			model.addElement(item);
+		}
 	}
 
 	@Override
-	protected void applyEditorTo(JavaEEConfigurationImpl s) throws ConfigurationException
+	protected void applyEditorTo(JavaEEConfigurationImpl configuration) throws ConfigurationException
 	{
+		JavaEEDeploymentSettingsImpl deploymentSettings = (JavaEEDeploymentSettingsImpl) configuration.getDeploymentSettings();
+		DefaultListModel<DeployItem> model = (DefaultListModel<DeployItem>) myDeploySourceList.getModel();
 
+		deploymentSettings.removeAll();
+
+		Enumeration<DeployItem> enumeration = model.elements();
+		while(enumeration.hasMoreElements())
+		{
+			DeployItem deployItem = enumeration.nextElement();
+
+			DeploymentSource deploymentSource = deployItem.getDeploymentSource();
+
+			DeploymentModel deploymentModel = myBundleType.createNewDeploymentModel(myCommonModel, deploymentSource);
+
+			deployItem.getEditor().applyTo(deploymentModel);
+
+			deploymentSettings.addModel(deploymentModel);
+		}
 	}
 }

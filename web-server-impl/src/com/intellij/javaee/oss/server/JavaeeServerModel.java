@@ -23,7 +23,6 @@ import com.intellij.execution.configurations.PredefinedLogFile;
 import com.intellij.execution.configurations.RuntimeConfigurationError;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
 import com.intellij.execution.process.ProcessHandler;
-import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 import com.intellij.javaee.deployment.DeploymentManager;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentProvider;
@@ -41,7 +40,6 @@ import com.intellij.javaee.run.execution.OutputProcessor;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.openapi.deployment.DeploymentUtil;
 import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.roots.OrderRootType;
 import com.intellij.openapi.util.DefaultJDOMExternalizer;
 import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.util.Pair;
@@ -53,6 +51,7 @@ import com.intellij.util.PathUtil;
 import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
+import consulo.roots.types.BinariesOrderRootType;
 
 public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFilesProvider
 {
@@ -258,7 +257,7 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 	@Nullable
 	public List<Pair<String, Integer>> getAddressesToCheck()
 	{
-		return config.isLocal() ? Collections.singletonList(new Pair<String, Integer>(getServerHost(), getServerPort())) : null;
+		return config.isLocal() ? Collections.singletonList(new Pair<>(getServerHost(), getServerPort())) : null;
 	}
 
 	public void checkConfiguration() throws RuntimeConfigurationException
@@ -285,16 +284,18 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		return super.clone();
 	}
 
+	@Nullable
 	public String getHome()
 	{
-		ApplicationServer server = config.getApplicationServer();
-		return (server != null) ? ((JavaeePersistentData) server.getPersistentData()).HOME : "";
+		Sdk server = config.getServerBundle();
+		return server != null ? server.getHomePath() : null;
 	}
 
+	@Nullable
 	public String getVersion()
 	{
-		ApplicationServer server = config.getApplicationServer();
-		return (server != null) ? ((JavaeePersistentData) server.getPersistentData()).VERSION : "";
+		Sdk server = config.getServerBundle();
+		return server != null ? server.getVersionString() : null;
 	}
 
 	public String getVmArguments()
@@ -327,11 +328,16 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 
 	protected List<File> getLibraries() throws ExecutionException
 	{
-		List<File> libraries = new ArrayList<File>();
+		List<File> libraries = new ArrayList<>();
 		libraries.add(new File(PathUtil.getJarPathForClass(getClass())));
-		for(VirtualFile file : config.getApplicationServer().getLibrary().getFiles(OrderRootType.CLASSES))
+
+		Sdk serverBundle = config.getServerBundle();
+		if(serverBundle != null)
 		{
-			libraries.add(new File(file.getPresentableUrl()));
+			for(VirtualFile file : serverBundle.getRootProvider().getFiles(BinariesOrderRootType.getInstance()))
+			{
+				libraries.add(new File(file.getPresentableUrl()));
+			}
 		}
 		return libraries;
 	}
@@ -343,7 +349,7 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 
 	protected Set<Class<?>> getExcludes()
 	{
-		Set<Class<?>> excludes = new HashSet<Class<?>>();
+		Set<Class<?>> excludes = new HashSet<>();
 		excludes.add(JavaeeServer.class);
 		excludes.add(JavaeeDescriptor.class);
 		return excludes;

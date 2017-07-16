@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.idea.tomcat.TomcatBundle;
 import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
 import org.jetbrains.idea.tomcat.admin.TomEEAgentAdminServerImpl;
@@ -16,7 +17,6 @@ import org.jetbrains.idea.tomcat.server.tomee.TomeeExtensions;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.RuntimeConfigurationError;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
-import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.oss.admin.JavaeeAdmin;
 import com.intellij.javaee.oss.admin.JavaeeAdminClientImpl;
@@ -26,6 +26,7 @@ import com.intellij.javaee.oss.server.JavaeeServerModel;
 import com.intellij.javaee.oss.util.Version;
 import com.intellij.javaee.ui.packaging.ExplodedEarArtifactType;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.roots.ui.configuration.ModulesConfigurator;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.util.io.FileUtilRt;
@@ -171,7 +172,8 @@ public abstract class TomcatServerModel extends JavaeeServerModel {
     }
   }
 
-  public ApplicationServer getApplicationServer() {
+  @Nullable
+  public Sdk getApplicationServer() {
     return getCommonModel().getApplicationServer();
   }
 

@@ -4,7 +4,6 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.idea.tomcat.TomcatPersistentDataWrapper;
 import org.jetbrains.idea.tomcat.TomcatStartupPolicy;
-import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 import com.intellij.javaee.deployment.JspDeploymentManager;
 import com.intellij.javaee.oss.server.JavaeeConfigurationType;
 import com.intellij.javaee.run.configuration.CommonModel;
@@ -12,6 +11,7 @@ import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.javaee.web.WebUtil;
 import com.intellij.openapi.deployment.DeploymentUtil;
+import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.psi.PsiFile;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
@@ -49,7 +49,7 @@ public class TomcatConfigurationBase extends JavaeeConfigurationType
 	}
 
 	@Override
-	public String getUrlToOpenInBrowser(@NotNull ApplicationServer server, @NotNull PsiFile psiFile)
+	public String getUrlToOpenInBrowser(@NotNull Sdk server, @NotNull PsiFile psiFile)
 	{
 		final JavaWebModuleExtension webFacet = WebUtil.getWebFacet(psiFile);
 		if(webFacet == null)

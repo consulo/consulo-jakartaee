@@ -15,51 +15,64 @@
  */
 package com.intellij.javaee.run.configuration;
 
-import com.intellij.execution.configurations.ModuleRunConfiguration;
-import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
-import com.intellij.javaee.appServerIntegrations.ApplicationServer;
-import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.deployment.DeploymentSettings;
-import com.intellij.openapi.compiler.CompileScope;
-import com.intellij.packaging.artifacts.Artifact;
-import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.Collection;
 import java.util.List;
 
-public interface CommonModel extends ModuleRunConfiguration {
-  @NonNls String LOCALHOST = "localhost";
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import com.intellij.execution.configurations.ModuleRunConfiguration;
+import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
+import com.intellij.javaee.deployment.DeploymentModel;
+import com.intellij.javaee.deployment.DeploymentSettings;
+import com.intellij.openapi.compiler.CompileScope;
+import com.intellij.openapi.projectRoots.Sdk;
+import com.intellij.packaging.artifacts.Artifact;
+import consulo.annotations.DeprecationInfo;
 
-  AppServerIntegration getIntegration();
+public interface CommonModel extends ModuleRunConfiguration
+{
+	@NonNls
+	String LOCALHOST = "localhost";
 
-  boolean isLocal();
+	AppServerIntegration getIntegration();
 
-  ApplicationServer getApplicationServer();
+	boolean isLocal();
 
-  String getHost();
+	@Nullable
+	@Deprecated
+	@DeprecationInfo("Use #getServerBundle()")
+	default Sdk getApplicationServer()
+	{
+		return getServerBundle();
+	}
 
-  int getPort();
+	@Nullable
+	Sdk getServerBundle();
 
-  ServerModel getServerModel();
+	String getHost();
 
-  void initialize();
+	int getPort();
 
-  Collection<? extends DeploymentModel> getDeploymentModels();
+	ServerModel getServerModel();
 
-  List<Artifact> getDeployedArtifacts();
+	void initialize();
 
-  List<Artifact> getArtifactsToBuild();
+	Collection<? extends DeploymentModel> getDeploymentModels();
 
-  @Nullable
-  DeploymentModel getDeploymentModel(Artifact artifact);
+	List<Artifact> getDeployedArtifacts();
 
-  void setUrlToOpenInBrowser(@Nullable String newUrl);
+	List<Artifact> getArtifactsToBuild();
 
-  @Nullable
-  DeploymentSettings getDeploymentSettings();
+	@Nullable
+	DeploymentModel getDeploymentModel(Artifact artifact);
 
-  String getUrlToOpenInBrowser();
+	void setUrlToOpenInBrowser(@Nullable String newUrl);
 
-  CompileScope getCompileScope();
+	@NotNull
+	DeploymentSettings getDeploymentSettings();
+
+	String getUrlToOpenInBrowser();
+
+	CompileScope getCompileScope();
 }
