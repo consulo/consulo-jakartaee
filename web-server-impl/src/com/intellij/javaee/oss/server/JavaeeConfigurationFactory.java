@@ -8,7 +8,7 @@ import javax.swing.Icon;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import com.intellij.execution.configurations.ConfigurationFactory;
+import com.intellij.execution.configuration.ConfigurationFactoryEx;
 import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.javaee.run.configuration.CommonModel;
@@ -18,7 +18,7 @@ import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.openapi.project.Project;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 
-public abstract class JavaeeConfigurationFactory extends ConfigurationFactory
+public abstract class JavaeeConfigurationFactory extends ConfigurationFactoryEx
 {
 	private final String myName;
 	private final Icon myIcon;

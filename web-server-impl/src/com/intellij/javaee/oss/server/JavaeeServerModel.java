@@ -154,12 +154,10 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 
 	public void onNewConfigurationCreated()
 	{
-		//TODO [VISTALL] STUB
 	}
 
 	public void onConfigurationCopied()
 	{
-		//TODO [VISTALL] STUB
 	}
 
 	public List<Pair<String, String>> getExternalizationMacros()

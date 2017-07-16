@@ -49,9 +49,9 @@ import consulo.javaee.run.configuration.editor.JavaEEStartupConfigurationEditor;
  */
 public class JavaEEConfigurationImpl extends LocatableConfigurationBase implements CommonStrategy
 {
-	private final JavaEEServerBundleType myBundleType;
+	private JavaEEServerBundleType myBundleType;
 	private final boolean myIsLocal;
-	private final JavaeeServerModel myServerModel;
+	private JavaeeServerModel myServerModel;
 
 	private SettingsBean mySettingsBean = new SettingsBean();
 
@@ -123,12 +123,28 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	@Override
 	public void initialize()
 	{
-		myServerModel.onNewConfigurationCreated();
-
 		for(PredefinedLogFile file : myServerModel.getPredefinedLogFiles())
 		{
 			addPredefinedLogFile(file);
 		}
+	}
+
+	@Override
+	public RunConfiguration clone()
+	{
+		JavaEEConfigurationImpl clone = (JavaEEConfigurationImpl) super.clone();
+		try
+		{
+			JavaeeServerModel serverModel = (JavaeeServerModel) myServerModel.clone();
+			serverModel.setCommonModel(clone);
+			clone.myServerModel = serverModel;
+		}
+		catch(CloneNotSupportedException e)
+		{
+			throw new UnsupportedOperationException();
+		}
+		clone.myBundleType = myBundleType;
+		return clone;
 	}
 
 	@Nullable
