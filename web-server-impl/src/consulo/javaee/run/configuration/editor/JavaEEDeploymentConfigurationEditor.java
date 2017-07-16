@@ -44,6 +44,7 @@ import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 import consulo.packaging.artifacts.ArtifactPointerUtil;
+import consulo.packaging.impl.run.BuildArtifactsBeforeRunTaskProvider;
 
 /**
  * @author VISTALL
@@ -146,6 +147,17 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 			DeployItem selectedValue = myDeploySourceList.getSelectedValue();
 			if(selectedValue != null)
 			{
+				ArtifactPointer artifactPointer = selectedValue.getArtifactPointer();
+				if(artifactPointer != null)
+				{
+					Artifact artifact = artifactPointer.get();
+
+					if(artifact != null)
+					{
+						BuildArtifactsBeforeRunTaskProvider.setBuildArtifactBeforeRunOption(myDeploySourceList, myProject, artifact, false);
+					}
+				}
+
 				Disposer.dispose(selectedValue);
 
 				model.removeElement(selectedValue);
@@ -231,6 +243,8 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 				DeployItem element = new DeployItem(myCommonModel, deploymentSource, myBundleType);
 				model.addElement(element);
 				myDeploySourceList.setSelectedValue(element, true);
+
+				BuildArtifactsBeforeRunTaskProvider.setBuildArtifactBeforeRunOption(myDeploySourceList, myProject, artifact, true);
 			}
 		}
 	}
