@@ -30,8 +30,8 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.util.xml.DomFileDescription;
 import consulo.java.roots.SpecialDirUtil;
+import consulo.javaee.JavaEEIcons;
 import consulo.javaee.JavaWebConstants;
-import consulo.javaee.JavaWebIcons;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
 
 /**
@@ -49,7 +49,7 @@ public class WebAppDescriptor extends DomFileDescription<WebApp>
 	@Override
 	public Icon getFileIcon(@Iconable.IconFlags int flags)
 	{
-		return JavaWebIcons.WebXml;
+		return JavaEEIcons.Web_xml;
 	}
 
 	@Override

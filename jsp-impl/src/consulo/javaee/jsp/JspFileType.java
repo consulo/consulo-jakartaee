@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.ide.highlighter.XmlLikeFileType;
 import com.intellij.openapi.fileTypes.FileTypeEditorHighlighterProviders;
 import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
-import consulo.javaee.JavaWebIcons;
+import consulo.javaee.JavaEEIcons;
 import consulo.javaee.jsp.highlight.JspEditorHighlighter;
 
 /**
@@ -66,6 +66,6 @@ public class JspFileType extends XmlLikeFileType implements TemplateLanguageFile
 	@Override
 	public Icon getIcon()
 	{
-		return JavaWebIcons.Jsp;
+		return JavaEEIcons.Jsp;
 	}
 }

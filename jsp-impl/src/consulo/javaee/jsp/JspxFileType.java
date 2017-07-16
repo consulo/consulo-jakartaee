@@ -7,7 +7,7 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.ide.highlighter.XmlLikeFileType;
 import com.intellij.lang.xml.XMLLanguage;
 import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
-import consulo.javaee.JavaWebIcons;
+import consulo.javaee.JavaEEIcons;
 
 /**
  * @author VISTALL
@@ -47,6 +47,6 @@ public class JspxFileType  extends XmlLikeFileType implements TemplateLanguageFi
 	@Override
 	public Icon getIcon()
 	{
-		return JavaWebIcons.Jspx;
+		return JavaEEIcons.Jspx;
 	}
 }

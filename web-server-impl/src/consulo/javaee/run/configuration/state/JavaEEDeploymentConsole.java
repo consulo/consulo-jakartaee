@@ -15,6 +15,7 @@ import com.intellij.execution.ui.RunnerLayoutUi;
 import com.intellij.execution.ui.layout.LayoutStateDefaults;
 import com.intellij.execution.ui.layout.PlaceInGrid;
 import com.intellij.icons.AllIcons;
+import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.deployment.DeploymentView;
 import com.intellij.javaee.run.execution.JavaeeConsoleView;
@@ -22,12 +23,14 @@ import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.openapi.actionSystem.ActionToolbarPosition;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.ToggleAction;
 import com.intellij.openapi.project.Project;
 import com.intellij.ui.ToolbarDecorator;
 import com.intellij.ui.components.JBList;
 import com.intellij.ui.content.Content;
 import com.intellij.util.ui.JBUI;
 import consulo.annotations.RequiredDispatchThread;
+import consulo.javaee.JavaEEIcons;
 
 /**
  * @author VISTALL
@@ -64,7 +67,7 @@ public class JavaEEDeploymentConsole extends ConsoleViewImpl implements Executio
 		decorator.setPanelBorder(JBUI.Borders.empty());
 		decorator.disableUpDownActions();
 		decorator.disableRemoveAction();
-		decorator.addExtraAction(new AnAction("Deploy", null, AllIcons.Nodes.Deploy)
+		decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.deploy.selected"), null, AllIcons.Nodes.Deploy)
 		{
 			@RequiredDispatchThread
 			@Override
@@ -73,6 +76,39 @@ public class JavaEEDeploymentConsole extends ConsoleViewImpl implements Executio
 
 			}
 		});
+		decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.undeploy"), null, AllIcons.Nodes.Undeploy)
+		{
+			@RequiredDispatchThread
+			@Override
+			public void actionPerformed(@NotNull AnActionEvent anActionEvent)
+			{
+
+			}
+		});
+		decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.refresh.deployment.status"), null, AllIcons.Actions.Refresh)
+		{
+			@RequiredDispatchThread
+			@Override
+			public void actionPerformed(@NotNull AnActionEvent anActionEvent)
+			{
+
+			}
+		});
+		decorator.addExtraAction(new ToggleAction(J2EEBundle.message("action.name.build.on.frame.deactivation"), null, JavaEEIcons.BuildOnFrameDeactivation)
+		{
+			@Override
+			public boolean isSelected(AnActionEvent e)
+			{
+				return false;
+			}
+
+			@Override
+			public void setSelected(AnActionEvent e, boolean state)
+			{
+
+			}
+		});
+
 
 		JPanel panel = decorator.createPanel();
 

@@ -9,7 +9,7 @@ import com.intellij.openapi.module.ModuleUtil;
 import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import com.intellij.packaging.artifacts.ArtifactType;
 import com.intellij.packaging.elements.PackagingElementOutputKind;
-import consulo.javaee.JavaWebIcons;
+import consulo.javaee.JavaEEIcons;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
 
 /**
@@ -40,6 +40,6 @@ public abstract class WebApplicationArtifactType extends ArtifactType
 	@Override
 	public Icon getIcon()
 	{
-		return JavaWebIcons.WarArtifact;
+		return JavaEEIcons.WarArtifact;
 	}
 }

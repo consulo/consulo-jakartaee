@@ -14,7 +14,7 @@ import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectFileIndex;
 import com.intellij.psi.PsiDirectory;
-import consulo.javaee.JavaWebIcons;
+import consulo.javaee.JavaEEIcons;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
 import consulo.roots.ContentFolderTypeProvider;
 import consulo.roots.impl.WebResourcesFolderTypeProvider;
@@ -27,7 +27,7 @@ public class CreateJSPFileAction extends CreateFileFromTemplateAction implements
 {
 	public CreateJSPFileAction()
 	{
-		super("JSP", null, JavaWebIcons.Jsp);
+		super("JSP", null, JavaEEIcons.Jsp);
 	}
 
 	@Override
@@ -35,8 +35,8 @@ public class CreateJSPFileAction extends CreateFileFromTemplateAction implements
 	{
 		builder.setTitle(J2EEBundle.message("dialog.title.jsp.file"));
 
-		builder.addKind("JSP", JavaWebIcons.Jsp, J2EEFileTemplateNames.JSP_FILE);
-		builder.addKind("JSPX", JavaWebIcons.Jspx, J2EEFileTemplateNames.JSPX_FILE);
+		builder.addKind("JSP", JavaEEIcons.Jsp, J2EEFileTemplateNames.JSP_FILE);
+		builder.addKind("JSPX", JavaEEIcons.Jspx, J2EEFileTemplateNames.JSPX_FILE);
 	}
 
 	@Override
