@@ -14,6 +14,7 @@ import com.intellij.openapi.actionSystem.ActionToolbarPosition;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.ToggleAction;
+import com.intellij.openapi.util.IconLoader;
 import com.intellij.ui.CollectionListModel;
 import com.intellij.ui.ColoredListCellRenderer;
 import com.intellij.ui.ToolbarDecorator;
@@ -47,7 +48,7 @@ public class DeploymentViewImpl implements DeploymentView
 			@Override
 			protected void customizeCellRenderer(@NotNull JList<? extends DeploymentModel> list, DeploymentModel value, int index, boolean selected, boolean hasFocus)
 			{
-				setIcon(AllIcons.Nodes.Plugin);
+				setIcon(IconLoader.getDisabledIcon(AllIcons.Nodes.Plugin));
 				append(value.getDeploymentSource().getPresentableName());
 			}
 		});
