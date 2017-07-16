@@ -17,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.javaee.appServerIntegrations.AppServerDeployedFileUrlProvider;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
-import com.intellij.javaee.appServerIntegrations.ApplicationServerHelper;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerUrlMapping;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.oss.JavaeeBundle;
@@ -39,13 +38,6 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 	public String getPresentableName()
 	{
 		return JavaeeBundle.getText("Integration.name", getName());
-	}
-
-	@Override
-	@Nullable
-	protected ApplicationServerHelper createServerHelper()
-	{
-		return new JavaeeServerHelper(this);
 	}
 
 	@Override

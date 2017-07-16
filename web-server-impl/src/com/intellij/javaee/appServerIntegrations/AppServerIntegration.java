@@ -57,18 +57,6 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
     return null;
   }*/
 
-	@Nullable
-	protected ApplicationServerHelper createServerHelper()
-	{
-		return null;
-	}
-
-	@Nullable
-	public ApplicationServerPersistentDataEditor createNewServerEditor()
-	{
-		return null;
-	}
-
   /*@Nullable
   public AppServerLibrariesProvider createLibrariesProvider(@NotNull ApplicationServerPersistentData persistentData) {
     return null;
