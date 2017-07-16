@@ -87,7 +87,6 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 		throw new UnsupportedOperationException();
 	}
 
-
 	@Nullable
 	@NonNls
 	@Deprecated
