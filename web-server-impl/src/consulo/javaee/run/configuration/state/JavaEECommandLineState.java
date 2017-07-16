@@ -34,7 +34,7 @@ public class JavaEECommandLineState extends CommandLineState implements PatchedR
 	public ExecutionResult execute(@NotNull final Executor executor, @NotNull final ProgramRunner runner) throws ExecutionException
 	{
 		final ProcessHandler processHandler = startProcess();
-		final ConsoleView console = new JavaEEDeploymentConsole(executor, getEnvironment().getProject());
+		final ConsoleView console = new JavaEEDeploymentConsole(executor, (JavaEEConfigurationImpl) getEnvironment().getRunProfile(), getEnvironment().getProject());
 		console.attachToProcess(processHandler);
 		return new DefaultExecutionResult(console, processHandler, createActions(console, processHandler, executor));
 	}

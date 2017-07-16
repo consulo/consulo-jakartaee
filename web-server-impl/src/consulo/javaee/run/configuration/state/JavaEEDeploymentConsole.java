@@ -1,7 +1,5 @@
 package consulo.javaee.run.configuration.state;
 
-import javax.swing.JPanel;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.Executor;
@@ -14,23 +12,14 @@ import com.intellij.execution.ui.ExecutionConsoleEx;
 import com.intellij.execution.ui.RunnerLayoutUi;
 import com.intellij.execution.ui.layout.LayoutStateDefaults;
 import com.intellij.execution.ui.layout.PlaceInGrid;
-import com.intellij.icons.AllIcons;
-import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.deployment.DeploymentView;
 import com.intellij.javaee.run.execution.JavaeeConsoleView;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
-import com.intellij.openapi.actionSystem.ActionToolbarPosition;
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
 import com.intellij.openapi.project.Project;
-import com.intellij.ui.ToolbarDecorator;
-import com.intellij.ui.components.JBList;
 import com.intellij.ui.content.Content;
-import com.intellij.util.ui.JBUI;
-import consulo.annotations.RequiredDispatchThread;
-import consulo.javaee.JavaEEIcons;
+import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+import consulo.javaee.run.configuration.state.view.DeploymentViewImpl;
 
 /**
  * @author VISTALL
@@ -38,12 +27,17 @@ import consulo.javaee.JavaEEIcons;
  */
 public class JavaEEDeploymentConsole extends ConsoleViewImpl implements ExecutionConsoleEx, JavaeeConsoleView
 {
-	private Executor myExecutor;
+	private final Executor myExecutor;
+	private final JavaEEConfigurationImpl myConfiguration;
 
-	public JavaEEDeploymentConsole(Executor executor, @NotNull Project project)
+	private final DeploymentViewImpl myDeploymentView;
+
+	public JavaEEDeploymentConsole(Executor executor, JavaEEConfigurationImpl configuration, @NotNull Project project)
 	{
 		super(project, true);
 		myExecutor = executor;
+		myConfiguration = configuration;
+		myDeploymentView = new DeploymentViewImpl(myConfiguration);
 	}
 
 	@Override
@@ -60,59 +54,8 @@ public class JavaEEDeploymentConsole extends ConsoleViewImpl implements Executio
 
 		ui.addContent(consoleContent, index, PlaceInGrid.center, false);
 
-		JBList<Object> deploymentList = new JBList<>("Deploy Artifact");
 
-		ToolbarDecorator decorator = ToolbarDecorator.createDecorator(deploymentList);
-		decorator.setToolbarPosition(ActionToolbarPosition.LEFT);
-		decorator.setPanelBorder(JBUI.Borders.empty());
-		decorator.disableUpDownActions();
-		decorator.disableRemoveAction();
-		decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.deploy.selected"), null, AllIcons.Nodes.Deploy)
-		{
-			@RequiredDispatchThread
-			@Override
-			public void actionPerformed(@NotNull AnActionEvent anActionEvent)
-			{
-
-			}
-		});
-		decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.undeploy"), null, AllIcons.Nodes.Undeploy)
-		{
-			@RequiredDispatchThread
-			@Override
-			public void actionPerformed(@NotNull AnActionEvent anActionEvent)
-			{
-
-			}
-		});
-		decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.refresh.deployment.status"), null, AllIcons.Actions.Refresh)
-		{
-			@RequiredDispatchThread
-			@Override
-			public void actionPerformed(@NotNull AnActionEvent anActionEvent)
-			{
-
-			}
-		});
-		decorator.addExtraAction(new ToggleAction(J2EEBundle.message("action.name.build.on.frame.deactivation"), null, JavaEEIcons.BuildOnFrameDeactivation)
-		{
-			@Override
-			public boolean isSelected(AnActionEvent e)
-			{
-				return false;
-			}
-
-			@Override
-			public void setSelected(AnActionEvent e, boolean state)
-			{
-
-			}
-		});
-
-
-		JPanel panel = decorator.createPanel();
-
-		final Content deploymentContent = ui.createContent("JavaEEDeployment", panel, "Deployment", null, panel);
+		final Content deploymentContent = ui.createContent("JavaEEDeployment", myDeploymentView.getComponent(), "Deployment", null, null);
 		deploymentContent.setCloseable(false);
 		ui.addContent(deploymentContent, index, PlaceInGrid.left, false);
 	}
@@ -146,6 +89,6 @@ public class JavaEEDeploymentConsole extends ConsoleViewImpl implements Executio
 	@Override
 	public DeploymentView getDeploymentView()
 	{
-		return null;
+		return myDeploymentView;
 	}
 }
