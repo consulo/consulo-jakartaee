@@ -21,7 +21,6 @@ import com.intellij.javaee.run.localRun.EnvironmentHelper;
 import com.intellij.javaee.run.localRun.ExecutableObject;
 import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.javaee.run.localRun.ScriptHelper;
-import com.intellij.javaee.run.localRun.ScriptsHelper;
 import com.intellij.openapi.util.text.StringUtil;
 
 public abstract class JavaeeStartupPolicy<T extends JavaeeServerModel> implements ExecutableObjectStartupPolicy
@@ -37,21 +36,7 @@ public abstract class JavaeeStartupPolicy<T extends JavaeeServerModel> implement
 		return null;
 	}
 
-	@Deprecated
-	@Nullable
-	public ScriptsHelper getStartupHelper()
-	{
-		return null;
-	}
-
-	@Deprecated
-	@Nullable
-	public ScriptsHelper getShutdownHelper()
-	{
-		return null;
-	}
-
-	@SuppressWarnings({"RawUseOfParameterizedType"})
+	@Override
 	public ScriptHelper createStartupScriptHelper(final ProgramRunner runner)
 	{
 		return new ScriptHelper()
@@ -59,6 +44,12 @@ public abstract class JavaeeStartupPolicy<T extends JavaeeServerModel> implement
 			@Override
 			public ExecutableObject getDefaultScript(CommonModel config)
 			{
+				ExecutableObject startupScript = getDefaultStartupScript((T) config.getServerModel(), isDebug(runner));
+				if(startupScript != null)
+				{
+					return startupScript;
+				}
+
 				JavaeeParameters params = new JavaeeParameters();
 				getStartupParameters(params, getServerModel(config), isDebug(runner));
 				return new CommandLineExecutableObject(params.get(), null);
@@ -84,7 +75,7 @@ public abstract class JavaeeStartupPolicy<T extends JavaeeServerModel> implement
 		};
 	}
 
-	@SuppressWarnings({"RawUseOfParameterizedType"})
+	@Override
 	public ScriptHelper createShutdownScriptHelper(final ProgramRunner runner)
 	{
 		return new ScriptHelper()
@@ -92,6 +83,12 @@ public abstract class JavaeeStartupPolicy<T extends JavaeeServerModel> implement
 			@Override
 			public ExecutableObject getDefaultScript(CommonModel config)
 			{
+				ExecutableObject startupScript = getDefaultShutdownScript((T) config.getServerModel(), isDebug(runner));
+				if(startupScript != null)
+				{
+					return startupScript;
+				}
+
 				JavaeeParameters params = new JavaeeParameters();
 				getShutdownParameters(params, getServerModel(config), isDebug(runner));
 				return new CommandLineExecutableObject(params.get(), null);
@@ -99,6 +96,7 @@ public abstract class JavaeeStartupPolicy<T extends JavaeeServerModel> implement
 		};
 	}
 
+	@Override
 	public EnvironmentHelper getEnvironmentHelper()
 	{
 		return new EnvironmentHelper()

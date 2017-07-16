@@ -26,6 +26,7 @@ import com.intellij.javaee.deployment.DeploymentSettings;
 import com.intellij.javaee.oss.server.JavaeeServerModel;
 import com.intellij.javaee.run.configuration.CommonStrategy;
 import com.intellij.javaee.run.configuration.ServerModel;
+import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.openapi.compiler.CompileScope;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.options.SettingsEditor;
@@ -42,6 +43,7 @@ import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
 import consulo.javaee.run.configuration.editor.JavaEEDeploymentConfigurationEditor;
 import consulo.javaee.run.configuration.editor.JavaEEServerConfigurationEditor;
 import consulo.javaee.run.configuration.editor.JavaEEStartupConfigurationEditor;
+import consulo.javaee.run.configuration.state.JavaEECommandLineState;
 
 /**
  * @author VISTALL
@@ -51,6 +53,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 {
 	private JavaEEServerBundleType myBundleType;
 	private final boolean myIsLocal;
+	private final ExecutableObjectStartupPolicy myStartupPolicy;
 	private JavaeeServerModel myServerModel;
 
 	private SettingsBean mySettingsBean = new SettingsBean();
@@ -59,15 +62,28 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 
 	public String APPLICATION_SERVER_NAME;
 
-	public JavaEEConfigurationImpl(Project project, ConfigurationFactory factory, String name, JavaEEServerBundleType bundleType, ServerModel serverModel, boolean isLocal)
+	public JavaEEConfigurationImpl(Project project,
+			ConfigurationFactory factory,
+			String name,
+			JavaEEServerBundleType bundleType,
+			ServerModel serverModel,
+			boolean isLocal,
+			ExecutableObjectStartupPolicy startupPolicy)
 	{
 		super(project, factory, name);
 		myBundleType = bundleType;
 		myIsLocal = isLocal;
+		myStartupPolicy = startupPolicy;
 		myServerModel = (JavaeeServerModel) serverModel;
 		myDeploymentSettings = new JavaEEDeploymentSettingsImpl(project, bundleType, this);
 
 		myServerModel.setCommonModel(this);
+	}
+
+	@NotNull
+	public ExecutableObjectStartupPolicy getStartupPolicy()
+	{
+		return myStartupPolicy;
 	}
 
 	@Override
@@ -273,6 +289,6 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 	@Override
 	public RunProfileState getState(@NotNull Executor executor, @NotNull ExecutionEnvironment environment) throws ExecutionException
 	{
-		return null;
+		return new JavaEECommandLineState(executor, environment);
 	}
 }

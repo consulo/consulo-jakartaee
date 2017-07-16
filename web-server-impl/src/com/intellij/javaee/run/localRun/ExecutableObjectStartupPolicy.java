@@ -19,48 +19,53 @@ import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.runners.ProgramRunner;
 
 
-public interface ExecutableObjectStartupPolicy {
+public interface ExecutableObjectStartupPolicy
+{
+	ExecutableObjectStartupPolicy DEFAULT = new ExecutableObjectStartupPolicy()
+	{
+		@Override
+		public EnvironmentHelper getEnvironmentHelper()
+		{
+			return null;
+		}
 
-  ExecutableObjectStartupPolicy DEFAULT = new ExecutableObjectStartupPolicy() {
-    public ScriptsHelper getStartupHelper() {
-      return null;
-    }
+		@Override
+		public ScriptHelper createStartupScriptHelper(final ProgramRunner runner)
+		{
+			return null;
+		}
 
-    public ScriptsHelper getShutdownHelper() {
-      return null;
-    }
+		@Override
+		public ScriptHelper createShutdownScriptHelper(final ProgramRunner runner)
+		{
+			return null;
+		}
+	};
 
-    public EnvironmentHelper getEnvironmentHelper() {
-      return null;
-    }
+	/**
+	 * @deprecated implement {@link ExecutableObjectStartupPolicy#createStartupScriptHelper(ProgramRunner)} instead
+	 */
+	@Nullable
+	default ScriptsHelper getStartupHelper()
+	{
+		return null;
+	}
 
-    public ScriptHelper createStartupScriptHelper(final ProgramRunner runner) {
-      return null;
-    }
+	/**
+	 * @deprecated implement {@link ExecutableObjectStartupPolicy#createShutdownScriptHelper(ProgramRunner)} instead
+	 */
+	@Nullable
+	default ScriptsHelper getShutdownHelper()
+	{
+		return null;
+	}
 
-    public ScriptHelper createShutdownScriptHelper(final ProgramRunner runner) {
-      return null;
-    }
-  };
+	@Nullable
+	ScriptHelper createStartupScriptHelper(ProgramRunner runner);
 
-  /**
-   * @deprecated implement {@link ExecutableObjectStartupPolicy#createStartupScriptHelper(ProgramRunner)} instead
-   */
-  @Nullable
-  ScriptsHelper getStartupHelper();
+	@Nullable
+	ScriptHelper createShutdownScriptHelper(ProgramRunner runner);
 
-  /**
-   * @deprecated implement {@link ExecutableObjectStartupPolicy#createShutdownScriptHelper(ProgramRunner)} instead
-   */
-  @Nullable
-  ScriptsHelper getShutdownHelper();
-
-  @Nullable
-  ScriptHelper createStartupScriptHelper(ProgramRunner runner);
-
-  @Nullable
-  ScriptHelper createShutdownScriptHelper(ProgramRunner runner);
-
-  @Nullable
-  EnvironmentHelper getEnvironmentHelper();
+	@Nullable
+	EnvironmentHelper getEnvironmentHelper();
 }
