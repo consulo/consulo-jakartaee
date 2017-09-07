@@ -68,7 +68,6 @@ public interface JavaeeCommonConstants {
   String QUEUE_DEST_TYPE = "javax.jms.Queue";
   String TOPIC_DEST_TYPE = "javax.jms.Topic";
   String JMS_MESSAGE_LISTENER_CLASS = "javax.jms.MessageListener";
-  @NonNls String CLASS_POSTFIX = CommonClassNames.CLASS_FILE_EXTENSION;
   @NonNls String ABSTRACT_SCHEMA_NAME = "abstract-schema-name";
   @NonNls String COLLECTION_CLASS = "java.util.Collection";
   @NonNls String MAP_CLASS = CommonClassNames.JAVA_UTIL_MAP;
