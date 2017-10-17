@@ -16,24 +16,26 @@
 
 package com.intellij.jam.view.tree;
 
+import java.awt.Color;
+import java.awt.event.InputEvent;
+
+import javax.swing.Icon;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import com.intellij.ide.DataManager;
 import com.intellij.ide.DeleteProvider;
 import com.intellij.ide.util.treeView.NodeDescriptor;
 import com.intellij.ide.util.treeView.ValidateableNode;
 import com.intellij.jam.JamMessages;
-import com.intellij.openapi.actionSystem.DataConstants;
 import com.intellij.openapi.actionSystem.DataProvider;
+import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.Key;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.ui.treeStructure.SimpleNode;
 import com.intellij.ui.treeStructure.SimpleTree;
 import com.intellij.util.OpenSourceUtil;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.InputEvent;
 
 /**
  * author: lesya
@@ -111,8 +113,8 @@ public abstract class JamNodeDescriptor<P> extends SimpleNode implements DataPro
   }
 
   @Nullable
-  public final Object getDataForElement(String dataId) {
-    if (DataConstants.DELETE_ELEMENT_PROVIDER.equals(dataId)) {
+  public final Object getDataForElement(Key<?> dataId) {
+    if (PlatformDataKeys.DELETE_ELEMENT_PROVIDER == dataId) {
       return getDeleteProvider();
     }
     return getData(dataId);

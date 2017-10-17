@@ -15,18 +15,18 @@
  */
 package com.intellij.javaee.run.execution;
 
+import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.deployment.DeploymentView;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
-import com.intellij.openapi.actionSystem.DataKey;
-import org.jetbrains.annotations.Nullable;
+import com.intellij.openapi.util.Key;
 
 /**
  * @author nik
  */
 public interface JavaeeConsoleView {
-  DataKey<JavaeeConsoleView> KEY = DataKey.create("JAVAEE_CONSOLE_VIEW");
+  Key<JavaeeConsoleView> KEY = Key.create("JAVAEE_CONSOLE_VIEW");
 
   AppServerIntegration getIntegration();
 
