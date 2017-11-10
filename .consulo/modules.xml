@@ -115,6 +115,7 @@
           <extension id="consulo-plugin" sdk-module-name="consulo-javaee" />
           <extension id="java" sdk-module-name="consulo-javaee" />
           <content url="file://$MODULE_DIR$">
+            <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
             <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
           </content>
           <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
