@@ -80,6 +80,12 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 	}
 
 	@Override
+	public PsiElement replace(@NotNull PsiElement newElement) throws IncorrectOperationException
+	{
+		return this;
+	}
+
+	@Override
 	public void accept(@NotNull PsiElementVisitor visitor)
 	{
 		if(visitor instanceof JavaElementVisitor)
