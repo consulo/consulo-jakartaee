@@ -77,10 +77,4 @@ public class CreateJSPFileAction extends CreateFileFromTemplateAction implements
 		}
 		return false;
 	}
-
-	@Override
-	public boolean startInWriteAction()
-	{
-		return false;
-	}
 }
