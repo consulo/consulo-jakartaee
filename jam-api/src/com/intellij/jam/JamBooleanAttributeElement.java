@@ -18,8 +18,8 @@ package com.intellij.jam;
 import com.intellij.jam.model.util.JamCommonUtil;
 import com.intellij.psi.PsiAnnotation;
 import com.intellij.psi.PsiElementRef;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @since 143
@@ -28,7 +28,7 @@ public class JamBooleanAttributeElement extends JamAttributeElement<Boolean> {
 
   private final boolean myDefaultValue;
 
-  public JamBooleanAttributeElement(String attributeName, @NotNull PsiElementRef<PsiAnnotation> parent, boolean defaultValue) {
+  public JamBooleanAttributeElement(String attributeName, @Nonnull PsiElementRef<PsiAnnotation> parent, boolean defaultValue) {
     super(attributeName, parent);
     myDefaultValue = defaultValue;
   }
@@ -39,7 +39,7 @@ public class JamBooleanAttributeElement extends JamAttributeElement<Boolean> {
     return Boolean.toString(getValue());
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public Boolean getValue() {
     final Boolean value = JamCommonUtil.getObjectValue(getPsiElement(), Boolean.class);

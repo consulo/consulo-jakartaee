@@ -1,6 +1,6 @@
 package consulo.javaee.jsp.psi.impl.stub;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.lang.Language;
 import com.intellij.psi.stubs.PsiFileStub;
 import com.intellij.psi.tree.IStubFileElementType;
@@ -16,7 +16,7 @@ public class JspFileElementType extends IStubFileElementType<PsiFileStub>
 		super("jsp.file", language);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getExternalId()
 	{

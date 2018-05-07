@@ -24,8 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.ui.RunnerLayoutUi;
@@ -89,7 +90,7 @@ public class DefaultServerInstance implements J2EEServerInstance {
     return myProcessHandler == null;
   }
 
-  public boolean isStartupScriptTerminatesAfterServerStartup(@NotNull ExecutableObject startupScript) {
+  public boolean isStartupScriptTerminatesAfterServerStartup(@Nonnull ExecutableObject startupScript) {
     return isStartupScriptTerminatesAfterServerStartup();
   }
 

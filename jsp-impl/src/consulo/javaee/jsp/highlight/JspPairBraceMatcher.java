@@ -1,7 +1,7 @@
 package consulo.javaee.jsp.highlight;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.lang.BracePair;
 import com.intellij.lang.PairedBraceMatcher;
 import com.intellij.psi.PsiFile;
@@ -28,7 +28,7 @@ public class JspPairBraceMatcher implements PairedBraceMatcher
 	}
 
 	@Override
-	public boolean isPairedBracesAllowedBeforeType(@NotNull IElementType iElementType, @Nullable IElementType iElementType1)
+	public boolean isPairedBracesAllowedBeforeType(@Nonnull IElementType iElementType, @Nullable IElementType iElementType1)
 	{
 		return false;
 	}

@@ -22,10 +22,9 @@ package com.intellij.javaee.model.xml.ejb;
 import com.intellij.javaee.model.enums.Multiplicity;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.javaee.model.xml.ejb.CmrField;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -107,7 +106,7 @@ public interface EjbRelationshipRole extends JavaeeDomModelElement {
 	 * Returns the value of the multiplicity child.
 	 * @return the value of the multiplicity child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<Multiplicity> getMultiplicity();
 
 
@@ -139,7 +138,7 @@ public interface EjbRelationshipRole extends JavaeeDomModelElement {
 	 * Returns the value of the relationship-role-source child.
 	 * @return the value of the relationship-role-source child.
 	 */
-	@NotNull
+	@Nonnull
 	RelationshipRoleSource getRelationshipRoleSource();
 
 

@@ -19,9 +19,10 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:activation-config-propertyType interface.
@@ -52,7 +53,7 @@ public interface ActivationConfigProperty extends JavaeeDomModelElement, com.int
 	 * </pre>
 	 * @return the value of the activation-config-property-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getActivationConfigPropertyName();
 
 
@@ -70,7 +71,7 @@ public interface ActivationConfigProperty extends JavaeeDomModelElement, com.int
 	 * </pre>
 	 * @return the value of the activation-config-property-value child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getActivationConfigPropertyValue();
 
 

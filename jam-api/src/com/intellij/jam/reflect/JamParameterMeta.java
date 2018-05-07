@@ -15,13 +15,14 @@
  */
 package com.intellij.jam.reflect;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.jam.JamElement;
 import com.intellij.pom.PomTarget;
 import com.intellij.psi.PsiParameter;
 import com.intellij.util.Consumer;
 import com.intellij.util.PairConsumer;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * @author peter
@@ -43,7 +44,7 @@ public class JamParameterMeta<Jam extends JamElement> extends JamMemberMeta<PsiP
   }
 
   @Override
-  public JamParameterMeta<Jam> addPomTargetProducer(@NotNull PairConsumer<Jam, Consumer<PomTarget>> producer) {
+  public JamParameterMeta<Jam> addPomTargetProducer(@Nonnull PairConsumer<Jam, Consumer<PomTarget>> producer) {
     super.addPomTargetProducer(producer);
     return this;
   }

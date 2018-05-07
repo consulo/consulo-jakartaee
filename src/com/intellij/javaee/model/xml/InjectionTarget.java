@@ -24,7 +24,7 @@ import com.intellij.psi.PsiMember;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Convert;
 import com.intellij.javaee.model.EjbInjectionTargetConverter;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:injection-targetType interface.
@@ -61,7 +61,7 @@ public interface InjectionTarget extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the injection-target-class child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PsiClass> getInjectionTargetClass();
 
 
@@ -77,7 +77,7 @@ public interface InjectionTarget extends JavaeeDomModelElement {
 	 */
         @Convert(EjbInjectionTargetConverter.class)
         @com.intellij.util.xml.SubTag("injection-target-name")
-        @NotNull
+        @Nonnull
 	GenericDomValue<PsiMember> getInjectionTargetMember();
 
 

@@ -27,7 +27,7 @@ import com.intellij.javaee.model.xml.web.converters.WebDeleteHandler;
 import com.intellij.javaee.web.CommonFilter;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.*;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -60,7 +60,7 @@ public interface Filter extends CommonFilter, JavaeeDomModelElement, Description
 	 * </pre>
 	 * @return the value of the filter-name child.
 	 */
-	@NotNull
+	@Nonnull
         @NameValue
         @Required
         @Convert(ClassMappingNameConverter.class)
@@ -87,7 +87,7 @@ public interface Filter extends CommonFilter, JavaeeDomModelElement, Description
 	 */
         @ExtendClass("javax.servlet.Filter")
         @ClassTemplate(J2EEFileTemplateNames.FILTER_CLASS_TEMPLATE)
-        @NotNull
+        @Nonnull
         @Required
         @MappingClass
         @Stubbed
@@ -147,7 +147,7 @@ public interface Filter extends CommonFilter, JavaeeDomModelElement, Description
 	 */
 	Icon addIcon();
 
-  @NotNull
+  @Nonnull
   @Override
   WebApp getParent();
 

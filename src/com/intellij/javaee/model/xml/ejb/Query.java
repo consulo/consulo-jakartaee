@@ -24,7 +24,7 @@ import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Required;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:queryType interface.
@@ -63,7 +63,7 @@ public interface Query extends JavaeeDomModelElement, com.intellij.javaee.model.
 	 * Returns the value of the query-method child.
 	 * @return the value of the query-method child.
 	 */
-	@NotNull
+	@Nonnull
 	QueryMethod getQueryMethod();
   
         /**

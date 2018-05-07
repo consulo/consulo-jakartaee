@@ -15,10 +15,11 @@
  */
 package com.intellij.javaee.deployment;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.openapi.util.Comparing;
@@ -44,7 +45,7 @@ public abstract class DeploymentModel implements JDOMExternalizable, Cloneable
 	private final DeploymentMethod[] myDeploymentMethods;
 	private final DeploymentSource myDeploymentSource;
 
-	protected DeploymentModel(@NotNull CommonModel parentConfiguration, ArtifactPointer artifactPointer)
+	protected DeploymentModel(@Nonnull CommonModel parentConfiguration, ArtifactPointer artifactPointer)
 	{
 		this(parentConfiguration, new ArtifactDeploymentSourceImpl(artifactPointer));
 	}
@@ -70,7 +71,7 @@ public abstract class DeploymentModel implements JDOMExternalizable, Cloneable
 		myDeploymentSource = deploymentSource;
 	}
 
-	@NotNull
+	@Nonnull
 	public final DeploymentMethod[] getAvailableMethods()
 	{
 		return myDeploymentMethods;
@@ -156,7 +157,7 @@ public abstract class DeploymentModel implements JDOMExternalizable, Cloneable
 		myDeploymentMethod = deploymentMethod;
 	}
 
-	@NotNull
+	@Nonnull
 	public DeploymentSource getDeploymentSource()
 	{
 		return myDeploymentSource;

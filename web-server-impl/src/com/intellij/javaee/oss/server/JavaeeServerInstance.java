@@ -15,8 +15,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.debugger.DebuggerManager;
 import com.intellij.debugger.PositionManager;
 import com.intellij.debugger.engine.DebugProcess;
@@ -46,12 +46,12 @@ public class JavaeeServerInstance extends DefaultServerInstance
 
 	private final Map<String, String> roots = new HashMap<String, String>();
 
-	@NotNull
+	@Nonnull
 	private final JavaeeServer server;
 
 	private final AtomicBoolean connected = new AtomicBoolean(false);
 
-	protected JavaeeServerInstance(@NotNull CommonModel config, @NotNull JavaeeServer server)
+	protected JavaeeServerInstance(@Nonnull CommonModel config, @Nonnull JavaeeServer server)
 	{
 		super(config);
 		this.server = server;
@@ -109,7 +109,7 @@ public class JavaeeServerInstance extends DefaultServerInstance
 	}
 
 	@Override
-	public boolean isStartupScriptTerminatesAfterServerStartup(@NotNull ExecutableObject startupScript)
+	public boolean isStartupScriptTerminatesAfterServerStartup(@Nonnull ExecutableObject startupScript)
 	{
 		return server.isStartupScriptTerminating();
 	}

@@ -16,9 +16,10 @@
 
 package com.intellij.jam;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.AbstractBundle;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.PropertyKey;
 
 /**
@@ -26,7 +27,7 @@ import org.jetbrains.annotations.PropertyKey;
  */
 public class JamMessages extends AbstractBundle {
 
-  public static String message(@NotNull @PropertyKey(resourceBundle = PATH_TO_BUNDLE) String key, @NotNull Object... params) {
+  public static String message(@Nonnull @PropertyKey(resourceBundle = PATH_TO_BUNDLE) String key, @Nonnull Object... params) {
     return ourInstance.getMessage(key, params);
   }
 

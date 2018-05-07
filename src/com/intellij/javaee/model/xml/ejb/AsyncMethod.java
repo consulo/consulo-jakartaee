@@ -19,13 +19,14 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.EjbMethodResolveConverter;
 import com.intellij.javaee.model.enums.MethodIntf;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.Convert;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:async-methodType interface.
@@ -52,7 +53,7 @@ public interface AsyncMethod extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the method-name child.
 	 */
-	@NotNull
+	@Nonnull
         @SubTag("method-name")
         @Convert(EjbMethodResolveConverter.class)
         GenericDomValue<String> getMethod();
@@ -62,7 +63,7 @@ public interface AsyncMethod extends JavaeeDomModelElement {
 	 * Returns the value of the method-params child.
 	 * @return the value of the method-params child.
 	 */
-	@NotNull
+	@Nonnull
 	MethodParams getMethodParams();
 
 
@@ -70,7 +71,7 @@ public interface AsyncMethod extends JavaeeDomModelElement {
 	 * Returns the value of the method-intf child.
 	 * @return the value of the method-intf child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<MethodIntf> getMethodIntf();
 
 

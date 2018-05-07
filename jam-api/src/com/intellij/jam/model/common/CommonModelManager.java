@@ -19,7 +19,7 @@ import com.intellij.jam.view.JamDeleteHandler;
 import com.intellij.jam.view.JamUserResponse;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.util.xml.DomElement;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 import java.util.Collection;
 

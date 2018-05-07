@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.psi.impl.java.parsing;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.codeInsight.daemon.JavaErrorMessages;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.PsiBuilder;
@@ -20,9 +21,9 @@ import consulo.lang.LanguageVersion;
  */
 public class JavaInJspParser implements PsiParser
 {
-	@NotNull
+	@Nonnull
 	@Override
-	public ASTNode parse(@NotNull IElementType root, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
+	public ASTNode parse(@Nonnull IElementType root, @Nonnull PsiBuilder builder, @Nonnull LanguageVersion languageVersion)
 	{
 		PsiBuilder.Marker mark = builder.mark();
 
@@ -119,7 +120,7 @@ public class JavaInJspParser implements PsiParser
 		return builder.getTreeBuilt();
 	}
 
-	private void doneError(@NotNull PsiBuilder builder)
+	private void doneError(@Nonnull PsiBuilder builder)
 	{
 		PsiBuilder.Marker err = builder.mark();
 		builder.advanceLexer();

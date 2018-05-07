@@ -20,8 +20,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.model.xml.web.WebApp;
 import com.intellij.javaee.web.WebRoot;
 import com.intellij.openapi.module.Module;
@@ -35,7 +35,7 @@ import consulo.roots.ModuleRootLayer;
  */
 public class JavaWebModuleExtension extends ModuleExtensionImpl<JavaWebModuleExtension> implements JavaEEModuleExtension<JavaWebModuleExtension>
 {
-	@NotNull
+	@Nonnull
 	public static Collection<JavaWebModuleExtension> getInstances(Module module)
 	{
 		JavaWebModuleExtension extension = ModuleUtilCore.getExtension(module, JavaWebModuleExtension.class);
@@ -46,7 +46,7 @@ public class JavaWebModuleExtension extends ModuleExtensionImpl<JavaWebModuleExt
 		return Collections.singletonList(extension);
 	}
 
-	public JavaWebModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public JavaWebModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}

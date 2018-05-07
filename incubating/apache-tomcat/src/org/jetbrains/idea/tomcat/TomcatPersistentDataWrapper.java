@@ -2,7 +2,8 @@ package org.jetbrains.idea.tomcat;
 
 import java.io.File;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
@@ -15,7 +16,7 @@ public class TomcatPersistentDataWrapper
 {
 	private final Sdk mySdk;
 
-	public TomcatPersistentDataWrapper(@NotNull Sdk sdk)
+	public TomcatPersistentDataWrapper(@Nonnull Sdk sdk)
 	{
 		mySdk = sdk;
 	}

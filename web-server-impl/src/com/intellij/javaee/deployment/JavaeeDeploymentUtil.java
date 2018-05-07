@@ -17,7 +17,8 @@ package com.intellij.javaee.deployment;
 
 import java.util.Collection;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.packaging.artifacts.ArtifactType;
 
@@ -29,9 +30,9 @@ public abstract class JavaeeDeploymentUtil {
     return ServiceManager.getService(JavaeeDeploymentUtil.class);
   }
 
-  @NotNull
-  public abstract ExternalFileDeploymentProvider createExternalFileDeploymentProvider(@NotNull Collection<? extends ArtifactType> supportedArtifactTypes);
+  @Nonnull
+  public abstract ExternalFileDeploymentProvider createExternalFileDeploymentProvider(@Nonnull Collection<? extends ArtifactType> supportedArtifactTypes);
 
-  @NotNull
+  @Nonnull
   public abstract ExternalFileDeploymentProvider createExternalFileDeploymentProvider(boolean directoriesAllowed, String... allowedExtensions);
 }

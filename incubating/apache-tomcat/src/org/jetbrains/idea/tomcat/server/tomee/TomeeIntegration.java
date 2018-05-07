@@ -1,6 +1,6 @@
 package org.jetbrains.idea.tomcat.server.tomee;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import org.jetbrains.idea.tomcat.TomcatBundle;
 import org.jetbrains.idea.tomcat.server.TomcatIntegration;
 import com.intellij.javaee.openapi.ex.AppServerIntegrationsManager;
@@ -16,7 +16,7 @@ public class TomeeIntegration extends TomcatIntegration {
     return AppServerIntegrationsManager.getInstance().getIntegration(TomeeIntegration.class);
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public String getName() {
     return TomcatBundle.message("tomee.application.server.name");

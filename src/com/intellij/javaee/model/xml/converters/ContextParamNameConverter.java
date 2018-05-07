@@ -20,8 +20,8 @@ import java.util.Collection;
 import java.util.List;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.openapi.extensions.Extensions;
 import com.intellij.openapi.module.Module;
 import com.intellij.util.xml.ConvertContext;
@@ -32,7 +32,7 @@ import com.intellij.util.xml.ResolvingConverter;
  * @author Serega.Vasiliev
  */
 public class ContextParamNameConverter extends ResolvingConverter<String> {
-  @NotNull
+  @Nonnull
   @Override
   public Collection<? extends String> getVariants(ConvertContext context) {
     List<String> paramNames = new ArrayList<String>();

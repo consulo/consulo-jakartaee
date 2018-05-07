@@ -19,10 +19,10 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.javaee.model.xml.ejb.NamedMethod;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:remove-methodType interface.
@@ -33,7 +33,7 @@ public interface RemoveMethod extends JavaeeDomModelElement {
 	 * Returns the value of the bean-method child.
 	 * @return the value of the bean-method child.
 	 */
-	@NotNull
+	@Nonnull
 	NamedMethod getBeanMethod();
 
 

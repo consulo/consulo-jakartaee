@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.ejb;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -49,7 +49,7 @@ public interface InterceptorOrder extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the list of interceptor-class children.
 	 */
-	@NotNull
+	@Nonnull
 	List<GenericDomValue<PsiClass>> getInterceptorClasses();
 	/**
 	 * Adds new child to the list of interceptor-class children.

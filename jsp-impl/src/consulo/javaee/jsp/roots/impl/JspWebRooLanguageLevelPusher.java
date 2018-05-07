@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.roots.impl;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.project.Project;
@@ -18,7 +19,7 @@ import consulo.roots.impl.WebResourcesFolderTypeProvider;
 public class JspWebRooLanguageLevelPusher extends JavaLanguageLevelPusher
 {
 	@Override
-	public LanguageLevel getImmediateValue(@NotNull Module module)
+	public LanguageLevel getImmediateValue(@Nonnull Module module)
 	{
 		LanguageLevel level = super.getImmediateValue(module);
 		if(level == null)
@@ -34,7 +35,7 @@ public class JspWebRooLanguageLevelPusher extends JavaLanguageLevelPusher
 	}
 
 	@Override
-	public boolean acceptsDirectory(@NotNull VirtualFile file, @NotNull Project project)
+	public boolean acceptsDirectory(@Nonnull VirtualFile file, @Nonnull Project project)
 	{
 		return ProjectFileIndex.getInstance(project).getContentFolderTypeForFile(file) == WebResourcesFolderTypeProvider.getInstance();
 	}

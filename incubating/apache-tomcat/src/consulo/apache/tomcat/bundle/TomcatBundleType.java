@@ -22,8 +22,8 @@ import java.io.IOException;
 import javax.swing.Icon;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import org.jetbrains.idea.tomcat.TomcatDeploymentSettingsEditor;
 import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
 import org.jetbrains.idea.tomcat.server.TomcatIntegration;
@@ -51,7 +51,7 @@ import consulo.roots.types.BinariesOrderRootType;
  */
 public class TomcatBundleType extends JavaEEServerBundleType
 {
-	@NotNull
+	@Nonnull
 	public static TomcatBundleType getInstance()
 	{
 		return EP_NAME.findExtension(TomcatBundleType.class);
@@ -186,7 +186,7 @@ public class TomcatBundleType extends JavaEEServerBundleType
 		return getPresentableName() + " " + getVersionString(sdkHome);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getPresentableName()
 	{

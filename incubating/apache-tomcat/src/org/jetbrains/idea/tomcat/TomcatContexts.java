@@ -7,7 +7,7 @@ import com.intellij.openapi.util.io.FileUtilRt;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import org.jetbrains.idea.tomcat.server.TomcatLocalModel;
 
 import java.io.File;

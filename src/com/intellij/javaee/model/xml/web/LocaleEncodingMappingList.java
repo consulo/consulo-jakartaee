@@ -20,7 +20,7 @@
 package com.intellij.javaee.model.xml.web;
 
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ public interface LocaleEncodingMappingList extends JavaeeDomModelElement {
 	 * Returns the list of locale-encoding-mapping children.
 	 * @return the list of locale-encoding-mapping children.
 	 */
-	@NotNull
+	@Nonnull
 	List<LocaleEncodingMapping> getLocaleEncodingMappings();
 	/**
 	 * Adds new child to the list of locale-encoding-mapping children.

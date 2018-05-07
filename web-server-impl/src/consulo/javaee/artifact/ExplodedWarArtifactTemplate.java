@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.project.Project;
@@ -69,7 +69,7 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 		myContext = context;
 	}
 
-	@NotNull
+	@Nonnull
 	@RequiredReadAction
 	public static NewArtifactConfiguration doCreateArtifactTemplate(Module module, PackagingElementResolvingContext packagingElementResolvingContext)
 	{

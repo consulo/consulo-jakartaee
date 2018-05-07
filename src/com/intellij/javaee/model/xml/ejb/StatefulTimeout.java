@@ -19,11 +19,12 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.enums.TimeUnitType;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Required;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:stateful-timeoutType interface.
@@ -44,7 +45,7 @@ public interface StatefulTimeout extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the timeout child.
 	 */
-	@NotNull
+	@Nonnull
 	@Required
 	GenericDomValue<Integer> getTimeout();
 
@@ -53,7 +54,7 @@ public interface StatefulTimeout extends JavaeeDomModelElement {
 	 * Returns the value of the unit child.
 	 * @return the value of the unit child.
 	 */
-	@NotNull
+	@Nonnull
 	@Required
 	GenericDomValue<TimeUnitType> getUnit();
 

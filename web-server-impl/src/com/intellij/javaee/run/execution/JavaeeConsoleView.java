@@ -15,7 +15,8 @@
  */
 package com.intellij.javaee.run.execution;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
+
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.deployment.DeploymentView;

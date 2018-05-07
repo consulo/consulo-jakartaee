@@ -14,8 +14,8 @@ import org.jdom.DocType;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
 import com.intellij.javaee.oss.util.FileWrapper;
 import com.intellij.openapi.util.JDOMUtil;
@@ -42,7 +42,7 @@ public abstract class JavaeeDescriptor
 	}
 
 	@Nullable
-	public <T extends DomElement> T getRoot(@Nullable JavaEEModuleExtension<?> facet, @NotNull Class<T> type)
+	public <T extends DomElement> T getRoot(@Nullable JavaEEModuleExtension<?> facet, @Nonnull Class<T> type)
 	{
 		if(facet != null)
 		{

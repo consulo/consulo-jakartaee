@@ -21,8 +21,8 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerPersistentData;
@@ -49,7 +49,7 @@ public abstract class ApplicationServersManager {
   public abstract ApplicationServer findByName(@Nullable String name);
 
   @Nullable
-  public abstract ApplicationServer findByName(@Nullable String name, @NotNull AppServerIntegration integration);
+  public abstract ApplicationServer findByName(@Nullable String name, @Nonnull AppServerIntegration integration);
 
   @Nullable
   public abstract ApplicationServer editApplicationServers(JPanel panel, AppServerIntegration integration, ApplicationServer current);

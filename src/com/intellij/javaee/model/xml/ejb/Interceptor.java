@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.ejb;
 import com.intellij.javaee.model.xml.*;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -73,7 +73,7 @@ public interface Interceptor extends JavaeeDomModelElement, JndiEnvironmentRefsG
 	 * </pre>
 	 * @return the value of the interceptor-class child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PsiClass> getInterceptorClass();
 
 

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JList;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.icons.AllIcons;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.deployment.DeploymentManager;
@@ -39,7 +39,7 @@ public class DeploymentViewImpl implements DeploymentView
 		myConfiguration = configuration;
 	}
 
-	@NotNull
+	@Nonnull
 	public JComponent getComponent()
 	{
 		CollectionListModel<DeploymentModel> model = new CollectionListModel<>(myConfiguration.getDeploymentSettings().getDeploymentModels());
@@ -47,7 +47,7 @@ public class DeploymentViewImpl implements DeploymentView
 		myDeploymentList.setCellRenderer(new ColoredListCellRenderer<DeploymentModel>()
 		{
 			@Override
-			protected void customizeCellRenderer(@NotNull JList<? extends DeploymentModel> list, DeploymentModel value, int index, boolean selected, boolean hasFocus)
+			protected void customizeCellRenderer(@Nonnull JList<? extends DeploymentModel> list, DeploymentModel value, int index, boolean selected, boolean hasFocus)
 			{
 				DeploymentStatus deploymentStatus = DeploymentManager.getInstance(myConfiguration.getProject()).getDeploymentStatus(value, myConfiguration);
 
@@ -66,7 +66,7 @@ public class DeploymentViewImpl implements DeploymentView
 		{
 			@RequiredDispatchThread
 			@Override
-			public void actionPerformed(@NotNull AnActionEvent anActionEvent)
+			public void actionPerformed(@Nonnull AnActionEvent anActionEvent)
 			{
 
 			}
@@ -75,7 +75,7 @@ public class DeploymentViewImpl implements DeploymentView
 		{
 			@RequiredDispatchThread
 			@Override
-			public void actionPerformed(@NotNull AnActionEvent anActionEvent)
+			public void actionPerformed(@Nonnull AnActionEvent anActionEvent)
 			{
 
 			}
@@ -84,7 +84,7 @@ public class DeploymentViewImpl implements DeploymentView
 		{
 			@RequiredDispatchThread
 			@Override
-			public void actionPerformed(@NotNull AnActionEvent anActionEvent)
+			public void actionPerformed(@Nonnull AnActionEvent anActionEvent)
 			{
 
 			}

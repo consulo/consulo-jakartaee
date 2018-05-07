@@ -17,7 +17,7 @@
 package com.intellij.javaee.web;
 
 import com.intellij.javaee.model.CommonListener;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -29,9 +29,9 @@ public interface WebModel {
 
   List<CommonServlet> getServlets();
 
-  CommonServlet findServlet(@NotNull String name);
+  CommonServlet findServlet(@Nonnull String name);
 
-  CommonFilter findFilter(@NotNull String name);
+  CommonFilter findFilter(@Nonnull String name);
 
   List<CommonServletMapping<CommonServlet>> getServletMappings();
 

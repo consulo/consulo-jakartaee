@@ -6,9 +6,10 @@ package com.intellij.javaee.oss.util;
 
 import com.intellij.util.xml.ui.BaseModifiableControl;
 import com.intellij.util.xml.ui.DomWrapper;
-import org.jetbrains.annotations.Nullable;
 
 import java.awt.event.*;
+
+import javax.annotation.Nullable;
 
 public class TripleCheckBoxControl extends BaseModifiableControl<TripleCheckBox, Boolean> {
 

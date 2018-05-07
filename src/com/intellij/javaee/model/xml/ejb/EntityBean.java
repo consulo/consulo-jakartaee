@@ -27,7 +27,7 @@ import com.intellij.javaee.model.CapitalizedBooleanConverter;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Convert;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -138,7 +138,7 @@ public interface EntityBean extends EjbWithHome, com.intellij.javaee.model.commo
 	 * </pre>
 	 * @return the value of the ejb-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getEjbName();
 
 
@@ -219,7 +219,7 @@ public interface EntityBean extends EjbWithHome, com.intellij.javaee.model.commo
 	 * </pre>
 	 * @return the value of the ejb-class child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PsiClass> getEjbClass();
 
 
@@ -227,7 +227,7 @@ public interface EntityBean extends EjbWithHome, com.intellij.javaee.model.commo
 	 * Returns the value of the persistence-type child.
 	 * @return the value of the persistence-type child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PersistenceType> getPersistenceType();
 
 
@@ -253,7 +253,7 @@ public interface EntityBean extends EjbWithHome, com.intellij.javaee.model.commo
 	 * </pre>
 	 * @return the value of the prim-key-class child.
 	 */
-	@NotNull
+	@Nonnull
         GenericDomValue<PsiClass> getPrimKeyClass();
 
 
@@ -275,7 +275,7 @@ public interface EntityBean extends EjbWithHome, com.intellij.javaee.model.commo
 	 * </pre>
 	 * @return the value of the reentrant child.
 	 */
-	@NotNull
+	@Nonnull
         @Convert(CapitalizedBooleanConverter.class)
         GenericDomValue<Boolean> getReentrant();
 

@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml.web;
 
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:locale-encoding-mappingType interface.
@@ -39,7 +39,7 @@ public interface LocaleEncodingMapping extends JavaeeDomModelElement {
 	 * Returns the value of the locale child.
 	 * @return the value of the locale child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getLocale();
 
 
@@ -47,7 +47,7 @@ public interface LocaleEncodingMapping extends JavaeeDomModelElement {
 	 * Returns the value of the encoding child.
 	 * @return the value of the encoding child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getEncoding();
 
 

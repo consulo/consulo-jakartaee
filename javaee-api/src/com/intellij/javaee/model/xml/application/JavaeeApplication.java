@@ -21,7 +21,8 @@ package com.intellij.javaee.model.xml.application;
 
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.DescriptionGroup;
 import com.intellij.javaee.model.xml.DisplayName;
@@ -51,7 +52,7 @@ public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGro
 	 *
 	 * @return the value of the version child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericAttributeValue<String> getVersion();
 
 
@@ -67,7 +68,7 @@ public interface JavaeeApplication extends JavaeeDomModelElement, DescriptionGro
 	 *
 	 * @return the list of module children.
 	 */
-	@NotNull
+	@Nonnull
 	List<JavaeeModule> getModules();
 
 	/**

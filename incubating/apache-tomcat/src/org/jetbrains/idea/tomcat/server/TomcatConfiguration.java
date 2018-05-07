@@ -1,7 +1,7 @@
 package org.jetbrains.idea.tomcat.server;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.execution.configurations.ConfigurationTypeUtil;
 import consulo.apache.tomcat.bundle.TomcatBundleType;
 
@@ -24,7 +24,7 @@ public class TomcatConfiguration extends TomcatConfigurationBase
 		super(TomcatBundleType.getInstance());
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getId()
 	{

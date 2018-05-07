@@ -16,7 +16,8 @@
 
 package consulo.javaee.module.extension;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import consulo.module.extension.MutableModuleExtension;
 import consulo.roots.ModuleRootLayer;
 
@@ -26,7 +27,7 @@ import consulo.roots.ModuleRootLayer;
  */
 public class JavaWebMutableModuleExtension extends JavaWebModuleExtension implements MutableModuleExtension<JavaWebModuleExtension>
 {
-	public JavaWebMutableModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public JavaWebMutableModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
@@ -38,7 +39,7 @@ public class JavaWebMutableModuleExtension extends JavaWebModuleExtension implem
 	}
 
 	@Override
-	public boolean isModified(@NotNull JavaWebModuleExtension extension)
+	public boolean isModified(@Nonnull JavaWebModuleExtension extension)
 	{
 		return extension.isEnabled() != myIsEnabled;
 	}

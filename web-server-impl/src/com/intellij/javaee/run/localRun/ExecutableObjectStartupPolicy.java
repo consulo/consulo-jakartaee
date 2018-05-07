@@ -15,7 +15,8 @@
  */
 package com.intellij.javaee.run.localRun;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
+
 import com.intellij.execution.runners.ProgramRunner;
 
 

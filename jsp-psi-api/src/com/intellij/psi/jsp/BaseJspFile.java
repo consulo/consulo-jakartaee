@@ -15,7 +15,8 @@
  */
 package com.intellij.psi.jsp;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.lang.jsp.JspxFileViewProvider;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
@@ -37,7 +38,7 @@ public interface BaseJspFile extends XmlFile
 	boolean isTagPage();
 
 	@RequiredReadAction
-	@NotNull
+	@Nonnull
 	XmlTag[] getDirectiveTags(JspDirectiveKind directiveKind, final boolean searchInIncludes);
 
 	XmlTag createDirective(XmlTag context, JspDirectiveKind directiveKind);
@@ -57,9 +58,9 @@ public interface BaseJspFile extends XmlFile
 	 */
 	PsiFile getErrorPage();
 
-	@NotNull
+	@Nonnull
 	JspxFileViewProvider getViewProvider();
 
-	@NotNull
+	@Nonnull
 	XmlTag getRootTag();
 }

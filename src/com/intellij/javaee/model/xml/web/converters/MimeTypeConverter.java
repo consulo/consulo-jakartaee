@@ -19,7 +19,7 @@ package com.intellij.javaee.model.xml.web.converters;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.ResolvingConverter;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -135,7 +135,7 @@ public class MimeTypeConverter extends ResolvingConverter.StringConverter {
     Collections.sort(STANDARD_TYPES);
   }
 
-  @NotNull
+  @Nonnull
   public Collection<? extends String> getVariants(final ConvertContext context) {
     return STANDARD_TYPES;
   }

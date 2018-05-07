@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml.ejb;
 
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -54,7 +54,7 @@ public interface ExcludeList extends JavaeeDomModelElement, MethodContainer {
 	 * Returns the list of method children.
 	 * @return the list of method children.
 	 */
-	@NotNull
+	@Nonnull
 	List<Method> getMethods();
 	/**
 	 * Adds new child to the list of method children.

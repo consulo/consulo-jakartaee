@@ -19,10 +19,8 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.javaee.model.xml.InjectionTarget;
-import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -86,7 +84,7 @@ public interface PersistenceUnitRef extends JavaeeDomModelElement, ResourceGroup
 	 * </pre>
 	 * @return the value of the persistence-unit-ref-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getPersistenceUnitRefName();
 
 

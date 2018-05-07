@@ -10,10 +10,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Nonnull;
+
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.openapi.util.text.StringUtil;
 
 public abstract class CachedConfig<D> {
@@ -93,7 +95,7 @@ public abstract class CachedConfig<D> {
         private final String[] parts;
 
         @SuppressWarnings({"PublicConstructorInNonPublicClass", "AssignmentToCollectionOrArrayFieldFromParameter"})
-        public Key(@NotNull String... parts) {
+        public Key(@Nonnull String... parts) {
             this.parts = parts;
         }
 
@@ -121,10 +123,10 @@ public abstract class CachedConfig<D> {
     @SuppressWarnings({"ProtectedInnerClass"})
     protected interface Factory<D, C extends CachedConfig<? super D>> {
 
-        @NotNull
+        @Nonnull
         Key createKey(D data);
 
-        @NotNull
+        @Nonnull
         C createConfig(D data);
     }
 }

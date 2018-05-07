@@ -24,7 +24,7 @@ import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.SecurityRole;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -63,7 +63,7 @@ public interface MethodPermission extends JavaeeDomModelElement, MethodContainer
 	 * Returns the list of method children.
 	 * @return the list of method children.
 	 */
-	@NotNull
+	@Nonnull
 	List<Method> getMethods();
 	/**
 	 * Adds new child to the list of method children.
@@ -81,7 +81,7 @@ public interface MethodPermission extends JavaeeDomModelElement, MethodContainer
 	 * </pre>
 	 * @return the list of role-name children.
 	 */
-	@NotNull
+	@Nonnull
 	List<GenericDomValue<SecurityRole>> getRoleNames();
 	/**
 	 * Adds new child to the list of role-name children.
@@ -106,7 +106,7 @@ public interface MethodPermission extends JavaeeDomModelElement, MethodContainer
 	 * @return the value of the unchecked child.
 	 */
 	@SubTag (value = "unchecked", indicator = true)
-	@NotNull
+	@Nonnull
 	GenericDomValue<Boolean> getUnchecked();
 
 

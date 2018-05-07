@@ -18,16 +18,14 @@ package org.jetbrains.idea.tomcat;
 
 import com.intellij.javaee.appServerIntegrations.ApplicationServerUrlMapping;
 import com.intellij.javaee.context.FacetContextProvider;
-import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.javaee.web.WebFacetContextProvider;
 import com.intellij.javaee.web.WebUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.util.Function;
 import com.intellij.util.Url;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -46,8 +44,8 @@ public class TomcatUrlMapping extends ApplicationServerUrlMapping {
   }
 
   @Override
-  public VirtualFile findSourceFile(@NotNull final J2EEServerInstance serverInstance,
-                                    @NotNull final CommonModel commonModel, @NotNull Url url) {
+  public VirtualFile findSourceFile(@Nonnull final J2EEServerInstance serverInstance,
+                                    @Nonnull final CommonModel commonModel, @Nonnull Url url) {
     String baseUrl = ApplicationServerUrlMapping.createUrl(commonModel, null, null);
     String urlString = url.trimParameters().toDecodedForm();
     if (!urlString.startsWith(baseUrl)) {

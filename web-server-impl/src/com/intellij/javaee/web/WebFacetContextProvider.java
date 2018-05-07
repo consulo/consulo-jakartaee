@@ -18,8 +18,9 @@ package com.intellij.javaee.web;
 import java.io.File;
 import java.util.Collection;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.javaee.artifact.JavaeeArtifactUtil;
 import com.intellij.javaee.context.FacetContextProvider;
 import com.intellij.javaee.context.WebModuleContextProvider;
@@ -46,7 +47,7 @@ public class WebFacetContextProvider implements FacetContextProvider
 	}
 
 	@Override
-	public String getDeploymentContext(@NotNull WebModuleContextProvider webModuleContextProvider, @NotNull DeploymentModel deploymentModel, @NotNull JavaEEModuleExtension facet)
+	public String getDeploymentContext(@Nonnull WebModuleContextProvider webModuleContextProvider, @Nonnull DeploymentModel deploymentModel, @Nonnull JavaEEModuleExtension facet)
 	{
 		JavaWebModuleExtension webFacet = (JavaWebModuleExtension) facet;
 
@@ -66,18 +67,18 @@ public class WebFacetContextProvider implements FacetContextProvider
 		return source == null ? null : FileUtil.getNameWithoutExtension(source);
 	}
 
-	protected String getContextServerSpecific(@NotNull DeploymentModel deploymentModel, @NotNull JavaWebModuleExtension facet)
+	protected String getContextServerSpecific(@Nonnull DeploymentModel deploymentModel, @Nonnull JavaWebModuleExtension facet)
 	{
 		return getContextServerSpecific(facet);
 	}
 
-	protected String getContextServerSpecific(@NotNull JavaWebModuleExtension facet)
+	protected String getContextServerSpecific(@Nonnull JavaWebModuleExtension facet)
 	{
 		return null;
 	}
 
 	@Nullable
-	public static String getModuleContext(@NotNull WebModuleContextProvider webModuleContextProvider, @NotNull Artifact earArtifact, @NotNull final JavaWebModuleExtension webFacet)
+	public static String getModuleContext(@Nonnull WebModuleContextProvider webModuleContextProvider, @Nonnull Artifact earArtifact, @Nonnull final JavaWebModuleExtension webFacet)
 	{
 		final Project project = webFacet.getModule().getProject();
 		final String moduleWebUri = WebArtifactUtil.getInstance().getModuleWebUri(earArtifact, webFacet);

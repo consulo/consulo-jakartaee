@@ -1,7 +1,7 @@
 package consulo.javaee.run.configuration;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
@@ -45,13 +45,13 @@ public class J2EEConfigurationFactoryImpl extends J2EEConfigurationFactory
 
 	@Nullable
 	@Override
-	public RunnerAndConfigurationSettings createSettingsByFile(@NotNull PsiFile psiFile, @NotNull J2EEConfigurationType configurationType)
+	public RunnerAndConfigurationSettings createSettingsByFile(@Nonnull PsiFile psiFile, @Nonnull J2EEConfigurationType configurationType)
 	{
 		return null;
 	}
 
 	@Override
-	public RunnerAndConfigurationSettings addAppServerConfiguration(@NotNull Project project, @NotNull ConfigurationFactory type, @NotNull ApplicationServer appServer)
+	public RunnerAndConfigurationSettings addAppServerConfiguration(@Nonnull Project project, @Nonnull ConfigurationFactory type, @Nonnull ApplicationServer appServer)
 	{
 		return null;
 	}
@@ -63,7 +63,7 @@ public class J2EEConfigurationFactoryImpl extends J2EEConfigurationFactory
 	}
 
 	@Override
-	public boolean isConfigurationApplicable(@NotNull J2EEConfigurationType type, @NotNull Project project)
+	public boolean isConfigurationApplicable(@Nonnull J2EEConfigurationType type, @Nonnull Project project)
 	{
 		return true;
 	}

@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.web;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ public interface WebResourceCollection extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the web-resource-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getWebResourceName();
 
 
@@ -87,7 +87,7 @@ public interface WebResourceCollection extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the list of url-pattern children.
 	 */
-	@NotNull
+	@Nonnull
 	List<GenericDomValue<String>> getUrlPatterns();
 	/**
 	 * Adds new child to the list of url-pattern children.

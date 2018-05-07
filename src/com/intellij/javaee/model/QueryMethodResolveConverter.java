@@ -22,7 +22,7 @@ import com.intellij.javaee.model.xml.ejb.QueryMethod;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.ConvertContext;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -38,7 +38,7 @@ public class QueryMethodResolveConverter extends com.intellij.util.xml.converter
     super(QueryMethod.class);
   }
 
-  @NotNull
+  @Nonnull
   protected Collection<PsiClass> getPsiClasses(final QueryMethod parent, final ConvertContext context) {
     final Query query = (Query)parent.getParent();
     if (query != null) {
@@ -58,8 +58,8 @@ public class QueryMethodResolveConverter extends com.intellij.util.xml.converter
     return Collections.emptySet();
   }
 
-  @NotNull
-  protected MethodParams getMethodParams(@NotNull final QueryMethod parent) {
+  @Nonnull
+  protected MethodParams getMethodParams(@Nonnull final QueryMethod parent) {
     return parent.getMethodParams();
   }
 }

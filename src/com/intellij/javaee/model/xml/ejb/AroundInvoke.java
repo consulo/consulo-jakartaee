@@ -19,13 +19,14 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.AroundInvokeResolveConverter;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiMethod;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Convert;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:around-invokeType interface.
@@ -72,7 +73,7 @@ public interface AroundInvoke extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the method-name child.
 	 */
-	@NotNull
+	@Nonnull
         @Convert(AroundInvokeResolveConverter.class)
         GenericDomValue<PsiMethod> getMethodName();
 

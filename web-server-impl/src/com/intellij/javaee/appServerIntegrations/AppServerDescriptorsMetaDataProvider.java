@@ -18,7 +18,7 @@ package com.intellij.javaee.appServerIntegrations;
 
 import com.intellij.util.descriptors.ConfigFileMetaDataProvider;
 import com.intellij.util.descriptors.ConfigFileMetaData;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Collection;
 
@@ -26,6 +26,6 @@ import java.util.Collection;
  * @author nik
  */
 public interface AppServerDescriptorsMetaDataProvider extends ConfigFileMetaDataProvider {
-  @NotNull
+  @Nonnull
   Collection<ConfigFileMetaData> getMetaData(AppServerIntegration integration);
 }

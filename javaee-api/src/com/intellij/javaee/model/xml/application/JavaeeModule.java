@@ -19,12 +19,13 @@
 
 package com.intellij.javaee.model.xml.application;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Attribute;
 import com.intellij.util.xml.GenericAttributeValue;
 import com.intellij.util.xml.NameValue;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:moduleType interface.
@@ -98,7 +99,7 @@ public interface JavaeeModule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the connector child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getConnector();
 
 
@@ -125,7 +126,7 @@ public interface JavaeeModule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the ejb child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getEjb();
 
 
@@ -152,7 +153,7 @@ public interface JavaeeModule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the java child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getJava();
 
 
@@ -160,7 +161,7 @@ public interface JavaeeModule extends JavaeeDomModelElement {
 	 * Returns the value of the web child.
 	 * @return the value of the web child.
 	 */
-	@NotNull
+	@Nonnull
 	Web getWeb();
 
 

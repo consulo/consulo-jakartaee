@@ -1,10 +1,11 @@
 package com.intellij.javaee.ui.packaging;
 
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+
 import com.intellij.openapi.module.ModuleUtil;
 import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import com.intellij.packaging.artifacts.ArtifactType;
@@ -25,18 +26,18 @@ public abstract class WebApplicationArtifactType extends ArtifactType
 
 	@Nullable
 	@Override
-	public String getDefaultPathFor(@NotNull PackagingElementOutputKind packagingElementOutputKind)
+	public String getDefaultPathFor(@Nonnull PackagingElementOutputKind packagingElementOutputKind)
 	{
 		return "/";
 	}
 
 	@Override
-	public boolean isAvailableForAdd(@NotNull ModulesProvider modulesProvider)
+	public boolean isAvailableForAdd(@Nonnull ModulesProvider modulesProvider)
 	{
 		return ModuleUtil.hasModuleExtension(modulesProvider, JavaWebModuleExtension.class);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Icon getIcon()
 	{

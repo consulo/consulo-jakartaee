@@ -21,7 +21,8 @@ package com.intellij.javaee.model.xml.web;
 
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.ide.presentation.Presentation;
 import com.intellij.jam.view.DeleteHandler;
 import com.intellij.javaee.J2EEFileTemplateNames;
@@ -72,7 +73,7 @@ public interface Servlet extends CommonServlet, JavaeeDomModelElement, Descripti
 	 */
 	@NameValue
 	@Convert(ClassMappingNameConverter.class)
-	@NotNull
+	@Nonnull
 	@Required
 	@Stubbed
 	GenericDomValue<String> getServletName();
@@ -166,11 +167,11 @@ public interface Servlet extends CommonServlet, JavaeeDomModelElement, Descripti
 	@ExtendClass("javax.servlet.Servlet")
 	@ClassTemplate(J2EEFileTemplateNames.SERVLET_CLASS_TEMPLATE)
 	@MappingClass
-	@NotNull
+	@Nonnull
 	@Stubbed
 	GenericDomValue<PsiClass> getServletClass();
 
-	@NotNull
+	@Nonnull
 	@Override
 	WebApp getParent();
 
@@ -184,7 +185,7 @@ public interface Servlet extends CommonServlet, JavaeeDomModelElement, Descripti
 	 *
 	 * @return the value of the jsp-file child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getJspFile();
 
 }

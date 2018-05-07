@@ -16,8 +16,8 @@
 
 package consulo.javaee.jsp.highlight;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.ide.highlighter.HtmlFileType;
 import com.intellij.ide.highlighter.JavaFileType;
 import com.intellij.lexer.Lexer;
@@ -41,7 +41,7 @@ import consulo.javaee.jsp.psi.JspTokens;
  */
 public class JspEditorHighlighter extends LayeredLexerEditorHighlighter
 {
-	public JspEditorHighlighter(@Nullable final Project project, @Nullable final VirtualFile virtualFile, @NotNull final EditorColorsScheme colors)
+	public JspEditorHighlighter(@Nullable final Project project, @Nullable final VirtualFile virtualFile, @Nonnull final EditorColorsScheme colors)
 	{
 		super(new JspSyntaxHighlighter(), colors);
 
@@ -53,14 +53,14 @@ public class JspEditorHighlighter extends LayeredLexerEditorHighlighter
 		assert javaHighlight != null;
 		registerLayer(JspTokenType.JAVA_CODE, new LayerDescriptor(new SyntaxHighlighterBase()
 		{
-			@NotNull
+			@Nonnull
 			@Override
 			public Lexer getHighlightingLexer()
 			{
 				return javaHighlight.getHighlightingLexer();
 			}
 
-			@NotNull
+			@Nonnull
 			@Override
 			public TextAttributesKey[] getTokenHighlights(IElementType iElementType)
 			{

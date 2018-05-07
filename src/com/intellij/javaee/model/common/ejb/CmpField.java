@@ -21,7 +21,7 @@ import com.intellij.util.xml.NameValue;
 import com.intellij.util.xml.Required;
 import com.intellij.psi.PsiMember;
 import com.intellij.javaee.model.common.JavaeeModelElement;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * @author peter

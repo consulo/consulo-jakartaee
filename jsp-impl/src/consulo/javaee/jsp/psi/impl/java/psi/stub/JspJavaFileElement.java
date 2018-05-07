@@ -1,7 +1,7 @@
 package consulo.javaee.jsp.psi.impl.java.psi.stub;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.PsiJavaFile;
@@ -28,7 +28,7 @@ public class JspJavaFileElement extends FileElement
 	}
 
 	@Override
-	public void deleteChildInternal(@NotNull ASTNode child)
+	public void deleteChildInternal(@Nonnull ASTNode child)
 	{
 		if(child.getElementType() == JavaElementType.CLASS)
 		{
@@ -84,7 +84,7 @@ public class JspJavaFileElement extends FileElement
 	}
 
 	@Override
-	public void replaceChildInternal(@NotNull ASTNode child, @NotNull TreeElement newElement)
+	public void replaceChildInternal(@Nonnull ASTNode child, @Nonnull TreeElement newElement)
 	{
 		if(newElement.getElementType() == JavaElementType.IMPORT_LIST)
 		{

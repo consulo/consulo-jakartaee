@@ -27,8 +27,8 @@ import com.intellij.semantic.SemKey;
 import com.intellij.semantic.SemRegistrar;
 import com.intellij.semantic.SemService;
 import com.intellij.util.*;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,13 +86,13 @@ public class JamMemberMeta<Psi extends PsiModifierListOwner, Jam extends JamElem
   }
 
   @Override
-  public JamMemberMeta<Psi, Jam> addPomTargetProducer(@NotNull PairConsumer<Jam, Consumer<PomTarget>> producer) {
+  public JamMemberMeta<Psi, Jam> addPomTargetProducer(@Nonnull PairConsumer<Jam, Consumer<PomTarget>> producer) {
     super.addPomTargetProducer(producer);
     return this;
   }
 
   @Nullable
-  public final Jam getJamElement(@NotNull Psi member) {
+  public final Jam getJamElement(@Nonnull Psi member) {
     return SemService.getSemService(member.getProject()).getSemElement(myJamKey, member);
   }
 

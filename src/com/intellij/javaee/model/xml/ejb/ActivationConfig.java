@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml.ejb;
 
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -58,7 +58,7 @@ public interface ActivationConfig extends JavaeeDomModelElement {
 	 * Returns the list of activation-config-property children.
 	 * @return the list of activation-config-property children.
 	 */
-	@NotNull
+	@Nonnull
 	List<ActivationConfigProperty> getActivationConfigProperties();
 	/**
 	 * Adds new child to the list of activation-config-property children.

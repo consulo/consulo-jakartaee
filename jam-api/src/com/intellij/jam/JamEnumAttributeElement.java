@@ -16,8 +16,8 @@
 package com.intellij.jam;
 
 import com.intellij.psi.*;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author peter
@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 public class JamEnumAttributeElement<T extends Enum<T>> extends JamAttributeElement<T> {
   private final Class<T> myModelEnum;
 
-  public JamEnumAttributeElement(@NotNull PsiElementRef<PsiAnnotation> parent, String attributeName, Class<T> modelEnum) {
+  public JamEnumAttributeElement(@Nonnull PsiElementRef<PsiAnnotation> parent, String attributeName, Class<T> modelEnum) {
     super(attributeName, parent);
     myModelEnum = modelEnum;
   }

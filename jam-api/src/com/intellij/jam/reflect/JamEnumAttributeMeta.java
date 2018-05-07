@@ -17,10 +17,9 @@ package com.intellij.jam.reflect;
 
 import com.intellij.jam.JamEnumAttributeElement;
 import com.intellij.psi.PsiAnnotation;
-import com.intellij.psi.PsiAnnotationMemberValue;
 import com.intellij.psi.PsiElementRef;
-import com.intellij.util.NullableFunction;
-import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -60,7 +59,7 @@ public abstract class JamEnumAttributeMeta<T extends Enum<T>, JamType> extends J
       super(attrName, modelEnum);
     }
 
-    @NotNull
+    @Nonnull
     public List<JamEnumAttributeElement<T>> getJam(PsiElementRef<PsiAnnotation> anno) {
       return getCollectionJam(anno, psiAnnotationMemberValue -> new JamEnumAttributeElement<>(psiAnnotationMemberValue, myModelEnum));
     }
@@ -71,12 +70,12 @@ public abstract class JamEnumAttributeMeta<T extends Enum<T>, JamType> extends J
       super(attrName, modelEnum);
     }
 
-    @NotNull
+    @Nonnull
     public JamEnumAttributeElement<T> getJam(PsiElementRef<PsiAnnotation> anno) {
       return new JamEnumAttributeElement<>(anno, getAttributeLink().getAttributeName(), myModelEnum);
     }
 
-    @NotNull
+    @Nonnull
     public JamEnumAttributeElement<T> getJam(PsiElementRef<PsiAnnotation> anno, final T defaultValue) {
       return new JamEnumAttributeElement<T>(anno, getAttributeLink().getAttributeName(), myModelEnum) {
         @Override

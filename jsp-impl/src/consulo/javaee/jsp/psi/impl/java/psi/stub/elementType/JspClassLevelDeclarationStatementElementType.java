@@ -2,7 +2,7 @@ package consulo.javaee.jsp.psi.impl.java.psi.stub.elementType;
 
 import java.io.IOException;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.LighterAST;
 import com.intellij.lang.LighterASTNode;
@@ -38,19 +38,19 @@ public class JspClassLevelDeclarationStatementElementType extends ILightStubElem
 	}
 
 	@Override
-	public PsiClassLevelDeclarationStatement createPsi(@NotNull PsiClassLevelDeclarationStatementStub stub)
+	public PsiClassLevelDeclarationStatement createPsi(@Nonnull PsiClassLevelDeclarationStatementStub stub)
 	{
 		return new JspClassLevelDeclarationStatementImpl(stub, this);
 	}
 
 	@RequiredReadAction
 	@Override
-	public PsiClassLevelDeclarationStatementStub createStub(@NotNull PsiClassLevelDeclarationStatement psi, StubElement parentStub)
+	public PsiClassLevelDeclarationStatementStub createStub(@Nonnull PsiClassLevelDeclarationStatement psi, StubElement parentStub)
 	{
 		return new JspClassLevelDeclarationStatementStub(parentStub, this);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getExternalId()
 	{
@@ -58,26 +58,26 @@ public class JspClassLevelDeclarationStatementElementType extends ILightStubElem
 	}
 
 	@Override
-	public void serialize(@NotNull PsiClassLevelDeclarationStatementStub stub, @NotNull StubOutputStream dataStream) throws IOException
+	public void serialize(@Nonnull PsiClassLevelDeclarationStatementStub stub, @Nonnull StubOutputStream dataStream) throws IOException
 	{
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public PsiClassLevelDeclarationStatementStub deserialize(@NotNull StubInputStream dataStream, StubElement parentStub) throws IOException
+	public PsiClassLevelDeclarationStatementStub deserialize(@Nonnull StubInputStream dataStream, StubElement parentStub) throws IOException
 	{
 		return new JspClassLevelDeclarationStatementStub(parentStub, this);
 	}
 
 	@Override
-	public void indexStub(@NotNull PsiClassLevelDeclarationStatementStub stub, @NotNull IndexSink sink)
+	public void indexStub(@Nonnull PsiClassLevelDeclarationStatementStub stub, @Nonnull IndexSink sink)
 	{
 
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public PsiElement createElement(@NotNull ASTNode astNode)
+	public PsiElement createElement(@Nonnull ASTNode astNode)
 	{
 		return new JspClassLevelDeclarationStatementImpl(astNode);
 	}

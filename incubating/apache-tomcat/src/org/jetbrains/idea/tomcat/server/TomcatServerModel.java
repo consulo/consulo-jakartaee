@@ -7,9 +7,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import org.jetbrains.idea.tomcat.TomcatBundle;
 import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
 import org.jetbrains.idea.tomcat.admin.TomEEAgentAdminServerImpl;
@@ -100,7 +102,7 @@ public abstract class TomcatServerModel extends JavaeeServerModel {
     return TOMCAT_LOCALHOST_LOG_ID;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   protected List<LogFileFactory> getLogFileFactories() {
     return Arrays.<LogFileFactory>asList(new TomcatDefaultLocalhostLogFileFactory(), new TomcatCompatibleLocalhostLogFileFactory());

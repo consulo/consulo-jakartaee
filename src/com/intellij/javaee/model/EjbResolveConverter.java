@@ -24,7 +24,7 @@ import com.intellij.util.Processor;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.DomElement;
 import com.intellij.util.xml.ModuleContextProvider;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Collection;
 import java.util.List;
@@ -92,7 +92,7 @@ public class EjbResolveConverter extends JavaeeResolvingConverter<EnterpriseBean
     return CodeInsightBundle.message("error.cannot.resolve.0.1", "EJB", s);
   }
 
-  @NotNull
+  @Nonnull
   public Collection<? extends EnterpriseBean> getVariants(final ConvertContext context) {
     final CommonProcessors.CollectProcessor<EnterpriseBean> processor = new CommonProcessors.CollectProcessor<EnterpriseBean>();
     processBeans(context, processor);

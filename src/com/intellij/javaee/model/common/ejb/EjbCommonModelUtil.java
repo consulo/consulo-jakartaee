@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.ejb.role.EjbClassRoleEnum;
 import com.intellij.javaee.model.xml.ejb.EjbBase;
 import com.intellij.openapi.module.Module;
@@ -143,9 +143,9 @@ public class EjbCommonModelUtil
 	/*	return Collections.emptyList();
 	}
       */
-	@NotNull
+	@Nonnull
 	public static List<EnterpriseBean> getAllEjbs(
-			@NotNull final Project project, @Nullable final Module module, @Nullable final ModuleExtension<?> facet)
+			@Nonnull final Project project, @Nullable final Module module, @Nullable final ModuleExtension<?> facet)
 	{
     /*return mapEjbClassRoles(new ArrayList<EnterpriseBean>(), project, module, facet, new NullableFunction<EjbClassRole, EnterpriseBean>() {
       public EnterpriseBean fun(final EjbClassRole ejbClassRole) {
@@ -156,13 +156,13 @@ public class EjbCommonModelUtil
 
 	}
 
-	public static List<EnterpriseBean> getAllEjbs(@NotNull final Project project)
+	public static List<EnterpriseBean> getAllEjbs(@Nonnull final Project project)
 	{
 		return getAllEjbs(project, null, null);
 	}
 
-	@NotNull
-	public static EnterpriseBean getMergedEnterpriseBean(@NotNull final EjbBase base)
+	@Nonnull
+	public static EnterpriseBean getMergedEnterpriseBean(@Nonnull final EjbBase base)
 	{
 		final Module module = base.getModule();
 		if(module != null)

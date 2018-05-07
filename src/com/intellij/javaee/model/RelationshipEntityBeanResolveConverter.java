@@ -22,7 +22,7 @@ import com.intellij.javaee.model.enums.PersistenceType;
 import com.intellij.openapi.util.Condition;
 import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.xml.ConvertContext;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Collection;
 
@@ -36,7 +36,7 @@ public class RelationshipEntityBeanResolveConverter extends EjbResolveConverter{
   }
 
 
-  @NotNull
+  @Nonnull
   public Collection<? extends EnterpriseBean> getVariants(final ConvertContext context) {
     return ContainerUtil.findAll(super.getVariants(context), new Condition<EnterpriseBean>() {
       public boolean value(final EnterpriseBean object) {

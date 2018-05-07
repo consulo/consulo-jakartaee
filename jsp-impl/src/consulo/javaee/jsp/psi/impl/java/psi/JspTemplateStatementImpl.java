@@ -1,6 +1,6 @@
 package consulo.javaee.jsp.psi.impl.java.psi;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.impl.source.jsp.jspJava.JspTemplateStatement;
@@ -11,7 +11,7 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspTemplateStatement;
  */
 public class JspTemplateStatementImpl extends ASTWrapperPsiElement implements JspTemplateStatement
 {
-	public JspTemplateStatementImpl(@NotNull ASTNode node)
+	public JspTemplateStatementImpl(@Nonnull ASTNode node)
 	{
 		super(node);
 	}

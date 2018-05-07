@@ -7,8 +7,8 @@ package com.intellij.javaee.oss.converter;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.facet.JavaeeFacetUtil;
 import com.intellij.javaee.model.xml.SecurityRole;
 import com.intellij.javaee.model.xml.application.JavaeeApplication;
@@ -40,7 +40,7 @@ public class SecurityRoleConverter extends ResolvingConverter<SecurityRole>
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public Collection<SecurityRole> getVariants(ConvertContext context)
 	{
 		Collection<SecurityRole> variants = Collections.emptyList();

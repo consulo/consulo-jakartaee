@@ -15,6 +15,8 @@
  */
 package com.intellij.javaee.web;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.util.Comparing;
@@ -25,19 +27,19 @@ import com.intellij.openapi.vfs.pointers.VirtualFilePointer;
 import com.intellij.openapi.vfs.pointers.VirtualFilePointerManager;
 import com.intellij.util.PathUtil;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 public class WebRoot {
   private final String myRelativePath;
   private final VirtualFilePointer myVirtualFilePointer;
 
-  public WebRoot(@NonNls String url, @NonNls String relativePath, @NotNull Disposable parentDisposable) {
+  public WebRoot(@NonNls String url, @NonNls String relativePath, @Nonnull Disposable parentDisposable) {
     myRelativePath = normalize(relativePath);
     myVirtualFilePointer = VirtualFilePointerManager.getInstance().create(url, parentDisposable, null);
   }
 
-  public WebRoot(@NotNull VirtualFile file, @NonNls String relativePath, @NotNull Disposable parentDisposable) {
+  public WebRoot(@Nonnull VirtualFile file, @NonNls String relativePath, @Nonnull Disposable parentDisposable) {
     this(file.getUrl(), relativePath, parentDisposable);
   }
 

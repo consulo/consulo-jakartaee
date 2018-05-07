@@ -24,7 +24,7 @@ import com.intellij.javaee.model.xml.*;
 import com.intellij.javaee.model.xml.compatibility.MessageDrivenSupport;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -108,7 +108,7 @@ public interface MessageDrivenBean extends EjbBase, com.intellij.javaee.model.co
 	 * </pre>
 	 * @return the value of the ejb-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getEjbName();
 
 

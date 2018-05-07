@@ -15,8 +15,8 @@
  */
 package com.intellij.jam.reflect;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.jam.JamElement;
 import com.intellij.pom.PomTarget;
 import com.intellij.psi.PsiJavaPackage;
@@ -47,7 +47,7 @@ public class JamPackageMeta<Jam extends JamElement> extends JamMemberMeta<PsiJav
   }
 
   @Override
-  public JamPackageMeta<Jam> addPomTargetProducer(@NotNull PairConsumer<Jam, Consumer<PomTarget>> producer) {
+  public JamPackageMeta<Jam> addPomTargetProducer(@Nonnull PairConsumer<Jam, Consumer<PomTarget>> producer) {
     super.addPomTargetProducer(producer);
     return this;
   }

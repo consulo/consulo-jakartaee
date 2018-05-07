@@ -16,7 +16,7 @@
 
 package consulo.javaee.artifact;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.packaging.impl.elements.moduleContent.ModuleOutputElementTypeBase;
@@ -40,14 +40,14 @@ public class WebResourceModuleOutputElementType extends ModuleOutputElementTypeB
 		super("java-web-resource", WebResourcesFolderTypeProvider.getInstance());
 	}
 
-	public ModuleOutputPackagingElementImpl createElement(@NotNull com.intellij.openapi.project.Project project, @NotNull NamedPointer<Module> pointer)
+	public ModuleOutputPackagingElementImpl createElement(@Nonnull com.intellij.openapi.project.Project project, @Nonnull NamedPointer<Module> pointer)
 	{
 		return new WebResourceModuleOutputPackagingElement(this, project, pointer, myContentFolderTypeProvider);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public ModuleOutputPackagingElementImpl createEmpty(@NotNull Project project)
+	public ModuleOutputPackagingElementImpl createEmpty(@Nonnull Project project)
 	{
 		return new WebResourceModuleOutputPackagingElement(this, project, myContentFolderTypeProvider);
 	}

@@ -4,9 +4,11 @@ import java.io.File;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+
 import org.jdom.Element;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
 import com.intellij.execution.process.ProcessHandler;
@@ -68,7 +70,7 @@ public class MultiTargetRemoteServerModelDelegate implements MultiTargetRemoteSe
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public String getDefaultUrlForBrowser()
 	{
 		return getDelegate().getDefaultUrlForBrowser();

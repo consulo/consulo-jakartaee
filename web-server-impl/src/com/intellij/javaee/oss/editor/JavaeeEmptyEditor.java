@@ -11,7 +11,7 @@ import com.intellij.util.xml.ui.CaptionComponent;
 import com.intellij.util.xml.ui.CommittablePanel;
 import com.intellij.util.xml.ui.DomFileEditor;
 import com.intellij.util.xml.ui.PerspectiveFileEditor;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import javax.swing.*;
 
@@ -23,19 +23,19 @@ class JavaeeEmptyEditor extends PerspectiveFileEditor {
 
     private DomElement selectedDomElement;
 
-    JavaeeEmptyEditor(@NotNull Project project, @NotNull VirtualFile file, @NotNull String name, @NotNull Icon icon) {
+    JavaeeEmptyEditor(@Nonnull Project project, @Nonnull VirtualFile file, @Nonnull String name, @Nonnull Icon icon) {
         super(project, file);
         this.name = name;
         panel = DomFileEditor.createComponentWithCaption(new JavaeeEmptyPanel(), new CaptionComponent(name, icon), null);
     }
 
-    @NotNull
+    @Nonnull
     public String getName() {
         return name;
     }
 
     @Override
-    @NotNull
+    @Nonnull
     protected JComponent createCustomComponent() {
         return panel.getComponent();
     }

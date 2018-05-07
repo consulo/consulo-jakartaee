@@ -1,7 +1,7 @@
 package com.intellij.javaee.context;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;
 
 /**
@@ -11,5 +11,5 @@ import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;
 public interface WebModuleContextProvider {
 
   @Nullable
-  String getContext(@NotNull JavaEEApplicationModuleExtension earFacet, @Nullable String moduleWebUri);
+  String getContext(@Nonnull JavaEEApplicationModuleExtension earFacet, @Nullable String moduleWebUri);
 }

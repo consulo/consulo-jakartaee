@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.ejb;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Required;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -69,7 +69,7 @@ public interface DependsOn extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the list of ejb-name children.
 	 */
-	@NotNull
+	@Nonnull
 	@Required
 	List<GenericDomValue<String>> getEjbNames();
 	/**

@@ -16,7 +16,8 @@
 
 package consulo.javaee.artifact;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ModuleRootManager;
@@ -48,10 +49,10 @@ public class WebResourceModuleOutputPackagingElement extends ModuleOutputPackagi
 	}
 
 	@Override
-	public void computeIncrementalCompilerInstructions(@NotNull IncrementalCompilerInstructionCreator creator,
-			@NotNull PackagingElementResolvingContext resolvingContext,
-			@NotNull ArtifactIncrementalCompilerContext compilerContext,
-			@NotNull ArtifactType artifactType)
+	public void computeIncrementalCompilerInstructions(@Nonnull IncrementalCompilerInstructionCreator creator,
+			@Nonnull PackagingElementResolvingContext resolvingContext,
+			@Nonnull ArtifactIncrementalCompilerContext compilerContext,
+			@Nonnull ArtifactType artifactType)
 	{
 		Module module = findModule(resolvingContext);
 		if(module != null)

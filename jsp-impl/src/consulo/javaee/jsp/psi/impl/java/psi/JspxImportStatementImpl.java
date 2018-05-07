@@ -1,7 +1,8 @@
 package consulo.javaee.jsp.psi.impl.java.psi;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.JavaElementVisitor;
@@ -51,7 +52,7 @@ public class JspxImportStatementImpl extends LightElement implements JspxImportS
 	}
 
 	@Override
-	public void accept(@NotNull PsiElementVisitor visitor)
+	public void accept(@Nonnull PsiElementVisitor visitor)
 	{
 		if(visitor instanceof JavaElementVisitor)
 		{
@@ -70,7 +71,7 @@ public class JspxImportStatementImpl extends LightElement implements JspxImportS
 	}
 
 	@RequiredReadAction
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiElement[] getChildren()
 	{
@@ -90,7 +91,7 @@ public class JspxImportStatementImpl extends LightElement implements JspxImportS
 		return myJspJavaFile;
 	}
 
-	@NotNull
+	@Nonnull
 	@RequiredReadAction
 	@Override
 	public TextRange getTextRange()

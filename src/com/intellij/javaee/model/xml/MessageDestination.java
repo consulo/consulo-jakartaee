@@ -19,12 +19,8 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.javaee.model.xml.DescriptionGroup;
-import com.intellij.javaee.model.xml.DisplayName;
-import com.intellij.javaee.model.xml.Icon;
-import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -72,7 +68,7 @@ public interface MessageDestination extends JavaeeDomModelElement, DescriptionGr
 	 * </pre>
 	 * @return the value of the message-destination-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getMessageDestinationName();
 
 

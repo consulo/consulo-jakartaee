@@ -11,10 +11,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.debugger.PositionManager;
 import com.intellij.debugger.engine.DebugProcess;
 import com.intellij.execution.ExecutionException;
@@ -128,7 +130,7 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	protected List<LogFileFactory> getLogFileFactories()
 	{
 		return Collections.emptyList();
@@ -483,7 +485,7 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public PredefinedLogFile[] getPredefinedLogFiles()
 	{
 		return new PredefinedLogFile[]{new PredefinedLogFile(getLogFileId(), true)};

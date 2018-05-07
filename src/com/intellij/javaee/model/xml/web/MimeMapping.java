@@ -25,7 +25,7 @@ import com.intellij.javaee.model.xml.web.converters.MimeTypeConverter;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.NameValue;
 import com.intellij.util.xml.Convert;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:mime-mappingType interface.
@@ -52,7 +52,7 @@ public interface MimeMapping extends JavaeeDomModelElement {
 	 */
         @Convert(MappingExtensionConverter.class)
         @NameValue
-        @NotNull
+        @Nonnull
 	GenericDomValue<String> getExtension();
 
 
@@ -68,7 +68,7 @@ public interface MimeMapping extends JavaeeDomModelElement {
 	 * @return the value of the mime-type child.
 	 */
         @Convert(MimeTypeConverter.class)
-        @NotNull
+        @Nonnull
 	GenericDomValue<String> getMimeType();
 
 

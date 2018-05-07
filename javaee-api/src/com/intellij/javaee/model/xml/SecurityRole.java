@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml;
 
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.ide.presentation.Presentation;
 import com.intellij.jam.view.DeleteHandler;
 import com.intellij.util.xml.GenericDomValue;
@@ -72,7 +72,7 @@ public interface SecurityRole extends JavaeeDomModelElement, DescriptionOwner, c
 	 * </pre>
 	 * @return the value of the role-name child.
 	 */
-	@NotNull
+	@Nonnull
         @NameValue
         @Required
         @Stubbed

@@ -19,7 +19,8 @@
 
 package com.intellij.javaee.model.xml;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.util.xml.GenericAttributeValue;
 
 /**
@@ -45,13 +46,13 @@ public interface Description extends JavaeeDomModelElement {
 	 * Returns the value of the simple content.
 	 * @return the value of the simple content.
 	 */
-	@NotNull
+	@Nonnull
 	String getValue();
 	/**
 	 * Sets the value of the simple content.
 	 * @param value the new value to set
 	 */
-	void setValue(@NotNull String value);
+	void setValue(@Nonnull String value);
 
 
 	/**

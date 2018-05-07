@@ -1,6 +1,6 @@
 package com.intellij.javaee.facet;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.intellij.jam.model.common.CommonModelElement;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;

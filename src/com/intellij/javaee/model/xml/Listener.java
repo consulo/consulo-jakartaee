@@ -27,7 +27,7 @@ import com.intellij.util.xml.ClassTemplate;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.NameValue;
 import com.intellij.util.xml.Stubbed;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ public interface Listener extends CommonListener, JavaeeDomModelElement, Descrip
 	 * </pre>
 	 * @return the value of the listener-class child.
 	 */
-	@NotNull
+	@Nonnull
         @ClassTemplate(J2EEFileTemplateNames.LISTENER_CLASS_TEMPLATE)
         @NameValue
         @Stubbed

@@ -25,7 +25,7 @@ import com.intellij.openapi.paths.PathReference;
 import com.intellij.util.xml.Convert;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Stubbed;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -64,7 +64,7 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * </pre>
 	 * @return the list of url-pattern children.
 	 */
-	@NotNull
+	@Nonnull
         @Stubbed
 	List<GenericDomValue<String>> getUrlPatterns();
 	/**

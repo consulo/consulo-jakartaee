@@ -15,7 +15,7 @@
  */
 package com.intellij.psi.jsp;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.ServerPageFile;
 import com.intellij.psi.xml.XmlTag;

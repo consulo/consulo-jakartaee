@@ -21,8 +21,9 @@ import com.intellij.javaee.J2EEBundle;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.ElementPresentationManager;
 import com.intellij.codeInsight.CodeInsightBundle;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -43,7 +44,7 @@ public abstract class CmpFieldResolvingConverter extends JavaeeResolvingConverte
     return CodeInsightBundle.message("error.cannot.resolve.0.1", J2EEBundle.message("model.object.type.cmp.field"), s);
   }
 
-  @NotNull
+  @Nonnull
   public Collection<? extends CmpField> getVariants(final ConvertContext context) {
     final EntityBean entityBean = getEntityBean(context);
     return entityBean == null ? Collections.<CmpField>emptyList() : entityBean.getCmpFields();

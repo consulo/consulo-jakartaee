@@ -23,7 +23,7 @@ import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.DescriptionOwner;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -74,7 +74,7 @@ public interface CmpField extends JavaeeDomModelElement, com.intellij.javaee.mod
 	 * </pre>
 	 * @return the value of the field-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getFieldName();
 
 

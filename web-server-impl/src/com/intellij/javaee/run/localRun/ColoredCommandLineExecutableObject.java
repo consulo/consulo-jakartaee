@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.execution.configurations.ParametersList;
@@ -67,7 +67,7 @@ public abstract class ColoredCommandLineExecutableObject implements ExecutableOb
 		return createProcessHandler(commandLine);
 	}
 
-	@NotNull
+	@Nonnull
 	protected OSProcessHandler createProcessHandler(GeneralCommandLine commandLine) throws ExecutionException
 	{
 		return new OSProcessHandler(commandLine);

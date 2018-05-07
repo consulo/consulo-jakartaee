@@ -21,7 +21,7 @@ import com.intellij.openapi.util.ActionCallback;
 import com.intellij.psi.PsiDocumentManager;
 import com.intellij.ui.treeStructure.SimpleNode;
 import com.intellij.ui.treeStructure.SimpleTreeStructure;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 public class JamTreeStructure extends SimpleTreeStructure {
   private final SimpleNode myRootDescriptor;
@@ -49,7 +49,7 @@ public class JamTreeStructure extends SimpleTreeStructure {
     PsiDocumentManager.getInstance(myProject).commitAllDocuments();
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public ActionCallback asyncCommit() {
     return asyncCommitDocuments(myProject);

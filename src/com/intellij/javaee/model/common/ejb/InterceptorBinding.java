@@ -17,7 +17,7 @@
 package com.intellij.javaee.model.common.ejb;
 
 import com.intellij.psi.PsiMember;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * @author Gregory.Shrago

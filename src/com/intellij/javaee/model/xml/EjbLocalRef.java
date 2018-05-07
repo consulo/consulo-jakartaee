@@ -24,7 +24,7 @@ import com.intellij.javaee.model.enums.EjbRefType;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.PropertyAccessor;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -82,7 +82,7 @@ public interface EjbLocalRef extends JavaeeDomModelElement, ResourceGroup, EjbRe
 	 * </pre>
 	 * @return the value of the ejb-ref-name child.
 	 */
-	@NotNull
+	@Nonnull
         GenericDomValue<String> getEjbRefName();
 
 

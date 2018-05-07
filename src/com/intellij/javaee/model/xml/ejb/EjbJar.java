@@ -20,12 +20,11 @@
 package com.intellij.javaee.model.xml.ejb;
 
 import com.intellij.javaee.model.common.ejb.EjbRootElement;
-import com.intellij.javaee.model.common.JavaeeCommonConstants;
 import com.intellij.javaee.model.xml.*;
 import com.intellij.util.xml.GenericAttributeValue;
 import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Namespace;
-import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -67,7 +66,7 @@ public interface EjbJar extends JavaeeDomModelElement, DescriptionGroup, EjbRoot
 	 * </pre>
 	 * @return the value of the version child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericAttributeValue<String> getVersion();
 
 

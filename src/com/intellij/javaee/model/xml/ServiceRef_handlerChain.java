@@ -19,10 +19,8 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.javaee.model.xml.ServiceRef_handler;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -48,7 +46,7 @@ public interface ServiceRef_handlerChain extends JavaeeDomModelElement {
 	 * Returns the list of handler children.
 	 * @return the list of handler children.
 	 */
-	@NotNull
+	@Nonnull
 	List<ServiceRef_handler> getHandlers();
 	/**
 	 * Adds new child to the list of handler children.
@@ -61,7 +59,7 @@ public interface ServiceRef_handlerChain extends JavaeeDomModelElement {
 	 * Returns the value of the service-name-pattern child.
 	 * @return the value of the service-name-pattern child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getServiceNamePattern();
 
 
@@ -69,7 +67,7 @@ public interface ServiceRef_handlerChain extends JavaeeDomModelElement {
 	 * Returns the value of the port-name-pattern child.
 	 * @return the value of the port-name-pattern child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getPortNamePattern();
 
 
@@ -77,7 +75,7 @@ public interface ServiceRef_handlerChain extends JavaeeDomModelElement {
 	 * Returns the value of the protocol-bindings child.
 	 * @return the value of the protocol-bindings child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getProtocolBindings();
 
 

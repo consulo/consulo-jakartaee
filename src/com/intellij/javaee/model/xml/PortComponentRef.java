@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml;
 
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:port-component-refType interface.
@@ -55,7 +55,7 @@ public interface PortComponentRef extends JavaeeDomModelElement, com.intellij.ja
 	 * </pre>
 	 * @return the value of the service-endpoint-interface child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PsiClass> getServiceEndpointInterface();
 
 

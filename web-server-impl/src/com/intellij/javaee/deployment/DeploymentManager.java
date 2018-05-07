@@ -19,8 +19,8 @@ import java.io.File;
 import java.util.Collections;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.openapi.components.ServiceManager;
@@ -40,8 +40,8 @@ public abstract class DeploymentManager {
   public abstract void setDeploymentStatus(DeploymentModel model, DeploymentStatus status,
                                            CommonModel instanceConfiguration, J2EEServerInstance serverInstance);
 
-  @NotNull
-  public abstract DeploymentStatus getDeploymentStatus(@NotNull DeploymentModel model, CommonModel instanceConfiguration);
+  @Nonnull
+  public abstract DeploymentStatus getDeploymentStatus(@Nonnull DeploymentModel model, CommonModel instanceConfiguration);
 
   public abstract boolean isKeepDeployedAfterDisconnect(DeploymentModel model, CommonModel instanceConfiguration);
 
@@ -81,8 +81,8 @@ public abstract class DeploymentManager {
   public abstract void updateAllDeploymentStatus(J2EEServerInstance instance, CommonModel runConfiguration);
 
   @Nullable
-  public abstract DeploymentModel getModelForFacet(@NotNull CommonModel commonModel, @NotNull JavaEEModuleExtension facet);
+  public abstract DeploymentModel getModelForFacet(@Nonnull CommonModel commonModel, @Nonnull JavaEEModuleExtension facet);
 
-  @NotNull
-  public abstract List<Artifact> getSupportedArtifacts(@NotNull DeploymentProvider deploymentProvider);
+  @Nonnull
+  public abstract List<Artifact> getSupportedArtifacts(@Nonnull DeploymentProvider deploymentProvider);
 }

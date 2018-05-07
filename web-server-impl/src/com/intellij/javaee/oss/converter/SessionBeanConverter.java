@@ -7,8 +7,8 @@ package com.intellij.javaee.oss.converter;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.facet.JavaeeFacetUtil;
 import com.intellij.javaee.model.xml.ejb.EjbJar;
 import com.intellij.javaee.model.xml.ejb.SessionBean;
@@ -32,7 +32,7 @@ public class SessionBeanConverter extends ResolvingConverter<SessionBean> {
     }
 
     @Override
-    @NotNull
+    @Nonnull
     public Collection<SessionBean> getVariants(ConvertContext context) {
         EjbModuleExtension facet = JavaeeFacetUtil.getInstance().getJavaeeFacet(context, EjbModuleExtension.class);
         if (facet != null) {

@@ -16,8 +16,9 @@
 
 package com.intellij.javaee.openapi.ex;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 
 /**
@@ -32,7 +33,7 @@ public class AppServerIntegrationsManager
 		return ourInstance;
 	}
 
-	public <T extends AppServerIntegration> T getIntegration(@NotNull Class<T> aClass)
+	public <T extends AppServerIntegration> T getIntegration(@Nonnull Class<T> aClass)
 	{
 		return AppServerIntegration.EXTENSION_POINT.findExtension(aClass);
 	}

@@ -9,8 +9,8 @@ import com.intellij.javaee.model.xml.ResourceEnvRef;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.ElementPresentationManager;
 import com.intellij.util.xml.ResolvingConverter;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -30,7 +30,7 @@ public abstract class ResourceEnvRefConverter extends ResolvingConverter<Resourc
     }
 
     @Override
-    @NotNull
+    @Nonnull
     public Collection<ResourceEnvRef> getVariants(ConvertContext context) {
         JndiEnvironmentRefsGroup group = getReferenceHolder(context);
         return (group != null) ? group.getResourceEnvRefs() : Collections.<ResourceEnvRef>emptyList();

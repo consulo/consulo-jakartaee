@@ -22,7 +22,7 @@ import com.intellij.javaee.model.xml.web.Servlet;
 import com.intellij.javaee.model.xml.web.WebApp;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.DomResolveConverter;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Collections;
 import java.util.Set;
@@ -35,8 +35,8 @@ public class ServletNameConverter extends DomResolveConverter<Servlet> {
     super(Servlet.class);
   }
 
-  @NotNull
-  public Set<String> getAdditionalVariants(@NotNull final ConvertContext context) {
+  @Nonnull
+  public Set<String> getAdditionalVariants(@Nonnull final ConvertContext context) {
     if (context.getInvocationElement().getParent() instanceof FilterMapping) {
       WebApp webApp = context.getInvocationElement().getParentOfType(WebApp.class, false);
       assert webApp != null;

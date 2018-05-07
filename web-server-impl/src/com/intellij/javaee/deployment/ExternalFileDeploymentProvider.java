@@ -15,7 +15,7 @@
  */
 package com.intellij.javaee.deployment;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.io.FileFilter;
 
@@ -27,6 +27,6 @@ import java.io.FileFilter;
 public abstract class ExternalFileDeploymentProvider {
   public abstract boolean isDirectoriesAllowed();
 
-  @NotNull
+  @Nonnull
   public abstract FileFilter getDeployableFileFilter();
 }

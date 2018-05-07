@@ -27,7 +27,7 @@ import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiFile;
 import com.intellij.ui.treeStructure.SimpleNode;
 import com.intellij.ui.treeStructure.SimpleTreeStructure;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -59,7 +59,7 @@ public class JamAbstractTreeBuilder extends AbstractTreeBuilder {
     return super.isAutoExpandNode(nodeDescriptor) || ((SimpleNode)nodeDescriptor).isAutoExpandNode();
   }
 
-  protected final void expandNodeChildren(@NotNull final DefaultMutableTreeNode node) {
+  protected final void expandNodeChildren(@Nonnull final DefaultMutableTreeNode node) {
     Object element = ((NodeDescriptor)node.getUserObject()).getElement();
     VirtualFile virtualFile = null;
     if (element instanceof PsiDirectory){

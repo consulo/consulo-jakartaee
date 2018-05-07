@@ -25,8 +25,8 @@ import com.intellij.psi.PsiReference;
 import com.intellij.util.NotNullFunction;
 import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.xml.ElementPresentationManager;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -35,7 +35,7 @@ import java.util.Collections;
  * @author peter
  */
 public abstract class JamSimpleReferenceConverter<T> extends JamConverter<T>{
-  @NotNull
+  @Nonnull
   @Override
   public PsiReference[] createReferences(JamStringAttributeElement<T> context) {
     final PsiLiteral literal = context.getPsiLiteral();
@@ -49,7 +49,7 @@ public abstract class JamSimpleReferenceConverter<T> extends JamConverter<T>{
   }
 
   @Nullable
-  protected PsiElement getPsiElementFor(@NotNull T target) {
+  protected PsiElement getPsiElementFor(@Nonnull T target) {
     if (target instanceof PsiElement) {
       return (PsiElement)target;
     } else if (target instanceof CommonModelElement) {
@@ -58,8 +58,8 @@ public abstract class JamSimpleReferenceConverter<T> extends JamConverter<T>{
     return null;
   }
 
-  @NotNull
-  protected LookupElement createLookupElementFor(@NotNull T target) {
+  @Nonnull
+  protected LookupElement createLookupElementFor(@Nonnull T target) {
     String name = ElementPresentationManager.getElementName(target);
     if (name != null) {
       return LookupElementBuilder.create(name);

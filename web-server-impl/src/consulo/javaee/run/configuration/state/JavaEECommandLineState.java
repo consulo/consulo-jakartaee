@@ -2,7 +2,8 @@ package consulo.javaee.run.configuration.state;
 
 import java.util.Collections;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.execution.DefaultExecutionResult;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.ExecutionResult;
@@ -30,8 +31,8 @@ public class JavaEECommandLineState extends CommandLineState implements PatchedR
 	}
 
 	@Override
-	@NotNull
-	public ExecutionResult execute(@NotNull final Executor executor, @NotNull final ProgramRunner runner) throws ExecutionException
+	@Nonnull
+	public ExecutionResult execute(@Nonnull final Executor executor, @Nonnull final ProgramRunner runner) throws ExecutionException
 	{
 		final ProcessHandler processHandler = startProcess();
 		final ConsoleView console = new JavaEEDeploymentConsole(executor, (JavaEEConfigurationImpl) getEnvironment().getRunProfile(), getEnvironment().getProject());
@@ -39,7 +40,7 @@ public class JavaEECommandLineState extends CommandLineState implements PatchedR
 		return new DefaultExecutionResult(console, processHandler, createActions(console, processHandler, executor));
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	protected ProcessHandler startProcess() throws ExecutionException
 	{

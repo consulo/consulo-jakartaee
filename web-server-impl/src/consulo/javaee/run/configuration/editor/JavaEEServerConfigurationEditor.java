@@ -6,7 +6,7 @@ import java.awt.event.ItemListener;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.execution.ui.AlternativeJREPanel;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.run.configuration.ApplicationServerSelectionListener;
@@ -44,7 +44,7 @@ public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfig
 		myBundleType = bundleType;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	protected JComponent createEditor()
 	{

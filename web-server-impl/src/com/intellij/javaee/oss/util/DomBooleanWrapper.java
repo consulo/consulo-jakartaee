@@ -7,7 +7,7 @@ package com.intellij.javaee.oss.util;
 import com.intellij.util.xml.DomElement;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.ui.DomWrapper;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -20,7 +20,7 @@ public class DomBooleanWrapper extends DomWrapper<Boolean> {
     }
 
     @Override
-    @NotNull
+    @Nonnull
     public DomElement getExistingDomElement() {
         return element;
     }

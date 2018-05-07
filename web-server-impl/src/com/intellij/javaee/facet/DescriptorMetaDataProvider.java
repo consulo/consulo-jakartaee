@@ -1,7 +1,7 @@
 package com.intellij.javaee.facet;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.openapi.extensions.ExtensionPointName;
 import com.intellij.util.descriptors.ConfigFileMetaData;
@@ -13,9 +13,9 @@ import consulo.javaee.module.extension.JavaEEModuleExtension;
 public abstract class DescriptorMetaDataProvider {
   public static final ExtensionPointName<DescriptorMetaDataProvider> EXTENSION_POINT = ExtensionPointName.create("com.intellij.javaee.descriptorMetaDataProvider");
 
-  public abstract void registerDescriptors(@NotNull MetaDataRegistry registry);
+  public abstract void registerDescriptors(@Nonnull MetaDataRegistry registry);
 
   public interface MetaDataRegistry {
-    void register(@NotNull Class<? extends JavaEEModuleExtension> facetTypeId, @Nullable AppServerIntegration appServer, @NotNull ConfigFileMetaData metaData);
+    void register(@Nonnull Class<? extends JavaEEModuleExtension> facetTypeId, @Nullable AppServerIntegration appServer, @Nonnull ConfigFileMetaData metaData);
   }
 }

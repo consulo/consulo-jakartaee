@@ -22,7 +22,7 @@ import com.intellij.psi.ref.AnnotationAttributeChildLink;
 import com.intellij.util.NullableFunction;
 import com.intellij.util.containers.ContainerUtil;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -59,7 +59,7 @@ public abstract class JamAttributeMeta<JamType> {
     return myAttributeLink.hashCode();
   }
 
-  @NotNull
+  @Nonnull
   protected <T> List<T> getCollectionJam(PsiElementRef<PsiAnnotation> annoRef, NullableFunction<PsiAnnotationMemberValue, T> producer) {
     final PsiAnnotationMemberValue attr = getAttributeLink().findLinkedChild(annoRef.getPsiElement());
     if (attr == null) {
@@ -78,22 +78,22 @@ public abstract class JamAttributeMeta<JamType> {
   }
 
 
-  @NotNull
+  @Nonnull
   public abstract JamType getJam(PsiElementRef<PsiAnnotation> anno);
 
-  public static JamStringAttributeMeta.Single<String> singleString(@NotNull @NonNls String attrName) {
+  public static JamStringAttributeMeta.Single<String> singleString(@Nonnull @NonNls String attrName) {
     return singleString(attrName, JamConverter.DUMMY_CONVERTER);
   }
 
-  public static <T> JamStringAttributeMeta.Single<T> singleString(@NotNull @NonNls String attrName, JamConverter<T> converter) {
+  public static <T> JamStringAttributeMeta.Single<T> singleString(@Nonnull @NonNls String attrName, JamConverter<T> converter) {
     return new JamStringAttributeMeta.Single<>(attrName, converter);
   }
 
-  public static <T extends Enum<T>> JamEnumAttributeMeta.Single<T> singleEnum(@NotNull @NonNls String attrName, Class<T> modelEnum) {
+  public static <T extends Enum<T>> JamEnumAttributeMeta.Single<T> singleEnum(@Nonnull @NonNls String attrName, Class<T> modelEnum) {
     return new JamEnumAttributeMeta.Single<>(attrName, modelEnum);
   }
 
-  public static JamStringAttributeMeta.Collection<String> collectionString(@NotNull @NonNls String attrName) {
+  public static JamStringAttributeMeta.Collection<String> collectionString(@Nonnull @NonNls String attrName) {
     return collectionString(attrName, JamConverter.DUMMY_CONVERTER);
   }
 
@@ -101,12 +101,12 @@ public abstract class JamAttributeMeta<JamType> {
     return new JamStringAttributeMeta.Collection<>(attrName, converter);
   }
 
-  public static <T extends JamElement> JamAnnotationAttributeMeta.Single<T> singleAnno(@NotNull @NonNls String attrName, JamAnnotationMeta annoMeta, Class<T> jamClass) {
+  public static <T extends JamElement> JamAnnotationAttributeMeta.Single<T> singleAnno(@Nonnull @NonNls String attrName, JamAnnotationMeta annoMeta, Class<T> jamClass) {
     final JamInstantiator<PsiAnnotation, T> instantiator = JamInstantiator.proxied(jamClass);
     return new JamAnnotationAttributeMeta.Single<>(attrName, annoMeta, instantiator);
   }
 
-  public static <T extends JamElement> JamAnnotationAttributeMeta.Collection<T> annoCollection(@NotNull @NonNls String attrName, @NotNull JamAnnotationMeta annoMeta, Class<T> jamClass) {
+  public static <T extends JamElement> JamAnnotationAttributeMeta.Collection<T> annoCollection(@Nonnull @NonNls String attrName, @Nonnull JamAnnotationMeta annoMeta, Class<T> jamClass) {
     final JamInstantiator<PsiAnnotation, T> instantiator = JamInstantiator.proxied(jamClass);
     return new JamAnnotationAttributeMeta.Collection<>(attrName, annoMeta, instantiator);
   }
@@ -131,14 +131,14 @@ public abstract class JamAttributeMeta<JamType> {
   /**
    * @since 143
    */
-  public static JamBooleanAttributeMeta singleBoolean(@NotNull @NonNls String attrName, boolean defaultValue) {
+  public static JamBooleanAttributeMeta singleBoolean(@Nonnull @NonNls String attrName, boolean defaultValue) {
     return new JamBooleanAttributeMeta(attrName, defaultValue);
   }
 
   /**
    * @since 2017.1
    */
-  public static JamNumberAttributeMeta.Single<Integer> singleInteger(@NotNull @NonNls String attrName) {
+  public static JamNumberAttributeMeta.Single<Integer> singleInteger(@Nonnull @NonNls String attrName) {
     return new JamNumberAttributeMeta.Single<>(attrName, Integer.class);
   }
 

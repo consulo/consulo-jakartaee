@@ -5,8 +5,8 @@ import gnu.trove.THashSet;
 import java.util.Collections;
 import java.util.Set;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.Pair;
@@ -43,7 +43,7 @@ import consulo.annotations.RequiredReadAction;
  */
 public class JspCodeBlockImpl extends ASTWrapperPsiElement implements JspCodeBlock
 {
-	public JspCodeBlockImpl(@NotNull ASTNode node)
+	public JspCodeBlockImpl(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
@@ -54,7 +54,7 @@ public class JspCodeBlockImpl extends ASTWrapperPsiElement implements JspCodeBlo
 		return new PsiElement[0];
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiStatement[] getStatements()
 	{
@@ -114,7 +114,7 @@ public class JspCodeBlockImpl extends ASTWrapperPsiElement implements JspCodeBlo
 			PsiScopesUtil.walkChildrenScopes(this, new BaseScopeProcessor()
 			{
 				@Override
-				public boolean execute(@NotNull PsiElement element, ResolveState state)
+				public boolean execute(@Nonnull PsiElement element, ResolveState state)
 				{
 					if(element instanceof PsiLocalVariable)
 					{
@@ -151,7 +151,7 @@ public class JspCodeBlockImpl extends ASTWrapperPsiElement implements JspCodeBlo
 
 	@Override
 	@RequiredReadAction
-	public boolean processDeclarations(@NotNull PsiScopeProcessor processor, @NotNull ResolveState state, PsiElement lastParent, @NotNull PsiElement place)
+	public boolean processDeclarations(@Nonnull PsiScopeProcessor processor, @Nonnull ResolveState state, PsiElement lastParent, @Nonnull PsiElement place)
 	{
 		if(!processImpl(processor, state, lastParent, place))
 		{
@@ -221,7 +221,7 @@ public class JspCodeBlockImpl extends ASTWrapperPsiElement implements JspCodeBlo
 		return true;
 	}
 
-	private boolean processImpl(@NotNull PsiScopeProcessor processor, @NotNull ResolveState state, PsiElement lastParent, @NotNull PsiElement place)
+	private boolean processImpl(@Nonnull PsiScopeProcessor processor, @Nonnull ResolveState state, PsiElement lastParent, @Nonnull PsiElement place)
 	{
 		processor.handleEvent(PsiScopeProcessor.Event.SET_DECLARATION_HOLDER, this);
 		if(lastParent == null)

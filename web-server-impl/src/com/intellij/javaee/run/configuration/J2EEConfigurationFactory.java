@@ -15,8 +15,9 @@
  */
 package com.intellij.javaee.run.configuration;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
@@ -49,11 +50,11 @@ public abstract class J2EEConfigurationFactory
 			ExecutableObjectStartupPolicy startupPolicy);
 
 	@Nullable
-	public abstract RunnerAndConfigurationSettings createSettingsByFile(@NotNull PsiFile psiFile, @NotNull J2EEConfigurationType configurationType);
+	public abstract RunnerAndConfigurationSettings createSettingsByFile(@Nonnull PsiFile psiFile, @Nonnull J2EEConfigurationType configurationType);
 
-	public abstract RunnerAndConfigurationSettings addAppServerConfiguration(@NotNull Project project, @NotNull ConfigurationFactory type, @NotNull ApplicationServer appServer);
+	public abstract RunnerAndConfigurationSettings addAppServerConfiguration(@Nonnull Project project, @Nonnull ConfigurationFactory type, @Nonnull ApplicationServer appServer);
 
 	public abstract ConfigurationFactory createFactory(J2EEConfigurationType type, boolean isLocal, String name);
 
-	public abstract boolean isConfigurationApplicable(@NotNull J2EEConfigurationType type, @NotNull Project project);
+	public abstract boolean isConfigurationApplicable(@Nonnull J2EEConfigurationType type, @Nonnull Project project);
 }

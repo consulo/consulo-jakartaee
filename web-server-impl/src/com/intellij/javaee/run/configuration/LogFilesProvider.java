@@ -15,8 +15,6 @@
  */
 package com.intellij.javaee.run.configuration;
 
-import org.jetbrains.annotations.Nullable;
-
 /**
  * User: anna
  * Date: Jun 15, 2005

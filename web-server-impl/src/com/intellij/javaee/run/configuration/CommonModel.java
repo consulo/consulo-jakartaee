@@ -19,8 +19,8 @@ import java.util.Collection;
 import java.util.List;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.execution.configurations.ModuleRunConfiguration;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.deployment.DeploymentModel;
@@ -50,7 +50,7 @@ public interface CommonModel extends ModuleRunConfiguration
 		return getServerBundle();
 	}
 
-	@NotNull
+	@Nonnull
 	JavaEEServerBundleType getServerBundleType();
 
 	@Nullable
@@ -75,7 +75,7 @@ public interface CommonModel extends ModuleRunConfiguration
 
 	void setUrlToOpenInBrowser(@Nullable String newUrl);
 
-	@NotNull
+	@Nonnull
 	DeploymentSettings getDeploymentSettings();
 
 	String getUrlToOpenInBrowser();

@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml.web;
 
 import com.intellij.javaee.model.xml.DisplayName;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -53,7 +53,7 @@ public interface SecurityConstraint extends JavaeeDomModelElement {
 	 * Returns the list of web-resource-collection children.
 	 * @return the list of web-resource-collection children.
 	 */
-	@NotNull
+	@Nonnull
 	List<WebResourceCollection> getWebResourceCollections();
 	/**
 	 * Adds new child to the list of web-resource-collection children.

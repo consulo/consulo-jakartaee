@@ -16,8 +16,9 @@
 
 package com.intellij.javaee.run.configuration;
 
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.execution.configurations.LogFileOptions;
 import com.intellij.execution.configurations.PredefinedLogFile;
 
@@ -26,7 +27,8 @@ import com.intellij.execution.configurations.PredefinedLogFile;
  */
 public interface PredefinedLogFilesProvider {
 
-  @NotNull PredefinedLogFile[] getPredefinedLogFiles();
+  @Nonnull
+  PredefinedLogFile[] getPredefinedLogFiles();
 
   @Nullable LogFileOptions getOptionsForPredefinedLogFile(PredefinedLogFile predefinedLogFile);
 }

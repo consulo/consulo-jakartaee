@@ -19,11 +19,12 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.enums.ConcurrentLockType;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Required;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:concurrent-methodType interface.
@@ -44,7 +45,7 @@ public interface ConcurrentMethod extends JavaeeDomModelElement {
 	 * Returns the value of the method child.
 	 * @return the value of the method child.
 	 */
-	@NotNull
+	@Nonnull
 	@Required
 	NamedMethod getMethod();
 
@@ -53,7 +54,7 @@ public interface ConcurrentMethod extends JavaeeDomModelElement {
 	 * Returns the value of the lock child.
 	 * @return the value of the lock child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<ConcurrentLockType> getLock();
 
 
@@ -61,7 +62,7 @@ public interface ConcurrentMethod extends JavaeeDomModelElement {
 	 * Returns the value of the access-timeout child.
 	 * @return the value of the access-timeout child.
 	 */
-	@NotNull
+	@Nonnull
 	AccessTimeout getAccessTimeout();
 
 

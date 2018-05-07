@@ -18,11 +18,10 @@ package com.intellij.jam.reflect;
 import com.intellij.jam.JamClassAttributeElement;
 import com.intellij.openapi.util.Factory;
 import com.intellij.psi.PsiAnnotation;
-import com.intellij.psi.PsiAnnotationMemberValue;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElementRef;
-import com.intellij.util.NullableFunction;
-import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -42,7 +41,7 @@ public abstract class JamClassAttributeMeta<JamType> extends JamAttributeMeta<Ja
       super(attrName);
     }
 
-    @NotNull
+    @Nonnull
     public List<JamClassAttributeElement> getJam(PsiElementRef<PsiAnnotation> anno) {
       return getCollectionJam(anno, psiAnnotationMemberValue -> new JamClassAttributeElement(psiAnnotationMemberValue));
     }
@@ -55,12 +54,12 @@ public abstract class JamClassAttributeMeta<JamType> extends JamAttributeMeta<Ja
       super(attrName);
     }
 
-    @NotNull
+    @Nonnull
     public JamClassAttributeElement getJam(PsiElementRef<PsiAnnotation> anno) {
       return new JamClassAttributeElement(anno, getAttributeLink().getAttributeName());
     }
 
-    @NotNull
+    @Nonnull
     public JamClassAttributeElement getJam(PsiElementRef<PsiAnnotation> anno, final Factory<PsiClass> defaultValue) {
       return new JamClassAttributeElement(anno, getAttributeLink().getAttributeName()) {
         @Override

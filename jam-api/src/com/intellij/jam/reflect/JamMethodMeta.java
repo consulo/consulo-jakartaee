@@ -21,8 +21,8 @@ import com.intellij.pom.PomTarget;
 import com.intellij.semantic.SemKey;
 import com.intellij.util.Consumer;
 import com.intellij.util.PairConsumer;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nullable;
+import javax.annotation.Nonnull;
 
 /**
  * @author peter
@@ -65,7 +65,7 @@ public class JamMethodMeta<Jam extends JamElement> extends JamMemberMeta<PsiMeth
   }
 
   @Override
-  public JamMethodMeta<Jam> addPomTargetProducer(@NotNull PairConsumer<Jam, Consumer<PomTarget>> producer) {
+  public JamMethodMeta<Jam> addPomTargetProducer(@Nonnull PairConsumer<Jam, Consumer<PomTarget>> producer) {
     super.addPomTargetProducer(producer);
     return this;
   }

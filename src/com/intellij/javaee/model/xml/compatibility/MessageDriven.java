@@ -24,7 +24,7 @@ import com.intellij.javaee.model.xml.*;
 import com.intellij.javaee.model.xml.ejb.SecurityIdentity;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -161,7 +161,7 @@ public interface MessageDriven extends JavaeeDomModelElement {
 	 * </pre>
          * @return the value of the ejb-name child
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getEjbName();
 
 
@@ -177,7 +177,7 @@ public interface MessageDriven extends JavaeeDomModelElement {
 	 * </pre>
          * @return the value of the ejb-class child
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PsiClass> getEjbClass();
 
 
@@ -194,7 +194,7 @@ public interface MessageDriven extends JavaeeDomModelElement {
 	 * </pre>
          * @return the value of the transaction-type child
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<TransactionType> getTransactionType();
 
 

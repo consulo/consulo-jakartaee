@@ -16,6 +16,9 @@
 
 package com.intellij.javaee.model;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.codeInsight.CodeInsightBundle;
 import com.intellij.javaee.model.common.EjbReference;
 import com.intellij.javaee.model.common.Resource;
@@ -29,15 +32,13 @@ import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.DomUtil;
 import com.intellij.util.xml.converters.AbstractMemberResolveConverter;
 import com.intellij.util.xml.converters.AbstractMethodResolveConverter;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * @author Gregory.Shrago
  */
 public class EjbInjectionTargetConverter extends AbstractMemberResolveConverter {
 
-  @NotNull
+  @Nonnull
   protected PsiType getPsiType(final ConvertContext context) {
     final Resource resource;
     final EjbReference ejbReference;
@@ -77,7 +78,7 @@ public class EjbInjectionTargetConverter extends AbstractMemberResolveConverter 
     return injectionTarget == null? null : injectionTarget.getInjectionTargetClass().getValue();
   }
 
-  @NotNull
+  @Nonnull
   protected PropertyMemberType[] getMemberTypes(final ConvertContext context) {
     return new PropertyMemberType[] { PropertyMemberType.SETTER, PropertyMemberType.FIELD};
   }

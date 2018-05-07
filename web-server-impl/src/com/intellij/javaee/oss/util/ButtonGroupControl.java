@@ -6,7 +6,7 @@ package com.intellij.javaee.oss.util;
 
 import com.intellij.util.xml.ui.BaseModifiableControl;
 import com.intellij.util.xml.ui.DomWrapper;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 import javax.swing.*;
 import java.awt.event.*;

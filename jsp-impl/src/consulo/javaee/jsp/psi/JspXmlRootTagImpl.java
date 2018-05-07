@@ -1,6 +1,6 @@
 package consulo.javaee.jsp.psi;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.psi.impl.source.jsp.jspXml.JspXmlRootTag;
 import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.psi.impl.JspElementVisitor;
@@ -17,7 +17,7 @@ public class JspXmlRootTagImpl extends JspXmlTagBaseImpl implements JspXmlRootTa
 		super(JspElements.JSP_ROOT_TAG);
 	}
 
-	@NotNull
+	@Nonnull
 	@RequiredReadAction
 	@Override
 	public String getName()
@@ -26,7 +26,7 @@ public class JspXmlRootTagImpl extends JspXmlTagBaseImpl implements JspXmlRootTa
 	}
 
 	@Override
-	public void accept(@NotNull JspElementVisitor visitor)
+	public void accept(@Nonnull JspElementVisitor visitor)
 	{
 		visitor.visitElement(this);
 	}

@@ -9,7 +9,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.execution.Executor;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.openapi.options.ConfigurationException;
@@ -37,7 +37,7 @@ import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
  */
 public class JavaEEStartupConfigurationEditor extends SettingsEditor<JavaEEConfigurationImpl>
 {
-	@NotNull
+	@Nonnull
 	@Override
 	protected JComponent createEditor()
 	{
@@ -46,7 +46,7 @@ public class JavaEEStartupConfigurationEditor extends SettingsEditor<JavaEEConfi
 		executorList.setCellRenderer(new ColoredListCellRenderer<Executor>()
 		{
 			@Override
-			protected void customizeCellRenderer(@NotNull JList<? extends Executor> list, Executor value, int index, boolean selected, boolean hasFocus)
+			protected void customizeCellRenderer(@Nonnull JList<? extends Executor> list, Executor value, int index, boolean selected, boolean hasFocus)
 			{
 				setIcon(value.getIcon());
 				append(value.getActionName());

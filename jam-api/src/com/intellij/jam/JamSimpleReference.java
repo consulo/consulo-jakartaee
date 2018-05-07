@@ -15,12 +15,13 @@
  */
 package com.intellij.jam;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiLiteral;
 import com.intellij.psi.PsiReferenceBase;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.ObjectUtils;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author peter
@@ -45,13 +46,13 @@ public class JamSimpleReference<T> extends PsiReferenceBase<PsiLiteral> {
     return element == null? myContext.getPsiLiteral() : element;
   }
 
-  @NotNull
+  @Nonnull
   public Object[] getVariants() {
     return myConverter.getLookupVariants(myContext);
   }
 
   @Override
-  public PsiElement bindToElement(@NotNull PsiElement element) throws IncorrectOperationException {
+  public PsiElement bindToElement(@Nonnull PsiElement element) throws IncorrectOperationException {
     return myConverter.bindReference(myContext, element);
   }
 }

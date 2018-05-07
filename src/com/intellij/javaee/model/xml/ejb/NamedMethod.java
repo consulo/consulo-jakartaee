@@ -19,13 +19,14 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.NamedMethodResolveConverter;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.psi.PsiMethod;
 import com.intellij.util.xml.Convert;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:named-methodType interface.
@@ -44,7 +45,7 @@ public interface NamedMethod extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the method-name child.
 	 */
-	@NotNull
+	@Nonnull
         @SubTag("method-name")
         @Convert(NamedMethodResolveConverter.class)
         GenericDomValue<PsiMethod> getMethod();

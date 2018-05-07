@@ -15,15 +15,16 @@
  */
 package com.intellij.jam;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.*;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author peter
  */
 public class JamTypeAttributeElement extends JamAttributeElement<PsiType> {
 
-  public JamTypeAttributeElement(@NotNull PsiElementRef<PsiAnnotation> parent, String attributeName) {
+  public JamTypeAttributeElement(@Nonnull PsiElementRef<PsiAnnotation> parent, String attributeName) {
     super(attributeName, parent);
   }
 

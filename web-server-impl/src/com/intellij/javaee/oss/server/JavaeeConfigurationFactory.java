@@ -4,10 +4,11 @@
 
 package com.intellij.javaee.oss.server;
 
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+
 import com.intellij.execution.configuration.ConfigurationFactoryEx;
 import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.execution.configurations.RunConfiguration;
@@ -61,7 +62,7 @@ public abstract class JavaeeConfigurationFactory extends ConfigurationFactoryEx
 		return factory.createJ2EERunConfiguration(this, project, createServerModel(), myBundleType, myLocal, createPolicy());
 	}
 
-	@NotNull
+	@Nonnull
 	protected abstract ServerModel createServerModel();
 
 	@Nullable

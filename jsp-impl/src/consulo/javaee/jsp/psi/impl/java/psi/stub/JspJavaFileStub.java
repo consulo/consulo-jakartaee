@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.psi.impl.java.psi.stub;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiJavaFile;
@@ -34,14 +35,14 @@ public class JspJavaFileStub extends PsiFileStubImpl<PsiJavaFile> implements Psi
 		myLanguageLevel = languageLevel;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public IStubFileElementType getType()
 	{
 		return (IStubFileElementType) JspJavaStubElements.JAVA_IN_JSP_FILE;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiClass[] getClasses()
 	{
@@ -72,7 +73,7 @@ public class JspJavaFileStub extends PsiFileStubImpl<PsiJavaFile> implements Psi
 		return false;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public StubPsiFactory getPsiFactory()
 	{

@@ -20,7 +20,7 @@
 package com.intellij.javaee.model.xml;
 
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:propertyType interface.
@@ -39,7 +39,7 @@ public interface Property extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getName();
 
 
@@ -51,7 +51,7 @@ public interface Property extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the value child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getValue();
 
 

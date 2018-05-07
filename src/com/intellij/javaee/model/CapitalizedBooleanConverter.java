@@ -19,7 +19,7 @@ import com.intellij.javaee.J2EEBundle;
 import com.intellij.openapi.util.Pair;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.ResolvingConverter;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -45,7 +45,7 @@ public abstract class CapitalizedBooleanConverter extends ResolvingConverter<Boo
     return J2EEBundle.message("value.should.either.0.or.1", strings.first, strings.second);
   }
 
-  @NotNull
+  @Nonnull
   public Collection<? extends Boolean> getVariants(final ConvertContext context) {
     return Arrays.asList(Boolean.TRUE, Boolean.FALSE);
   }

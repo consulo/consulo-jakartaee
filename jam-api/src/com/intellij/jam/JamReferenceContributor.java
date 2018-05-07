@@ -27,7 +27,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.semantic.SemService;
 import com.intellij.util.ProcessingContext;
 import com.intellij.util.containers.ContainerUtil;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -44,11 +44,11 @@ public class JamReferenceContributor extends PsiReferenceContributor {
                        PsiJavaPatterns.psiElement(PsiArrayInitializerMemberValue.class).withParent(NAME_VALUE_PAIR)
     ));
 
-  public void registerReferenceProviders(@NotNull PsiReferenceRegistrar registrar) {
+  public void registerReferenceProviders(@Nonnull PsiReferenceRegistrar registrar) {
     registrar.registerReferenceProvider(STRING_IN_ANNO, new PsiReferenceProvider() {
-      @NotNull
+      @Nonnull
       @Override
-      public PsiReference[] getReferencesByElement(@NotNull PsiElement element, @NotNull ProcessingContext context) {
+      public PsiReference[] getReferencesByElement(@Nonnull PsiElement element, @Nonnull ProcessingContext context) {
         final PsiNameValuePair pair = PsiTreeUtil.getParentOfType(element, PsiNameValuePair.class);
         final PsiAnnotation anno = (PsiAnnotation)pair.getParent().getParent();
         final PsiAnnotation originalAnno = CompletionUtil.getOriginalOrSelf(anno);

@@ -21,7 +21,7 @@ import com.intellij.execution.configurations.ParametersList;
 import com.intellij.execution.process.OSProcessHandler;
 import com.intellij.util.ArrayUtil;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -67,7 +67,7 @@ public class CommandLineExecutableObject implements ExecutableObject {
     return createProcessHandler(commandLine);
   }
 
-  @NotNull
+  @Nonnull
   protected OSProcessHandler createProcessHandler(GeneralCommandLine commandLine) throws ExecutionException {
     return new OSProcessHandler(commandLine);
   }

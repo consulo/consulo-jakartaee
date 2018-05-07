@@ -7,8 +7,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.idea.tomcat.TomcatBundle;
 import org.jetbrains.idea.tomcat.TomcatConstants;
 import org.jetbrains.idea.tomcat.TomcatStartupPolicy;
@@ -48,7 +49,7 @@ public class TomcatIntegration extends JavaeeIntegration
     return AppServerIntegrationsManager.getInstance().getIntegration(TomcatIntegration.class);
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public String getName() {
     return TomcatBundle.message("tomcat.application.server.name");
@@ -68,7 +69,7 @@ public class TomcatIntegration extends JavaeeIntegration
     return libDir.isDirectory() && !findFilesByMask(jarPattern, libDir).isEmpty();
   }
 
-  private static List<File> findFilesByMask(@NotNull Pattern pattern, @NotNull File dir) {
+  private static List<File> findFilesByMask(@Nonnull Pattern pattern, @Nonnull File dir) {
     final ArrayList<File> found = new ArrayList<File>();
     final File[] files = dir.listFiles();
     if (files != null) {
@@ -123,13 +124,13 @@ public class TomcatIntegration extends JavaeeIntegration
     return null;
   }
 
-  @NotNull
+  @Nonnull
   public ApplicationServerUrlMapping getDeployedFileUrlProvider() {
     return TomcatUrlMapping.INSTANCE;
   }
 
   @Override
-  public boolean isStartupScriptTerminating(@NotNull ExecutableObject startupScript) {
+  public boolean isStartupScriptTerminating(@Nonnull ExecutableObject startupScript) {
     if (startupScript instanceof ColoredCommandLineExecutableObject) {
       final String[] parameters = ((ColoredCommandLineExecutableObject)startupScript).getParameters();
       if (parameters.length >= 2) {

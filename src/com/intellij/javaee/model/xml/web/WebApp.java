@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml.web;
 
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.javaee.model.enums.WebAppVersion;
 import com.intellij.javaee.model.xml.*;
 import com.intellij.util.xml.GenericAttributeValue;
@@ -39,7 +39,7 @@ public interface WebApp extends JavaeeDomModelElement, DescriptionGroup, JndiEnv
 	 * Returns the value of the version child.
 	 * @return the value of the version child.
 	 */
-	@NotNull
+	@Nonnull
 	@Stubbed
 	GenericAttributeValue<WebAppVersion> getVersion();
 

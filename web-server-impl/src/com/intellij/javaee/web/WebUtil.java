@@ -20,9 +20,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.javaee.artifact.JavaeeArtifactUtil;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.facet.JavaeeFacetUtil;
@@ -76,13 +78,13 @@ public abstract class WebUtil
 	}
 
 	@Nullable
-	public static JavaWebModuleExtension getWebFacet(@NotNull JavaeeModelElement element)
+	public static JavaWebModuleExtension getWebFacet(@Nonnull JavaeeModelElement element)
 	{
 		return JavaeeFacetUtil.getInstance().getJavaeeFacet(element, JavaWebModuleExtension.class);
 	}
 
 	@Nullable
-	public static JavaWebModuleExtension getWebFacet(@NotNull PsiElement element)
+	public static JavaWebModuleExtension getWebFacet(@Nonnull PsiElement element)
 	{
 		return JavaeeFacetUtil.getInstance().getJavaeeFacet(element, JavaWebModuleExtension.class);
 	}
@@ -139,21 +141,21 @@ public abstract class WebUtil
 	}
 
 	@Nullable
-	public static Servlet findServlet(@NotNull JavaWebModuleExtension webFacet, final String name)
+	public static Servlet findServlet(@Nonnull JavaWebModuleExtension webFacet, final String name)
 	{
 		final WebApp root = webFacet.getRoot();
 		return root == null ? null : DomUtil.findByName(root.getServlets(), name);
 	}
 
 	@Nullable
-	public static Filter findFilter(@NotNull JavaWebModuleExtension webFacet, final String name)
+	public static Filter findFilter(@Nonnull JavaWebModuleExtension webFacet, final String name)
 	{
 		final WebApp root = webFacet.getRoot();
 		return root == null ? null : DomUtil.findByName(root.getFilters(), name);
 	}
 
-	@NotNull
-	public static TextRange trimRange(@NotNull String url, TextRange range)
+	@Nonnull
+	public static TextRange trimRange(@Nonnull String url, TextRange range)
 	{
 		for(int i = 0; i < url.length(); i++)
 		{
@@ -169,8 +171,8 @@ public abstract class WebUtil
 	}
 
 
-	@NotNull
-	public static String trimURL(@NotNull String url)
+	@Nonnull
+	public static String trimURL(@Nonnull String url)
 	{
 		return PathReference.trimPath(url);
 	}
@@ -201,7 +203,7 @@ public abstract class WebUtil
 
 	}
 
-	public static int getLastPosOfURL(@NotNull String url)
+	public static int getLastPosOfURL(@Nonnull String url)
 	{
 		for(int i = 0; i < url.length(); i++)
 		{
@@ -218,10 +220,10 @@ public abstract class WebUtil
 	@Nullable
 	public abstract JspFile getJspFile(Servlet servlet);
 
-	public abstract WebDirectoryElement createWebDirectoryElement(JavaWebModuleExtension webFacet, @NotNull String path, boolean isDirectory);
+	public abstract WebDirectoryElement createWebDirectoryElement(JavaWebModuleExtension webFacet, @Nonnull String path, boolean isDirectory);
 
 	@Nullable
-	public abstract WebModel getLocalWebModel(@NotNull XmlFile file);
+	public abstract WebModel getLocalWebModel(@Nonnull XmlFile file);
 
 	@Nullable
 	public static String getRelativePath(WebDirectoryElement src, WebDirectoryElement dst)
@@ -354,17 +356,17 @@ public abstract class WebUtil
 	}
 
 	@Nullable
-	public abstract WebDirectoryElement findWebDirectoryByFile(@NotNull final VirtualFile file, @NotNull final JavaWebModuleExtension webFacet);
+	public abstract WebDirectoryElement findWebDirectoryByFile(@Nonnull final VirtualFile file, @Nonnull final JavaWebModuleExtension webFacet);
 
 	@Nullable
-	public static WebDirectoryElement findWebDirectoryByFile(@NotNull final VirtualFile file, Project project)
+	public static WebDirectoryElement findWebDirectoryByFile(@Nonnull final VirtualFile file, Project project)
 	{
 		final JavaWebModuleExtension webFacet = getWebFacet(file, project);
 		return webFacet == null ? null : getWebUtil().findWebDirectoryByFile(file, webFacet);
 	}
 
 	@Nullable
-	public static WebDirectoryElement findWebDirectoryByFile(@NotNull final PsiFileSystemItem file)
+	public static WebDirectoryElement findWebDirectoryByFile(@Nonnull final PsiFileSystemItem file)
 	{
 		VirtualFile virtualFile = file.getVirtualFile();
 		final JavaWebModuleExtension webFacet = getWebFacet(file);
@@ -376,7 +378,7 @@ public abstract class WebUtil
 	}
 
 	@Nullable
-	public abstract WebDirectoryElement getParentWebDirectory(@NotNull PsiFile file);
+	public abstract WebDirectoryElement getParentWebDirectory(@Nonnull PsiFile file);
 
 	@Nullable
 	public abstract WebDirectoryElement getContainingWebDirectory(JspxFileViewProvider viewProvider);
@@ -385,7 +387,7 @@ public abstract class WebUtil
 	public abstract String getWebPath(PsiFile file);
 
 	@Nullable
-	public abstract WebDirectoryElement findWebDirectoryElement(@NotNull @NonNls String path, @NotNull JavaWebModuleExtension facet);
+	public abstract WebDirectoryElement findWebDirectoryElement(@Nonnull @NonNls String path, @Nonnull JavaWebModuleExtension facet);
 
 	public static boolean processMatchingJspGroups(PsiFile file, Processor<JspPropertyGroup> processor)
 	{
@@ -428,7 +430,7 @@ public abstract class WebUtil
 		return false;
 	}
 
-	@NotNull
+	@Nonnull
 	public static List<PathReference> getPreludes(BaseJspFile file)
 	{
 
@@ -459,7 +461,7 @@ public abstract class WebUtil
 		return result;
 	}
 
-	public static boolean pathMatchesUrlPattern(@NotNull String path, @NotNull String pattern)
+	public static boolean pathMatchesUrlPattern(@Nonnull String path, @Nonnull String pattern)
 	{
 		if(pattern.endsWith("/*"))
 		{
@@ -475,7 +477,7 @@ public abstract class WebUtil
 	}
 
 	@Nullable
-	public static JavaWebModuleExtension findFacetByFileUnderWebRoot(@NotNull VirtualFile file, @NotNull Project project)
+	public static JavaWebModuleExtension findFacetByFileUnderWebRoot(@Nonnull VirtualFile file, @Nonnull Project project)
 	{
 		final Module module = ModuleUtilCore.findModuleForFile(file, project);
 		if(module == null)
@@ -497,11 +499,11 @@ public abstract class WebUtil
 	/**
 	 * @return List of WebDirectoryElements
 	 */
-	public abstract Collection<PsiFileSystemItem> getContextsByPath(final String path, final @NotNull Module module);
+	public abstract Collection<PsiFileSystemItem> getContextsByPath(final String path, final @Nonnull Module module);
 
-	public abstract void visitAllFacets(final @NotNull Module module, final Consumer<JavaWebModuleExtension> visitor);
+	public abstract void visitAllFacets(final @Nonnull Module module, final Consumer<JavaWebModuleExtension> visitor);
 
-	public static VirtualFile findSourceFile(@NotNull String relative, @NotNull CommonModel commonModel, @NotNull Function<DeploymentModel, String> fun)
+	public static VirtualFile findSourceFile(@Nonnull String relative, @Nonnull CommonModel commonModel, @Nonnull Function<DeploymentModel, String> fun)
 	{
 		Pair<DeploymentModel, String> deploymentModel = findDeploymentModel(UriUtil.trimTrailingSlashes(relative), commonModel, fun);
 		if(deploymentModel == null)

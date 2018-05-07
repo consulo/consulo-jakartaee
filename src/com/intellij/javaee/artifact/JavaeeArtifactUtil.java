@@ -2,8 +2,8 @@ package com.intellij.javaee.artifact;
 
 import java.util.Collection;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.libraries.Library;
@@ -23,15 +23,15 @@ public abstract class JavaeeArtifactUtil {
 
   public abstract Collection<? extends ArtifactType> getAllJavaeeArtifactTypes();
 
-  public abstract <F extends JavaEEModuleExtension<?>> Collection<F> getFacetsIncludedInArtifact(@NotNull Project project, @NotNull Artifact artifact,
+  public abstract <F extends JavaEEModuleExtension<?>> Collection<F> getFacetsIncludedInArtifact(@Nonnull Project project, @Nonnull Artifact artifact,
                                                                                     @Nullable Class<F> facetType);
 
-  @NotNull
-  public abstract Collection<Artifact> getArtifactsContainingFacet(@NotNull JavaEEModuleExtension facet, @Nullable ArtifactType artifactType);
+  @Nonnull
+  public abstract Collection<Artifact> getArtifactsContainingFacet(@Nonnull JavaEEModuleExtension facet, @Nullable ArtifactType artifactType);
 
-  public abstract boolean isJavaeeApplication(@NotNull ArtifactType artifactType);
+  public abstract boolean isJavaeeApplication(@Nonnull ArtifactType artifactType);
 
-  public abstract boolean isEjbApplication(@NotNull ArtifactType artifactType);
+  public abstract boolean isEjbApplication(@Nonnull ArtifactType artifactType);
 
   public abstract ArtifactType getExplodedEarArtifactType();
 
@@ -41,15 +41,15 @@ public abstract class JavaeeArtifactUtil {
 
   public abstract ArtifactType getEjbJarArtifactType();
 
-  public abstract PackagingElement<?> createFacetResourcesElement(@NotNull JavaEEModuleExtension facet);
+  public abstract PackagingElement<?> createFacetResourcesElement(@Nonnull JavaEEModuleExtension facet);
 
   public abstract boolean isArchive(ArtifactType artifactType);
 
-  @NotNull
-  public abstract Collection<Artifact> getArtifactsContainingFacet(@NotNull JavaEEModuleExtension facet, PackagingElementResolvingContext context, Collection<? extends ArtifactType> artifactTypes, boolean transitively);
+  @Nonnull
+  public abstract Collection<Artifact> getArtifactsContainingFacet(@Nonnull JavaEEModuleExtension facet, PackagingElementResolvingContext context, Collection<? extends ArtifactType> artifactTypes, boolean transitively);
 
-  public abstract void addLibraryToAllArtifactsContainingFacet(@NotNull Library library, @NotNull JavaEEModuleExtension facet);
+  public abstract void addLibraryToAllArtifactsContainingFacet(@Nonnull Library library, @Nonnull JavaEEModuleExtension facet);
 
   @Nullable
-  public abstract String getRelativePath(@NotNull JavaEEModuleExtension from, @NotNull JavaEEModuleExtension to);
+  public abstract String getRelativePath(@Nonnull JavaEEModuleExtension from, @Nonnull JavaEEModuleExtension to);
 }

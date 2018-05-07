@@ -3,9 +3,11 @@ package consulo.javaee.deployment.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import org.jdom.Element;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentSettings;
 import com.intellij.javaee.run.configuration.CommonModel;
@@ -35,7 +37,7 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings
 		myCommonModel = commonModel;
 	}
 
-	public void addModel(@NotNull DeploymentModel model)
+	public void addModel(@Nonnull DeploymentModel model)
 	{
 		myItems.add(model);
 	}
@@ -45,7 +47,7 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings
 		myItems.clear();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public List<DeploymentModel> getDeploymentModels()
 	{
@@ -53,14 +55,14 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings
 	}
 
 	@Override
-	public void removeModel(@NotNull DeploymentModel model)
+	public void removeModel(@Nonnull DeploymentModel model)
 	{
 		myItems.remove(model);
 	}
 
 	@Nullable
 	@Override
-	public DeploymentModel getModel(@NotNull Artifact artifact)
+	public DeploymentModel getModel(@Nonnull Artifact artifact)
 	{
 		for(DeploymentModel item : myItems)
 		{
@@ -73,7 +75,7 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public List<Artifact> getDeployedArtifacts()
 	{
@@ -89,23 +91,23 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings
 		return artifacts;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public List<Artifact> getArtifacts2Build()
 	{
 		return getDeployedArtifacts();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public DeploymentModel getOrCreateModel(@NotNull Artifact artifact)
+	public DeploymentModel getOrCreateModel(@Nonnull Artifact artifact)
 	{
 		return getOrCreateModel(new ArtifactDeploymentSourceImpl(ArtifactPointerUtil.getPointerManager(myProject).create(artifact)));
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public DeploymentModel getOrCreateModel(@NotNull DeploymentSource source)
+	public DeploymentModel getOrCreateModel(@Nonnull DeploymentSource source)
 	{
 		DeploymentModel newDeploymentModel = myBundleType.createNewDeploymentModel(myCommonModel, source);
 		myItems.add(newDeploymentModel);

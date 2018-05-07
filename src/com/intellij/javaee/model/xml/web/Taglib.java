@@ -19,9 +19,10 @@
 
 package com.intellij.javaee.model.xml.web;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:taglibType interface.
@@ -57,7 +58,7 @@ public interface Taglib extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the taglib-uri child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getTaglibUri();
 
 
@@ -85,7 +86,7 @@ public interface Taglib extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the taglib-location child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getTaglibLocation();
 
 

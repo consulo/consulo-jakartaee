@@ -24,7 +24,7 @@ import com.intellij.psi.PsiMethod;
 import com.intellij.util.xml.GenericValue;
 import com.intellij.util.xml.NameValue;
 import com.intellij.util.xml.PrimaryKey;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ import java.util.List;
 @DeleteHandler("com.intellij.openapi.module.EjbDeleteHandler")
 public interface EnterpriseBean extends EnvironmentGroup, SecurityGroup, InterceptorMethodContainer {
 
-  @NotNull
+  @Nonnull
   EjbDescriptorVersion getEjbVersion();
 
   @PrimaryKey

@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.ejb;
 import com.intellij.javaee.model.common.ejb.InterceptorSet;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -55,7 +55,7 @@ public interface Interceptors extends JavaeeDomModelElement, InterceptorSet {
 	 * Returns the list of interceptor children.
 	 * @return the list of interceptor children.
 	 */
-	@NotNull
+	@Nonnull
 	List<Interceptor> getInterceptors();
 	/**
 	 * Adds new child to the list of interceptor children.

@@ -9,7 +9,7 @@ import com.intellij.openapi.application.Result;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.util.Factory;
 import com.intellij.util.xml.DomElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -26,7 +26,7 @@ public abstract class JavaeeEnableEditor<T extends DomElement, P extends DomElem
 
     private JComponent content;
 
-    protected JavaeeEnableEditor(String title, @NotNull final P parent) {
+    protected JavaeeEnableEditor(String title, @Nonnull final P parent) {
         element = parent.getManager().createStableValue(new Factory<T>() {
             public T create() {
                 return createElement(parent);
@@ -69,13 +69,13 @@ public abstract class JavaeeEnableEditor<T extends DomElement, P extends DomElem
         enableChildren(content, element.getXmlTag() != null);
     }
 
-    protected abstract T createElement(@NotNull P parent);
+    protected abstract T createElement(@Nonnull P parent);
 
     protected T getElement() {
         return element;
     }
 
-    protected void undefined(@NotNull P parent) {
+    protected void undefined(@Nonnull P parent) {
     }
 
     protected void setContent(JComponent content) {

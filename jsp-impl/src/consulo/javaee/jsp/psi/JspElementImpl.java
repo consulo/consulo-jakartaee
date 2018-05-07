@@ -1,6 +1,6 @@
 package consulo.javaee.jsp.psi;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElementVisitor;
@@ -12,13 +12,13 @@ import consulo.javaee.jsp.psi.impl.JspElementVisitor;
  */
 public abstract class JspElementImpl extends ASTWrapperPsiElement
 {
-	public JspElementImpl(@NotNull ASTNode node)
+	public JspElementImpl(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
 
 	@Override
-	public void accept(@NotNull PsiElementVisitor visitor)
+	public void accept(@Nonnull PsiElementVisitor visitor)
 	{
 		if(visitor instanceof JspElementVisitor)
 		{
@@ -30,5 +30,5 @@ public abstract class JspElementImpl extends ASTWrapperPsiElement
 		}
 	}
 
-	public abstract void accept(@NotNull JspElementVisitor visitor);
+	public abstract void accept(@Nonnull JspElementVisitor visitor);
 }

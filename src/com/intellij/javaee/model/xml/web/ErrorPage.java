@@ -27,7 +27,7 @@ import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.Convert;
 import com.intellij.util.xml.ExtendClass;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:error-pageType interface.
@@ -58,7 +58,7 @@ public interface ErrorPage extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the location child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PathReference> getLocation();
 
 
@@ -71,7 +71,7 @@ public interface ErrorPage extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the error-code child.
 	 */
-	@NotNull
+	@Nonnull
         @Convert(HttpErrorCodeConverter.class)
 	GenericDomValue<HttpErrorCode> getErrorCode();
 
@@ -94,7 +94,7 @@ public interface ErrorPage extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the exception-type child.
 	 */
-	@NotNull
+	@Nonnull
         @ExtendClass(value = CommonClassNames.JAVA_LANG_EXCEPTION, instantiatable = false)
         GenericDomValue<PsiClass> getExceptionType();
 

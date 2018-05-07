@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.psi;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.impl.PsiModificationTrackerImpl;
@@ -16,19 +17,19 @@ import com.intellij.psi.util.PsiTreeUtil;
  */
 public class JspPsiTreeChangePreprocessor extends PsiTreeChangePreprocessorBase
 {
-	public JspPsiTreeChangePreprocessor(@NotNull PsiManager psiManager)
+	public JspPsiTreeChangePreprocessor(@Nonnull PsiManager psiManager)
 	{
 		super(psiManager);
 	}
 
 	@Override
-	protected boolean acceptsEvent(@NotNull PsiTreeChangeEventImpl event)
+	protected boolean acceptsEvent(@Nonnull PsiTreeChangeEventImpl event)
 	{
 		return event.getFile() instanceof JspFile;
 	}
 
 	@Override
-	protected boolean isOutOfCodeBlock(@NotNull PsiElement element)
+	protected boolean isOutOfCodeBlock(@Nonnull PsiElement element)
 	{
 		if(PsiTreeUtil.getParentOfType(element, JspDirective.class) != null)
 		{

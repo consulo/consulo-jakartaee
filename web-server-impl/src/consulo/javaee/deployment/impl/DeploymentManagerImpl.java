@@ -3,8 +3,8 @@ package consulo.javaee.deployment.impl;
 import java.io.File;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.deployment.DeploymentManager;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentProvider;
@@ -34,9 +34,9 @@ public class DeploymentManagerImpl extends DeploymentManager
 
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public DeploymentStatus getDeploymentStatus(@NotNull DeploymentModel model, CommonModel instanceConfiguration)
+	public DeploymentStatus getDeploymentStatus(@Nonnull DeploymentModel model, CommonModel instanceConfiguration)
 	{
 		return DeploymentStatus.DISCONNECTED;
 	}
@@ -99,14 +99,14 @@ public class DeploymentManagerImpl extends DeploymentManager
 
 	@Nullable
 	@Override
-	public DeploymentModel getModelForFacet(@NotNull CommonModel commonModel, @NotNull JavaEEModuleExtension facet)
+	public DeploymentModel getModelForFacet(@Nonnull CommonModel commonModel, @Nonnull JavaEEModuleExtension facet)
 	{
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public List<Artifact> getSupportedArtifacts(@NotNull DeploymentProvider deploymentProvider)
+	public List<Artifact> getSupportedArtifacts(@Nonnull DeploymentProvider deploymentProvider)
 	{
 		return null;
 	}

@@ -1,6 +1,6 @@
 package com.intellij.javaee.oss.descriptor;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.javaee.facet.DescriptorMetaDataProvider;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
 
@@ -18,7 +18,7 @@ public abstract class JavaeeDescriptorsProviderBase extends DescriptorMetaDataPr
 	}
 
 	@Override
-	public void registerDescriptors(@NotNull MetaDataRegistry registry)
+	public void registerDescriptors(@Nonnull MetaDataRegistry registry)
 	{
 
 	}

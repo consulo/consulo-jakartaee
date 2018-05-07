@@ -16,8 +16,9 @@
 
 package consulo.javaee.jsp.highlight;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import com.intellij.openapi.project.Project;
@@ -29,7 +30,7 @@ import com.intellij.openapi.vfs.VirtualFile;
  */
 public class JspSyntaxHighlighterFactory extends SyntaxHighlighterFactory
 {
-	@NotNull
+	@Nonnull
 	@Override
 	public SyntaxHighlighter getSyntaxHighlighter(@Nullable Project project, @Nullable VirtualFile virtualFile)
 	{

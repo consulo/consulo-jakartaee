@@ -18,7 +18,7 @@ package com.intellij.jam.reflect;
 import com.intellij.jam.JamNumberAttributeElement;
 import com.intellij.psi.PsiAnnotation;
 import com.intellij.psi.PsiElementRef;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ public abstract class JamNumberAttributeMeta<T extends Number, JamType> extends 
       super(attrName, numberClass);
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public JamNumberAttributeElement<T> getJam(PsiElementRef<PsiAnnotation> anno) {
       return new JamNumberAttributeElement<>(getAttributeLink().getAttributeName(), anno, myClass);
@@ -74,7 +74,7 @@ public abstract class JamNumberAttributeMeta<T extends Number, JamType> extends 
       super(attrName, numberClass);
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public List<JamNumberAttributeElement<T>> getJam(PsiElementRef<PsiAnnotation> anno) {
       return getCollectionJam(anno, psiAnnotationMemberValue -> new JamNumberAttributeElement<>(psiAnnotationMemberValue, myClass));

@@ -18,10 +18,10 @@ package com.intellij.javaee.appServerIntegrations;
 import java.util.Collection;
 import java.util.Collections;
 
+import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptor;
 import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptorFactory;
 import com.intellij.javaee.deployment.DeploymentProvider;
@@ -59,18 +59,18 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
   }*/
 
 	@Nullable
-	public AppServerSpecificValidator getAppServerSpecificValidator(@NotNull JavaEEModuleExtension facet, @NotNull ApplicationServer server)
+	public AppServerSpecificValidator getAppServerSpecificValidator(@Nonnull JavaEEModuleExtension facet, @Nonnull ApplicationServer server)
 	{
 		return null;
 	}
 
 	@Nullable
-	public AppServerSpecificValidator getAppServerSpecificValidator(@NotNull ApplicationServer server, final ArtifactType artifactType, @NotNull Project project)
+	public AppServerSpecificValidator getAppServerSpecificValidator(@Nonnull ApplicationServer server, final ArtifactType artifactType, @Nonnull Project project)
 	{
 		return null;
 	}
 
-	public boolean isStartupScriptTerminating(@NotNull ExecutableObject startupScript)
+	public boolean isStartupScriptTerminating(@Nonnull ExecutableObject startupScript)
 	{
 		return false;
 	}
@@ -91,7 +91,7 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	public AppServerDeployedFileUrlProvider getDeployedFileUrlProvider()
 	{
 		return AppServerDeployedFileUrlProvider.DEFAULT;
@@ -100,7 +100,7 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
 	/**
 	 * @deprecated override {@link com.intellij.javaee.deployment.DeploymentProvider#getSupportedArtifactTypes()} instead
 	 */
-	@NotNull
+	@Nonnull
 	public Collection<Class<? extends JavaEEModuleExtension>> getSupportedFacetTypes()
 	{
 		return Collections.emptyList();

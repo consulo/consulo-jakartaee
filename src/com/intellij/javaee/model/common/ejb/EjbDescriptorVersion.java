@@ -20,7 +20,7 @@ import com.intellij.javaee.model.common.JavaeeCommonConstants;
 import com.intellij.util.descriptors.ConfigFileVersion;
 import com.intellij.util.xml.NamedEnum;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,11 +40,13 @@ public enum EjbDescriptorVersion implements NamedEnum {
   EJB_VERSION_3_2("3.2", EJB_JAR_VERSION_3_1, JavaeeVersion.JAVAEE_7);//todo[nik] add template for version 3.2
 
   private final String myName;
-  @NotNull private final ConfigFileVersion myConfigFileVersion;
-  @NotNull private final JavaeeVersion myJavaeeVersion;
+  @Nonnull
+  private final ConfigFileVersion myConfigFileVersion;
+  @Nonnull
+  private final JavaeeVersion myJavaeeVersion;
   private final String[] myAllowedNamespaces;
 
-  EjbDescriptorVersion(@NonNls final String name, @NotNull ConfigFileVersion configFileVersion, @NotNull JavaeeVersion javaeeVersion, @NonNls String... allowedNamespaces) {
+  EjbDescriptorVersion(@NonNls final String name, @Nonnull ConfigFileVersion configFileVersion, @Nonnull JavaeeVersion javaeeVersion, @NonNls String... allowedNamespaces) {
     myName = name;
     myConfigFileVersion = configFileVersion;
     myJavaeeVersion = javaeeVersion;
@@ -55,12 +57,12 @@ public enum EjbDescriptorVersion implements NamedEnum {
     return myName;
   }
 
-  @NotNull
+  @Nonnull
   public ConfigFileVersion getConfigFileVersion() {
     return myConfigFileVersion;
   }
 
-  @NotNull
+  @Nonnull
   public JavaeeVersion getJavaeeVersion() {
     return myJavaeeVersion;
   }

@@ -1,9 +1,9 @@
 package com.intellij.javaee.ui.packaging;
 
+import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.intellij.packaging.artifacts.ArtifactType;
 import com.intellij.packaging.elements.CompositePackagingElement;
 import com.intellij.packaging.elements.PackagingElementOutputKind;
@@ -28,7 +28,7 @@ public class ExplodedEarArtifactType extends ArtifactType
 		super("exploded-ear", "JavaEE Application: Exploded");
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Icon getIcon()
 	{
@@ -37,14 +37,14 @@ public class ExplodedEarArtifactType extends ArtifactType
 
 	@Nullable
 	@Override
-	public String getDefaultPathFor(@NotNull PackagingElementOutputKind packagingElementOutputKind)
+	public String getDefaultPathFor(@Nonnull PackagingElementOutputKind packagingElementOutputKind)
 	{
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public CompositePackagingElement<?> createRootElement(@NotNull String s)
+	public CompositePackagingElement<?> createRootElement(@Nonnull String s)
 	{
 		return null;
 	}

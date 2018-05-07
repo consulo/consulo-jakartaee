@@ -15,11 +15,11 @@
  */
 package com.intellij.javaee.run.configuration;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.execution.configurations.RunConfiguration;
@@ -64,7 +64,7 @@ public abstract class J2EEConfigurationType implements ConfigurationType
 		return getBundleType().getIntegration();
 	}
 
-	@NotNull
+	@Nonnull
 	public JavaEEServerBundleType getBundleType()
 	{
 		throw new UnsupportedOperationException();
@@ -72,18 +72,18 @@ public abstract class J2EEConfigurationType implements ConfigurationType
 
 	@Nullable
 	@NonNls
-	public String getUrlToOpenInBrowser(@NotNull Sdk server, @NotNull PsiFile psiFile)
+	public String getUrlToOpenInBrowser(@Nonnull Sdk server, @Nonnull PsiFile psiFile)
 	{
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	public Icon getLocalIcon()
 	{
 		return getIcon();
 	}
 
-	@NotNull
+	@Nonnull
 	public Icon getRemoteIcon()
 	{
 		return getIcon();

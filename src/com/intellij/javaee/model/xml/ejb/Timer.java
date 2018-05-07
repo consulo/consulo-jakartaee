@@ -23,7 +23,7 @@ import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Required;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -67,7 +67,7 @@ public interface Timer extends JavaeeDomModelElement {
 	 * Returns the list of description children.
 	 * @return the list of description children.
 	 */
-	@NotNull
+	@Nonnull
 	List<Description> getDescriptions();
 	/**
 	 * Adds new child to the list of description children.
@@ -80,7 +80,7 @@ public interface Timer extends JavaeeDomModelElement {
 	 * Returns the value of the schedule child.
 	 * @return the value of the schedule child.
 	 */
-	@NotNull
+	@Nonnull
 	@Required
 	TimerSchedule getSchedule();
 
@@ -89,7 +89,7 @@ public interface Timer extends JavaeeDomModelElement {
 	 * Returns the value of the start child.
 	 * @return the value of the start child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getStart();
 
 
@@ -97,7 +97,7 @@ public interface Timer extends JavaeeDomModelElement {
 	 * Returns the value of the end child.
 	 * @return the value of the end child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getEnd();
 
 
@@ -105,7 +105,7 @@ public interface Timer extends JavaeeDomModelElement {
 	 * Returns the value of the timeout-method child.
 	 * @return the value of the timeout-method child.
 	 */
-	@NotNull
+	@Nonnull
 	@Required
 	NamedMethod getTimeoutMethod();
 
@@ -121,7 +121,7 @@ public interface Timer extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the persistent child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<Boolean> getPersistent();
 
 
@@ -137,7 +137,7 @@ public interface Timer extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the timezone child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getTimezone();
 
 
@@ -153,7 +153,7 @@ public interface Timer extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the info child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getInfo();
 
 

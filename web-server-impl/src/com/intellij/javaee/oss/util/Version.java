@@ -1,6 +1,6 @@
 package com.intellij.javaee.oss.util;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL

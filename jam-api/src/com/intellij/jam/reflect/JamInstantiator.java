@@ -15,27 +15,28 @@
  */
 package com.intellij.jam.reflect;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.jam.JamClassGenerator;
 import com.intellij.jam.JamElement;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementRef;
 import com.intellij.util.NotNullFunction;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author peter
  */
 public abstract class JamInstantiator<Psi extends PsiElement, Jam extends JamElement> {
 
-  @NotNull
-  public abstract Jam instantiate(@NotNull PsiElementRef<Psi> ref);
+  @Nonnull
+  public abstract Jam instantiate(@Nonnull PsiElementRef<Psi> ref);
 
   public static <Psi extends PsiElement, Jam extends JamElement> JamInstantiator<Psi, Jam> proxied(final Class<Jam> jamClass) {
     final NotNullFunction<PsiElementRef,Jam> function = JamClassGenerator.getInstance().generateJamElementFactory(jamClass);
     return new JamInstantiator<Psi, Jam>() {
-      @NotNull
+      @Nonnull
       @Override
-      public Jam instantiate(@NotNull PsiElementRef<Psi> psiPsiRef) {
+      public Jam instantiate(@Nonnull PsiElementRef<Psi> psiPsiRef) {
         return function.fun(psiPsiRef);
       }
     };

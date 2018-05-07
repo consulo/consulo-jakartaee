@@ -19,12 +19,13 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.QueryMethodResolveConverter;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.psi.PsiMethod;
 import com.intellij.util.xml.Convert;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:query-methodType interface.
@@ -65,7 +66,7 @@ public interface QueryMethod extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the method-name child.
 	 */
-	@NotNull
+	@Nonnull
         @Convert(QueryMethodResolveConverter.class)
         GenericDomValue<PsiMethod> getMethodName();
 
@@ -74,7 +75,7 @@ public interface QueryMethod extends JavaeeDomModelElement {
 	 * Returns the value of the method-params child.
 	 * @return the value of the method-params child.
 	 */
-	@NotNull
+	@Nonnull
 	MethodParams getMethodParams();
 
 

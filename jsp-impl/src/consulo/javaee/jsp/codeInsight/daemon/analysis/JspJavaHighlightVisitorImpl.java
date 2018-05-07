@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.codeInsight.daemon.analysis;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder;
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightVisitorImpl;
 import com.intellij.lang.java.JavaLanguage;
@@ -16,14 +17,14 @@ public class JspJavaHighlightVisitorImpl extends HighlightVisitorImpl
 {
 	private PsiResolveHelper myResolveHelper;
 
-	public JspJavaHighlightVisitorImpl(@NotNull PsiResolveHelper resolveHelper)
+	public JspJavaHighlightVisitorImpl(@Nonnull PsiResolveHelper resolveHelper)
 	{
 		super(resolveHelper);
 		myResolveHelper = resolveHelper;
 	}
 
 	@Override
-	public boolean analyze(@NotNull PsiFile file, boolean updateWholeFile, @NotNull HighlightInfoHolder holder, @NotNull Runnable highlight)
+	public boolean analyze(@Nonnull PsiFile file, boolean updateWholeFile, @Nonnull HighlightInfoHolder holder, @Nonnull Runnable highlight)
 	{
 		PsiFile javaFile = file.getViewProvider().getPsi(JavaLanguage.INSTANCE);
 		if(javaFile == null)
@@ -34,7 +35,7 @@ public class JspJavaHighlightVisitorImpl extends HighlightVisitorImpl
 		return super.analyze(javaFile, updateWholeFile, holder, highlight);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public HighlightVisitorImpl clone()
 	{
@@ -42,7 +43,7 @@ public class JspJavaHighlightVisitorImpl extends HighlightVisitorImpl
 	}
 
 	@Override
-	public boolean suitableForFile(@NotNull PsiFile file)
+	public boolean suitableForFile(@Nonnull PsiFile file)
 	{
 		return file instanceof JspFile;
 	}

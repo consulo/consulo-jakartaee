@@ -26,10 +26,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.codeInsight.MetaAnnotationUtil;
 import com.intellij.ide.DeleteProvider;
 import com.intellij.ide.highlighter.JavaFileType;
@@ -133,7 +135,7 @@ public class JamCommonUtil
 		return !processSuperClassList(firstClass, new SmartList<>(), superClass -> !Comparing.equal(superClass.getQualifiedName(), superClassQName));
 	}
 
-	@NotNull
+	@Nonnull
 	public static List<PsiClass> getSuperClassList(@Nullable final PsiClass firstClass)
 	{
 		final SmartList<PsiClass> list = new SmartList<>();
@@ -141,7 +143,7 @@ public class JamCommonUtil
 		return list;
 	}
 
-	public static boolean processSuperClassList(@Nullable final PsiClass firstClass, @NotNull final Collection<PsiClass> supers, final Processor<PsiClass> processor)
+	public static boolean processSuperClassList(@Nullable final PsiClass firstClass, @Nonnull final Collection<PsiClass> supers, final Processor<PsiClass> processor)
 	{
 		for(PsiClass curClass = firstClass; curClass != null && !CommonClassNames.JAVA_LANG_OBJECT.equals(curClass.getQualifiedName()) && !supers.contains(curClass); curClass = curClass
 				.getSuperClass())
@@ -232,7 +234,7 @@ public class JamCommonUtil
 		return ModuleUtilCore.findModuleForPsiElement(psiFile);
 	}
 
-	@NotNull
+	@Nonnull
 	public static PsiElement[] getTargetPsiElements(final CommonModelElement element)
 	{
 		final ArrayList<PsiElement> list = new ArrayList<>();
@@ -259,7 +261,7 @@ public class JamCommonUtil
 		final PsiElement[] result = list.isEmpty() ? PsiElement.EMPTY_ARRAY : PsiUtilCore.toPsiElementArray(list);
 		Arrays.sort(result, new Comparator<PsiElement>()
 		{
-			public int compare(@NotNull final PsiElement o1, @NotNull final PsiElement o2)
+			public int compare(@Nonnull final PsiElement o1, @Nonnull final PsiElement o2)
 			{
 				return getWeight(o1) - getWeight(o2);
 			}
@@ -330,8 +332,8 @@ public class JamCommonUtil
 	private static final Key<CachedValue<Module[]>> MODULE_DEPENDENCIES = Key.create("MODULE_DEPENDENCIES");
 	private static final Key<CachedValue<Module[]>> MODULE_DEPENDENTS = Key.create("MODULE_DEPENDENTS");
 
-	@NotNull
-	public static Module[] getAllModuleDependencies(@NotNull final Module module)
+	@Nonnull
+	public static Module[] getAllModuleDependencies(@Nonnull final Module module)
 	{
 		return CachedValuesManager.getManager(module.getProject()).getCachedValue(module, MODULE_DEPENDENCIES, () ->
 		{
@@ -340,8 +342,8 @@ public class JamCommonUtil
 		}, false);
 	}
 
-	@NotNull
-	public static Module[] getAllDependentModules(@NotNull final Module module)
+	@Nonnull
+	public static Module[] getAllDependentModules(@Nonnull final Module module)
 	{
 		return CachedValuesManager.getManager(module.getProject()).getCachedValue(module, MODULE_DEPENDENTS, () ->
 		{
@@ -490,7 +492,7 @@ public class JamCommonUtil
 		return new DeleteProvider()
 		{
 			@Override
-			public void deleteElement(@NotNull DataContext dataContext)
+			public void deleteElement(@Nonnull DataContext dataContext)
 			{
 				for(DeleteProvider provider : toRun)
 				{
@@ -499,7 +501,7 @@ public class JamCommonUtil
 			}
 
 			@Override
-			public boolean canDeleteElement(@NotNull DataContext dataContext)
+			public boolean canDeleteElement(@Nonnull DataContext dataContext)
 			{
 				for(DeleteProvider provider : toRun)
 				{

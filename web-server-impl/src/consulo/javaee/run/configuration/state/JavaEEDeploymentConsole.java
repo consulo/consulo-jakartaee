@@ -1,7 +1,7 @@
 package consulo.javaee.run.configuration.state;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.execution.Executor;
 import com.intellij.execution.executors.DefaultDebugExecutor;
 import com.intellij.execution.impl.ConsoleViewImpl;
@@ -32,7 +32,7 @@ public class JavaEEDeploymentConsole extends ConsoleViewImpl implements Executio
 
 	private final DeploymentViewImpl myDeploymentView;
 
-	public JavaEEDeploymentConsole(Executor executor, JavaEEConfigurationImpl configuration, @NotNull Project project)
+	public JavaEEDeploymentConsole(Executor executor, JavaEEConfigurationImpl configuration, @Nonnull Project project)
 	{
 		super(project, true);
 		myExecutor = executor;

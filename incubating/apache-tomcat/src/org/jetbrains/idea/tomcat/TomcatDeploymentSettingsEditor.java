@@ -19,7 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import org.jetbrains.idea.tomcat.server.TomcatLocalModel;
 import org.jetbrains.idea.tomcat.server.TomcatServerModel;
 import com.intellij.execution.ExecutionException;
@@ -41,7 +41,7 @@ public class TomcatDeploymentSettingsEditor extends SettingsEditor<DeploymentMod
     super(() -> new TomcatModuleDeploymentModel(configuration, source));
   }
 
-  public void resetEditorFrom(@NotNull DeploymentModel settings) {
+  public void resetEditorFrom(@Nonnull DeploymentModel settings) {
     TomcatModuleDeploymentModel deploymentModel = (TomcatModuleDeploymentModel)settings;
     myEEArtifact = deploymentModel.isEEArtifact();
     myInnerPanel.setVisible(!myEEArtifact);
@@ -55,14 +55,14 @@ public class TomcatDeploymentSettingsEditor extends SettingsEditor<DeploymentMod
     setSelectedContextPath(deploymentModel.CONTEXT_PATH, true);
   }
 
-  public void applyEditorTo(@NotNull DeploymentModel settings) throws ConfigurationException {
+  public void applyEditorTo(@Nonnull DeploymentModel settings) throws ConfigurationException {
     if (myEEArtifact) {
       return;
     }
     ((TomcatModuleDeploymentModel)settings).CONTEXT_PATH = getSelectedContextPath();
   }
 
-  @NotNull
+  @Nonnull
   public JComponent createEditor() {
     return myPanel;
   }

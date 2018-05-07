@@ -19,8 +19,8 @@ import com.intellij.jam.model.util.JamCommonUtil;
 import com.intellij.psi.PsiAnnotation;
 import com.intellij.psi.PsiAnnotationMemberValue;
 import com.intellij.psi.PsiElementRef;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @param <T> Number class to use.
@@ -31,7 +31,7 @@ public class JamNumberAttributeElement<T extends Number> extends JamAttributeEle
   private final Class<T> myClass;
 
   public JamNumberAttributeElement(String attributeName,
-                                   @NotNull PsiElementRef<PsiAnnotation> parent,
+                                   @Nonnull PsiElementRef<PsiAnnotation> parent,
                                    Class<T> numberClass) {
     super(attributeName, parent);
     myClass = numberClass;

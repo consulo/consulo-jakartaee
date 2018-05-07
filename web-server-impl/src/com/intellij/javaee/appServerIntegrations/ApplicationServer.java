@@ -17,8 +17,9 @@ package com.intellij.javaee.appServerIntegrations;
 
 import java.util.Collection;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.openapi.roots.libraries.Library;
 import consulo.annotations.DeprecationInfo;
 
@@ -30,10 +31,10 @@ public interface ApplicationServer {
   @Nullable
   AppServerIntegration getSourceIntegration();
 
-  @NotNull
+  @Nonnull
   Library getLibrary();
 
-  @NotNull
+  @Nonnull
   Collection<Library> getFrameworkLibraries();
 
   ApplicationServerPersistentData getPersistentData();

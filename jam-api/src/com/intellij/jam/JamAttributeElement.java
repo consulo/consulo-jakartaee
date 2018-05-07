@@ -23,18 +23,20 @@ import com.intellij.psi.ref.AnnotationAttributeChildLink;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.xml.GenericValue;
 import com.intellij.xml.util.PsiElementPointer;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author peter
  */
 public abstract class JamAttributeElement<T> implements JamElement, GenericValue<T>, PsiElementPointer {
   private final PsiElementRef<PsiAnnotation> myParent;
-  @Nullable private final AnnotationAttributeChildLink myAttributeLink;
-  @Nullable private final PsiAnnotationMemberValue myExactValue;
+  @Nullable
+  private final AnnotationAttributeChildLink myAttributeLink;
+  @Nullable
+  private final PsiAnnotationMemberValue myExactValue;
 
-  public JamAttributeElement(String attributeName, @NotNull PsiElementRef<PsiAnnotation> parent) {
+  public JamAttributeElement(String attributeName, @Nonnull PsiElementRef<PsiAnnotation> parent) {
     myAttributeLink = new AnnotationAttributeChildLink(attributeName);
     myExactValue = null;
     myParent = parent;

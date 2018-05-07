@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml;
 
 import com.intellij.javaee.model.enums.PersistenceContextType;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -90,7 +90,7 @@ public interface PersistenceContextRef extends JavaeeDomModelElement, ResourceGr
 	 * </pre>
 	 * @return the value of the persistence-context-ref-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getPersistenceContextRefName();
 
 

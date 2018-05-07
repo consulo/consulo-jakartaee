@@ -17,15 +17,17 @@ package com.intellij.jam.reflect;
 
 import com.intellij.util.SmartList;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+
+import javax.annotation.Nullable;
 
 /**
  * @author peter
  */
 public class JamAnnotationArchetype {
-  @Nullable private final JamAnnotationArchetype myArchetype;
+  @Nullable
+  private final JamAnnotationArchetype myArchetype;
   private final List<JamAttributeMeta<?>> myAttributes = new SmartList<>();
 
   public JamAnnotationArchetype() {

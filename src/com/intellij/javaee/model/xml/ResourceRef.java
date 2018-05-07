@@ -26,7 +26,7 @@ import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.NameValue;
 import com.intellij.util.xml.Convert;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -93,7 +93,7 @@ public interface ResourceRef extends JavaeeDomModelElement, ResourceGroup, Resou
 	 * </pre>
 	 * @return the value of the res-ref-name child.
 	 */
-	@NotNull
+	@Nonnull
         @NameValue
         GenericDomValue<String> getResRefName();
 

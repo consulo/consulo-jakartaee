@@ -19,10 +19,11 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:application-exceptionType interface.
@@ -64,7 +65,7 @@ public interface ApplicationException extends JavaeeDomModelElement, com.intelli
 	 * </pre>
 	 * @return the value of the exception-class child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PsiClass> getExceptionClass();
 
 

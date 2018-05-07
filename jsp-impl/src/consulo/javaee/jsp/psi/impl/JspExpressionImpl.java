@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.psi.impl;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.impl.source.jsp.jspXml.JspExpression;
 import consulo.javaee.jsp.psi.JspElements;
 
@@ -16,7 +17,7 @@ public class JspExpressionImpl extends JspXmlTagBaseImpl implements JspExpressio
 	}
 
 	@Override
-	public void accept(@NotNull JspElementVisitor visitor)
+	public void accept(@Nonnull JspElementVisitor visitor)
 	{
 		visitor.visitExpression(this);
 	}

@@ -18,7 +18,7 @@ package com.intellij.javaee.run.localRun;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.io.FileUtil;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +26,7 @@ import java.io.IOException;
 public class ScriptUtil {
   private ScriptUtil() { }
 
-  public static void appendEnvVariableDeclaration(@NotNull String name, @NotNull String value, @NotNull StringBuilder buffer) {
+  public static void appendEnvVariableDeclaration(@Nonnull String name, @Nonnull String value, @Nonnull StringBuilder buffer) {
     if (SystemInfo.isWindows) {
       buffer.append("SET ");
     }
@@ -43,7 +43,7 @@ public class ScriptUtil {
     }
   }
 
-  public static void appendEnvVariableReference(@NotNull String name, @NotNull StringBuilder buffer) {
+  public static void appendEnvVariableReference(@Nonnull String name, @Nonnull StringBuilder buffer) {
     if (SystemInfo.isWindows) {
       buffer.append("%").append(name).append("%");
     }
@@ -70,7 +70,7 @@ public class ScriptUtil {
     return SystemInfo.isWindows ? "cmd" : "sh";
   }
 
-  public static GeneralCommandLine createCommandLine(@NotNull String... parameters) {
+  public static GeneralCommandLine createCommandLine(@Nonnull String... parameters) {
     return new GeneralCommandLine(parameters);
   }
 }

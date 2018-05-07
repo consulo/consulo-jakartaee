@@ -9,10 +9,10 @@ import java.util.ListResourceBundle;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.PropertyKey;
 import com.intellij.CommonBundle;
 import com.intellij.ide.plugins.cl.PluginClassLoader;
@@ -61,6 +61,6 @@ public abstract class JavaeeBundle extends ListResourceBundle {
         }
     }
 
-    @NotNull
+    @Nonnull
     protected abstract String getName();
 }

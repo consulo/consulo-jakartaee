@@ -3,8 +3,8 @@ package consulo.javaee.jsp.psi.impl.descriptor;
 import java.util.Collections;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.impl.source.xml.SchemaPrefix;
 import com.intellij.psi.jsp.JspFile;
@@ -32,9 +32,9 @@ public class JspXmlExtension extends XmlExtension
 		return super.getElementDescriptor(tag, contextTag, parentDescriptor);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public List<TagInfo> getAvailableTagNames(@NotNull XmlFile xmlFile, @NotNull XmlTag xmlTag)
+	public List<TagInfo> getAvailableTagNames(@Nonnull XmlFile xmlFile, @Nonnull XmlTag xmlTag)
 	{
 		return Collections.emptyList();
 	}

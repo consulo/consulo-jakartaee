@@ -18,7 +18,7 @@ package com.intellij.javaee.web;
 
 import java.util.List;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.intellij.javaee.model.common.JavaeeModelElement;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericValue;

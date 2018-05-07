@@ -15,9 +15,11 @@
  */
 package com.intellij.jam;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.PsiReference;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 /**
  * @author peter
@@ -55,7 +57,7 @@ public abstract class JamConverter<T> {
     throw new UnsupportedOperationException("toString() not supported for " + getClass());
   }
 
-  @NotNull
+  @Nonnull
   public PsiReference[] createReferences(JamStringAttributeElement<T> context) {
     return PsiReference.EMPTY_ARRAY;
   }

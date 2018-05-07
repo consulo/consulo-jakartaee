@@ -16,12 +16,13 @@
 
 package com.intellij.jam.model.common;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.pom.PomRenameableTarget;
 import com.intellij.psi.DelegatePsiTarget;
 import com.intellij.psi.PsiElement;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.xml.ElementPresentationManager;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author Gregory.Shrago
@@ -29,7 +30,7 @@ import org.jetbrains.annotations.NotNull;
 public class DefaultCommonModelTarget extends DelegatePsiTarget implements PomRenameableTarget<Object>, CommonModelTarget {
   private final CommonModelElement.PsiBase myElement;
 
-  public DefaultCommonModelTarget(@NotNull CommonModelElement.PsiBase element) {
+  public DefaultCommonModelTarget(@Nonnull CommonModelElement.PsiBase element) {
     super(element.getPsiElement());
     myElement = element;
   }
@@ -42,7 +43,7 @@ public class DefaultCommonModelTarget extends DelegatePsiTarget implements PomRe
     return getNavigationElement().isWritable();
   }
 
-  public Object setName(@NotNull final String newName) {
+  public Object setName(@Nonnull final String newName) {
     final PsiElement element = getNavigationElement();
     if (element instanceof PomRenameableTarget) {
       return ((PomRenameableTarget)element).setName(newName);

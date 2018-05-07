@@ -16,8 +16,8 @@
 package com.intellij.javaee.deployment;
 
 import com.intellij.javaee.run.configuration.CommonModel;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nullable;
+import javax.annotation.Nonnull;
 
 import javax.swing.*;
 
@@ -46,7 +46,7 @@ public class DeploymentMethod {
     return null;
   }
 
-  public boolean isApplicable(@NotNull CommonModel commonModel) {
+  public boolean isApplicable(@Nonnull CommonModel commonModel) {
     if (commonModel.isLocal()){
       return myApplicableForLocal;
     } else {

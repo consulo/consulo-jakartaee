@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.ejb;
 import com.intellij.jam.view.DeleteHandler;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -56,7 +56,7 @@ public interface Relationships extends JavaeeDomModelElement {
 	 * Returns the list of ejb-relation children.
 	 * @return the list of ejb-relation children.
 	 */
-	@NotNull
+	@Nonnull
 	List<EjbRelation> getEjbRelations();
 	/**
 	 * Adds new child to the list of ejb-relation children.

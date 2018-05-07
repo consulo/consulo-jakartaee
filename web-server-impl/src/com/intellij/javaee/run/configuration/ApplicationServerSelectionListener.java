@@ -18,7 +18,7 @@ package com.intellij.javaee.run.configuration;
 
 import java.util.EventListener;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.intellij.openapi.projectRoots.Sdk;
 
 /**

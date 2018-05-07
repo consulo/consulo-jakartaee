@@ -15,12 +15,14 @@
  */
 package com.intellij.jam;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.jam.model.util.JamCommonUtil;
 import com.intellij.psi.*;
 import com.intellij.psi.ref.AnnotationAttributeChildLink;
 import com.intellij.util.xml.MutableGenericValue;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 /**
  * @author peter
@@ -28,12 +30,12 @@ import org.jetbrains.annotations.Nullable;
 public class JamStringAttributeElement<T> extends JamAttributeElement<T> implements MutableGenericValue<T> {
   private final JamConverter<T> myConverter;
 
-  public JamStringAttributeElement(@NotNull PsiElementRef<PsiAnnotation> parent, String attributeName, JamConverter<T> converter) {
+  public JamStringAttributeElement(@Nonnull PsiElementRef<PsiAnnotation> parent, String attributeName, JamConverter<T> converter) {
     super(attributeName, parent);
     myConverter = converter;
   }
 
-  public JamStringAttributeElement(@NotNull PsiAnnotationMemberValue exactValue, JamConverter<T> converter) {
+  public JamStringAttributeElement(@Nonnull PsiAnnotationMemberValue exactValue, JamConverter<T> converter) {
     super(exactValue);
     myConverter = converter;
   }

@@ -17,8 +17,9 @@ package com.intellij.javaee.web.artifact;
 
 import java.util.Collection;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.javaee.appServerIntegrations.ApplicationServerUrlMapping;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
@@ -36,24 +37,24 @@ public abstract class WebArtifactUtil {
     return ServiceManager.getService(WebArtifactUtil.class);
   }
 
-  public abstract boolean isWebApplication(@NotNull ArtifactType artifactType);
+  public abstract boolean isWebApplication(@Nonnull ArtifactType artifactType);
 
   /**
    * @deprecated use {@link ApplicationServerUrlMapping} instead
    */
   @Nullable
-  public abstract String getContextRoot(@NotNull Artifact earArtifact, @NotNull JavaWebModuleExtension webFacet);
+  public abstract String getContextRoot(@Nonnull Artifact earArtifact, @Nonnull JavaWebModuleExtension webFacet);
 
   @Nullable
-  public abstract String getModuleWebUri(@NotNull Artifact earArtifact, @NotNull JavaWebModuleExtension webFacet);
+  public abstract String getModuleWebUri(@Nonnull Artifact earArtifact, @Nonnull JavaWebModuleExtension webFacet);
 
   public abstract ArtifactType getExplodedWarArtifactType();
 
   public abstract ArtifactType getWarArtifactType();
 
-  public abstract Collection<? extends Artifact> getWebArtifacts(@NotNull Project project);
+  public abstract Collection<? extends Artifact> getWebArtifacts(@Nonnull Project project);
 
-  public abstract void addLibrary(@NotNull Library library, @NotNull Artifact artifact, @NotNull Project project);
+  public abstract void addLibrary(@Nonnull Library library, @Nonnull Artifact artifact, @Nonnull Project project);
 
   public abstract Collection<? extends ArtifactType> getWebArtifactTypes();
 }

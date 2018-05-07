@@ -1,6 +1,7 @@
 package com.intellij.javaee.context;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.deployment.DeploymentModel;
 import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
@@ -17,9 +18,9 @@ public class JavaeeAppFacetContextProvider implements FacetContextProvider {
   }
 
   @Override
-  public String getDeploymentContext(@NotNull WebModuleContextProvider webModuleContextProvider,
-                                     @NotNull DeploymentModel deploymentModel,
-                                     @NotNull JavaEEModuleExtension facet) {
+  public String getDeploymentContext(@Nonnull WebModuleContextProvider webModuleContextProvider,
+                                     @Nonnull DeploymentModel deploymentModel,
+                                     @Nonnull JavaEEModuleExtension facet) {
     return webModuleContextProvider.getContext((JavaEEApplicationModuleExtension) facet, null);
   }
 }

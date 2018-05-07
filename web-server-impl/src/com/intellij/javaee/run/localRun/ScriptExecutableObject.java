@@ -22,8 +22,8 @@ import com.intellij.execution.process.ProcessEvent;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.openapi.util.io.FileUtil;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -80,8 +80,8 @@ public class ScriptExecutableObject implements ExecutableObject {
     return result;
   }
 
-  @NotNull
-  protected ExecutableObject createExecutable(@NotNull File executableFile) {
+  @Nonnull
+  protected ExecutableObject createExecutable(@Nonnull File executableFile) {
     //noinspection deprecation
     return new CommandLineExecutableObject(new String[]{executableFile.getAbsolutePath()}, null);
   }

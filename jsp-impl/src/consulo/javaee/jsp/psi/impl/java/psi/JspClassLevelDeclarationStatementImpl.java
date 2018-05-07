@@ -1,6 +1,6 @@
 package consulo.javaee.jsp.psi.impl.java.psi;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
@@ -17,12 +17,12 @@ import consulo.java.psi.impl.java.stub.PsiClassLevelDeclarationStatementStub;
 public class JspClassLevelDeclarationStatementImpl extends StubBasedPsiElementBase<PsiClassLevelDeclarationStatementStub> implements JspClassLevelDeclarationStatement,
 		StubBasedPsiElement<PsiClassLevelDeclarationStatementStub>
 {
-	public JspClassLevelDeclarationStatementImpl(@NotNull ASTNode node)
+	public JspClassLevelDeclarationStatementImpl(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
 
-	public JspClassLevelDeclarationStatementImpl(@NotNull PsiClassLevelDeclarationStatementStub stub, @NotNull IStubElementType nodeType)
+	public JspClassLevelDeclarationStatementImpl(@Nonnull PsiClassLevelDeclarationStatementStub stub, @Nonnull IStubElementType nodeType)
 	{
 		super(stub, nodeType);
 	}

@@ -20,7 +20,7 @@
 package com.intellij.javaee.model.xml;
 
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -56,7 +56,7 @@ public interface RunAs extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the role-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<SecurityRole> getRoleName();
 
 

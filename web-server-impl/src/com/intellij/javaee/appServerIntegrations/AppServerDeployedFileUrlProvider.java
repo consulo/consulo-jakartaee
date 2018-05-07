@@ -20,7 +20,7 @@ import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.openapi.deployment.DeploymentUtil;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * @author nik

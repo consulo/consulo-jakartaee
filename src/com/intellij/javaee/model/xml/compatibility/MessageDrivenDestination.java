@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.compatibility;
 
 import com.intellij.util.xml.*;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * ejb-jar_2_0.dtd:message-driven-destination interface.
@@ -54,7 +54,7 @@ public interface MessageDrivenDestination extends JavaeeDomModelElement {
 	 * </pre>
          * @return the value of the destination-type child
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<MessageDrivenDestinationType> getDestinationType();
 
 

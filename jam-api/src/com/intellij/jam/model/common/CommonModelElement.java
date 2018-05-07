@@ -16,6 +16,8 @@
 
 package com.intellij.jam.model.common;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.jam.JamElement;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -23,8 +25,8 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.xml.XmlTag;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 public interface CommonModelElement {
   boolean isValid();
@@ -43,7 +45,7 @@ public interface CommonModelElement {
   PsiFile getContainingFile();
 
   abstract class PsiBase implements CommonModelElement {
-    @NotNull
+    @Nonnull
     public abstract PsiElement getPsiElement();
 
     public boolean isValid() {
@@ -74,7 +76,7 @@ public interface CommonModelElement {
 
   abstract class ModuleBase implements CommonModelElement {
 
-    @NotNull
+    @Nonnull
     public abstract Module getModule();
 
     public boolean isValid() {

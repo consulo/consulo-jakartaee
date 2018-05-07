@@ -26,7 +26,7 @@ import com.intellij.psi.PsiMethod;
 import com.intellij.util.containers.ContainerUtil;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ public abstract class InterceptorMethodResolveConverter<T extends JavaeeDomModel
     super(domMethodClass);
   }
 
-  protected MethodParams getMethodParams(@NotNull final T parent) {
+  protected MethodParams getMethodParams(@Nonnull final T parent) {
     return null;
   }
 
@@ -54,7 +54,7 @@ public abstract class InterceptorMethodResolveConverter<T extends JavaeeDomModel
     });
   }
 
-  @NotNull
+  @Nonnull
   protected Collection<PsiClass> getPsiClasses(final T parent, final ConvertContext context) {
     final GenericDomValue<PsiClass> lifecycleCallbackClass = getPsiClassValue(parent);
     if (lifecycleCallbackClass.getXmlTag() == null) {

@@ -23,7 +23,7 @@ import com.intellij.javaee.model.enums.TransAttribute;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ public interface ContainerTransaction extends JavaeeDomModelElement, MethodConta
 	 * Returns the list of method children.
 	 * @return the list of method children.
 	 */
-	@NotNull
+	@Nonnull
 	List<Method> getMethods();
 	/**
 	 * Adds new child to the list of method children.
@@ -70,7 +70,7 @@ public interface ContainerTransaction extends JavaeeDomModelElement, MethodConta
 	 * Returns the value of the trans-attribute child.
 	 * @return the value of the trans-attribute child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<TransAttribute> getTransAttribute();
 
 

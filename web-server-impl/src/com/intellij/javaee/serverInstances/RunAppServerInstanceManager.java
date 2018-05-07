@@ -15,11 +15,12 @@
  */
 package com.intellij.javaee.serverInstances;
 
+import javax.annotation.Nullable;
+
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * author: lesya

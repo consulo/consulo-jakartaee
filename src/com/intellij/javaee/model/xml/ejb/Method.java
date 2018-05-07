@@ -29,7 +29,7 @@ import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
 import com.intellij.util.xml.Convert;
 import com.intellij.psi.PsiMethod;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -224,7 +224,7 @@ public interface Method extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the ejb-name child.
 	 */
-	@NotNull
+	@Nonnull
         @SubTag("ejb-name")
         @Convert(EjbResolveConverter.class)
         GenericDomValue<EnterpriseBean> getEnterpriseBean();
@@ -248,7 +248,7 @@ public interface Method extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the method-name child.
 	 */
-	@NotNull
+	@Nonnull
         @SubTag("method-name")
         @Convert(EjbMethodResolveConverter.class)
         GenericDomValue<PsiMethod> getMethod();

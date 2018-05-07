@@ -21,8 +21,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.lang.Language;
 import com.intellij.lang.LanguageParserDefinitions;
 import com.intellij.lang.html.HTMLLanguage;
@@ -47,7 +48,7 @@ public class JspFileViewProviderImpl extends MultiplePsiFilesPerDocumentFileView
 		super(manager, virtualFile, physical);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Language getBaseLanguage()
 	{
@@ -56,7 +57,7 @@ public class JspFileViewProviderImpl extends MultiplePsiFilesPerDocumentFileView
 
 	@Nullable
 	@Override
-	protected PsiFile createFile(@NotNull final Language lang)
+	protected PsiFile createFile(@Nonnull final Language lang)
 	{
 		if(lang == getBaseLanguage())
 		{
@@ -77,14 +78,14 @@ public class JspFileViewProviderImpl extends MultiplePsiFilesPerDocumentFileView
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Set<Language> getLanguages()
 	{
 		return new HashSet<>(Arrays.asList(getBaseLanguage(), getTemplateDataLanguage(), JavaLanguage.INSTANCE));
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Language getTemplateDataLanguage()
 	{

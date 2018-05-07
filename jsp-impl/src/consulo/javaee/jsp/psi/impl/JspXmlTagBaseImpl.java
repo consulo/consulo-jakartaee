@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.psi.impl;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.impl.source.jsp.jspXml.JspXmlTagBase;
@@ -31,7 +32,7 @@ public abstract class JspXmlTagBaseImpl extends XmlTagImpl implements JspXmlTagB
 	}
 
 	@Override
-	public void accept(@NotNull PsiElementVisitor visitor)
+	public void accept(@Nonnull PsiElementVisitor visitor)
 	{
 		if(visitor instanceof JspElementVisitor)
 		{
@@ -43,5 +44,5 @@ public abstract class JspXmlTagBaseImpl extends XmlTagImpl implements JspXmlTagB
 		}
 	}
 
-	public abstract void accept(@NotNull JspElementVisitor visitor);
+	public abstract void accept(@Nonnull JspElementVisitor visitor);
 }

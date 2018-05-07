@@ -24,7 +24,7 @@ import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.RunAs;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -70,7 +70,7 @@ public interface SecurityIdentity extends JavaeeDomModelElement {
 	 * @return the value of the use-caller-identity child.
 	 */
 	@SubTag (value = "use-caller-identity", indicator = true)
-	@NotNull
+	@Nonnull
 	GenericDomValue<Boolean> getUseCallerIdentity();
 
 
@@ -78,7 +78,7 @@ public interface SecurityIdentity extends JavaeeDomModelElement {
 	 * Returns the value of the run-as child.
 	 * @return the value of the run-as child.
 	 */
-	@NotNull
+	@Nonnull
 	RunAs getRunAs();
 
 

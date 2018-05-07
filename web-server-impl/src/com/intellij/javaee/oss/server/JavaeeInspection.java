@@ -7,7 +7,7 @@ package com.intellij.javaee.oss.server;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.highlighting.BasicDomElementsInspection;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 public abstract class JavaeeInspection extends BasicDomElementsInspection<JavaeeDomModelElement> {
 
@@ -16,14 +16,14 @@ public abstract class JavaeeInspection extends BasicDomElementsInspection<Javaee
     }
 
     @Override
-    @NotNull
+    @Nonnull
     @SuppressWarnings({"UnresolvedPropertyKey"})
     public String getGroupDisplayName() {
         return J2EEBundle.message("inspection.group.display.name.application.server.inspections");
     }
 
     @Override
-    @NotNull
+    @Nonnull
     public String getDisplayName() {
         return getShortName();
     }

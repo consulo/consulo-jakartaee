@@ -2,9 +2,11 @@ package consulo.javaee.jsp.psi.impl.java.psi;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.*;
@@ -26,7 +28,7 @@ import consulo.java.module.util.JavaClassNames;
  */
 public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHolderMethod
 {
-	public JspHolderMethodImpl(@NotNull ASTNode node)
+	public JspHolderMethodImpl(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
@@ -58,14 +60,14 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiParameterList getParameterList()
 	{
 		return new LightParameterListBuilder(PsiManager.getInstance(getProject()), getLanguage());
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiReferenceList getThrowsList()
 	{
@@ -93,9 +95,9 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 		return false;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public MethodSignature getSignature(@NotNull PsiSubstitutor psiSubstitutor)
+	public MethodSignature getSignature(@Nonnull PsiSubstitutor psiSubstitutor)
 	{
 		return MethodSignatureBackedByPsiMethod.create(this, psiSubstitutor);
 	}
@@ -107,28 +109,28 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiMethod[] findSuperMethods()
 	{
 		return new PsiMethod[0];
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiMethod[] findSuperMethods(boolean b)
 	{
 		return new PsiMethod[0];
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiMethod[] findSuperMethods(PsiClass psiClass)
 	{
 		return new PsiMethod[0];
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public List<MethodSignatureBackedByPsiMethod> findSuperMethodSignaturesIncludingStatic(boolean checkAccess)
 	{
@@ -142,14 +144,14 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiMethod[] findDeepestSuperMethods()
 	{
 		return new PsiMethod[0];
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiModifierList getModifierList()
 	{
@@ -157,18 +159,18 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 	}
 
 	@Override
-	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @NotNull String s)
+	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @Nonnull String s)
 	{
 		return false;
 	}
 
 	@Override
-	public PsiElement setName(@NonNls @NotNull String s)
+	public PsiElement setName(@NonNls @Nonnull String s)
 	{
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public HierarchicalMethodSignature getHierarchicalMethodSignature()
 	{
@@ -201,7 +203,7 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiTypeParameter[] getTypeParameters()
 	{

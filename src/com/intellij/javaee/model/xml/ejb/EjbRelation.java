@@ -26,7 +26,7 @@ import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
 import com.intellij.util.xml.NameValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -85,7 +85,7 @@ public interface EjbRelation extends JavaeeDomModelElement, DescriptionOwner {
 	 * @return the value of the ejb-relationship-role child.
 	 */
 	@SubTag (value = "ejb-relationship-role", index = 0)
-	@NotNull
+	@Nonnull
 	EjbRelationshipRole getEjbRelationshipRole1();
 
 
@@ -94,7 +94,7 @@ public interface EjbRelation extends JavaeeDomModelElement, DescriptionOwner {
 	 * @return the value of the ejb-relationship-role child.
 	 */
 	@SubTag (value = "ejb-relationship-role", index = 1)
-	@NotNull
+	@Nonnull
 	EjbRelationshipRole getEjbRelationshipRole2();
 
 

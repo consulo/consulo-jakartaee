@@ -13,9 +13,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.annotation.Nonnull;
+
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.idea.tomcat.*;
 import org.jetbrains.idea.tomcat.admin.TomEEAgentAdminServerImpl;
 import org.jetbrains.idea.tomcat.admin.TomcatAdminLocalServerImpl;
@@ -153,7 +154,7 @@ public class TomcatLocalModel extends TomcatServerModel
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public PredefinedLogFile[] getPredefinedLogFiles()
 	{
 		List<PredefinedLogFile> result = new ArrayList<>();
@@ -167,7 +168,7 @@ public class TomcatLocalModel extends TomcatServerModel
 		return result.toArray(new PredefinedLogFile[result.size()]);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	protected List<LogFileFactory> getLogFileFactories()
 	{

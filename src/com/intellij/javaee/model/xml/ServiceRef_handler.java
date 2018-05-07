@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml;
 
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -55,7 +55,7 @@ public interface ServiceRef_handler extends JavaeeDomModelElement, DescriptionGr
 	 * </pre>
 	 * @return the value of the handler-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getHandlerName();
 
 
@@ -77,7 +77,7 @@ public interface ServiceRef_handler extends JavaeeDomModelElement, DescriptionGr
 	 * </pre>
 	 * @return the value of the handler-class child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PsiClass> getHandlerClass();
 
 

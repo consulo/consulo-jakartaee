@@ -19,7 +19,8 @@ package consulo.javaee.artifact;
 import java.util.Collections;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.ui.packaging.WebApplicationArtifactType;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
@@ -44,16 +45,16 @@ public class WarArtifactType extends WebApplicationArtifactType
 		super("war", J2EEBundle.message("war.artifact.name"));
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public List<? extends ArtifactTemplate> getNewArtifactTemplates(@NotNull PackagingElementResolvingContext context)
+	public List<? extends ArtifactTemplate> getNewArtifactTemplates(@Nonnull PackagingElementResolvingContext context)
 	{
 		return Collections.singletonList(new WarArtifactTemplate(context));
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public CompositePackagingElement<?> createRootElement(@NotNull String s)
+	public CompositePackagingElement<?> createRootElement(@Nonnull String s)
 	{
 		return new ZipArchivePackagingElement(ArtifactUtil.suggestArtifactFileName(s) + ".war");
 	}

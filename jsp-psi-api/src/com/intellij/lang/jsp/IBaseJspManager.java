@@ -18,17 +18,17 @@ package com.intellij.lang.jsp;
 import com.intellij.psi.PsiFile;
 import com.intellij.xml.XmlElementDescriptor;
 import com.intellij.xml.XmlNSDescriptor;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author Maxim.Mossienko
  */
 public interface IBaseJspManager {
-  XmlNSDescriptor getActionsLibrary(@NotNull PsiFile containingFile);
+  XmlNSDescriptor getActionsLibrary(@Nonnull PsiFile containingFile);
 
   @Nullable
-  XmlElementDescriptor getDirectiveDescriptorByName(String name, @NotNull PsiFile context);
+  XmlElementDescriptor getDirectiveDescriptorByName(String name, @Nonnull PsiFile context);
 
-  boolean isElIgnored(@NotNull PsiFile file);
+  boolean isElIgnored(@Nonnull PsiFile file);
 }

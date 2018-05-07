@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml;
 
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -58,7 +58,7 @@ public interface ServiceRef extends JavaeeDomModelElement, DescriptionGroup, Res
 	 * </pre>
 	 * @return the value of the service-ref-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getServiceRefName();
 
 
@@ -82,7 +82,7 @@ public interface ServiceRef extends JavaeeDomModelElement, DescriptionGroup, Res
 	 * </pre>
 	 * @return the value of the service-interface child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PsiClass> getServiceInterface();
 
 

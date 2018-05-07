@@ -25,7 +25,7 @@ import com.intellij.javaee.model.EntityBeanResolveConverter;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
 import com.intellij.util.xml.Convert;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -75,7 +75,7 @@ public interface RelationshipRoleSource extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the ejb-name child.
 	 */
-	@NotNull
+	@Nonnull
         @SubTag("ejb-name")
         @Convert(EntityBeanResolveConverter.class)
         GenericDomValue<com.intellij.javaee.model.common.ejb.EntityBean> getEntityBean();

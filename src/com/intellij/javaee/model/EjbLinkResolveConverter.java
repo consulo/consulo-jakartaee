@@ -17,7 +17,8 @@ package com.intellij.javaee.model;
 
 import java.util.Collection;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.common.ejb.EjbCommonModelUtil;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.util.xml.ConvertContext;
@@ -75,7 +76,7 @@ public class EjbLinkResolveConverter extends JavaeeResolvingConverter<Enterprise
     return relativePath == null ? ejbName : relativePath + "#" + ejbName;
   }   */
 
-  @NotNull
+  @Nonnull
   public Collection<? extends EnterpriseBean> getVariants(final ConvertContext context) {
     return EjbCommonModelUtil.getAllEjbs(context.getProject());
   }

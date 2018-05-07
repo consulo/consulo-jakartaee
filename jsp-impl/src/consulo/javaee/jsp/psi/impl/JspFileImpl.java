@@ -18,8 +18,9 @@ package consulo.javaee.jsp.psi.impl;
 
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.lang.jsp.JspxFileViewProvider;
 import com.intellij.openapi.fileTypes.FileType;
@@ -46,19 +47,19 @@ import consulo.javaee.jsp.JspParserDefinition;
  */
 public class JspFileImpl extends XmlFileImpl implements JspFile
 {
-	public JspFileImpl(@NotNull FileViewProvider viewProvider)
+	public JspFileImpl(@Nonnull FileViewProvider viewProvider)
 	{
 		super(viewProvider, JspParserDefinition.FILE_ELEMENT_TYPE);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public JspxFileViewProvider getViewProvider()
 	{
 		return (JspxFileViewProvider) super.getViewProvider();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public FileType getFileType()
 	{
@@ -100,7 +101,7 @@ public class JspFileImpl extends XmlFileImpl implements JspFile
 		return false;
 	}
 
-	@NotNull
+	@Nonnull
 	@RequiredReadAction
 	@Override
 	public XmlTag[] getDirectiveTags(JspDirectiveKind directiveKind, boolean searchInIncludes)

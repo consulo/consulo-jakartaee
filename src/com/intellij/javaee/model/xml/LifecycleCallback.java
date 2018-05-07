@@ -24,7 +24,7 @@ import com.intellij.psi.PsiMethod;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Convert;
 import com.intellij.javaee.model.LifecycleCallbackResolveConverter;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:lifecycle-callbackType interface.
@@ -69,7 +69,7 @@ public interface LifecycleCallback extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the lifecycle-callback-method child.
 	 */
-	@NotNull
+	@Nonnull
         @Convert(LifecycleCallbackResolveConverter.class)
         GenericDomValue<PsiMethod> getLifecycleCallbackMethod();
 

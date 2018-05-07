@@ -6,8 +6,8 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import org.jetbrains.idea.tomcat.server.TomcatRemoteModel;
 import org.jetbrains.idea.tomcat.server.TomcatRunSettingsEditor;
 import com.intellij.javaee.oss.transport.MultiTargetRemoteServerModel;
@@ -55,7 +55,7 @@ public class TomcatRemoteRunConfigurationEditor extends TomcatRunSettingsEditor<
 		myMainPanel.setVisible(showDeployOptions);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	protected JComponent getEditor()
 	{

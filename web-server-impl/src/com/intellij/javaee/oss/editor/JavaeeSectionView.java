@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JComponent;
@@ -36,8 +37,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.ui.ColumnInfo;
@@ -121,7 +121,7 @@ public class JavaeeSectionView implements CommittablePanel {
         return view;
     }
 
-    @NotNull
+    @Nonnull
     private JavaeeSectionInfo<DomElement> getColumnInfo(JavaeeSection<?> section, int column) {
         JavaeeSectionInfo<DomElement>[] infos = mapped.get(section);
         return (column <= infos.length) ? infos[column] : EMPTY_COLUMN;
@@ -264,7 +264,7 @@ public class JavaeeSectionView implements CommittablePanel {
         }
 
         @Override
-        protected void wrapValueSetting(@NotNull RowElement item, Runnable setter) {
+        protected void wrapValueSetting(@Nonnull RowElement item, Runnable setter) {
             Object value = item.getElement();
             if ((value instanceof DomElement) && ((DomElement) value).isValid()) {
                 setter.run();
@@ -289,7 +289,7 @@ public class JavaeeSectionView implements CommittablePanel {
 
     private interface RowElement {
 
-        @NotNull
+        @Nonnull
         JavaeeSection<?> getSection();
 
         @Nullable
@@ -314,7 +314,7 @@ public class JavaeeSectionView implements CommittablePanel {
         @Nullable
         TableCellEditor getEditor(int column);
 
-        @NotNull
+        @Nonnull
         JComponent decorate(JComponent component, JTable table, int column, boolean selected);
     }
 
@@ -326,7 +326,7 @@ public class JavaeeSectionView implements CommittablePanel {
             this.section = section;
         }
 
-        @NotNull
+        @Nonnull
         public JavaeeSection<?> getSection() {
             return section;
         }
@@ -376,7 +376,7 @@ public class JavaeeSectionView implements CommittablePanel {
             return null;
         }
 
-        @NotNull
+        @Nonnull
         public JComponent decorate(JComponent component, JTable table, int column, boolean selected) {
             Border border = BorderFactory.createEmptyBorder(0, 5, 0, ((column == 0) || (column == 2)) ? 5 : 0);
             Color background = selected ? StripeTableCellRenderer.darken(table.getSelectionBackground()) : new Color(table.getTableHeader().getBackground().getRGB());
@@ -423,7 +423,7 @@ public class JavaeeSectionView implements CommittablePanel {
             this.element = element;
         }
 
-        @NotNull
+        @Nonnull
         public JavaeeSection<?> getSection() {
             return section;
         }
@@ -466,7 +466,7 @@ public class JavaeeSectionView implements CommittablePanel {
             return getColumnInfo(section, column).getEditor(element);
         }
 
-        @NotNull
+        @Nonnull
         public JComponent decorate(JComponent component, JTable table, int column, boolean selected) {
             Border border = BorderFactory.createEmptyBorder(0, 5, 0, ((column == 0) || (column == 2)) ? 5 : 0);
             if (column > 0) {

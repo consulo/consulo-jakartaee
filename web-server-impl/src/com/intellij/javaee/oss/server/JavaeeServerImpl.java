@@ -6,14 +6,15 @@ package com.intellij.javaee.oss.server;
 
 import java.io.File;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentStatus;
 
 public abstract class JavaeeServerImpl extends JavaeeServer
 {
 	@Override
-	@NotNull
+	@Nonnull
 	protected DeploymentStatus handleDeployment(DeploymentModel deployment, File source, boolean deploy, boolean undeploy) throws Exception
 	{
 		/*DeploymentManager manager = getDeploymentManager();

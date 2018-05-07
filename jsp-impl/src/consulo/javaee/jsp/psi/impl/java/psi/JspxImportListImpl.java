@@ -3,9 +3,11 @@ package consulo.javaee.jsp.psi.impl.java.psi;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.util.TextRange;
@@ -43,7 +45,7 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 
 	@Override
 	@RequiredReadAction
-	public PsiElement add(@NotNull PsiElement element) throws IncorrectOperationException
+	public PsiElement add(@Nonnull PsiElement element) throws IncorrectOperationException
 	{
 		if(element instanceof PsiImportStatement)
 		{
@@ -80,13 +82,13 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 	}
 
 	@Override
-	public PsiElement replace(@NotNull PsiElement newElement) throws IncorrectOperationException
+	public PsiElement replace(@Nonnull PsiElement newElement) throws IncorrectOperationException
 	{
 		return this;
 	}
 
 	@Override
-	public void accept(@NotNull PsiElementVisitor visitor)
+	public void accept(@Nonnull PsiElementVisitor visitor)
 	{
 		if(visitor instanceof JavaElementVisitor)
 		{
@@ -99,21 +101,21 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 	}
 
 	@RequiredReadAction
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiElement[] getChildren()
 	{
 		return getImportStatements();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiImportStatement[] getImportStatements()
 	{
 		return CachedValuesManagerImpl.getCachedValue(myJspJavaFile, () -> CachedValueProvider.Result.create(calcImportStatements(), PsiModificationTracker.MODIFICATION_COUNT));
 	}
 
-	@NotNull
+	@Nonnull
 	@RequiredReadAction
 	private PsiImportStatement[] calcImportStatements()
 	{
@@ -160,7 +162,7 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 		return ContainerUtil.toArray(list, PsiImportStatement.EMPTY_ARRAY);
 	}
 
-	private static List<Pair<String, TextRange>> parseImportList2(@NotNull String string)
+	private static List<Pair<String, TextRange>> parseImportList2(@Nonnull String string)
 	{
 		List<Pair<String, TextRange>> list = new ArrayList<>();
 
@@ -188,14 +190,14 @@ public class JspxImportListImpl extends LightElement implements JspxImportList
 		return list;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiImportStaticStatement[] getImportStaticStatements()
 	{
 		return PsiImportStaticStatement.EMPTY_ARRAY;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiImportStatementBase[] getAllImportStatements()
 	{

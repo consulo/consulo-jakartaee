@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml;
 import com.intellij.javaee.model.enums.EnvEntryTypeValues;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.NameValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -85,7 +85,7 @@ public interface EnvEntry extends JavaeeDomModelElement, ResourceGroup, Resource
 	 * </pre>
 	 * @return the value of the env-entry-name child.
 	 */
-	@NotNull
+	@Nonnull
         @NameValue
         GenericDomValue<String> getEnvEntryName();
 

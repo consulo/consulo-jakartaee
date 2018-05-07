@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.psi.impl.java.psi.stub.elementType;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.LighterAST;
 import com.intellij.lang.LighterASTNode;
@@ -82,25 +83,25 @@ public class JspClassStubElementType extends JavaClassElementType implements IEl
 	}
 
 	@Override
-	public PsiClass createPsi(@NotNull PsiClassStub stub)
+	public PsiClass createPsi(@Nonnull PsiClassStub stub)
 	{
 		return new JspClassImpl(stub, this);
 	}
 
 	@Override
-	public PsiClass createPsi(@NotNull ASTNode node)
+	public PsiClass createPsi(@Nonnull ASTNode node)
 	{
 		return createElement(node);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public PsiClass createElement(@NotNull ASTNode astNode)
+	public PsiClass createElement(@Nonnull ASTNode astNode)
 	{
 		return new JspClassImpl(astNode);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public ASTNode createCompositeNode()
 	{

@@ -7,8 +7,9 @@ package com.intellij.javaee.oss.server;
 import java.io.File;
 import java.util.Map;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentStatus;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
@@ -26,7 +27,7 @@ public abstract class JavaeeServer
 
 	protected abstract boolean isConnected() throws Exception;
 
-	@NotNull
+	@Nonnull
 	protected abstract DeploymentStatus handleDeployment(DeploymentModel deployment, File source, boolean deploy, boolean undeploy) throws Exception;
 
 	@Nullable

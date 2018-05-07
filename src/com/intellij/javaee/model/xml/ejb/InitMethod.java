@@ -19,8 +19,9 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:init-methodType interface.
@@ -31,7 +32,7 @@ public interface InitMethod extends JavaeeDomModelElement {
 	 * Returns the value of the create-method child.
 	 * @return the value of the create-method child.
 	 */
-	@NotNull
+	@Nonnull
 	NamedMethod getCreateMethod();
 
 
@@ -39,7 +40,7 @@ public interface InitMethod extends JavaeeDomModelElement {
 	 * Returns the value of the bean-method child.
 	 * @return the value of the bean-method child.
 	 */
-	@NotNull
+	@Nonnull
 	NamedMethod getBeanMethod();
 
 

@@ -24,8 +24,8 @@ import com.intellij.semantic.SemRegistrar;
 import com.intellij.util.Consumer;
 import com.intellij.util.PairConsumer;
 import com.intellij.util.containers.ContainerUtil;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,8 @@ import java.util.List;
 public class JamMemberArchetype<Psi extends PsiModifierListOwner, Jam extends JamElement> {
   private final List<JamAnnotationMeta> myAnnos = ContainerUtil.newArrayList();
   private final List<JamChildrenQuery<?>> myChildren = ContainerUtil.newArrayList();
-  @Nullable private final JamMemberArchetype<? super Psi, ? super Jam> myParent;
+  @Nullable
+  private final JamMemberArchetype<? super Psi, ? super Jam> myParent;
   private List<PairConsumer<Jam, Consumer<PomTarget>>> myPomTargetProducers = ContainerUtil.newArrayList();
 
   public JamMemberArchetype() {
@@ -57,7 +58,7 @@ public class JamMemberArchetype<Psi extends PsiModifierListOwner, Jam extends Ja
 
 
   @Nullable
-  public JamAnnotationMeta findAnnotationMeta(@NotNull PsiAnnotation annotation) {
+  public JamAnnotationMeta findAnnotationMeta(@Nonnull PsiAnnotation annotation) {
     final String qname = annotation.getQualifiedName();
     for (final JamAnnotationMeta anno : myAnnos) {
       if (anno.getAnnoName().equals(qname)) {
@@ -90,12 +91,12 @@ public class JamMemberArchetype<Psi extends PsiModifierListOwner, Jam extends Ja
     return this;
   }
 
-  public JamMemberArchetype<Psi, Jam> addPomTargetProducer(@NotNull PairConsumer<Jam, Consumer<PomTarget>> producer) {
+  public JamMemberArchetype<Psi, Jam> addPomTargetProducer(@Nonnull PairConsumer<Jam, Consumer<PomTarget>> producer) {
     myPomTargetProducers.add(producer);
     return this;
   }
 
-  public List<PomTarget> getAssociatedTargets(@NotNull Jam element) {
+  public List<PomTarget> getAssociatedTargets(@Nonnull Jam element) {
     final ArrayList<PomTarget> list = ContainerUtil.newArrayList();
     final Consumer<PomTarget> targetConsumer = target -> list.add(target);
     for (final PairConsumer<Jam, Consumer<PomTarget>> function : myPomTargetProducers) {
@@ -108,7 +109,7 @@ public class JamMemberArchetype<Psi extends PsiModifierListOwner, Jam extends Ja
   }
 
   @Nullable
-  public JamMemberMeta findChildMeta(@NotNull PsiModifierListOwner member) {
+  public JamMemberMeta findChildMeta(@Nonnull PsiModifierListOwner member) {
     for (final JamChildrenQuery<?> child : myChildren) {
       final JamMemberMeta meta = ((JamChildrenQuery)child).getMeta(member);
       if (meta != null) {

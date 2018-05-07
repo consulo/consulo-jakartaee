@@ -19,10 +19,11 @@
 
 package com.intellij.javaee.model.xml.web;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.openapi.paths.PathReference;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:form-login-configType interface.
@@ -53,7 +54,7 @@ public interface FormLoginConfig extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the form-login-page child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PathReference> getFormLoginPage();
 
 
@@ -75,7 +76,7 @@ public interface FormLoginConfig extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the form-error-page child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<PathReference> getFormErrorPage();
 
 

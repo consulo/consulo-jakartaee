@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml.ejb;
 
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:timer-scheduleType interface.
@@ -40,7 +40,7 @@ public interface TimerSchedule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the second child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getSecond();
 
 
@@ -56,7 +56,7 @@ public interface TimerSchedule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the minute child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getMinute();
 
 
@@ -72,7 +72,7 @@ public interface TimerSchedule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the hour child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getHour();
 
 
@@ -88,7 +88,7 @@ public interface TimerSchedule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the day-of-month child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getDayOfMonth();
 
 
@@ -104,7 +104,7 @@ public interface TimerSchedule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the month child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getMonth();
 
 
@@ -120,7 +120,7 @@ public interface TimerSchedule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the day-of-week child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getDayOfWeek();
 
 
@@ -136,7 +136,7 @@ public interface TimerSchedule extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the year child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getYear();
 
 

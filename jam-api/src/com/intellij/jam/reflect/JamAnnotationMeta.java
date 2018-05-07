@@ -17,9 +17,10 @@ package com.intellij.jam.reflect;
 
 import static com.intellij.patterns.PsiJavaPatterns.psiAnnotation;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.jam.JamService;
 import com.intellij.patterns.ElementPattern;
 import com.intellij.patterns.PatternCondition;
@@ -49,15 +50,15 @@ public class JamAnnotationMeta extends JamAnnotationArchetype implements SemElem
   private final SemKey<JamAnnotationMeta> myMetaKey;
   private final PsiAnnotationPattern myAnnoNamePattern;
 
-  public JamAnnotationMeta(@NotNull @NonNls String annoName) {
+  public JamAnnotationMeta(@Nonnull @NonNls String annoName) {
     this(annoName, null);
   }
 
-  public JamAnnotationMeta(@NotNull @NonNls String annoName, @Nullable JamAnnotationArchetype archetype) {
+  public JamAnnotationMeta(@Nonnull @NonNls String annoName, @Nullable JamAnnotationArchetype archetype) {
     this(annoName, archetype, JamService.ANNO_META_KEY.subKey("AnnoMeta:" + annoName));
   }
 
-  public JamAnnotationMeta(@NotNull @NonNls String annoName, @Nullable JamAnnotationArchetype archetype,
+  public JamAnnotationMeta(@Nonnull @NonNls String annoName, @Nullable JamAnnotationArchetype archetype,
                            final SemKey<JamAnnotationMeta> metaKey) {
     super(archetype);
     myAnnotationChildLink = new AnnotationChildLink(annoName);
@@ -79,12 +80,12 @@ public class JamAnnotationMeta extends JamAnnotationArchetype implements SemElem
     return myAnnotationChildLink.getAnnotationQualifiedName();
   }
 
-  @NotNull
+  @Nonnull
   public <T> T getAttribute(PsiModifierListOwner member, JamAttributeMeta<T> meta) {
     return getAttribute(PsiElementRef.real(member), meta);
   }
   
-  @NotNull
+  @Nonnull
   public <T> T getAttribute(PsiElementRef<? extends PsiModifierListOwner> member, JamAttributeMeta<T> meta) {
     return meta.getJam(getAnnotationRef(member));
   }
@@ -94,12 +95,12 @@ public class JamAnnotationMeta extends JamAnnotationArchetype implements SemElem
     return myAnnotationChildLink.findLinkedChild(owner);
   }
 
-  @NotNull
+  @Nonnull
   public PsiElementRef<PsiAnnotation> getAnnotationRef(PsiModifierListOwner owner) {
     return myAnnotationChildLink.createChildRef(owner);
   }
 
-  @NotNull
+  @Nonnull
   public PsiElementRef<PsiAnnotation> getAnnotationRef(PsiElementRef<? extends PsiModifierListOwner> member) {
     return myAnnotationChildLink.createChildRef(member);
   }
@@ -114,7 +115,7 @@ public class JamAnnotationMeta extends JamAnnotationArchetype implements SemElem
     final PsiAnnotationPattern annoPattern = myAnnoNamePattern.withSuperParent(
         2, isPackage ? PACKAGE_STATEMENT.with(new PatternCondition<PsiPackageStatement>("package") {
         @Override
-        public boolean accepts(@NotNull PsiPackageStatement psiPackageStatement, ProcessingContext context) {
+        public boolean accepts(@Nonnull PsiPackageStatement psiPackageStatement, ProcessingContext context) {
           return parentPattern.accepts(psiPackageStatement.getPackageReference().resolve(), context);
         }
       }) : parentPattern);

@@ -26,7 +26,7 @@ import com.intellij.javaee.model.xml.*;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -129,7 +129,7 @@ public interface SessionBean extends EjbWithHome, com.intellij.javaee.model.comm
 	 * </pre>
 	 * @return the value of the ejb-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getEjbName();
 
 
@@ -388,7 +388,7 @@ public interface SessionBean extends EjbWithHome, com.intellij.javaee.model.comm
 	 * Returns the value of the depends-on child.
 	 * @return the value of the depends-on child.
 	 */
-	@NotNull
+	@Nonnull
 	DependsOn getDependsOn();
 
 
@@ -453,7 +453,7 @@ public interface SessionBean extends EjbWithHome, com.intellij.javaee.model.comm
 	 * Returns the value of the after-begin-method child.
 	 * @return the value of the after-begin-method child.
 	 */
-	@NotNull
+	@Nonnull
 	NamedMethod getAfterBeginMethod();
 
 
@@ -461,7 +461,7 @@ public interface SessionBean extends EjbWithHome, com.intellij.javaee.model.comm
 	 * Returns the value of the before-completion-method child.
 	 * @return the value of the before-completion-method child.
 	 */
-	@NotNull
+	@Nonnull
 	NamedMethod getBeforeCompletionMethod();
 
 
@@ -469,7 +469,7 @@ public interface SessionBean extends EjbWithHome, com.intellij.javaee.model.comm
 	 * Returns the value of the after-completion-method child.
 	 * @return the value of the after-completion-method child.
 	 */
-	@NotNull
+	@Nonnull
 	NamedMethod getAfterCompletionMethod();
 
 

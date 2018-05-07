@@ -18,8 +18,8 @@ package com.intellij.javaee.model;
 import java.util.Collection;
 import java.util.HashSet;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.model.common.ejb.EjbWithHome;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.javaee.model.common.ejb.MessageDrivenBean;
@@ -41,7 +41,7 @@ public class EjbMethodResolveConverter extends com.intellij.util.xml.converters.
     super(Method.class);
   }
 
-  @NotNull
+  @Nonnull
   protected Collection<PsiClass> getPsiClasses(final Method parent, final ConvertContext context) {
     return getTargetClasses(parent.getEnterpriseBean().getValue(), parent.getMethodIntf().getValue(), true);
   }
@@ -113,8 +113,8 @@ public class EjbMethodResolveConverter extends com.intellij.util.xml.converters.
   }
   
 
-  @NotNull
-  protected MethodParams getMethodParams(@NotNull final Method parent) {
+  @Nonnull
+  protected MethodParams getMethodParams(@Nonnull final Method parent) {
     return parent.getMethodParams();
   }
 }

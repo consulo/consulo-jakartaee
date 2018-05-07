@@ -7,7 +7,7 @@ package com.intellij.javaee.oss.server;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.javaee.oss.JavaeeBundle;
 import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.run.configuration.PredefinedLogFilesListener;
@@ -56,7 +56,7 @@ public abstract class JavaeeRunSettingsEditor<T extends JavaeeServerModel> exten
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	protected JComponent createEditor()
 	{
 		JComponent editor = getEditor();
@@ -92,7 +92,7 @@ public abstract class JavaeeRunSettingsEditor<T extends JavaeeServerModel> exten
 		}
 	}
 
-	@NotNull
+	@Nonnull
 	protected abstract JComponent getEditor();
 
 	protected abstract void resetEditorFrom(T model);

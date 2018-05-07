@@ -19,7 +19,7 @@ package com.intellij.javaee.model.xml.web.converters;
 import com.intellij.util.xml.ConvertContext;
 import com.intellij.util.xml.ResolvingConverter;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -46,7 +46,7 @@ public class MappingExtensionConverter extends ResolvingConverter.StringConverte
     Collections.sort(STANDARD_EXTENSIONS);
   }
 
-  @NotNull
+  @Nonnull
   public Collection<? extends String> getVariants(final ConvertContext context) {
     return STANDARD_EXTENSIONS;
   }

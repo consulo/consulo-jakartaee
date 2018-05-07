@@ -26,8 +26,8 @@ import com.intellij.util.xml.DomElement;
 import com.intellij.util.xml.ResolvingConverter;
 import com.intellij.util.xml.DomUtil;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -57,7 +57,7 @@ public class ResAuthConverter extends ResolvingConverter<ResAuth> {
     return true;
   }
 
-  @NotNull
+  @Nonnull
   public Collection<? extends ResAuth> getVariants(final ConvertContext context) {
     return Arrays.asList(ResAuth.class.getEnumConstants());
   }

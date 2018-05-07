@@ -6,7 +6,7 @@ import com.intellij.javaee.oss.agent.AgentProxyFactory;
 import com.intellij.javaee.oss.agent.ParametersMap;
 import com.intellij.openapi.util.io.FileSystemUtil;
 import com.intellij.openapi.util.io.FileUtil;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
 import org.jetbrains.idea.tomcat.agent.TomEEDeployPropertyNames;
 
@@ -42,7 +42,7 @@ public class TomEEAgentAdminServerImpl extends JavaeeAgentAdminServerBase {
     deployParameters.put(TomEEDeployPropertyNames.CONTEXT_ROOT, tomeeDeployment.CONTEXT_PATH);
   }
 
-  @NotNull
+  @Nonnull
   @Override
   protected String getDeploymentName(DeploymentModel deployment, File source) throws Exception {
     String path = source.getAbsolutePath();

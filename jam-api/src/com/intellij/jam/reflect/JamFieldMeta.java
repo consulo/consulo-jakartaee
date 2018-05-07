@@ -18,7 +18,7 @@ package com.intellij.jam.reflect;
 import com.intellij.jam.JamElement;
 import com.intellij.psi.PsiField;
 import com.intellij.semantic.SemKey;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * @author peter

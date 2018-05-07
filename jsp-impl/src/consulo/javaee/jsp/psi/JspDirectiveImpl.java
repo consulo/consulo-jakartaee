@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.psi;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.impl.source.jsp.jspXml.JspDirective;
 import consulo.javaee.jsp.psi.impl.JspElementVisitor;
 import consulo.javaee.jsp.psi.impl.JspXmlTagBaseImpl;
@@ -23,7 +24,7 @@ public class JspDirectiveImpl extends JspXmlTagBaseImpl implements JspDirective
 	}
 
 	@Override
-	public void accept(@NotNull JspElementVisitor visitor)
+	public void accept(@Nonnull JspElementVisitor visitor)
 	{
 		visitor.visitDirective(this);
 	}

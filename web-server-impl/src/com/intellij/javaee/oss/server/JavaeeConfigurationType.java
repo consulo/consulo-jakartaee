@@ -4,9 +4,9 @@
 
 package com.intellij.javaee.oss.server;
 
+import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.javaee.oss.JavaeeBundle;
@@ -26,7 +26,7 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 		init();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public JavaEEServerBundleType getBundleType()
 	{
@@ -34,7 +34,7 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public String getId()
 	{
 		return getClass().getSimpleName();
@@ -64,12 +64,12 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	public abstract ServerModel createLocalModel();
 
-	@NotNull
+	@Nonnull
 	public abstract ServerModel createRemoteModel();
 
-	@NotNull
+	@Nonnull
 	public abstract ExecutableObjectStartupPolicy createStartupPolicy();
 }

@@ -7,8 +7,8 @@ package com.intellij.javaee.oss.converter;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.jam.model.common.CommonModelManager;
 import com.intellij.javaee.model.xml.ejb.CmpField;
 import com.intellij.javaee.model.xml.ejb.EntityBean;
@@ -34,7 +34,7 @@ public abstract class CmpFieldConverter extends ResolvingConverter<CmpField> {
     }
 
     @Override
-    @NotNull
+    @Nonnull
     public Collection<CmpField> getVariants(ConvertContext context) {
         EntityBean bean = getEntityBean(context);
         if (bean != null) {

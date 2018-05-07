@@ -21,7 +21,7 @@ import com.intellij.openapi.module.Module;
 import com.intellij.util.xml.Converter;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.WrappingConverter;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * @author Serega.Vasiliev
@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
 public class ContextParamValueConverter extends WrappingConverter {
 
   @Override
-  public Converter getConverter(@NotNull GenericDomValue domElement) {
+  public Converter getConverter(@Nonnull GenericDomValue domElement) {
     Module module = domElement.getModule();
 
     ParamValue value = domElement.getParentOfType(ParamValue.class, false);

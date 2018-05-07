@@ -2,7 +2,8 @@ package consulo.javaee.jsp.psi.impl.java.psi.stub.elementType;
 
 import java.io.IOException;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.LighterASTNode;
 import com.intellij.lang.PsiBuilder;
@@ -52,7 +53,7 @@ public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFil
 		return isInSourceContent(file);
 	}
 
-	public static boolean isInSourceContent(@NotNull VirtualFile file)
+	public static boolean isInSourceContent(@Nonnull VirtualFile file)
 	{
 		final VirtualFile dir = file.getParent();
 		return dir == null || dir.getUserData(LanguageLevel.KEY) != null;
@@ -77,7 +78,7 @@ public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFil
 	}
 
 	@Override
-	protected ASTNode doParseContents(@NotNull ASTNode chameleon, @NotNull PsiElement psi)
+	protected ASTNode doParseContents(@Nonnull ASTNode chameleon, @Nonnull PsiElement psi)
 	{
 		Project project = psi.getProject();
 		LanguageVersion tempLanguageVersion = chameleon.getUserData(LanguageVersion.KEY);
@@ -86,8 +87,8 @@ public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFil
 		return doParse(chameleon, project, languageVersion).getTreeBuilt().getFirstChildNode();
 	}
 
-	@NotNull
-	private PsiBuilder doParse(@NotNull ASTNode chameleon, Project project, LanguageVersion languageVersion)
+	@Nonnull
+	private PsiBuilder doParse(@Nonnull ASTNode chameleon, Project project, LanguageVersion languageVersion)
 	{
 		LanguageLevel languageLevel = LanguageLevel.HIGHEST;
 		PsiBuilder builder = PsiBuilderFactory.getInstance().createBuilder(project, chameleon, new JspJavaLexer(languageLevel), JavaLanguage.INSTANCE, languageVersion, chameleon.getChars());
@@ -97,7 +98,7 @@ public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFil
 		return builder;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getExternalId()
 	{
@@ -105,16 +106,16 @@ public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFil
 	}
 
 	@Override
-	public void serialize(@NotNull PsiJavaFileStub stub, @NotNull StubOutputStream dataStream) throws IOException
+	public void serialize(@Nonnull PsiJavaFileStub stub, @Nonnull StubOutputStream dataStream) throws IOException
 	{
 		LanguageLevel level = stub.getLanguageLevel();
 		dataStream.writeByte(level != null ? level.ordinal() : -1);
 		dataStream.writeName(stub.getPackageName());
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public PsiJavaFileStub deserialize(@NotNull StubInputStream dataStream, StubElement parentStub) throws IOException
+	public PsiJavaFileStub deserialize(@Nonnull StubInputStream dataStream, StubElement parentStub) throws IOException
 	{
 		int level = dataStream.readByte();
 		StringRef packageName = dataStream.readName();

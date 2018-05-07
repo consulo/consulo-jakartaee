@@ -18,8 +18,8 @@ package com.intellij.javaee.web;
 
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.model.common.JavaeeModelElement;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericValue;
@@ -31,7 +31,7 @@ import com.intellij.util.xml.NameValue;
  */
 public interface CommonFilter extends JavaeeModelElement
 {
-	@NotNull
+	@Nonnull
 	@NameValue
 	MutableGenericValue<String> getFilterName();
 

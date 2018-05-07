@@ -16,8 +16,9 @@
 
 package com.intellij.javaee.web;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.openapi.paths.PathReference;
 import com.intellij.openapi.paths.PathReferenceManager;
 import com.intellij.openapi.paths.PathReferenceProvider;
@@ -45,8 +46,8 @@ public class StaticPathReferenceConverter extends PathReferenceConverter
 		return element != null ? myStaticProvider.getPathReference(s, element) : null;
 	}
 
-	@NotNull
-	public PsiReference[] createReferences(@NotNull final PsiElement psiElement, final boolean soft)
+	@Nonnull
+	public PsiReference[] createReferences(@Nonnull final PsiElement psiElement, final boolean soft)
 	{
 		return PathReferenceManager.getReferencesFromProvider(myStaticProvider, psiElement, soft);
 	}

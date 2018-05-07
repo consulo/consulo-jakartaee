@@ -1,9 +1,9 @@
 package consulo.javaee.run.configuration;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.javaee.oss.server.JavaeeConfigurationFactory;
@@ -29,13 +29,13 @@ public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory
 	}
 
 	@Override
-	public boolean isApplicable(@NotNull Project project)
+	public boolean isApplicable(@Nonnull Project project)
 	{
 		return J2EEConfigurationFactory.getInstance().isConfigurationApplicable((JavaeeConfigurationType) getType(), project);
 	}
 
 	@Override
-	public void onNewConfigurationCreated(@NotNull RunConfiguration configuration)
+	public void onNewConfigurationCreated(@Nonnull RunConfiguration configuration)
 	{
 		super.onNewConfigurationCreated(configuration);
 
@@ -53,7 +53,7 @@ public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory
 	}
 
 	@Override
-	public void onConfigurationCopied(@NotNull RunConfiguration configuration)
+	public void onConfigurationCopied(@Nonnull RunConfiguration configuration)
 	{
 		super.onConfigurationCopied(configuration);
 
@@ -70,7 +70,7 @@ public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory
 		return false;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	protected ServerModel createServerModel()
 	{

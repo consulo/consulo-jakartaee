@@ -19,10 +19,9 @@ import com.intellij.jam.JamConverter;
 import com.intellij.jam.JamStringAttributeElement;
 import com.intellij.openapi.util.Factory;
 import com.intellij.psi.PsiAnnotation;
-import com.intellij.psi.PsiAnnotationMemberValue;
 import com.intellij.psi.PsiElementRef;
-import com.intellij.util.NullableFunction;
-import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -66,7 +65,7 @@ public abstract class JamStringAttributeMeta<T, JamType> extends JamAttributeMet
       super(attrName, converter);
     }
 
-    @NotNull
+    @Nonnull
     public List<JamStringAttributeElement<T>> getJam(PsiElementRef<PsiAnnotation> anno) {
       return getCollectionJam(anno, psiAnnotationMemberValue -> new JamStringAttributeElement<>(psiAnnotationMemberValue, myConverter));
     }
@@ -84,8 +83,8 @@ public abstract class JamStringAttributeMeta<T, JamType> extends JamAttributeMet
       super(attrName, converter);
     }
 
-    @NotNull
-    public JamStringAttributeElement<T> getJam(PsiElementRef<PsiAnnotation> anno, @NotNull final Factory<T> defaultValue) {
+    @Nonnull
+    public JamStringAttributeElement<T> getJam(PsiElementRef<PsiAnnotation> anno, @Nonnull final Factory<T> defaultValue) {
       return new JamStringAttributeElement<T>(anno, getAttributeLink().getAttributeName(), myConverter) {
         @Override
         public T getValue() {
@@ -95,7 +94,7 @@ public abstract class JamStringAttributeMeta<T, JamType> extends JamAttributeMet
       };
     }
 
-    @NotNull
+    @Nonnull
     public JamStringAttributeElement<T> getJam(PsiElementRef<PsiAnnotation> anno) {
       return new JamStringAttributeElement<>(anno, getAttributeLink().getAttributeName(), myConverter);
     }

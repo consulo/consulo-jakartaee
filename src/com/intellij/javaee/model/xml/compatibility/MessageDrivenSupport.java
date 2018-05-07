@@ -16,7 +16,7 @@
 
 package com.intellij.javaee.model.xml.compatibility;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * Created by IntelliJ IDEA.

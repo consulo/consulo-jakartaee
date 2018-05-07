@@ -6,7 +6,7 @@ import com.intellij.javaee.oss.admin.jmx.JmxAdminException;
 import com.intellij.openapi.util.io.FileUtil;
 import org.jdom.Document;
 import org.jdom.Element;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import org.jetbrains.idea.tomcat.TomcatContexts;
 import org.jetbrains.idea.tomcat.TomcatDeploymentModelBase;
 import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
@@ -52,7 +52,7 @@ public class TomcatAdminRemoteServerImpl extends TomcatAdminServerBase<TomcatRem
     }
   }
 
-  @NotNull
+  @Nonnull
   public File addApplicationContext(TomcatDeploymentModelBase tomcatModuleDeploymentModel, String preparedPath)
     throws JmxAdminException {
     try {

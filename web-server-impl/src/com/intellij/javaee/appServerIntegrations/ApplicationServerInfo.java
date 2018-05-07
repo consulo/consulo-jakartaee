@@ -15,7 +15,7 @@
  */
 package com.intellij.javaee.appServerIntegrations;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.io.File;
 
@@ -23,17 +23,17 @@ public class ApplicationServerInfo {
   private final File[] myDefaultLibraries;
   private final String myDefaultName;
 
-  public ApplicationServerInfo(@NotNull File[] defaultLibraries, @NotNull String defaultName) {
+  public ApplicationServerInfo(@Nonnull File[] defaultLibraries, @Nonnull String defaultName) {
     myDefaultLibraries = defaultLibraries;
     myDefaultName = defaultName;
   }
 
-  @NotNull
+  @Nonnull
   public File[] getDefaultLibraries() {
     return myDefaultLibraries;
   }
 
-  @NotNull
+  @Nonnull
   public String getDefaultName() {
     return myDefaultName;
   }

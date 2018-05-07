@@ -3,9 +3,11 @@ package consulo.javaee.run.configuration;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import org.jdom.Element;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.diagnostic.logging.LogConfigurationPanel;
 import com.intellij.execution.ExecutionBundle;
 import com.intellij.execution.ExecutionException;
@@ -84,7 +86,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 		myServerModel.setCommonModel(this);
 	}
 
-	@NotNull
+	@Nonnull
 	public ExecutableObjectStartupPolicy getStartupPolicy()
 	{
 		return myStartupPolicy;
@@ -108,7 +110,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 		return myIsLocal;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public JavaEEServerBundleType getServerBundleType()
 	{
@@ -216,7 +218,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DeploymentSettings getDeploymentSettings()
 	{
@@ -268,7 +270,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 		element.addContent(serverSettingsElement);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	@SuppressWarnings("unchecked")
 	public SettingsEditor<? extends RunConfiguration> getConfigurationEditor()
@@ -294,7 +296,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 		return super.getRunnerSettingsEditor(runner);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Module[] getModules()
 	{
@@ -303,7 +305,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 
 	@Nullable
 	@Override
-	public RunProfileState getState(@NotNull Executor executor, @NotNull ExecutionEnvironment environment) throws ExecutionException
+	public RunProfileState getState(@Nonnull Executor executor, @Nonnull ExecutionEnvironment environment) throws ExecutionException
 	{
 		return new JavaEECommandLineState(environment);
 	}

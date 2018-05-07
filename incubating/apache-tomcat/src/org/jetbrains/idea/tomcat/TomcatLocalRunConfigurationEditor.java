@@ -16,14 +16,14 @@
 
 package org.jetbrains.idea.tomcat;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.idea.tomcat.server.TomcatIntegration;
 import org.jetbrains.idea.tomcat.server.TomcatLocalModel;
 import org.jetbrains.idea.tomcat.server.TomcatRunSettingsEditor;
@@ -127,7 +127,7 @@ public class TomcatLocalRunConfigurationEditor extends TomcatRunSettingsEditor<T
     myPreserveSessionsCheckBox.setText(sessionsCheckboxName);
   }
 
-  @NotNull
+  @Nonnull
   @Override
   protected JComponent getEditor() {
     return myMainPanel;

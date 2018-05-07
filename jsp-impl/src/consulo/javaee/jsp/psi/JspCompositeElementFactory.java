@@ -1,7 +1,7 @@
 package consulo.javaee.jsp.psi;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.psi.impl.source.tree.CompositeElement;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.impl.JspExpressionImpl;
@@ -13,7 +13,7 @@ import consulo.psi.tree.ASTCompositeFactory;
  */
 public class JspCompositeElementFactory implements ASTCompositeFactory
 {
-	@NotNull
+	@Nonnull
 	@Override
 	public CompositeElement createComposite(IElementType type)
 	{

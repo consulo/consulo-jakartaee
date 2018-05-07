@@ -19,9 +19,8 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.util.xml.GenericDomValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -68,7 +67,7 @@ public interface SecurityRoleRef extends JavaeeDomModelElement, com.intellij.jav
 	 * </pre>
 	 * @return the value of the role-name child.
 	 */
-	@NotNull
+	@Nonnull
 	GenericDomValue<String> getRoleName();
 
 

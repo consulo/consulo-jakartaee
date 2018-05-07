@@ -1,7 +1,8 @@
 package org.jetbrains.idea.tomcat.server;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.idea.tomcat.TomcatPersistentDataWrapper;
 import org.jetbrains.idea.tomcat.TomcatStartupPolicy;
 import com.intellij.javaee.deployment.JspDeploymentManager;
@@ -28,28 +29,28 @@ public class TomcatConfigurationBase extends JavaeeConfigurationType
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public ServerModel createLocalModel()
 	{
 		return new TomcatLocalModel();
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public ServerModel createRemoteModel()
 	{
 		return new TomcatRemoteModel();
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public ExecutableObjectStartupPolicy createStartupPolicy()
 	{
 		return new TomcatStartupPolicy();
 	}
 
 	@Override
-	public String getUrlToOpenInBrowser(@NotNull Sdk server, @NotNull PsiFile psiFile)
+	public String getUrlToOpenInBrowser(@Nonnull Sdk server, @Nonnull PsiFile psiFile)
 	{
 		final JavaWebModuleExtension webFacet = WebUtil.getWebFacet(psiFile);
 		if(webFacet == null)

@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+import javax.annotation.Nonnull;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
-import org.jetbrains.annotations.NotNull;
 import com.intellij.icons.AllIcons;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.run.configuration.CommonModel;
@@ -67,7 +67,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 		myCommonModel = commonModel;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	protected JComponent createEditor()
 	{
@@ -76,7 +76,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 		myDeploySourceList.setCellRenderer(new ColoredListCellRenderer<DeployItem>()
 		{
 			@Override
-			protected void customizeCellRenderer(@NotNull JList<? extends DeployItem> list, DeployItem value, int index, boolean selected, boolean hasFocus)
+			protected void customizeCellRenderer(@Nonnull JList<? extends DeployItem> list, DeployItem value, int index, boolean selected, boolean hasFocus)
 			{
 				DeploymentSource deploymentSource = value.getDeploymentSource();
 				if(deploymentSource instanceof ArtifactDeploymentSource)

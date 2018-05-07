@@ -18,8 +18,8 @@ package com.intellij.psi.jsp;
 import java.util.List;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.pom.Navigatable;
 import com.intellij.psi.PsiElement;
@@ -36,18 +36,22 @@ public interface WebDirectoryElement extends PsiFileSystemItem, Navigatable {
 
   boolean isDirectory();
 
-  @NotNull String getPath();
-  @NotNull List<VirtualFile> getOriginalVirtualFiles();
-  @NotNull WebDirectoryElement[] getChildren();
+  @Nonnull
+  String getPath();
+  @Nonnull
+  List<VirtualFile> getOriginalVirtualFiles();
+  @Nonnull
+  WebDirectoryElement[] getChildren();
 
-  boolean processChildren(@NotNull final WebDirectoryProcessor processor);
+  boolean processChildren(@Nonnull final WebDirectoryProcessor processor);
   @Nullable WebDirectoryElement createElement(final String name, final boolean isDirectory) throws IncorrectOperationException;
 
   interface WebDirectoryProcessor {
     boolean execute(String name, boolean isDirectory) throws Exception;
   }
 
-  @Nullable VirtualFile getOriginalVirtualFile();
+  @Nullable
+  VirtualFile getOriginalVirtualFile();
 
   @Nullable PsiFile getOriginalFile();
 

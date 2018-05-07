@@ -24,8 +24,8 @@ import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.util.JDOMExternalizable;
 import com.intellij.openapi.util.Pair;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.List;
 
@@ -39,7 +39,7 @@ public interface ServerModel extends JDOMExternalizable, Cloneable {
   @Nullable
   DeploymentProvider getDeploymentProvider();
 
-  @NotNull
+  @Nonnull
   String getDefaultUrlForBrowser();
 
   SettingsEditor getEditor();

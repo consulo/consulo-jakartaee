@@ -20,7 +20,7 @@ import com.intellij.jam.model.common.CommonModelManager;
 import com.intellij.jam.model.common.CommonModelElement;
 import com.intellij.openapi.actionSystem.DataContext;
 import gnu.trove.THashSet;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -51,11 +51,11 @@ public class JamDeleteProvider implements DeleteProvider {
     this(response, Collections.singletonList(element));
   }
 
-  public void deleteElement(@NotNull DataContext dataContext) {
+  public void deleteElement(@Nonnull DataContext dataContext) {
     CommonModelManager.getInstance().deleteModelElements(myElements, myResponse);
   }
 
-  public boolean canDeleteElement(@NotNull DataContext dataContext) {
+  public boolean canDeleteElement(@Nonnull DataContext dataContext) {
     for (CommonModelElement element : myElements) {
       if (element != null && !element.isValid()) return false;
     }

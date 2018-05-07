@@ -25,8 +25,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.debugger.NoDataException;
 import com.intellij.debugger.SourcePosition;
 import com.intellij.debugger.engine.DebugProcess;
@@ -116,7 +117,7 @@ public class Tomcat40PositionManager implements DisposablePositionManager {
   private final JavaEEModuleExtension[] myScope;
   private LocalFileSystem.WatchRequest myGeneratedPathsWatchRequest;
 
-  public Tomcat40PositionManager(DebugProcess debugProcess, @NotNull String generatedFilePath, JavaEEModuleExtension[] scopeFacets) {
+  public Tomcat40PositionManager(DebugProcess debugProcess, @Nonnull String generatedFilePath, JavaEEModuleExtension[] scopeFacets) {
     myScope = scopeFacets;
     myDebugProcess = debugProcess;
     myGeneratedFilesPath = generatedFilePath;
@@ -307,7 +308,7 @@ public class Tomcat40PositionManager implements DisposablePositionManager {
       myLine = line;
     }
 
-    public ServletPosition(@NotNull VirtualFile file, String className, int line) {
+    public ServletPosition(@Nonnull VirtualFile file, String className, int line) {
       myFile = file;
       myClassName = className;
       myLine = line;
@@ -414,7 +415,7 @@ public class Tomcat40PositionManager implements DisposablePositionManager {
       myTypeManager = FileTypeManager.getInstance();
     }
 
-    public void fileCreated(@NotNull VirtualFileEvent event) {
+    public void fileCreated(@Nonnull VirtualFileEvent event) {
       VirtualFile file = event.getFile();
       if (isGenerated(file)) {
         if (file.isDirectory()) {
@@ -428,14 +429,14 @@ public class Tomcat40PositionManager implements DisposablePositionManager {
       }
     }
 
-    public void fileDeleted(@NotNull VirtualFileEvent event) {
+    public void fileDeleted(@Nonnull VirtualFileEvent event) {
       VirtualFile file = event.getFile();
       if (isGenerated(file) && isGeneratedServlet(file)) {
         clearMappings(file);
       }
     }
 
-    public void contentsChanged(@NotNull VirtualFileEvent event) {
+    public void contentsChanged(@Nonnull VirtualFileEvent event) {
       VirtualFile file = event.getFile();
       if (isGenerated(file) && isGeneratedServlet(file)) {
         parseGeneratedServlet(file);
@@ -487,8 +488,8 @@ public class Tomcat40PositionManager implements DisposablePositionManager {
     return sourcePosition;
   }
 
-  @NotNull
-  public List<ReferenceType> getAllClasses(@NotNull SourcePosition classPosition) throws NoDataException {
+  @Nonnull
+  public List<ReferenceType> getAllClasses(@Nonnull SourcePosition classPosition) throws NoDataException {
     final FileType fileType = classPosition.getFile().getFileType();
     if(fileType != JspFileType.INSTANCE && fileType != JspxFileType.INSTANCE) {
       throw NoDataException.INSTANCE;
@@ -508,8 +509,8 @@ public class Tomcat40PositionManager implements DisposablePositionManager {
     return result;
   }
 
-  @NotNull
-  public List<Location> locationsOfLine(@NotNull ReferenceType type, @NotNull final SourcePosition position) throws NoDataException {
+  @Nonnull
+  public List<Location> locationsOfLine(@Nonnull ReferenceType type, @Nonnull final SourcePosition position) throws NoDataException {
     final FileType fileType = position.getFile().getFileType();
     if(fileType != JspFileType.INSTANCE && fileType != JspxFileType.INSTANCE) throw NoDataException.INSTANCE;
 
@@ -533,7 +534,7 @@ public class Tomcat40PositionManager implements DisposablePositionManager {
     return Collections.emptyList();
   }
 
-  public ClassPrepareRequest createPrepareRequest(@NotNull final ClassPrepareRequestor requestor, @NotNull final SourcePosition position)
+  public ClassPrepareRequest createPrepareRequest(@Nonnull final ClassPrepareRequestor requestor, @Nonnull final SourcePosition position)
     throws NoDataException {
     final FileType fileType = position.getFile().getFileType();
     if(fileType != JspFileType.INSTANCE && fileType != JspxFileType.INSTANCE) {
@@ -554,7 +555,7 @@ public class Tomcat40PositionManager implements DisposablePositionManager {
     }, APACHE_PACKAGE + ".*");
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public Set<? extends FileType> getAcceptedFileTypes() {
     return ourFileTypes;

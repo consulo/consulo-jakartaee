@@ -23,7 +23,8 @@ import static com.intellij.javaee.DeploymentDescriptorsConstants.WEB_XML_VERSION
 import static com.intellij.javaee.DeploymentDescriptorsConstants.WEB_XML_VERSION_2_5;
 import static com.intellij.javaee.DeploymentDescriptorsConstants.WEB_XML_VERSION_3_0;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.javaee.JavaeeVersion;
 import com.intellij.lang.jsp.JspVersion;
 import com.intellij.util.descriptors.ConfigFileVersion;
@@ -49,14 +50,14 @@ public enum WebAppVersion implements NamedEnum {
   private final JspVersion myJspVersion;
   private final JavaeeVersion myJavaeeVersion;
 
-  WebAppVersion(@NotNull String value, @NotNull ConfigFileVersion configFileVersion, @NotNull JspVersion jspVersion, @NotNull JavaeeVersion javaeeVersion) {
+  WebAppVersion(@Nonnull String value, @Nonnull ConfigFileVersion configFileVersion, @Nonnull JspVersion jspVersion, @Nonnull JavaeeVersion javaeeVersion) {
     this.value = value;
     myConfigFileVersion = configFileVersion;
     myJspVersion = jspVersion;
     myJavaeeVersion = javaeeVersion;
   }
 
-  @NotNull
+  @Nonnull
   public ConfigFileVersion getConfigFileVersion() {
     return myConfigFileVersion;
   }

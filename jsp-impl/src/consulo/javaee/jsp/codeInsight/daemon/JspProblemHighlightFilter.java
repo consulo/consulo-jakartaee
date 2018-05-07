@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.codeInsight.daemon;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.codeInsight.daemon.ProblemHighlightFilter;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -15,13 +16,13 @@ import consulo.javaee.jsp.JspFileType;
 public class JspProblemHighlightFilter extends ProblemHighlightFilter
 {
 	@Override
-	public boolean shouldHighlight(@NotNull PsiFile psiFile)
+	public boolean shouldHighlight(@Nonnull PsiFile psiFile)
 	{
 		return psiFile.getFileType() != JspFileType.INSTANCE || !JavaProjectRootsUtil.isOutsideSourceRoot(psiFile);
 	}
 
 	@Override
-	public boolean shouldProcessInBatch(@NotNull PsiFile psiFile)
+	public boolean shouldProcessInBatch(@Nonnull PsiFile psiFile)
 	{
 		final boolean shouldHighlight = shouldHighlightFile(psiFile);
 		if(shouldHighlight)

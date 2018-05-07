@@ -18,8 +18,8 @@ package com.intellij.javaee.model.xml.converters;
 import java.util.Collections;
 import java.util.Set;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.openapi.extensions.ExtensionPointName;
 import com.intellij.openapi.module.Module;
 import com.intellij.util.xml.ConvertContext;
@@ -36,8 +36,8 @@ public abstract class ContextParamsProvider {
    * @param convertContext Current convert context.
    * @return Parameter names applicable in this context.
    */
-  @NotNull
-  public Set<String> getContextParamNames(@NotNull Module module, ConvertContext convertContext) {
+  @Nonnull
+  public Set<String> getContextParamNames(@Nonnull Module module, ConvertContext convertContext) {
     return getContextParamNames(module);
   }
 
@@ -45,15 +45,15 @@ public abstract class ContextParamsProvider {
    * @deprecated use {@link #getContextParamNames(com.intellij.openapi.module.Module, com.intellij.util.xml.ConvertContext)}
    */
   @Deprecated
-  public Set<String> getContextParamNames(@NotNull Module module) {
+  public Set<String> getContextParamNames(@Nonnull Module module) {
     return Collections.emptySet();
   }
 
   @Nullable
-  public abstract Converter getContextParamValueConverter(@NotNull String paramName, @Nullable Module module);
+  public abstract Converter getContextParamValueConverter(@Nonnull String paramName, @Nullable Module module);
 
   @Nullable
-  public String getContextParamDefaultValue(@NotNull String paramName, @Nullable Module module) {
+  public String getContextParamDefaultValue(@Nonnull String paramName, @Nullable Module module) {
     return "";
   }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.jdom.Element;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.JDOMUtil;
 
@@ -64,7 +64,7 @@ class JspSchemeLoader
 		}
 	}
 
-	@NotNull
+	@Nonnull
 	public static Map<String, Directive> getDirectives()
 	{
 		return ourDirectives;

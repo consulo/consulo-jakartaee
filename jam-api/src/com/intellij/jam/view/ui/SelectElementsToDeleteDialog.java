@@ -18,7 +18,7 @@ package com.intellij.jam.view.ui;
 import com.intellij.jam.JamMessages;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import javax.swing.*;
 import java.util.List;
@@ -30,7 +30,7 @@ public class SelectElementsToDeleteDialog extends SelectElementsDialog {
     getSelectedItems().addAll(elements);
   }
 
-  @NotNull
+  @Nonnull
   protected Action[] createActions() {
     getOKAction().putValue(Action.NAME, JamMessages.message("button.delete"));
     getCancelAction().putValue(Action.NAME, JamMessages.message("button.do.not.delete"));

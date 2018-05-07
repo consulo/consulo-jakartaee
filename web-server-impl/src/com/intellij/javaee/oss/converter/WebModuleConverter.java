@@ -7,8 +7,8 @@ package com.intellij.javaee.oss.converter;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.facet.JavaeeFacetUtil;
 import com.intellij.javaee.model.xml.application.JavaeeApplication;
 import com.intellij.javaee.model.xml.application.JavaeeModule;
@@ -38,7 +38,7 @@ public class WebModuleConverter extends ResolvingConverter<JavaeeModule> {
     }
 
     @Override
-    @NotNull
+    @Nonnull
     public Collection<? extends JavaeeModule> getVariants(ConvertContext context) {
         Collection<JavaeeModule> list = new ArrayList<JavaeeModule>();
         JavaEEApplicationModuleExtension facet = JavaeeFacetUtil.getInstance().getJavaeeFacet(context, JavaEEApplicationModuleExtension.class);

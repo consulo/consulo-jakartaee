@@ -16,8 +16,8 @@
 
 package consulo.javaee.jsp.psi.impl.java.psi;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiClass;
@@ -51,14 +51,14 @@ public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 		super(JspJavaStubElements.JAVA_IN_JSP_FILE, JspJavaStubElements.JAVA_IN_JSP_FILE, viewProvider);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiClass[] getClasses()
 	{
 		return findChildrenByClass(PsiClass.class);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String[] getImplicitlyImportedPackages()
 	{
@@ -66,7 +66,7 @@ public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public PsiJavaCodeReferenceElement[] getImplicitlyImportedPackageReferences()
 	{
 		return PsiImplUtil.namesToPackageReferences(myManager, getImplicitlyImportedPackages());
@@ -81,14 +81,14 @@ public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 	}
 
 	@RequiredReadAction
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiElement[] getChildren()
 	{
 		return ArrayUtil.prepend(myImportList, super.getChildren());
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public FileType getFileType()
 	{

@@ -1,6 +1,6 @@
 package com.intellij.javaee;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * @author Gregory.Shrago
@@ -14,19 +14,19 @@ public enum JavaeeVersion
 	private final String myId;
 	private final String myPresentableName;
 
-	JavaeeVersion(@NotNull String id, @NotNull String presentableName)
+	JavaeeVersion(@Nonnull String id, @Nonnull String presentableName)
 	{
 		myId = id;
 		myPresentableName = presentableName;
 	}
 
-	@NotNull
+	@Nonnull
 	public String getId()
 	{
 		return myId;
 	}
 
-	@NotNull
+	@Nonnull
 	public String getPresentableName()
 	{
 		return myPresentableName;

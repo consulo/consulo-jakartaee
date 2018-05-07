@@ -15,14 +15,16 @@
  */
 package com.intellij.jam.reflect;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.jam.JamElement;
 import com.intellij.pom.PomTarget;
 import com.intellij.psi.PsiClass;
 import com.intellij.semantic.SemKey;
 import com.intellij.util.Consumer;
 import com.intellij.util.PairConsumer;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 /**
  * @author peter
@@ -47,7 +49,7 @@ public class JamClassMeta<Jam extends JamElement> extends JamMemberMeta<PsiClass
   }
 
   @Override
-  public JamClassMeta<Jam> addPomTargetProducer(@NotNull PairConsumer<Jam, Consumer<PomTarget>> producer) {
+  public JamClassMeta<Jam> addPomTargetProducer(@Nonnull PairConsumer<Jam, Consumer<PomTarget>> producer) {
     super.addPomTargetProducer(producer);
     return this;
   }

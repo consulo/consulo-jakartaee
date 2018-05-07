@@ -21,8 +21,8 @@ import java.awt.event.InputEvent;
 
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.ide.DataManager;
 import com.intellij.ide.DeleteProvider;
 import com.intellij.ide.util.treeView.NodeDescriptor;
@@ -53,7 +53,7 @@ public abstract class JamNodeDescriptor<P> extends SimpleNode implements DataPro
     myElement = element;
   }
 
-  @NotNull
+  @Nonnull
   public Object[] getEqualityObjects() {
     return new Object[] { myElement };
   }

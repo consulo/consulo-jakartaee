@@ -10,11 +10,11 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.javaee.appServerIntegrations.AppServerDeployedFileUrlProvider;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerUrlMapping;
@@ -41,14 +41,14 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public AppServerDeployedFileUrlProvider getDeployedFileUrlProvider()
 	{
 		return new ApplicationServerUrlMapping()
 		{
 			@Override
 			@Nullable
-			public String getUrlForDeployedFile(@NotNull J2EEServerInstance instance, @NotNull DeploymentModel deployment, @NotNull JavaEEModuleExtension<?> facet, @NotNull String path)
+			public String getUrlForDeployedFile(@Nonnull J2EEServerInstance instance, @Nonnull DeploymentModel deployment, @Nonnull JavaEEModuleExtension<?> facet, @Nonnull String path)
 			{
 				if(instance instanceof JavaeeServerInstance)
 				{
@@ -64,16 +64,16 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 		};
 	}
 
-	@NotNull
+	@Nonnull
 	public abstract String getName();
 
-	@NotNull
+	@Nonnull
 	public Icon getIcon()
 	{
 		throw new UnsupportedOperationException();
 	}
 
-	@NotNull
+	@Nonnull
 	public Icon getBigIcon()
 	{
 		throw new UnsupportedOperationException();
@@ -95,7 +95,7 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@NonNls
 	protected String getServerVersion(String home) throws Exception
 	{

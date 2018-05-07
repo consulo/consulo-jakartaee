@@ -1,6 +1,6 @@
 package consulo.apache.tomcat.bundle;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class TomcatEEBundleType extends TomcatBundleType
 {
-	@NotNull
+	@Nonnull
 	public static TomcatBundleType getInstance()
 	{
 		throw new IllegalArgumentException();

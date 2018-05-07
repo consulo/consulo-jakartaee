@@ -23,7 +23,7 @@ import com.intellij.javaee.model.enums.MessageDestinationUsage;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.NameValue;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -98,7 +98,7 @@ public interface MessageDestinationRef extends JavaeeDomModelElement, ResourceGr
 	 * </pre>
 	 * @return the value of the message-destination-ref-name child.
 	 */
-	@NotNull
+	@Nonnull
         @NameValue
         GenericDomValue<String> getMessageDestinationRefName();
 

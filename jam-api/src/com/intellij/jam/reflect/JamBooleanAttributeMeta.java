@@ -15,10 +15,11 @@
  */
 package com.intellij.jam.reflect;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.jam.JamBooleanAttributeElement;
 import com.intellij.psi.PsiAnnotation;
 import com.intellij.psi.PsiElementRef;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @since 143
@@ -32,7 +33,7 @@ public class JamBooleanAttributeMeta extends JamAttributeMeta<JamBooleanAttribut
     myDefaultValue = defaultValue;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public JamBooleanAttributeElement getJam(PsiElementRef<PsiAnnotation> anno) {
     return new JamBooleanAttributeElement(getAttributeLink().getAttributeName(), anno, myDefaultValue);

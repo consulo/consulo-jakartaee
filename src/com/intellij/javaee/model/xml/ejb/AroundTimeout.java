@@ -23,7 +23,7 @@ import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.Required;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:around-timeoutType interface.
@@ -56,7 +56,7 @@ public interface AroundTimeout extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the class child.
 	 */
-	@NotNull
+	@Nonnull
 	@com.intellij.util.xml.SubTag ("class")
 	GenericDomValue<PsiClass> getClazz();
 
@@ -71,7 +71,7 @@ public interface AroundTimeout extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the method-name child.
 	 */
-	@NotNull
+	@Nonnull
 	@Required
 	GenericDomValue<String> getMethodName();
 

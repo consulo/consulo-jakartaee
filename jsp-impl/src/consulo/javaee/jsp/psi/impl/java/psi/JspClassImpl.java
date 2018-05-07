@@ -6,9 +6,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.java.JavaLanguage;
@@ -51,17 +53,17 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 {
 	private final ClassInnerStuffCache myInnersCache = new ClassInnerStuffCache(this);
 
-	public JspClassImpl(@NotNull ASTNode node)
+	public JspClassImpl(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
 
-	public JspClassImpl(@NotNull PsiClassStub<JspClass> stub, @NotNull IStubElementType nodeType)
+	public JspClassImpl(@Nonnull PsiClassStub<JspClass> stub, @Nonnull IStubElementType nodeType)
 	{
 		super(stub, nodeType);
 	}
 
-	@NotNull
+	@Nonnull
 	@RequiredReadAction
 	private List<PsiField> buildImplicitFields()
 	{
@@ -101,14 +103,14 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 		return buildName(containingFile);
 	}
 
-	@NotNull
-	public static String buildName(@NotNull PsiFile containingFile)
+	@Nonnull
+	public static String buildName(@Nonnull PsiFile containingFile)
 	{
 		return FileUtil.getNameWithoutExtension(containingFile.getName()) + "_jsp";
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public JspHolderMethod getHolderMethod()
 	{
 		return findNotNullChildByClass(JspHolderMethod.class);
@@ -183,14 +185,14 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiClassType[] getExtendsListTypes()
 	{
 		return PsiClassImplUtil.getExtendsListTypes(this);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiClassType[] getImplementsListTypes()
 	{
@@ -210,35 +212,35 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 		return PsiClassImplUtil.getInterfaces(this);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiClass[] getSupers()
 	{
 		return PsiClassImplUtil.getSupers(this);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiClassType[] getSuperTypes()
 	{
 		return PsiClassImplUtil.getSuperTypes(this);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiField[] getFields()
 	{
 		return myInnersCache.getFields();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiMethod[] getMethods()
 	{
 		return myInnersCache.getMethods();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public List<PsiMethod> getOwnMethods()
 	{
@@ -261,7 +263,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 		return methods;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	@RequiredReadAction
 	public List<PsiField> getOwnFields()
@@ -285,7 +287,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 		return fields;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	@RequiredReadAction
 	public List<PsiClass> getOwnInnerClasses()
@@ -310,42 +312,42 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 		return classes;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiMethod[] getConstructors()
 	{
 		return new PsiMethod[]{new LightMethodBuilder(this, JavaLanguage.INSTANCE).setConstructor(true)};
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiClass[] getInnerClasses()
 	{
 		return myInnersCache.getInnerClasses();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiClassInitializer[] getInitializers()
 	{
 		return PsiClassInitializer.EMPTY_ARRAY;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiField[] getAllFields()
 	{
 		return PsiClassImplUtil.getAllFields(this);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiMethod[] getAllMethods()
 	{
 		return PsiClassImplUtil.getAllMethods(this);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiClass[] getAllInnerClasses()
 	{
@@ -366,28 +368,28 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiMethod[] findMethodsBySignature(PsiMethod psiMethod, boolean checkBases)
 	{
 		return PsiMethod.EMPTY_ARRAY;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiMethod[] findMethodsByName(@NonNls String name, boolean checkBases)
 	{
 		return myInnersCache.findMethodsByName(name, checkBases);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public List<Pair<PsiMethod, PsiSubstitutor>> findMethodsAndTheirSubstitutorsByName(@NonNls String s, boolean b)
 	{
 		return Collections.emptyList();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public List<Pair<PsiMethod, PsiSubstitutor>> getAllMethodsAndTheirSubstitutors()
 	{
@@ -439,7 +441,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	}
 
 	@Override
-	public boolean isInheritor(@NotNull PsiClass baseClass, boolean checkDeep)
+	public boolean isInheritor(@Nonnull PsiClass baseClass, boolean checkDeep)
 	{
 		return InheritanceImplUtil.isInheritor(this, baseClass, checkDeep);
 	}
@@ -457,7 +459,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Collection<HierarchicalMethodSignature> getVisibleSignatures()
 	{
@@ -465,7 +467,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	}
 
 	@Override
-	public PsiElement setName(@NonNls @NotNull String s)
+	public PsiElement setName(@NonNls @Nonnull String s)
 	{
 		return null;
 	}
@@ -496,7 +498,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiTypeParameter[] getTypeParameters()
 	{
@@ -511,7 +513,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	}
 
 	@Override
-	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @NotNull String modifier)
+	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @Nonnull String modifier)
 	{
 		return PsiModifier.STATIC.equals(modifier);
 	}
@@ -529,7 +531,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public SearchScope getUseScope()
 	{
 		return GlobalSearchScope.fileScope(getContainingFile());
@@ -537,14 +539,14 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 
 	@Override
 	@RequiredReadAction
-	public boolean processDeclarations(@NotNull PsiScopeProcessor processor, @NotNull ResolveState state, PsiElement lastParent, @NotNull PsiElement place)
+	public boolean processDeclarations(@Nonnull PsiScopeProcessor processor, @Nonnull ResolveState state, PsiElement lastParent, @Nonnull PsiElement place)
 	{
 		LanguageLevel level = PsiUtil.getLanguageLevel(place);
 		return PsiClassImplUtil.processDeclarationsInClass(this, processor, state, null, lastParent, place, level, false);
 	}
 
 	@Override
-	public void accept(@NotNull PsiElementVisitor visitor)
+	public void accept(@Nonnull PsiElementVisitor visitor)
 	{
 		if(visitor instanceof JavaElementVisitor)
 		{

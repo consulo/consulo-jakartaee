@@ -27,7 +27,7 @@ import com.intellij.psi.PsiClass;
 import com.intellij.util.xml.Convert;
 import com.intellij.util.xml.GenericDomValue;
 import com.intellij.util.xml.SubTag;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.List;
 
@@ -144,7 +144,7 @@ public interface InterceptorBinding extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the ejb-name child.
 	 */
-	@NotNull
+	@Nonnull
         @SubTag("ejb-name")
         @Convert(EjbAsteriskResolveConverter.class)
         GenericDomValue<EnterpriseBean> getEnterpriseBean();
@@ -210,7 +210,7 @@ public interface InterceptorBinding extends JavaeeDomModelElement {
 	 * Returns the value of the interceptor-order child.
 	 * @return the value of the interceptor-order child.
 	 */
-	@NotNull
+	@Nonnull
 	InterceptorOrder getInterceptorOrder();
 
 

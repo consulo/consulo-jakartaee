@@ -4,10 +4,10 @@
 
 package com.intellij.javaee.oss.util;
 
-import org.jetbrains.annotations.Nullable;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
+import javax.annotation.Nullable;
 
 public abstract class FilteringIterator<T> implements Iterator<T> {
 

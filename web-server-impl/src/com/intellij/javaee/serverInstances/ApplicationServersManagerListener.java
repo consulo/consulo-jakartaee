@@ -16,7 +16,7 @@
 
 package com.intellij.javaee.serverInstances;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.javaee.appServerIntegrations.ApplicationServer;
 
 import java.util.EventListener;
@@ -25,9 +25,9 @@ import java.util.EventListener;
  * @author nik
  */
 public interface ApplicationServersManagerListener extends EventListener {
-  void serverAdded(@NotNull ApplicationServer server);
+  void serverAdded(@Nonnull ApplicationServer server);
 
-  void serverRemoved(@NotNull ApplicationServer server);
+  void serverRemoved(@Nonnull ApplicationServer server);
 
-  void serverRenamed(@NotNull ApplicationServer server);
+  void serverRenamed(@Nonnull ApplicationServer server);
 }

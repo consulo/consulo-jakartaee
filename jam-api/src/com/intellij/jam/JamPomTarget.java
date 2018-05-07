@@ -15,10 +15,10 @@
  */
 package com.intellij.jam;
 
+import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.intellij.ide.TypePresentationService;
 import com.intellij.ide.presentation.Presentation;
 import com.intellij.ide.presentation.PresentationProvider;
@@ -44,7 +44,7 @@ public class JamPomTarget extends DelegatePsiTarget implements PsiDeclaredTarget
     myNameAttr = nameAttr;
   }
 
-  @NotNull
+  @Nonnull
   public String getName() {
     String value = myNameAttr.getStringValue();
     if (value == null) {
@@ -53,7 +53,7 @@ public class JamPomTarget extends DelegatePsiTarget implements PsiDeclaredTarget
     return value;
   }
 
-  public JamPomTarget setName(@NotNull String newName) {
+  public JamPomTarget setName(@Nonnull String newName) {
     myNameAttr.setStringValue(newName);
     return this;
   }

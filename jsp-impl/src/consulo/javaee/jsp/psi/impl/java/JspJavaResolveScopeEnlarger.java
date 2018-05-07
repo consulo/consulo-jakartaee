@@ -1,7 +1,7 @@
 package consulo.javaee.jsp.psi.impl.java;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.ResolveScopeEnlarger;
@@ -17,7 +17,7 @@ public class JspJavaResolveScopeEnlarger extends ResolveScopeEnlarger
 {
 	@Nullable
 	@Override
-	public SearchScope getAdditionalResolveScope(@NotNull VirtualFile file, Project project)
+	public SearchScope getAdditionalResolveScope(@Nonnull VirtualFile file, Project project)
 	{
 		if(file.getFileType() == JspFileType.INSTANCE)
 		{

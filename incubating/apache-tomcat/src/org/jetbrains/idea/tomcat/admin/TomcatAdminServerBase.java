@@ -3,10 +3,10 @@ package org.jetbrains.idea.tomcat.admin;
 import java.io.File;
 import java.io.IOException;
 
+import javax.annotation.Nullable;
 import javax.management.JMException;
 import javax.management.MBeanServerConnection;
 
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.idea.tomcat.TomcatDeploymentModelBase;
 import org.jetbrains.idea.tomcat.server.TomcatServerModel;
 import com.intellij.javaee.deployment.DeploymentModel;

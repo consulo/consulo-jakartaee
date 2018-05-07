@@ -1,6 +1,7 @@
 package consulo.javaee.jsp;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilderUtil;
@@ -18,9 +19,9 @@ import consulo.lang.LanguageVersion;
  */
 public class JspParser implements PsiParser
 {
-	@NotNull
+	@Nonnull
 	@Override
-	public ASTNode parse(@NotNull IElementType elementType, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
+	public ASTNode parse(@Nonnull IElementType elementType, @Nonnull PsiBuilder builder, @Nonnull LanguageVersion languageVersion)
 	{
 		PsiBuilder.Marker marker = builder.mark();
 		PsiBuilder.Marker documentMarker = builder.mark();

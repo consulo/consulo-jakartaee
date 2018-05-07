@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.javaee.artifact.JavaeeArtifactUtil;
 import com.intellij.javaee.context.DefaultWebModuleContextProvider;
 import com.intellij.javaee.context.DeploymentModelContext;
@@ -50,7 +50,7 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 
 				@Override
 				@Nullable
-				public String getContext(@NotNull JavaEEApplicationModuleExtension earFacet, @Nullable String moduleWebUri)
+				public String getContext(@Nonnull JavaEEApplicationModuleExtension earFacet, @Nullable String moduleWebUri)
 				{
 					for(WebModuleContextProvider provider : webModuleContextProviders)
 					{
@@ -90,7 +90,7 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 	}
 
 	@Nullable
-	public VirtualFile findSourceFile(@NotNull J2EEServerInstance serverInstance, @NotNull CommonModel model, @NotNull Url url)
+	public VirtualFile findSourceFile(@Nonnull J2EEServerInstance serverInstance, @Nonnull CommonModel model, @Nonnull Url url)
 	{
 		return null;
 	}
@@ -99,7 +99,7 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 	@Deprecated
 	/**
 	 * @deprecated override {@link #findSourceFile(com.intellij.javaee.serverInstances.J2EEServerInstance, com.intellij.javaee.run.configuration.CommonModel, com.intellij.util.Url)}
-	 */ public VirtualFile findSourceFile(@NotNull J2EEServerInstance serverInstance, @NotNull CommonModel model, @NotNull String url)
+	 */ public VirtualFile findSourceFile(@Nonnull J2EEServerInstance serverInstance, @Nonnull CommonModel model, @Nonnull String url)
 	{
 		return null;
 	}
@@ -121,25 +121,25 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 	}
 
 	@Nullable
-	public String getUrlForDeployedFile(@NotNull J2EEServerInstance serverInstance,
-			@NotNull DeploymentModel deploymentModel,
-			@NotNull JavaEEModuleExtension<?> javaeeFacet,
-			@NotNull String relativePath)
+	public String getUrlForDeployedFile(@Nonnull J2EEServerInstance serverInstance,
+			@Nonnull DeploymentModel deploymentModel,
+			@Nonnull JavaEEModuleExtension<?> javaeeFacet,
+			@Nonnull String relativePath)
 	{
 		return doGetUrlForDeployedFile(serverInstance, deploymentModel, javaeeFacet, relativePath);
 	}
 
-	public void startTrackingServerInstance(@NotNull J2EEServerInstance serverInstance)
+	public void startTrackingServerInstance(@Nonnull J2EEServerInstance serverInstance)
 	{
 		myServerInstance2Mapping.put(serverInstance, new ServerInstanceMapping());
 	}
 
-	public void stopTrackingServerInstance(@NotNull J2EEServerInstance serverInstance)
+	public void stopTrackingServerInstance(@Nonnull J2EEServerInstance serverInstance)
 	{
 		myServerInstance2Mapping.remove(serverInstance);
 	}
 
-	public void updateDeploymentContexts(@NotNull J2EEServerInstance serverInstance, @NotNull DeploymentModel deploymentModel, boolean deployed)
+	public void updateDeploymentContexts(@Nonnull J2EEServerInstance serverInstance, @Nonnull DeploymentModel deploymentModel, boolean deployed)
 	{
 		ServerInstanceMapping serverInstanceMapping = myServerInstance2Mapping.get(serverInstance);
 		if(serverInstanceMapping == null)
@@ -156,8 +156,8 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 		}
 	}
 
-	private String doGetUrlForDeployedFile(@NotNull J2EEServerInstance serverInstance,
-			@NotNull DeploymentModel deploymentModel,
+	private String doGetUrlForDeployedFile(@Nonnull J2EEServerInstance serverInstance,
+			@Nonnull DeploymentModel deploymentModel,
 			@Nullable JavaEEModuleExtension javaeeFacet,
 			@Nullable String relativePath)
 	{
@@ -177,7 +177,7 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 		return context == null ? null : doCreateUrl(serverInstance.getCommonModel(), context, relativePath);
 	}
 
-	private DeploymentMapping getContextsForUnknownFacet(final @NotNull DeploymentModel deploymentModel, final boolean defaultOnly)
+	private DeploymentMapping getContextsForUnknownFacet(final @Nonnull DeploymentModel deploymentModel, final boolean defaultOnly)
 	{
 		final DeploymentMapping deploymentMapping = new DeploymentMapping();
 
@@ -197,7 +197,7 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 		{
 
 			@Override
-			protected void run(@NotNull Result result)
+			protected void run(@Nonnull Result result)
 			{
 				Project project = deploymentModel.getCommonModel().getProject();
 				JavaeeArtifactUtil javaeeArtifactUtil = JavaeeArtifactUtil.getInstance();
@@ -231,12 +231,12 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 		return null;
 	}
 
-	protected String doCreateUrl(@NotNull CommonModel serverConfig, @Nullable String context, @Nullable String relativePath)
+	protected String doCreateUrl(@Nonnull CommonModel serverConfig, @Nullable String context, @Nullable String relativePath)
 	{
 		return createUrl(serverConfig, context, relativePath);
 	}
 
-	public static String createUrl(@NotNull CommonModel serverConfig, @Nullable String context, @Nullable String relativePath)
+	public static String createUrl(@Nonnull CommonModel serverConfig, @Nullable String context, @Nullable String relativePath)
 	{
 		String result = "http://" + serverConfig.getHost() + ':' + serverConfig.getPort();
 		if(StringUtil.isNotEmpty(context))
@@ -254,7 +254,7 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 		return result;
 	}
 
-	public String getDefaultUrlForServerConfig(@NotNull CommonModel serverConfig)
+	public String getDefaultUrlForServerConfig(@Nonnull CommonModel serverConfig)
 	{
 		for(DeploymentModel deploymentModel : serverConfig.getDeploymentModels())
 		{
@@ -268,7 +268,7 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 		return doCreateUrl(serverConfig, null, null);
 	}
 
-	private String getContextForKnownFacet(final @NotNull DeploymentModel deploymentModel, final @NotNull JavaEEModuleExtension javaeeFacet)
+	private String getContextForKnownFacet(final @Nonnull DeploymentModel deploymentModel, final @Nonnull JavaEEModuleExtension javaeeFacet)
 	{
 		String providedContext = getProvidedContext(deploymentModel);
 		if(providedContext != null)
@@ -280,7 +280,7 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 		{
 
 			@Override
-			protected void run(@NotNull Result<String> result)
+			protected void run(@Nonnull Result<String> result)
 			{
 				Class facetTypeId = javaeeFacet.getClass();
 				for(FacetContextProvider facetContextProvider : getFacetContextProviders())
@@ -296,7 +296,7 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 	}
 
 	@Nullable
-	private static String getProvidedContext(@NotNull DeploymentModel deployment)
+	private static String getProvidedContext(@Nonnull DeploymentModel deployment)
 	{
 		if(!(deployment instanceof DeploymentModelContext))
 		{
