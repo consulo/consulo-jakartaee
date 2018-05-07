@@ -18,10 +18,9 @@ package consulo.javaee.dom.web;
 
 import java.util.List;
 
-import javax.swing.Icon;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
 import com.intellij.javaee.model.xml.web.WebApp;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -33,6 +32,7 @@ import consulo.java.roots.SpecialDirUtil;
 import consulo.javaee.JavaEEIcons;
 import consulo.javaee.JavaWebConstants;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -47,7 +47,7 @@ public class WebAppDescriptor extends DomFileDescription<WebApp>
 
 	@Nullable
 	@Override
-	public Icon getFileIcon(@Iconable.IconFlags int flags)
+	public Image getFileIcon(@Iconable.IconFlags int flags)
 	{
 		return JavaEEIcons.Web_xml;
 	}
