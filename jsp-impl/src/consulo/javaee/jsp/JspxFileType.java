@@ -1,13 +1,13 @@
 package consulo.javaee.jsp;
 
 import javax.annotation.Nonnull;
-import javax.swing.Icon;
-
 import javax.annotation.Nullable;
+
 import com.intellij.ide.highlighter.XmlLikeFileType;
 import com.intellij.lang.xml.XMLLanguage;
 import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
 import consulo.javaee.JavaEEIcons;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -45,7 +45,7 @@ public class JspxFileType  extends XmlLikeFileType implements TemplateLanguageFi
 
 	@Nullable
 	@Override
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return JavaEEIcons.Jspx;
 	}

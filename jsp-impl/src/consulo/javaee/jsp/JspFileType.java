@@ -18,13 +18,13 @@ package consulo.javaee.jsp;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.Icon;
 
 import com.intellij.ide.highlighter.XmlLikeFileType;
 import com.intellij.openapi.fileTypes.FileTypeEditorHighlighterProviders;
 import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
 import consulo.javaee.JavaEEIcons;
 import consulo.javaee.jsp.highlight.JspEditorHighlighter;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -64,7 +64,7 @@ public class JspFileType extends XmlLikeFileType implements TemplateLanguageFile
 
 	@Nullable
 	@Override
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return JavaEEIcons.Jsp;
 	}

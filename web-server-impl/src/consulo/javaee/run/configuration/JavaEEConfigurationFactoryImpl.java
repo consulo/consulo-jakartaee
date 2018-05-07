@@ -16,6 +16,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkTable;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -23,7 +24,7 @@ import consulo.javaee.bundle.JavaEEServerBundleType;
  */
 public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory
 {
-	public JavaEEConfigurationFactoryImpl(ConfigurationType type, String name, Icon icon, boolean local, JavaEEServerBundleType bundleType)
+	public JavaEEConfigurationFactoryImpl(ConfigurationType type, String name, Image icon, boolean local, JavaEEServerBundleType bundleType)
 	{
 		super(type, name, icon, local, bundleType);
 	}

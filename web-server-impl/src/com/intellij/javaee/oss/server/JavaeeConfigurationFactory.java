@@ -4,10 +4,9 @@
 
 package com.intellij.javaee.oss.server;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.Icon;
-
-import javax.annotation.Nonnull;
 
 import com.intellij.execution.configuration.ConfigurationFactoryEx;
 import com.intellij.execution.configurations.ConfigurationType;
@@ -18,15 +17,16 @@ import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.openapi.project.Project;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.ui.image.Image;
 
 public abstract class JavaeeConfigurationFactory extends ConfigurationFactoryEx
 {
 	private final String myName;
-	private final Icon myIcon;
+	private final Image myIcon;
 	protected final boolean myLocal;
 	protected JavaEEServerBundleType myBundleType;
 
-	protected JavaeeConfigurationFactory(ConfigurationType type, String name, Icon icon, boolean local, JavaEEServerBundleType bundleType)
+	protected JavaeeConfigurationFactory(ConfigurationType type, String name, Image icon, boolean local, JavaEEServerBundleType bundleType)
 	{
 		super(type);
 		myName = name;
@@ -42,7 +42,7 @@ public abstract class JavaeeConfigurationFactory extends ConfigurationFactoryEx
 	}
 
 	@Override
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return myIcon;
 	}

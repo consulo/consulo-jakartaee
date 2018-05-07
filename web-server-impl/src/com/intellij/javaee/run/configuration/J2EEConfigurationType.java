@@ -29,6 +29,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.psi.PsiFile;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.ui.image.Image;
 
 public abstract class J2EEConfigurationType implements ConfigurationType
 {
@@ -78,13 +79,13 @@ public abstract class J2EEConfigurationType implements ConfigurationType
 	}
 
 	@Nonnull
-	public Icon getLocalIcon()
+	public Image getLocalIcon()
 	{
 		return getIcon();
 	}
 
 	@Nonnull
-	public Icon getRemoteIcon()
+	public Image getRemoteIcon()
 	{
 		return getIcon();
 	}

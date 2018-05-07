@@ -16,9 +16,8 @@
 
 package consulo.apache.tomcat;
 
-import javax.swing.Icon;
-
 import com.intellij.icons.AllIcons;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -26,5 +25,5 @@ import com.intellij.icons.AllIcons;
  */
 public interface TomcatIcons
 {
-	Icon Tomcat = AllIcons.RunConfigurations.Tomcat;
+	Image Tomcat = AllIcons.RunConfigurations.Tomcat;
 }

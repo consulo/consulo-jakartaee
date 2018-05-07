@@ -19,11 +19,10 @@ package consulo.apache.tomcat.bundle;
 import java.io.File;
 import java.io.IOException;
 
-import javax.swing.Icon;
-
-import org.jetbrains.annotations.NonNls;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.idea.tomcat.TomcatDeploymentSettingsEditor;
 import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
 import org.jetbrains.idea.tomcat.server.TomcatIntegration;
@@ -44,6 +43,7 @@ import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 import consulo.apache.tomcat.TomcatIcons;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.roots.types.BinariesOrderRootType;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -195,7 +195,7 @@ public class TomcatBundleType extends JavaEEServerBundleType
 
 	@Nullable
 	@Override
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return TomcatIcons.Tomcat;
 	}

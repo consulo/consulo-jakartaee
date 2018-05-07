@@ -5,7 +5,6 @@
 package com.intellij.javaee.oss.server;
 
 import javax.annotation.Nonnull;
-import javax.swing.Icon;
 
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
@@ -15,6 +14,7 @@ import com.intellij.javaee.run.configuration.ServerModel;
 import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
 import com.intellij.openapi.project.Project;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.ui.image.Image;
 
 public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 {
@@ -41,7 +41,7 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 	}
 
 	@Override
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return myBundleType.getIcon();
 	}
