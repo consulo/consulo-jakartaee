@@ -16,9 +16,8 @@
 package com.intellij.jam;
 
 import javax.annotation.Nonnull;
-import javax.swing.Icon;
-
 import javax.annotation.Nullable;
+
 import com.intellij.ide.TypePresentationService;
 import com.intellij.ide.presentation.Presentation;
 import com.intellij.ide.presentation.PresentationProvider;
@@ -29,6 +28,7 @@ import com.intellij.psi.DelegatePsiTarget;
 import com.intellij.psi.ElementManipulators;
 import com.intellij.psi.PsiLiteral;
 import com.intellij.util.ObjectUtils;
+import consulo.ui.image.Image;
 
 /**
  * @author peter
@@ -81,7 +81,7 @@ public class JamPomTarget extends DelegatePsiTarget implements PsiDeclaredTarget
 
     @Nullable
     @Override
-    public Icon getIcon(JamPomTarget target) {
+    public Image getIcon(JamPomTarget target) {
       return TypePresentationService.getInstance().getIcon(target.getJamElement());
     }
 

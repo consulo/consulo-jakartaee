@@ -58,6 +58,7 @@ import com.intellij.ui.table.TableView;
 import com.intellij.util.containers.HashSet;
 import com.intellij.util.ui.ColumnInfo;
 import com.intellij.util.ui.ListTableModel;
+import consulo.awt.TargetAWT;
 import consulo.ide.IconDescriptorUpdaters;
 
 public class SelectElementsDialog extends DialogWrapper {
@@ -218,7 +219,7 @@ public class SelectElementsDialog extends DialogWrapper {
             if (!psiElement.isPhysical()) {
               append("  [" + JamMessages.message("postfix.not.physical.element") + "]", SimpleTextAttributes.GRAY_ATTRIBUTES);
             }
-            setIcon(IconDescriptorUpdaters.getIcon(psiElement, 0));
+            setIcon(TargetAWT.to(IconDescriptorUpdaters.getIcon(psiElement, 0)));
             setOpaque(false);
             setIconOpaque(false);
           }

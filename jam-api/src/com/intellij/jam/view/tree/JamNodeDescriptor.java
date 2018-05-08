@@ -19,10 +19,9 @@ package com.intellij.jam.view.tree;
 import java.awt.Color;
 import java.awt.event.InputEvent;
 
-import javax.swing.Icon;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
 import com.intellij.ide.DataManager;
 import com.intellij.ide.DeleteProvider;
 import com.intellij.ide.util.treeView.NodeDescriptor;
@@ -36,6 +35,7 @@ import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.ui.treeStructure.SimpleNode;
 import com.intellij.ui.treeStructure.SimpleTree;
 import com.intellij.util.OpenSourceUtil;
+import consulo.ui.image.Image;
 
 /**
  * author: lesya
@@ -59,7 +59,7 @@ public abstract class JamNodeDescriptor<P> extends SimpleNode implements DataPro
   }
 
   protected void doUpdate() {
-    setUniformIcon(getNewIcon());
+    setIcon(getNewIcon());
     final String nodeText = getNewNodeText();
     setNodeText(StringUtil.isNotEmpty(nodeText) ? nodeText : JamMessages.message("unnamed.element.presentable.name"), null, !isValid());
     myTooltip = getNewTooltip();
@@ -73,7 +73,7 @@ public abstract class JamNodeDescriptor<P> extends SimpleNode implements DataPro
   protected abstract String getNewNodeText();
 
   @Nullable
-  protected Icon getNewIcon() {
+  protected Image getNewIcon() {
     return getIcon();
   }
 
