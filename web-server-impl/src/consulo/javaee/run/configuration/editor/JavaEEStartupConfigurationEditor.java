@@ -29,6 +29,7 @@ import com.intellij.ui.table.TableView;
 import com.intellij.util.ui.ColumnInfo;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.ListTableModel;
+import consulo.awt.TargetAWT;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 
 /**
@@ -48,7 +49,7 @@ public class JavaEEStartupConfigurationEditor extends SettingsEditor<JavaEEConfi
 			@Override
 			protected void customizeCellRenderer(@Nonnull JList<? extends Executor> list, Executor value, int index, boolean selected, boolean hasFocus)
 			{
-				setIcon(value.getIcon());
+				setIcon(TargetAWT.to(value.getIcon()));
 				append(value.getActionName());
 			}
 		});
