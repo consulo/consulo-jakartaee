@@ -1,12 +1,12 @@
 package com.intellij.javaee.ui.packaging;
 
 import javax.annotation.Nonnull;
-import javax.swing.Icon;
-
 import javax.annotation.Nullable;
+
 import com.intellij.packaging.artifacts.ArtifactType;
 import com.intellij.packaging.elements.CompositePackagingElement;
 import com.intellij.packaging.elements.PackagingElementOutputKind;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -30,7 +30,7 @@ public class ExplodedEarArtifactType extends ArtifactType
 
 	@Nonnull
 	@Override
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return null;
 	}

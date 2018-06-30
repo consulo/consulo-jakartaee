@@ -18,13 +18,10 @@ package com.intellij.javaee.deployment;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.Icon;
-
 import com.intellij.icons.AllIcons;
 import com.intellij.javaee.J2EEBundle;
-import com.intellij.openapi.util.IconLoader;
-import com.intellij.ui.LayeredIcon;
-import com.intellij.util.PlatformIcons;
+import consulo.ui.image.Image;
+import consulo.ui.image.ImageEffects;
 
 public enum DeploymentStatus
 {
@@ -38,20 +35,18 @@ public enum DeploymentStatus
 	UNPREPARED(J2EEBundle.message("deployment.status.name.unprepared"), J2EEBundle.message("deployment.status.description.unprepared"), AllIcons.RunConfigurations.TestInProgress2),
 	UNPREPARING(J2EEBundle.message("deployment.status.name.unpreparing"), J2EEBundle.message("deployment.status.description.unpreparing"), AllIcons.RunConfigurations.TestInProgress2),
 	UNKNOWN(J2EEBundle.message("deployment.status.name.unknown"), J2EEBundle.message("deployment.status.description.unknown"), AllIcons.Actions.Help),
-	DISCONNECTED(J2EEBundle.message("deployment.status.name.disconnected"), J2EEBundle.message("deployment.status.description.desconnected"), IconLoader.getDisabledIcon(AllIcons.Nodes.Plugin)),
+	DISCONNECTED(J2EEBundle.message("deployment.status.name.disconnected"), J2EEBundle.message("deployment.status.description.desconnected"), ImageEffects.grayed(AllIcons.Nodes.Plugin)),
 	EXCLUDED_FROM_DEPLOYMENT(J2EEBundle.message("deployment.status.name.excluded.from.deployment"), J2EEBundle.message("deployment.status.description.excluded.from.deployment"), null)
 			{
-				private final Map<Icon, LayeredIcon> myPatchedIcon = new HashMap<>();
+				private final Map<Image, Image> myPatchedIcon = new HashMap<>();
 
 				@Override
-				public Icon getIcon(Icon deploymentIcon)
+				public Image getIcon(Image deploymentIcon)
 				{
-					LayeredIcon icon = myPatchedIcon.get(deploymentIcon);
+					Image icon = myPatchedIcon.get(deploymentIcon);
 					if(icon == null)
 					{
-						icon = new LayeredIcon(2);
-						icon.setIcon(deploymentIcon, 0);
-						icon.setIcon(PlatformIcons.EXCLUDED_FROM_COMPILE_ICON, 1);
+						icon = ImageEffects.layered(deploymentIcon, AllIcons.Nodes.ExcludedFromCompile);
 						myPatchedIcon.put(deploymentIcon, icon);
 					}
 					return icon;
@@ -60,9 +55,9 @@ public enum DeploymentStatus
 
 	private final String myName; // for debug only
 	private final String myDescription;
-	private final Icon myIcon;
+	private final Image myIcon;
 
-	private DeploymentStatus(String name, String description, Icon icon)
+	private DeploymentStatus(String name, String description, Image icon)
 	{
 		myName = name;
 		myDescription = description;
@@ -74,7 +69,7 @@ public enum DeploymentStatus
 		return myName;
 	}
 
-	public Icon getIcon(Icon deploymentIcon)
+	public Image getIcon(Image deploymentIcon)
 	{
 		return myIcon;
 	}
