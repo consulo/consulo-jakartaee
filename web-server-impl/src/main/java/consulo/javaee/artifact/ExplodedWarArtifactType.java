@@ -25,6 +25,7 @@ import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.ui.packaging.WebApplicationArtifactType;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
 import com.intellij.packaging.elements.CompositePackagingElement;
+import com.intellij.packaging.elements.PackagingElementFactory;
 import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.impl.elements.ArtifactRootElementImpl;
 
@@ -53,7 +54,7 @@ public class ExplodedWarArtifactType extends WebApplicationArtifactType
 
 	@Nonnull
 	@Override
-	public CompositePackagingElement<?> createRootElement(@Nonnull String s)
+	public CompositePackagingElement<?> createRootElement(@Nonnull PackagingElementFactory factory, @Nonnull String s)
 	{
 		return new ArtifactRootElementImpl();
 	}

@@ -22,6 +22,7 @@ import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.project.Project;
@@ -37,6 +38,7 @@ import com.intellij.openapi.roots.ui.configuration.ChooseModulesDialog;
 import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
 import com.intellij.packaging.elements.CompositePackagingElement;
+import com.intellij.packaging.elements.PackagingElementFactory;
 import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.impl.elements.DirectoryElementType;
 import com.intellij.packaging.impl.elements.DirectoryPackagingElement;
@@ -76,7 +78,8 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 		ModulesProvider modulesProvider = packagingElementResolvingContext.getModulesProvider();
 
 		Project project = module.getProject();
-		CompositePackagingElement<?> root = ExplodedWarArtifactType.getInstance().createRootElement(module.getName());
+		PackagingElementFactory elementFactory = PackagingElementFactory.getInstance(project);
+		CompositePackagingElement<?> root = ExplodedWarArtifactType.getInstance().createRootElement(elementFactory, module.getName());
 
 		DirectoryPackagingElement webInfDir = DirectoryElementType.getInstance().createEmpty(project);
 		webInfDir.setDirectoryName(JavaWebConstants.WEB_INF);

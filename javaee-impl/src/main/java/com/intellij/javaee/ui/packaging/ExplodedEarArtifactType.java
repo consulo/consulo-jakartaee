@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import com.intellij.packaging.artifacts.ArtifactType;
 import com.intellij.packaging.elements.CompositePackagingElement;
+import com.intellij.packaging.elements.PackagingElementFactory;
 import com.intellij.packaging.elements.PackagingElementOutputKind;
 import consulo.ui.image.Image;
 
@@ -44,7 +45,7 @@ public class ExplodedEarArtifactType extends ArtifactType
 
 	@Nonnull
 	@Override
-	public CompositePackagingElement<?> createRootElement(@Nonnull String s)
+	public CompositePackagingElement<?> createRootElement(@Nonnull PackagingElementFactory elementFactory, @Nonnull String s)
 	{
 		return null;
 	}

@@ -27,15 +27,16 @@ import com.intellij.openapi.module.Module;
 import com.intellij.openapi.roots.ModuleRootModel;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactManager;
+import com.intellij.packaging.artifacts.ArtifactPointerManager;
 import com.intellij.packaging.artifacts.ArtifactTemplate;
 import com.intellij.packaging.elements.CompositePackagingElement;
+import com.intellij.packaging.elements.PackagingElementFactory;
 import com.intellij.packaging.elements.PackagingElementResolvingContext;
 import com.intellij.packaging.impl.artifacts.ArtifactUtil;
 import com.intellij.packaging.impl.elements.ArtifactElementType;
 import com.intellij.packaging.impl.elements.ArtifactPackagingElement;
 import com.intellij.packaging.impl.ui.ChooseArtifactsDialog;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
-import consulo.packaging.artifacts.ArtifactPointerUtil;
 
 /**
  * @author VISTALL
@@ -68,10 +69,12 @@ public class WarArtifactTemplate extends ArtifactTemplate
 			}
 		}
 
-		CompositePackagingElement<?> root = WarArtifactType.getInstance().createRootElement(moduleName);
+		PackagingElementFactory elementFactory = PackagingElementFactory.getInstance(context.getProject());
+
+		CompositePackagingElement<?> root = WarArtifactType.getInstance().createRootElement(elementFactory, moduleName);
 
 		ArtifactPackagingElement artifactPackagingElement = ArtifactElementType.getInstance().createEmpty(context.getProject());
-		artifactPackagingElement.setArtifactPointer(ArtifactPointerUtil.getPointerManager(context.getProject()).create(artifact));
+		artifactPackagingElement.setArtifactPointer(ArtifactPointerManager.getInstance(context.getProject()).create(artifact));
 
 		root.addFirstChild(artifactPackagingElement);
 
