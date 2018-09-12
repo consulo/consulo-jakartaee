@@ -2,6 +2,8 @@ package consulo.javaee.run.configuration;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.inject.Singleton;
+
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
@@ -19,6 +21,7 @@ import consulo.javaee.bundle.JavaEEServerBundleType;
  * @author VISTALL
  * @since 09-Jul-17
  */
+@Singleton
 public class J2EEConfigurationFactoryImpl extends J2EEConfigurationFactory
 {
 	@Override

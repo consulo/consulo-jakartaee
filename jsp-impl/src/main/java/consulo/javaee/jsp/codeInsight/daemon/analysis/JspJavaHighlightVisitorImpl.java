@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.codeInsight.daemon.analysis;
 
 import javax.annotation.Nonnull;
+import javax.inject.Inject;
 
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder;
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightVisitorImpl;
@@ -17,6 +18,7 @@ public class JspJavaHighlightVisitorImpl extends HighlightVisitorImpl
 {
 	private PsiResolveHelper myResolveHelper;
 
+	@Inject
 	public JspJavaHighlightVisitorImpl(@Nonnull PsiResolveHelper resolveHelper)
 	{
 		super(resolveHelper);

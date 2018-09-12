@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import com.intellij.javaee.deployment.DeploymentManager;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.deployment.DeploymentProvider;
@@ -19,10 +22,12 @@ import consulo.javaee.module.extension.JavaEEModuleExtension;
  * @author VISTALL
  * @since 17-Jul-17
  */
+@Singleton
 public class DeploymentManagerImpl extends DeploymentManager
 {
 	private final Project myProject;
 
+	@Inject
 	public DeploymentManagerImpl(Project project)
 	{
 		myProject = project;
