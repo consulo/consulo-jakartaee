@@ -1,6 +1,7 @@
 package consulo.javaee.jsp.psi;
 
 import javax.annotation.Nonnull;
+import javax.inject.Inject;
 
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
@@ -17,6 +18,7 @@ import com.intellij.psi.util.PsiTreeUtil;
  */
 public class JspPsiTreeChangePreprocessor extends PsiTreeChangePreprocessorBase
 {
+	@Inject
 	public JspPsiTreeChangePreprocessor(@Nonnull PsiManager psiManager)
 	{
 		super(psiManager);

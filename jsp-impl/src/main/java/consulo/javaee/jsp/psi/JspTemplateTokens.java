@@ -31,8 +31,9 @@ import consulo.javaee.jsp.lexer.JspHtmlLexer;
  */
 public interface JspTemplateTokens
 {
-	TemplateDataElementType HTML_TEMPLATE_DATA = new TemplateDataElementType("HTML_TEMPLATE_DATA", HTMLLanguage.INSTANCE, JspTokens.HTML_FRAGMENT, new IElementType("HTML_OUTER_ELEMENT_TYPE",
-			JspLanguage.INSTANCE))
+	IElementType HTML_OUTER_ELEMENT_TYPE = new IElementType("HTML_OUTER_ELEMENT_TYPE", JspLanguage.INSTANCE);
+
+	TemplateDataElementType HTML_TEMPLATE_DATA = new TemplateDataElementType("HTML_TEMPLATE_DATA", HTMLLanguage.INSTANCE, JspTokens.HTML_FRAGMENT, HTML_OUTER_ELEMENT_TYPE)
 	{
 		@Override
 		protected Lexer createBaseLexer(PsiFile file, TemplateLanguageFileViewProvider viewProvider)

@@ -64,7 +64,7 @@
 		<packaging.elementType implementation="consulo.javaee.artifact.WebResourceModuleOutputElementType"/>
 
 		<projectService serviceInterface="com.intellij.javaee.deployment.DeploymentManager"
-							serviceImplementation="consulo.javaee.deployment.impl.DeploymentManagerImpl" />
+						serviceImplementation="consulo.javaee.deployment.impl.DeploymentManagerImpl"/>
 
 		<fileTypeFactory implementation="consulo.javaee.jsp.JspFileTypeFactory"/>
 		<fileTypeFactory implementation="consulo.javaee.artifact.WarFileTypeFactory"/>
@@ -86,6 +86,8 @@
 		<stubElementTypeHolder class="consulo.javaee.jsp.psi.impl.java.JspJavaStubElements"/>
 		<stubElementTypeHolder class="consulo.javaee.jsp.psi.impl.JspStubElements"/>
 		<psi.referenceContributor language="JSP" implementation="consulo.javaee.jsp.psi.impl.reference.JspReferenceContributor"/>
+
+		<lang.formatter language="JSP" implementationClass="consulo.javaee.jsp.format.JspFormattingModelBuilder"/>
 
 		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.JspPsiTreeChangePreprocessor"/>
 
