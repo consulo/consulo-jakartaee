@@ -40,14 +40,6 @@ public abstract class JavaeeBundle extends ListResourceBundle {
         return icon;
     }
 
-    public static Icon getTransparentIcon(@NonNls String path) {
-        Icon icon = ICONS.get("___" + path);
-        if (icon == null) {
-            icon = IconLoader.getTransparentIcon(getIcon(path));
-            ICONS.put("___" + path, icon);
-        }
-        return icon;
-    }
 
     @Override
     @SuppressWarnings({"ZeroLengthArrayAllocation"})
