@@ -71,6 +71,7 @@
 
 		<lang.fileViewProviderFactory language="JSP" implementationClass="consulo.javaee.jsp.JspFileViewProviderFactory"/>
 		<lang.parserDefinition language="JSP" implementationClass="consulo.javaee.jsp.JspParserDefinition"/>
+		<editorHighlighterProvider filetype="JSP" implementationClass="consulo.javaee.jsp.JspEditorHighlighterProvider" />
 
 		<lang.ast.compositeFactory implementation="consulo.javaee.jsp.psi.JspCompositeElementFactory"/>
 

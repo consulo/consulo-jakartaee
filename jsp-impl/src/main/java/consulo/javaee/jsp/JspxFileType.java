@@ -15,9 +15,9 @@ import consulo.ui.image.Image;
  */
 public class JspxFileType  extends XmlLikeFileType implements TemplateLanguageFileType
 {
-	public static final JspFileType INSTANCE = new JspFileType();
+	public static final JspxFileType INSTANCE = new JspxFileType();
 
-	protected JspxFileType()
+	private JspxFileType()
 	{
 		super(XMLLanguage.INSTANCE);
 	}

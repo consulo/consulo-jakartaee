@@ -20,10 +20,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.intellij.ide.highlighter.XmlLikeFileType;
-import com.intellij.openapi.fileTypes.FileTypeEditorHighlighterProviders;
 import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
 import consulo.javaee.JavaEEIcons;
-import consulo.javaee.jsp.highlight.JspEditorHighlighter;
 import consulo.ui.image.Image;
 
 /**
@@ -34,11 +32,9 @@ public class JspFileType extends XmlLikeFileType implements TemplateLanguageFile
 {
 	public static final JspFileType INSTANCE = new JspFileType();
 
-	protected JspFileType()
+	private JspFileType()
 	{
 		super(JspLanguage.INSTANCE);
-
-		FileTypeEditorHighlighterProviders.INSTANCE.addExplicitExtension(this, (project, fileType, virtualFile, colors) -> new JspEditorHighlighter(project, virtualFile, colors));
 	}
 
 	@Nonnull
