@@ -6,6 +6,7 @@ package com.intellij.javaee.oss.descriptor;
 
 import com.intellij.javaee.oss.JavaeeBundle;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
+import com.intellij.openapi.util.IconLoader;
 import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 
@@ -14,13 +15,13 @@ class JavaeeAppDescriptor extends JavaeeDescriptor
 
 	JavaeeAppDescriptor()
 	{
-		super(JavaeeBundle.getIcon("/resources/app.png"));
+		super(IconLoader.getIcon("/resources/app.png"));
 	}
 
 	@Override
 	String getTitle(JavaeeIntegration integration)
 	{
-		return JavaeeBundle.getText("AppDescriptor.title", integration.getName());
+		return JavaeeBundle.message("AppDescriptor.title", integration.getName());
 	}
 
 	@Override

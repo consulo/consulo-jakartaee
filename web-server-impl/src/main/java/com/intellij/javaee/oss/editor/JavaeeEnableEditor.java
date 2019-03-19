@@ -34,7 +34,7 @@ public abstract class JavaeeEnableEditor<T extends DomElement, P extends DomElem
         });
         main = new JPanel(new BorderLayout());
         main.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        enabler = new JCheckBox(JavaeeBundle.getText("EnableEditor.enable", title));
+        enabler = new JCheckBox(JavaeeBundle.message("EnableEditor.enable", title));
         enabler.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 new WriteCommandAction<Object>(element.getManager().getProject()) {

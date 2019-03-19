@@ -20,7 +20,7 @@ public class JavaeeWebDescriptor extends JavaeeDescriptor
 	@Override
 	public String getTitle(JavaeeIntegration integration)
 	{
-		return JavaeeBundle.getText("WebDescriptor.title", integration.getName());
+		return JavaeeBundle.message("WebDescriptor.title", integration.getName());
 	}
 
 	@Override

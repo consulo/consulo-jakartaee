@@ -60,7 +60,7 @@ public abstract class JavaeeRunSettingsEditor<T extends JavaeeServerModel> exten
 	protected JComponent createEditor()
 	{
 		JComponent editor = getEditor();
-		editor.setBorder(IdeBorderFactory.createTitledBorder(JavaeeBundle.getText("RunEditor.title", myBundleType.getPresentableName())));
+		editor.setBorder(IdeBorderFactory.createTitledBorder(JavaeeBundle.message("RunEditor.title", myBundleType.getPresentableName())));
 		return editor;
 	}
 

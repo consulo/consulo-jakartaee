@@ -8,6 +8,7 @@ import com.intellij.javaee.oss.JavaeeBundle;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.application.Result;
 import com.intellij.openapi.command.WriteCommandAction;
+import com.intellij.openapi.util.IconLoader;
 import com.intellij.util.xml.DomElement;
 
 import javax.swing.*;
@@ -23,7 +24,7 @@ public abstract class JavaeeResetEditor<T extends DomElement> extends JavaeeBase
     protected JavaeeResetEditor(T element) {
         this.element = element;
         main.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        AnAction revert = new AnAction(JavaeeBundle.getText("GenericAction.reset"), null, JavaeeBundle.getIcon("/general/reset.png")) {
+        AnAction revert = new AnAction(JavaeeBundle.message("GenericAction.reset"), null, IconLoader.getIcon("/general/reset.png")) {
             @Override
             public void actionPerformed(AnActionEvent event) {
                 new WriteCommandAction<Object>(getElement().getManager().getProject()) {

@@ -49,13 +49,13 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 	@Override
 	public String getDisplayName()
 	{
-		return JavaeeBundle.getText("ConfigurationType.name", myBundleType.getPresentableName());
+		return JavaeeBundle.message("ConfigurationType.name", myBundleType.getPresentableName());
 	}
 
 	@Override
 	public String getConfigurationTypeDescription()
 	{
-		return JavaeeBundle.getText("ConfigurationType.description", myBundleType.getPresentableName());
+		return JavaeeBundle.message("ConfigurationType.description", myBundleType.getPresentableName());
 	}
 
 	@Override

@@ -6,6 +6,7 @@ package com.intellij.javaee.oss.descriptor;
 
 import com.intellij.javaee.oss.JavaeeBundle;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
+import com.intellij.openapi.util.IconLoader;
 import consulo.javaee.module.extension.EjbModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 
@@ -14,13 +15,13 @@ class JavaeeCmpDescriptor extends JavaeeDescriptor
 
 	JavaeeCmpDescriptor()
 	{
-		super(JavaeeBundle.getIcon("/resources/cmp.png"));
+		super(IconLoader.getIcon("/resources/cmp.png"));
 	}
 
 	@Override
 	String getTitle(JavaeeIntegration integration)
 	{
-		return JavaeeBundle.getText("CmpDescriptor.title", integration.getName());
+		return JavaeeBundle.message("CmpDescriptor.title", integration.getName());
 	}
 
 	@Override

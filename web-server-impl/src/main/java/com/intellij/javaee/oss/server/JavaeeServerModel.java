@@ -273,7 +273,7 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 	{
 		if(StringUtil.isNotEmpty(USERNAME) && StringUtil.isEmpty(PASSWORD))
 		{
-			throw new RuntimeConfigurationError(JavaeeBundle.getText("ServerModel.password"));
+			throw new RuntimeConfigurationError(JavaeeBundle.message("ServerModel.password"));
 		}
 	}
 
@@ -500,7 +500,7 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 			String path = getLogFilePath(getHome());
 			if(path != null)
 			{
-				String name = JavaeeBundle.getText("ServerModel.logfile", getLogFileId());
+				String name = JavaeeBundle.message("ServerModel.logfile", getLogFileId());
 				return new LogFileOptions(name, path, file.isEnabled(), true, false);
 			}
 		}

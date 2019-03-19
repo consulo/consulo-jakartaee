@@ -37,7 +37,7 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 	@Override
 	public String getPresentableName()
 	{
-		return JavaeeBundle.getText("Integration.name", getName());
+		return JavaeeBundle.message("Integration.name", getName());
 	}
 
 	@Override
@@ -139,7 +139,7 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 	{
 		if(!new File(home, path).exists())
 		{
-			throw new FileNotFoundException(JavaeeBundle.getText("Error.fileNotFound", path));
+			throw new FileNotFoundException(JavaeeBundle.message("Error.fileNotFound", path));
 		}
 	}
 }
