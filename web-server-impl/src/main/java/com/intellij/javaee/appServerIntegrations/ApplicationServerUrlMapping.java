@@ -1,23 +1,11 @@
 package com.intellij.javaee.appServerIntegrations;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.intellij.javaee.artifact.JavaeeArtifactUtil;
-import com.intellij.javaee.context.DefaultWebModuleContextProvider;
-import com.intellij.javaee.context.DeploymentModelContext;
-import com.intellij.javaee.context.FacetContextProvider;
-import com.intellij.javaee.context.JavaeeAppFacetContextProvider;
-import com.intellij.javaee.context.WebModuleContextProvider;
+import com.intellij.javaee.context.*;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.run.configuration.CommonModel;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.openapi.application.ReadAction;
-import com.intellij.openapi.application.Result;
 import com.intellij.openapi.deployment.DeploymentUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.text.StringUtil;
@@ -26,6 +14,13 @@ import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.util.Url;
 import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author nik
@@ -193,35 +188,30 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 			return deploymentMapping;
 		}
 
-		new ReadAction()
+		ReadAction.run(() ->
 		{
-
-			@Override
-			protected void run(@Nonnull Result result)
+			Project project = deploymentModel.getCommonModel().getProject();
+			JavaeeArtifactUtil javaeeArtifactUtil = JavaeeArtifactUtil.getInstance();
+			for(FacetContextProvider facetContextProvider : getFacetContextProviders())
 			{
-				Project project = deploymentModel.getCommonModel().getProject();
-				JavaeeArtifactUtil javaeeArtifactUtil = JavaeeArtifactUtil.getInstance();
-				for(FacetContextProvider facetContextProvider : getFacetContextProviders())
+				for(JavaEEModuleExtension facet : javaeeArtifactUtil.getFacetsIncludedInArtifact(project, artifact, facetContextProvider.getFacetId()))
 				{
-					for(JavaEEModuleExtension facet : javaeeArtifactUtil.getFacetsIncludedInArtifact(project, artifact, facetContextProvider.getFacetId()))
+					String facetContext = getContextForKnownFacet(deploymentModel, facet);
+					if(facetContext != null)
 					{
-						String facetContext = getContextForKnownFacet(deploymentModel, facet);
-						if(facetContext != null)
+						deploymentMapping.put(facet, facetContext);
+						if(!deploymentMapping.containsKey(DEFAULT_DEPLOYMENT_CONTEXT_KEY))
 						{
-							deploymentMapping.put(facet, facetContext);
-							if(!deploymentMapping.containsKey(DEFAULT_DEPLOYMENT_CONTEXT_KEY))
+							deploymentMapping.put(DEFAULT_DEPLOYMENT_CONTEXT_KEY, facetContext);
+							if(defaultOnly)
 							{
-								deploymentMapping.put(DEFAULT_DEPLOYMENT_CONTEXT_KEY, facetContext);
-								if(defaultOnly)
-								{
-									return;
-								}
+								return;
 							}
 						}
 					}
 				}
 			}
-		}.execute();
+		});
 
 		return deploymentMapping;
 	}
@@ -276,23 +266,18 @@ public class ApplicationServerUrlMapping implements AppServerDeployedFileUrlProv
 			return providedContext;
 		}
 
-		return new ReadAction<String>()
+		return ReadAction.compute(() ->
 		{
-
-			@Override
-			protected void run(@Nonnull Result<String> result)
+			Class facetTypeId = javaeeFacet.getClass();
+			for(FacetContextProvider facetContextProvider : getFacetContextProviders())
 			{
-				Class facetTypeId = javaeeFacet.getClass();
-				for(FacetContextProvider facetContextProvider : getFacetContextProviders())
+				if(facetContextProvider.getFacetId().equals(facetTypeId))
 				{
-					if(facetContextProvider.getFacetId().equals(facetTypeId))
-					{
-						result.setResult(facetContextProvider.getDeploymentContext(getWebModuleContextProviders(), deploymentModel, javaeeFacet));
-						return;
-					}
+					return facetContextProvider.getDeploymentContext(getWebModuleContextProviders(), deploymentModel, javaeeFacet);
 				}
 			}
-		}.execute().getResultObject();
+			return null;
+		}) ;
 	}
 
 	@Nullable
