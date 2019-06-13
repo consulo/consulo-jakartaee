@@ -3,6 +3,7 @@ package consulo.javaee.jsp.psi.impl.java.psi;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.*;
+import com.intellij.psi.impl.PsiImplUtil;
 import com.intellij.psi.impl.PsiSuperMethodImplUtil;
 import com.intellij.psi.impl.light.LightModifierList;
 import com.intellij.psi.impl.light.LightParameterListBuilder;
@@ -10,6 +11,7 @@ import com.intellij.psi.impl.light.LightReferenceListBuilder;
 import com.intellij.psi.impl.source.jsp.jspJava.JspClass;
 import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
+import com.intellij.psi.scope.PsiScopeProcessor;
 import com.intellij.psi.stubs.EmptyStub;
 import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.util.MethodSignature;
@@ -225,6 +227,12 @@ public class JspHolderMethodImpl extends StubBasedPsiElementBase<EmptyStub> impl
 	@Override
 	public PsiClass getContainingClass()
 	{
-		return null;
+		return getStubOrPsiParentOfType(JspClass.class);
+	}
+
+	@Override
+	public boolean processDeclarations(@Nonnull PsiScopeProcessor processor, @Nonnull ResolveState state, PsiElement lastParent, @Nonnull PsiElement place)
+	{
+		return PsiImplUtil.processDeclarationsInMethod(this, processor, state, lastParent, place);
 	}
 }
