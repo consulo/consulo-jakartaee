@@ -1,13 +1,6 @@
 package consulo.javaee.jsp.psi.impl.java.psi;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
-import org.jetbrains.annotations.NonNls;
-
-import javax.annotation.Nullable;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.PsiSuperMethodImplUtil;
@@ -17,20 +10,38 @@ import com.intellij.psi.impl.light.LightReferenceListBuilder;
 import com.intellij.psi.impl.source.jsp.jspJava.JspClass;
 import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
+import com.intellij.psi.stubs.EmptyStub;
+import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.util.MethodSignature;
 import com.intellij.psi.util.MethodSignatureBackedByPsiMethod;
 import consulo.annotations.RequiredReadAction;
 import consulo.java.module.util.JavaClassNames;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * @author VISTALL
  * @since 24-May-17
  */
-public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHolderMethod
+public class JspHolderMethodImpl extends StubBasedPsiElementBase<EmptyStub> implements JspHolderMethod
 {
 	public JspHolderMethodImpl(@Nonnull ASTNode node)
 	{
 		super(node);
+	}
+
+	public JspHolderMethodImpl(@Nonnull EmptyStub stub, @Nonnull IStubElementType nodeType)
+	{
+		super(stub, nodeType);
+	}
+
+	@Override
+	public PsiElement getParent()
+	{
+		return getParentByStub();
 	}
 
 	@RequiredReadAction
@@ -207,7 +218,7 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 	@Override
 	public PsiTypeParameter[] getTypeParameters()
 	{
-		return new PsiTypeParameter[0];
+		return PsiTypeParameter.EMPTY_ARRAY;
 	}
 
 	@Nullable

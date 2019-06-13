@@ -1,16 +1,5 @@
 package consulo.javaee.jsp.psi.impl.java.psi;
 
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
-import org.jetbrains.annotations.NonNls;
-
-import javax.annotation.Nullable;
 import com.intellij.extapi.psi.StubBasedPsiElementBase;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.java.JavaLanguage;
@@ -40,10 +29,18 @@ import com.intellij.psi.scope.PsiScopeProcessor;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.SearchScope;
 import com.intellij.psi.stubs.IStubElementType;
+import com.intellij.psi.stubs.StubElement;
 import com.intellij.psi.util.PsiUtil;
 import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspLanguage;
 import consulo.javaee.jsp.ServletApiClassNames;
+import consulo.javaee.jsp.psi.impl.java.JspJavaStubElements;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.io.PrintWriter;
+import java.util.*;
 
 /**
  * @author VISTALL
@@ -113,6 +110,13 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	@Nonnull
 	public JspHolderMethod getHolderMethod()
 	{
+		PsiClassStub<JspClass> greenStub = getGreenStub();
+		if(greenStub != null)
+		{
+			StubElement<?> element = greenStub.findChildStubByType(JspJavaStubElements.JSP_HOLDER_METHOD);
+			Objects.requireNonNull(element);
+			return (JspHolderMethod) element.getPsi();
+		}
 		return findNotNullChildByClass(JspHolderMethod.class);
 	}
 

@@ -1,14 +1,6 @@
 package consulo.javaee.jsp.psi.impl.java.psi.stub.elementType;
 
-import java.io.IOException;
-
-import javax.annotation.Nonnull;
-
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.LighterASTNode;
-import com.intellij.lang.PsiBuilder;
-import com.intellij.lang.PsiBuilderFactory;
-import com.intellij.lang.PsiParser;
+import com.intellij.lang.*;
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.lang.java.parser.JavaParserUtil;
 import com.intellij.openapi.project.Project;
@@ -28,13 +20,16 @@ import consulo.javaee.jsp.psi.impl.java.psi.stub.JspJavaFileElement;
 import consulo.javaee.jsp.psi.impl.java.psi.stub.JspJavaFileStub;
 import consulo.lang.LanguageVersion;
 
+import javax.annotation.Nonnull;
+import java.io.IOException;
+
 /**
  * @author VISTALL
  * @since 15-Jul-17
  */
 public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFileStub>
 {
-	public static final int STUB_VERSION = 7;
+	public static final int STUB_VERSION = 8;
 
 	public JspJavaFileElementType()
 	{
