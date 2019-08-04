@@ -15,13 +15,6 @@
  */
 package com.intellij.javaee.appServerIntegrations;
 
-import java.util.Collection;
-import java.util.Collections;
-
-import javax.annotation.Nonnull;
-import javax.swing.Icon;
-
-import javax.annotation.Nullable;
 import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptor;
 import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptorFactory;
 import com.intellij.javaee.deployment.DeploymentProvider;
@@ -31,6 +24,12 @@ import com.intellij.openapi.project.Project;
 import com.intellij.packaging.artifacts.ArtifactType;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * Application server integration component
  * Specific app server integrations should implement it
@@ -38,7 +37,7 @@ import consulo.javaee.module.extension.JavaEEModuleExtension;
 @Deprecated
 public abstract class AppServerIntegration implements FileTemplateGroupDescriptorFactory
 {
-	public static final ExtensionPointName<AppServerIntegration> EXTENSION_POINT = ExtensionPointName.create("com.intellij.javaee.appServerIntegration");
+	public static final ExtensionPointName<AppServerIntegration> EXTENSION_POINT = ExtensionPointName.create("consulo.javaee.appServerIntegration");
 
 	public abstract String getPresentableName();
 

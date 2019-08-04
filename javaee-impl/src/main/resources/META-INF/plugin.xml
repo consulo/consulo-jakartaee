@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2013 must-be.org
+  ~ Copyright 2013-2019 consulo.io
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
   ~ limitations under the License.
   -->
 
-<idea-plugin>
+<consulo-plugin>
 	<id>consulo.javaee</id>
 	<name>JavaEE</name>
 	<version>SNAPSHOT</version>
@@ -32,8 +32,8 @@
 	<extensionPoints>
 		<extensionPoint name="contextParamsProvider" interface="com.intellij.javaee.model.xml.converters.ContextParamsProvider"/>
 
-		<extensionPoint qualifiedName="com.intellij.javaee.appServerIntegration" interface="com.intellij.javaee.appServerIntegrations.AppServerIntegration"/>
-		<extensionPoint qualifiedName="com.intellij.javaee.descriptorMetaDataProvider" interface="com.intellij.javaee.facet.DescriptorMetaDataProvider"/>
+		<extensionPoint name="appServerIntegration" interface="com.intellij.javaee.appServerIntegrations.AppServerIntegration"/>
+		<extensionPoint name="descriptorMetaDataProvider" interface="com.intellij.javaee.facet.DescriptorMetaDataProvider"/>
 	</extensionPoints>
 
 	<extensions defaultExtensionNs="com.intellij.xml">
@@ -101,4 +101,4 @@
 								 immutableClass="consulo.javaee.module.extension.JavaWebModuleExtension"
 								 mutableClass="consulo.javaee.module.extension.JavaWebMutableModuleExtension"/>
 	</extensions>
-</idea-plugin>
+</consulo-plugin>
