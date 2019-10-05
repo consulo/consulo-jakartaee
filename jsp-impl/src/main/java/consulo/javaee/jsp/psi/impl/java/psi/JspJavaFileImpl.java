@@ -16,20 +16,21 @@
 
 package consulo.javaee.jsp.psi.impl.java.psi;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiJavaCodeReferenceElement;
-import com.intellij.psi.PsiJavaFile;
+import com.intellij.openapi.roots.ProjectFileIndex;
+import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.*;
 import com.intellij.psi.impl.PsiImplUtil;
 import com.intellij.psi.impl.source.PsiJavaFileBaseImpl;
+import com.intellij.testFramework.LightVirtualFile;
 import com.intellij.util.ArrayUtil;
 import consulo.annotations.RequiredReadAction;
 import consulo.javaee.jsp.JspFileType;
 import consulo.javaee.jsp.psi.impl.java.JspJavaStubElements;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL
@@ -44,11 +45,42 @@ public class JspJavaFileImpl extends PsiJavaFileBaseImpl implements PsiJavaFile
 			"javax.servlet.http"
 	};
 
-	private JspxImportListImpl myImportList = new JspxImportListImpl(this);
+	private final JspxImportListImpl myImportList = new JspxImportListImpl(this);
 
 	public JspJavaFileImpl(FileViewProvider viewProvider)
 	{
 		super(JspJavaStubElements.JAVA_IN_JSP_FILE, JspJavaStubElements.JAVA_IN_JSP_FILE, viewProvider);
+	}
+
+	@Nonnull
+	@Override
+	public String getPackageName()
+	{
+		VirtualFile virtualFile = getViewProvider().getVirtualFile();
+
+		if(virtualFile instanceof LightVirtualFile)
+		{
+			virtualFile = ((LightVirtualFile) virtualFile).getOriginalFile();
+		}
+
+		VirtualFile parentFile = null;
+		if(virtualFile == null || (parentFile = virtualFile.getParent()) != null)
+		{
+			return "";
+		}
+
+		String packageName = ProjectFileIndex.getInstance(getProject()).getPackageNameByDirectory(parentFile);
+		if(StringUtil.isEmpty(packageName))
+		{
+			return "";
+		}
+		return packageName;
+	}
+
+	@Override
+	public void subtreeChanged()
+	{
+		super.subtreeChanged();
 	}
 
 	@Nonnull

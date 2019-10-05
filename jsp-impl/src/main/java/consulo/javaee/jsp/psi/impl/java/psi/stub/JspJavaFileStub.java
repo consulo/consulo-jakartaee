@@ -1,7 +1,5 @@
 package consulo.javaee.jsp.psi.impl.java.psi.stub;
 
-import javax.annotation.Nonnull;
-
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiJavaFile;
@@ -14,24 +12,19 @@ import com.intellij.psi.stubs.PsiFileStubImpl;
 import com.intellij.psi.tree.IStubFileElementType;
 import consulo.javaee.jsp.psi.impl.java.JspJavaStubElements;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author VISTALL
  * @since 15-Jul-17
  */
 public class JspJavaFileStub extends PsiFileStubImpl<PsiJavaFile> implements PsiJavaFileStub
 {
-	private final String myPackageName;
 	private final LanguageLevel myLanguageLevel;
 
-	public JspJavaFileStub(String packageName)
-	{
-		this(null, packageName, null);
-	}
-
-	public JspJavaFileStub(PsiJavaFile file, String packageName, LanguageLevel languageLevel)
+	public JspJavaFileStub(PsiJavaFile file, LanguageLevel languageLevel)
 	{
 		super(file);
-		myPackageName = packageName;
 		myLanguageLevel = languageLevel;
 	}
 
@@ -58,7 +51,7 @@ public class JspJavaFileStub extends PsiFileStubImpl<PsiJavaFile> implements Psi
 	@Override
 	public String getPackageName()
 	{
-		return myPackageName;
+		return null;
 	}
 
 	@Override
@@ -83,6 +76,6 @@ public class JspJavaFileStub extends PsiFileStubImpl<PsiJavaFile> implements Psi
 	@Override
 	public String toString()
 	{
-		return "JspFileStub [" + myPackageName + "]";
+		return "JspFileStub";
 	}
 }

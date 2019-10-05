@@ -13,7 +13,6 @@ import com.intellij.psi.stubs.StubInputStream;
 import com.intellij.psi.stubs.StubOutputStream;
 import com.intellij.psi.tree.ILightStubFileElementType;
 import com.intellij.util.diff.FlyweightCapableTreeStructure;
-import com.intellij.util.io.StringRef;
 import consulo.javaee.jsp.lexer.JspJavaLexer;
 import consulo.javaee.jsp.psi.impl.java.parsing.JavaInJspParser;
 import consulo.javaee.jsp.psi.impl.java.psi.stub.JspJavaFileElement;
@@ -29,7 +28,7 @@ import java.io.IOException;
  */
 public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFileStub>
 {
-	public static final int STUB_VERSION = 8;
+	public static final int STUB_VERSION = 9;
 
 	public JspJavaFileElementType()
 	{
@@ -105,7 +104,6 @@ public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFil
 	{
 		LanguageLevel level = stub.getLanguageLevel();
 		dataStream.writeByte(level != null ? level.ordinal() : -1);
-		dataStream.writeName(stub.getPackageName());
 	}
 
 	@Nonnull
@@ -113,7 +111,6 @@ public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFil
 	public PsiJavaFileStub deserialize(@Nonnull StubInputStream dataStream, StubElement parentStub) throws IOException
 	{
 		int level = dataStream.readByte();
-		StringRef packageName = dataStream.readName();
-		return new JspJavaFileStub(null, StringRef.toString(packageName), level >= 0 ? LanguageLevel.values()[level] : null);
+		return new JspJavaFileStub(null, level >= 0 ? LanguageLevel.values()[level] : null);
 	}
 }

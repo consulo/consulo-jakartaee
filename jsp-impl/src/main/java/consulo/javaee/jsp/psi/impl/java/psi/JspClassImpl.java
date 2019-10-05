@@ -5,12 +5,10 @@ import com.intellij.lang.ASTNode;
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.navigation.ItemPresentationProviders;
-import com.intellij.openapi.roots.ProjectFileIndex;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Pair;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.InheritanceImplUtil;
@@ -137,24 +135,8 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 			return stub.getQualifiedName();
 		}
 
-		VirtualFile virtualFile = getContainingFile().getVirtualFile();
-		if(virtualFile == null)
-		{
-			return getName();
-		}
-
-		VirtualFile parent = virtualFile.getParent();
-		if(parent == null)
-		{
-			return null;
-		}
-
-		String packageName = ProjectFileIndex.getInstance(getProject()).getPackageNameByDirectory(parent);
-		if(StringUtil.isEmpty(packageName))
-		{
-			return getName();
-		}
-		return packageName + "." + getName();
+		JspJavaFileImpl file = (JspJavaFileImpl) getContainingFile();
+		return StringUtil.getQualifiedName(file.getPackageName(), getName());
 	}
 
 	@Override

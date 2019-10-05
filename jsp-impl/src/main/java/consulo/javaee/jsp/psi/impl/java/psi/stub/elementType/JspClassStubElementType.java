@@ -3,6 +3,7 @@ package consulo.javaee.jsp.psi.impl.java.psi.stub.elementType;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.LighterAST;
 import com.intellij.lang.LighterASTNode;
+import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
@@ -15,8 +16,8 @@ import com.intellij.psi.stubs.PsiFileStub;
 import com.intellij.psi.stubs.StubElement;
 import com.intellij.psi.stubs.StubInputStream;
 import com.intellij.util.io.StringRef;
-import consulo.java.psi.impl.java.stub.PsiClassLevelDeclarationStatementStub;
 import consulo.javaee.jsp.psi.impl.java.psi.JspClassImpl;
+import consulo.javaee.jsp.psi.impl.java.psi.JspJavaFileImpl;
 import consulo.psi.tree.IElementTypeAsPsiFactory;
 
 import javax.annotation.Nonnull;
@@ -52,33 +53,8 @@ public class JspClassStubElementType extends JavaClassElementType implements IEl
 		{
 			if(parentStub instanceof PsiJavaFileStub)
 			{
-				final String pkg = ((PsiJavaFileStub) parentStub).getPackageName();
-				if(!pkg.isEmpty())
-				{
-					qualifiedName = pkg + '.' + name;
-				}
-				else
-				{
-					qualifiedName = name;
-				}
-			}
-			else if(parentStub instanceof PsiClassStub)
-			{
-				final String parentFqn = ((PsiClassStub) parentStub).getQualifiedName();
-				qualifiedName = parentFqn != null ? parentFqn + '.' + name : null;
-			}
-			else if(parentStub instanceof PsiClassLevelDeclarationStatementStub)
-			{
-				StubElement parent = parentStub;
-				while(parent != null)
-				{
-					if(parent instanceof PsiClassStub)
-					{
-						qualifiedName = ((PsiClassStub) parent).getQualifiedName();
-						break;
-					}
-					parent = parent.getParentStub();
-				}
+				JspJavaFileImpl file = (JspJavaFileImpl) ((PsiJavaFileStub) parentStub).getPsi();
+				qualifiedName = StringUtil.getQualifiedName(file.getPackageName(), name);
 			}
 		}
 
