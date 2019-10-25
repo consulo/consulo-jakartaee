@@ -38,7 +38,7 @@ public class JspJavaFileElementType extends ILightStubFileElementType<PsiJavaFil
 	@Override
 	public int getStubVersion()
 	{
-		return STUB_VERSION;
+		return super.getStubVersion() + STUB_VERSION;
 	}
 
 	@Override
