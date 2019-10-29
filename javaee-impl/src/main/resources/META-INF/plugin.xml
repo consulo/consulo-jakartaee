@@ -90,8 +90,6 @@
 
 		<lang.formatter language="JSP" implementationClass="consulo.javaee.jsp.format.JspFormattingModelBuilder"/>
 
-		<psi.treeChangePreprocessor implementation="consulo.javaee.jsp.psi.JspPsiTreeChangePreprocessor"/>
-
 		<applicationService serviceInterface="com.intellij.javaee.run.configuration.J2EEConfigurationFactory"
 							serviceImplementation="consulo.javaee.run.configuration.J2EEConfigurationFactoryImpl"/>
 		<moduleExtensionProvider key="java-web"
