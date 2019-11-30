@@ -29,7 +29,7 @@ import com.intellij.psi.search.SearchScope;
 import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.stubs.StubElement;
 import com.intellij.psi.util.PsiUtil;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.javaee.jsp.JspLanguage;
 import consulo.javaee.jsp.ServletApiClassNames;
 import consulo.javaee.jsp.psi.impl.java.JspJavaStubElements;

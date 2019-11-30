@@ -15,14 +15,14 @@
  */
 package com.intellij.psi.jsp;
 
-import javax.annotation.Nonnull;
-
 import com.intellij.lang.jsp.JspxFileViewProvider;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.psi.xml.XmlTag;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
+
+import javax.annotation.Nonnull;
 
 public interface BaseJspFile extends XmlFile
 {

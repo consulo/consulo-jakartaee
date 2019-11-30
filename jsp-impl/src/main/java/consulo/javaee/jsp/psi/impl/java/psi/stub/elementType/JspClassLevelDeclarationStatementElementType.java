@@ -1,24 +1,20 @@
 package consulo.javaee.jsp.psi.impl.java.psi.stub.elementType;
 
-import java.io.IOException;
-
-import javax.annotation.Nonnull;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.LighterAST;
 import com.intellij.lang.LighterASTNode;
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.psi.PsiClassLevelDeclarationStatement;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.stubs.ILightStubElementType;
-import com.intellij.psi.stubs.IndexSink;
-import com.intellij.psi.stubs.StubElement;
-import com.intellij.psi.stubs.StubInputStream;
-import com.intellij.psi.stubs.StubOutputStream;
-import consulo.annotations.RequiredReadAction;
+import com.intellij.psi.stubs.*;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.java.psi.impl.java.stub.PsiClassLevelDeclarationStatementStub;
 import consulo.javaee.jsp.psi.impl.java.psi.JspClassLevelDeclarationStatementImpl;
 import consulo.javaee.jsp.psi.impl.java.psi.stub.JspClassLevelDeclarationStatementStub;
 import consulo.psi.tree.IElementTypeAsPsiFactory;
+
+import javax.annotation.Nonnull;
+import java.io.IOException;
 
 /**
  * @author VISTALL

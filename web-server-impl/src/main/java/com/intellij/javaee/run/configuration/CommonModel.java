@@ -15,12 +15,6 @@
  */
 package com.intellij.javaee.run.configuration;
 
-import java.util.Collection;
-import java.util.List;
-
-import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.intellij.execution.configurations.ModuleRunConfiguration;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.deployment.DeploymentModel;
@@ -28,8 +22,14 @@ import com.intellij.javaee.deployment.DeploymentSettings;
 import com.intellij.openapi.compiler.CompileScope;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.packaging.artifacts.Artifact;
-import consulo.annotations.DeprecationInfo;
+import consulo.annotation.DeprecationInfo;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.Collection;
+import java.util.List;
 
 public interface CommonModel extends ModuleRunConfiguration
 {

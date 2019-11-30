@@ -1,11 +1,5 @@
 package consulo.javaee.run.configuration.state.view;
 
-import java.util.List;
-
-import javax.swing.JComponent;
-import javax.swing.JList;
-
-import javax.annotation.Nonnull;
 import com.intellij.icons.AllIcons;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.deployment.DeploymentManager;
@@ -21,9 +15,13 @@ import com.intellij.ui.ColoredListCellRenderer;
 import com.intellij.ui.ToolbarDecorator;
 import com.intellij.ui.components.JBList;
 import com.intellij.util.ui.JBUI;
-import consulo.annotations.RequiredDispatchThread;
 import consulo.javaee.JavaEEIcons;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+import consulo.ui.annotation.RequiredUIAccess;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -64,7 +62,7 @@ public class DeploymentViewImpl implements DeploymentView
 		decorator.disableRemoveAction();
 		decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.deploy.selected"), null, AllIcons.Nodes.Deploy)
 		{
-			@RequiredDispatchThread
+			@RequiredUIAccess
 			@Override
 			public void actionPerformed(@Nonnull AnActionEvent anActionEvent)
 			{
@@ -73,7 +71,7 @@ public class DeploymentViewImpl implements DeploymentView
 		});
 		decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.undeploy"), null, AllIcons.Nodes.Undeploy)
 		{
-			@RequiredDispatchThread
+			@RequiredUIAccess
 			@Override
 			public void actionPerformed(@Nonnull AnActionEvent anActionEvent)
 			{
@@ -82,7 +80,7 @@ public class DeploymentViewImpl implements DeploymentView
 		});
 		decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.refresh.deployment.status"), null, AllIcons.Actions.Refresh)
 		{
-			@RequiredDispatchThread
+			@RequiredUIAccess
 			@Override
 			public void actionPerformed(@Nonnull AnActionEvent anActionEvent)
 			{

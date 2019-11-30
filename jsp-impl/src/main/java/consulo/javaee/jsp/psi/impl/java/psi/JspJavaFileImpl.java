@@ -25,7 +25,7 @@ import com.intellij.psi.impl.PsiImplUtil;
 import com.intellij.psi.impl.source.PsiJavaFileBaseImpl;
 import com.intellij.testFramework.LightVirtualFile;
 import com.intellij.util.ArrayUtil;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.javaee.jsp.JspFileType;
 import consulo.javaee.jsp.psi.impl.java.JspJavaStubElements;
 

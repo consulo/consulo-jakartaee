@@ -15,13 +15,12 @@
  */
 package com.intellij.javaee.appServerIntegrations;
 
-import java.util.Collection;
+import com.intellij.openapi.roots.libraries.Library;
+import consulo.annotation.DeprecationInfo;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import com.intellij.openapi.roots.libraries.Library;
-import consulo.annotations.DeprecationInfo;
+import java.util.Collection;
 
 @Deprecated
 @DeprecationInfo("Not needed. Replaced by SDK")

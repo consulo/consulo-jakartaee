@@ -6,7 +6,7 @@ import com.intellij.lang.LighterASTNode;
 import com.intellij.lang.java.JavaLanguage;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.stubs.*;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.javaee.jsp.psi.impl.java.psi.JspHolderMethodImpl;
 import consulo.psi.tree.IElementTypeAsPsiFactory;
 

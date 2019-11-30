@@ -1,10 +1,11 @@
 package consulo.javaee.jsp.psi;
 
-import javax.annotation.Nonnull;
 import com.intellij.psi.impl.source.jsp.jspXml.JspXmlRootTag;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.javaee.jsp.psi.impl.JspElementVisitor;
 import consulo.javaee.jsp.psi.impl.JspXmlTagBaseImpl;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
