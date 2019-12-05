@@ -15,13 +15,13 @@
  */
 package com.intellij.javaee.run.execution;
 
-import javax.annotation.Nullable;
-
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.deployment.DeploymentView;
 import com.intellij.javaee.serverInstances.J2EEServerInstance;
-import com.intellij.openapi.util.Key;
+import consulo.util.dataholder.Key;
+
+import javax.annotation.Nullable;
 
 /**
  * @author nik
