@@ -1,6 +1,6 @@
 package consulo.javaee.jsp.lexer;
 
-import com.intellij.lexer.JavaLexer;
+import com.intellij.lang.java.lexer.JavaLexer;
 import com.intellij.lexer.Lexer;
 import com.intellij.lexer.LookAheadLexer;
 import com.intellij.pom.java.LanguageLevel;

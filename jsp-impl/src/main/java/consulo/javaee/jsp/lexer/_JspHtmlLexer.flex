@@ -15,9 +15,6 @@ import consulo.javaee.jsp.psi.JspTokens;
 %function advanceImpl
 %type IElementType
 
-%eof{ return;
-%eof}
-
 WHITESPACE=[ \n\r\t]+
 
 %state JSP_FRAGMENT

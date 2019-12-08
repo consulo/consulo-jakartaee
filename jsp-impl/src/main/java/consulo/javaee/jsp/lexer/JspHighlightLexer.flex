@@ -17,9 +17,6 @@ import com.intellij.psi.xml.XmlTokenType;
 %function advanceImpl
 %type IElementType
 
-%eof{ return;
-%eof}
-
 WHITESPACE=[ \n\r\t]+
 
 ALPHA=[:letter:]

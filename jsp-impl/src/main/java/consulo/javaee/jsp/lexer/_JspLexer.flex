@@ -18,9 +18,6 @@ import com.intellij.psi.xml.XmlTokenType;
 %function advanceImpl
 %type IElementType
 
-%eof{ return;
-%eof}
-
 ALPHA=[:letter:]
 DIGIT=[0-9]
 NAME=({ALPHA}|"_")({ALPHA}|{DIGIT}|"_"|"."|"-")*(":"({ALPHA}|"_")?({ALPHA}|{DIGIT}|"_"|"."|"-")*)?
