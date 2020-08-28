@@ -1,17 +1,5 @@
 package consulo.javaee.run.configuration.editor;
 
-import java.awt.BorderLayout;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.swing.DefaultListModel;
-import javax.swing.Icon;
-import javax.swing.JComponent;
-import javax.swing.JList;
-import javax.swing.JPanel;
-
 import com.intellij.icons.AllIcons;
 import com.intellij.javaee.deployment.DeploymentModel;
 import com.intellij.javaee.run.configuration.CommonModel;
@@ -45,6 +33,14 @@ import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 import consulo.packaging.artifacts.ArtifactPointerUtil;
 import consulo.packaging.impl.run.BuildArtifactsBeforeRunTaskProvider;
+import consulo.ui.image.Image;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -128,7 +124,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 				}
 
 				@Override
-				public Icon getIconFor(String value)
+				public Image getIconFor(String value)
 				{
 					if(ARTIFACT.equals(value))
 					{
