@@ -4,18 +4,6 @@
 
 package com.intellij.javaee.oss.descriptor;
 
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.swing.Icon;
-
-import org.jdom.DocType;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
 import com.intellij.javaee.oss.util.FileWrapper;
 import com.intellij.openapi.util.JDOMUtil;
@@ -27,16 +15,27 @@ import com.intellij.util.xml.DomElement;
 import com.intellij.util.xml.DomFileElement;
 import com.intellij.util.xml.DomManager;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
+import consulo.ui.image.Image;
+import org.jdom.DocType;
+import org.jdom.Element;
+import org.jdom.JDOMException;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class JavaeeDescriptor
 {
-	private final Icon icon;
+	private final Image icon;
 
 	private ConfigFileMetaData meta;
 
 	private final Set<String> namespaces = new HashSet<String>();
 
-	protected JavaeeDescriptor(Icon icon)
+	protected JavaeeDescriptor(Image icon)
 	{
 		this.icon = icon;
 	}

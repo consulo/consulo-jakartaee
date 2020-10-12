@@ -6,16 +6,16 @@ package com.intellij.javaee.oss.descriptor;
 
 import com.intellij.javaee.oss.JavaeeBundle;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
-import com.intellij.openapi.util.IconLoader;
 import consulo.javaee.module.extension.EjbModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
+import consulo.ui.image.Image;
 
 class JavaeeCmpDescriptor extends JavaeeDescriptor
 {
 
 	JavaeeCmpDescriptor()
 	{
-		super(IconLoader.getIcon("/resources/cmp.png"));
+		super(Image.empty(Image.DEFAULT_ICON_SIZE));
 	}
 
 	@Override

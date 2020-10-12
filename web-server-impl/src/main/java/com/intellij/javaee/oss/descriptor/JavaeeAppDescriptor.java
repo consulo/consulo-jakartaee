@@ -4,18 +4,17 @@
 
 package com.intellij.javaee.oss.descriptor;
 
+import com.intellij.icons.AllIcons;
 import com.intellij.javaee.oss.JavaeeBundle;
 import com.intellij.javaee.oss.server.JavaeeIntegration;
-import com.intellij.openapi.util.IconLoader;
 import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 
 class JavaeeAppDescriptor extends JavaeeDescriptor
 {
-
 	JavaeeAppDescriptor()
 	{
-		super(IconLoader.getIcon("/resources/app.png"));
+		super(AllIcons.RunConfigurations.Application);
 	}
 
 	@Override

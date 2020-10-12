@@ -1,26 +1,12 @@
 package consulo.javaee.run.configuration.editor;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.util.ArrayList;
-
-import javax.swing.JComponent;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
-import javax.annotation.Nonnull;
 import com.intellij.execution.Executor;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.ui.VerticalFlowLayout;
 import com.intellij.openapi.util.Couple;
-import com.intellij.ui.CollectionListModel;
-import com.intellij.ui.ColoredListCellRenderer;
-import com.intellij.ui.IdeBorderFactory;
-import com.intellij.ui.ScrollPaneFactory;
-import com.intellij.ui.ToolbarDecorator;
+import com.intellij.ui.*;
 import com.intellij.ui.components.JBCheckBox;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBList;
@@ -29,8 +15,12 @@ import com.intellij.ui.table.TableView;
 import com.intellij.util.ui.ColumnInfo;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.ListTableModel;
-import consulo.awt.TargetAWT;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * @author VISTALL
@@ -43,13 +33,13 @@ public class JavaEEStartupConfigurationEditor extends SettingsEditor<JavaEEConfi
 	protected JComponent createEditor()
 	{
 		JPanel panel = new JPanel(new VerticalFlowLayout());
-		JBList<Executor> executorList = new JBList<>(new CollectionListModel<>(Executor.EP_NAME.getExtensions()));
+		JBList<Executor> executorList = new JBList<>(new CollectionListModel<>(Executor.EP_NAME.getExtensionList()));
 		executorList.setCellRenderer(new ColoredListCellRenderer<Executor>()
 		{
 			@Override
 			protected void customizeCellRenderer(@Nonnull JList<? extends Executor> list, Executor value, int index, boolean selected, boolean hasFocus)
 			{
-				setIcon(TargetAWT.to(value.getIcon()));
+				setIcon(value.getIcon());
 				append(value.getActionName());
 			}
 		});

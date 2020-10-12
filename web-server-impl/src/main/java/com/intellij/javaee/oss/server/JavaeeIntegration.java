@@ -4,17 +4,6 @@
 
 package com.intellij.javaee.oss.server;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.Icon;
-
-import org.jetbrains.annotations.NonNls;
 import com.intellij.javaee.appServerIntegrations.AppServerDeployedFileUrlProvider;
 import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.appServerIntegrations.ApplicationServerUrlMapping;
@@ -25,6 +14,16 @@ import com.intellij.javaee.serverInstances.J2EEServerInstance;
 import com.intellij.openapi.deployment.DeploymentUtil;
 import com.intellij.util.Function;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
+import consulo.ui.image.Image;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.List;
 
 @Deprecated
 public abstract class JavaeeIntegration extends AppServerIntegration
@@ -68,13 +67,7 @@ public abstract class JavaeeIntegration extends AppServerIntegration
 	public abstract String getName();
 
 	@Nonnull
-	public Icon getIcon()
-	{
-		throw new UnsupportedOperationException();
-	}
-
-	@Nonnull
-	public Icon getBigIcon()
+	public Image getIcon()
 	{
 		throw new UnsupportedOperationException();
 	}

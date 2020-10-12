@@ -23,10 +23,10 @@ import com.intellij.openapi.extensions.ExtensionPointName;
 import com.intellij.openapi.project.Project;
 import com.intellij.packaging.artifacts.ArtifactType;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
+import consulo.ui.image.Image;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.*;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -42,7 +42,7 @@ public abstract class AppServerIntegration implements FileTemplateGroupDescripto
 	public abstract String getPresentableName();
 
 	@Nullable
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return null;
 	}

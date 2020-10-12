@@ -4,40 +4,6 @@
 
 package com.intellij.javaee.oss.editor;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.annotation.Nonnull;
-import javax.swing.BorderFactory;
-import javax.swing.Icon;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.border.Border;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-
-import javax.annotation.Nullable;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.ui.ColumnInfo;
@@ -46,6 +12,19 @@ import com.intellij.util.xml.DomElement;
 import com.intellij.util.xml.ui.AbstractTableView;
 import com.intellij.util.xml.ui.CommittablePanel;
 import com.intellij.util.xml.ui.StripeTableCellRenderer;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.table.*;
+import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
+import java.util.*;
 
 public class JavaeeSectionView implements CommittablePanel {
 
@@ -83,7 +62,7 @@ public class JavaeeSectionView implements CommittablePanel {
         this.sections = sections.clone();
         view = new SectionTableView(project, empty);
         JTable table = view.getTable();
-        table.setRowHeight(AllIcons.Nodes.Class.getIconHeight());
+        table.setRowHeight(AllIcons.Nodes.Class.getHeight());
         table.setShowVerticalLines(false);
         table.setIntercellSpacing(new Dimension(0, 1));
         table.addMouseListener(createMouseListener(table));
