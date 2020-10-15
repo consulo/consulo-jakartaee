@@ -94,7 +94,7 @@
 							serviceImplementation="consulo.javaee.run.configuration.J2EEConfigurationFactoryImpl"/>
 		<moduleExtensionProvider key="java-web"
 								 parentKey="java"
-								 icon="/general/web.png"
+								 icon="consulo.platform.base.PlatformIconGroup@general.web"
 								 name="JSP"
 								 immutableClass="consulo.javaee.module.extension.JavaWebModuleExtension"
 								 mutableClass="consulo.javaee.module.extension.JavaWebMutableModuleExtension"/>
