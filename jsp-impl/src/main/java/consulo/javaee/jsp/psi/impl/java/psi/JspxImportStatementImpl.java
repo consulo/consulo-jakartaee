@@ -9,6 +9,7 @@ import com.intellij.psi.impl.light.LightPackageReference;
 import com.intellij.psi.impl.source.jsp.jspJava.JspxImportStatement;
 import com.intellij.psi.impl.source.tree.PsiErrorElementImpl;
 import consulo.annotation.access.RequiredReadAction;
+import consulo.localize.LocalizeValue;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -35,7 +36,7 @@ public class JspxImportStatementImpl extends LightElement implements JspxImportS
 
 		if(error)
 		{
-			myErrorElement = new PsiErrorElementImpl(imporText);
+			myErrorElement = new PsiErrorElementImpl(LocalizeValue.of(imporText));
 		}
 		else
 		{
