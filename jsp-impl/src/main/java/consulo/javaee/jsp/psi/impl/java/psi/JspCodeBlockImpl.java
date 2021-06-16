@@ -12,7 +12,6 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspCodeBlock;
 import com.intellij.psi.impl.source.resolve.reference.impl.providers.FileReference;
 import com.intellij.psi.jsp.JspDirectiveKind;
 import com.intellij.psi.jsp.JspFile;
-import com.intellij.psi.scope.BaseScopeProcessor;
 import com.intellij.psi.scope.ElementClassHint;
 import com.intellij.psi.scope.NameHint;
 import com.intellij.psi.scope.PsiScopeProcessor;
@@ -23,11 +22,11 @@ import com.intellij.psi.xml.XmlAttribute;
 import com.intellij.psi.xml.XmlAttributeValue;
 import com.intellij.psi.xml.XmlTag;
 import consulo.annotation.access.RequiredReadAction;
-import gnu.trove.THashSet;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -101,10 +100,10 @@ public class JspCodeBlockImpl extends ASTWrapperPsiElement implements JspCodeBlo
 		boolean wasConflict = myConflict;
 		if(set1 == null || set2 == null)
 		{
-			final Set<String> localsSet = new THashSet<>();
-			final Set<String> classesSet = new THashSet<>();
+			final Set<String> localsSet = new HashSet<>();
+			final Set<String> classesSet = new HashSet<>();
 			final Ref<Boolean> conflict = new Ref<>(Boolean.FALSE);
-			PsiScopesUtil.walkChildrenScopes(this, new BaseScopeProcessor()
+			PsiScopesUtil.walkChildrenScopes(this, new PsiScopeProcessor()
 			{
 				@Override
 				public boolean execute(@Nonnull PsiElement element, ResolveState state)
