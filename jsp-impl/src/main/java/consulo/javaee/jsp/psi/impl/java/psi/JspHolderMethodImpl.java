@@ -1,6 +1,6 @@
 package consulo.javaee.jsp.psi.impl.java.psi;
 
-import com.intellij.extapi.psi.StubBasedPsiElementBase;
+import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.PsiImplUtil;
@@ -12,13 +12,11 @@ import com.intellij.psi.impl.source.jsp.jspJava.JspClass;
 import com.intellij.psi.impl.source.jsp.jspJava.JspHolderMethod;
 import com.intellij.psi.javadoc.PsiDocComment;
 import com.intellij.psi.scope.PsiScopeProcessor;
-import com.intellij.psi.stubs.EmptyStub;
-import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.util.MethodSignature;
 import com.intellij.psi.util.MethodSignatureBackedByPsiMethod;
+import com.intellij.psi.util.PsiTreeUtil;
 import consulo.annotation.access.RequiredReadAction;
 import consulo.java.module.util.JavaClassNames;
-import org.jetbrains.annotations.NonNls;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,22 +26,11 @@ import java.util.List;
  * @author VISTALL
  * @since 24-May-17
  */
-public class JspHolderMethodImpl extends StubBasedPsiElementBase<EmptyStub> implements JspHolderMethod
+public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHolderMethod
 {
 	public JspHolderMethodImpl(@Nonnull ASTNode node)
 	{
 		super(node);
-	}
-
-	public JspHolderMethodImpl(@Nonnull EmptyStub stub, @Nonnull IStubElementType nodeType)
-	{
-		super(stub, nodeType);
-	}
-
-	@Override
-	public PsiElement getParent()
-	{
-		return getParentByStub();
 	}
 
 	@RequiredReadAction
@@ -172,13 +159,13 @@ public class JspHolderMethodImpl extends StubBasedPsiElementBase<EmptyStub> impl
 	}
 
 	@Override
-	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @NonNls @Nonnull String s)
+	public boolean hasModifierProperty(@PsiModifier.ModifierConstant @Nonnull String s)
 	{
 		return false;
 	}
 
 	@Override
-	public PsiElement setName(@NonNls @Nonnull String s)
+	public PsiElement setName(@Nonnull String s)
 	{
 		return null;
 	}
@@ -227,7 +214,7 @@ public class JspHolderMethodImpl extends StubBasedPsiElementBase<EmptyStub> impl
 	@Override
 	public PsiClass getContainingClass()
 	{
-		return getStubOrPsiParentOfType(JspClass.class);
+		return PsiTreeUtil.getParentOfType(this, JspClass.class);
 	}
 
 	@Override

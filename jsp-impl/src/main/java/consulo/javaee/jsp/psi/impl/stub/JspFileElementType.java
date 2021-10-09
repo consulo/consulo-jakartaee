@@ -20,7 +20,7 @@ public class JspFileElementType extends IStubFileElementType<PsiFileStub>
 	@Override
 	public int getStubVersion()
 	{
-		return super.getStubVersion() + 1;
+		return super.getStubVersion() + 3;
 	}
 
 	@Nonnull

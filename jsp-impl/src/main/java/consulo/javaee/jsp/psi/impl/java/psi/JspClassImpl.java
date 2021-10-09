@@ -27,18 +27,19 @@ import com.intellij.psi.scope.PsiScopeProcessor;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.SearchScope;
 import com.intellij.psi.stubs.IStubElementType;
-import com.intellij.psi.stubs.StubElement;
 import com.intellij.psi.util.PsiUtil;
 import consulo.annotation.access.RequiredReadAction;
 import consulo.javaee.jsp.JspLanguage;
 import consulo.javaee.jsp.ServletApiClassNames;
-import consulo.javaee.jsp.psi.impl.java.JspJavaStubElements;
 import org.jetbrains.annotations.NonNls;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -108,13 +109,6 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 	@Nonnull
 	public JspHolderMethod getHolderMethod()
 	{
-		PsiClassStub<JspClass> greenStub = getGreenStub();
-		if(greenStub != null)
-		{
-			StubElement<?> element = greenStub.findChildStubByType(JspJavaStubElements.JSP_HOLDER_METHOD);
-			Objects.requireNonNull(element);
-			return (JspHolderMethod) element.getPsi();
-		}
 		return findNotNullChildByClass(JspHolderMethod.class);
 	}
 
@@ -342,7 +336,7 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 
 	@Nullable
 	@Override
-	public PsiField findFieldByName(@NonNls String name, boolean checkBases)
+	public PsiField findFieldByName(String name, boolean checkBases)
 	{
 		return myInnersCache.findFieldByName(name, checkBases);
 	}
@@ -363,14 +357,14 @@ public class JspClassImpl extends StubBasedPsiElementBase<PsiClassStub<JspClass>
 
 	@Nonnull
 	@Override
-	public PsiMethod[] findMethodsByName(@NonNls String name, boolean checkBases)
+	public PsiMethod[] findMethodsByName(String name, boolean checkBases)
 	{
 		return myInnersCache.findMethodsByName(name, checkBases);
 	}
 
 	@Nonnull
 	@Override
-	public List<Pair<PsiMethod, PsiSubstitutor>> findMethodsAndTheirSubstitutorsByName(@NonNls String s, boolean b)
+	public List<Pair<PsiMethod, PsiSubstitutor>> findMethodsAndTheirSubstitutorsByName(String s, boolean b)
 	{
 		return Collections.emptyList();
 	}

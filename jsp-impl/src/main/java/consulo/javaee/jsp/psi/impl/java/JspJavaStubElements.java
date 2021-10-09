@@ -1,10 +1,12 @@
 package consulo.javaee.jsp.psi.impl.java;
 
 import com.intellij.psi.tree.IElementType;
-import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspClassLevelDeclarationStatementElementType;
+import consulo.javaee.jsp.JspLanguage;
+import consulo.javaee.jsp.psi.impl.java.psi.JspClassLevelDeclarationStatementImpl;
+import consulo.javaee.jsp.psi.impl.java.psi.JspHolderMethodImpl;
 import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspClassStubElementType;
-import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspHolderMethodElementType;
 import consulo.javaee.jsp.psi.impl.java.psi.stub.elementType.JspJavaFileElementType;
+import consulo.psi.tree.ElementTypeAsPsiFactory;
 
 /**
  * @author VISTALL
@@ -16,7 +18,7 @@ public interface JspJavaStubElements
 
 	JspClassStubElementType JSP_CLASS = new JspClassStubElementType();
 
-	JspHolderMethodElementType JSP_HOLDER_METHOD = new JspHolderMethodElementType();
+	IElementType JSP_HOLDER_METHOD = new ElementTypeAsPsiFactory("JSP_HOLDER_METHOD", JspLanguage.INSTANCE, JspHolderMethodImpl.class);
 
-	JspClassLevelDeclarationStatementElementType JSP_CLASS_LEVEL_DECLARATION_STATEMENT = new JspClassLevelDeclarationStatementElementType();
+	IElementType JSP_CLASS_LEVEL_DECLARATION_STATEMENT = new ElementTypeAsPsiFactory("JSP_CLASS_LEVEL_DECLARATION_STATEMENT", JspLanguage.INSTANCE, JspClassLevelDeclarationStatementImpl.class);
 }
