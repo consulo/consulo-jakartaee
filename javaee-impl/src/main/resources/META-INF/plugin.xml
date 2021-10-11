@@ -16,7 +16,7 @@
 
 <consulo-plugin>
 	<id>consulo.javaee</id>
-	<name>JavaEE</name>
+	<name>Jakarta EE (Java EE)</name>
 	<version>SNAPSHOT</version>
 	<depends>com.intellij.xml</depends>
 	<depends>consulo.java</depends>
