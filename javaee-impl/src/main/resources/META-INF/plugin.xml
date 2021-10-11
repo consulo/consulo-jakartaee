@@ -57,6 +57,8 @@
 
 		<filePropertyPusher implementation="consulo.javaee.jsp.roots.impl.JspWebRooLanguageLevelPusher"/>
 
+		<lang.inspectionSuppressor language="JSP" implementationClass="consulo.javaee.jsp.codeInsight.daemon.JspInspectionSuppressor"/>
+
 		<resolveScopeEnlarger implementation="consulo.javaee.jsp.psi.impl.java.JspJavaResolveScopeEnlarger"/>
 
 		<packaging.artifactType implementation="consulo.javaee.artifact.ExplodedWarArtifactType"/>
@@ -71,7 +73,7 @@
 
 		<lang.fileViewProviderFactory language="JSP" implementationClass="consulo.javaee.jsp.JspFileViewProviderFactory"/>
 		<lang.parserDefinition language="JSP" implementationClass="consulo.javaee.jsp.JspParserDefinition"/>
-		<editorHighlighterProvider filetype="JSP" implementationClass="consulo.javaee.jsp.JspEditorHighlighterProvider" />
+		<editorHighlighterProvider filetype="JSP" implementationClass="consulo.javaee.jsp.JspEditorHighlighterProvider"/>
 
 		<lang.ast.compositeFactory implementation="consulo.javaee.jsp.psi.JspCompositeElementFactory"/>
 
