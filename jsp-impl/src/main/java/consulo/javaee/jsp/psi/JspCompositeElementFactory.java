@@ -1,11 +1,12 @@
 package consulo.javaee.jsp.psi;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.intellij.psi.impl.source.tree.CompositeElement;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.impl.JspExpressionImpl;
 import consulo.psi.tree.ASTCompositeFactory;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL

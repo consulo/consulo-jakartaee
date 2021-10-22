@@ -1,7 +1,5 @@
 package consulo.javaee.jsp;
 
-import javax.annotation.Nonnull;
-
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilderUtil;
@@ -12,6 +10,9 @@ import com.intellij.psi.xml.XmlElementType;
 import com.intellij.psi.xml.XmlTokenType;
 import consulo.javaee.jsp.psi.JspElements;
 import consulo.lang.LanguageVersion;
+import consulo.localize.LocalizeValue;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
@@ -31,6 +32,10 @@ public class JspParser implements PsiParser
 			if(builder.getTokenType() == XmlTokenType.XML_START_TAG_START)
 			{
 				parseDirective(builder);
+			}
+			else if(builder.getTokenType() == XmlTokenType.XML_COMMENT_START)
+			{
+				parseComment(builder);
 			}
 			else if(builder.getTokenType() == JspTokenType.JSP_DECLARATION_START)
 			{
@@ -53,6 +58,24 @@ public class JspParser implements PsiParser
 		documentMarker.done(JspElements.JSP_DOCUMENT);
 		marker.done(elementType);
 		return builder.getTreeBuilt();
+	}
+
+	private void parseComment(PsiBuilder builder)
+	{
+		PsiBuilder.Marker mark = builder.mark();
+
+		builder.advanceLexer();
+
+		while(!builder.eof() && builder.getTokenType() != XmlTokenType.XML_COMMENT_END)
+		{
+			builder.advanceLexer();
+		}
+
+		if(!PsiBuilderUtil.expect(builder, XmlTokenType.XML_COMMENT_END))
+		{
+			builder.error(LocalizeValue.localizeTODO("--%> expected"));
+		}
+		mark.collapse(JspElements.COMMENT);
 	}
 
 	private void parseSimpleTag(PsiBuilder builder, IElementType endElementType, IElementType to)

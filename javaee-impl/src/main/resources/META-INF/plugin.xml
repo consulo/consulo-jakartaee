@@ -21,6 +21,7 @@
 	<depends>com.intellij.xml</depends>
 	<depends>consulo.java</depends>
 	<depends optional="true" config-file="org.jetbrains.idea.maven.xml">org.jetbrains.idea.maven</depends>
+	<depends optional="true" config-file="com.intellij.spellchecker.xml">com.intellij.spellchecker</depends>
 	<resource-bundle>messages.J2EEBundle</resource-bundle>
 
 	<actions>
@@ -76,6 +77,7 @@
 		<editorHighlighterProvider filetype="JSP" implementationClass="consulo.javaee.jsp.JspEditorHighlighterProvider"/>
 
 		<lang.ast.compositeFactory implementation="consulo.javaee.jsp.psi.JspCompositeElementFactory"/>
+		<lang.ast.leafFactory implementation="consulo.javaee.jsp.psi.JspLeafElementFactory"/>
 
 		<highlightVisitor implementation="consulo.javaee.jsp.codeInsight.daemon.analysis.JspJavaHighlightVisitorImpl"/>
 		<problemFileHighlightFilter implementation="consulo.javaee.jsp.codeInsight.daemon.JspProblemFileHighlightFilter"/>

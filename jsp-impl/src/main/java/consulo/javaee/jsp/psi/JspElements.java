@@ -13,11 +13,13 @@ public interface JspElements
 
 	IElementType JSP_DOCUMENT = new IElementType("JSP_DOCUMENT", JspLanguage.INSTANCE);
 
-	IElementType DIRECTIVE = new IElementType("DIRECTIVE", JspLanguage.INSTANCE);
+	IElementType DIRECTIVE = new IElementType("JSP_DIRECTIVE", JspLanguage.INSTANCE);
 
-	IElementType DECLARATION = new IElementType("DECLARATION", JspLanguage.INSTANCE);
+	IElementType DECLARATION = new IElementType("JSP_DECLARATION", JspLanguage.INSTANCE);
 
-	IElementType SCRIPTLET = new IElementType("SCRIPTLET", JspLanguage.INSTANCE);
+	IElementType COMMENT = new IElementType("JSP_COMMENT", JspLanguage.INSTANCE);
 
-	IElementType EXPRESSION = new IElementType("EXPRESSION", JspLanguage.INSTANCE);
+	IElementType SCRIPTLET = new IElementType("JSP_SCRIPTLET", JspLanguage.INSTANCE);
+
+	IElementType EXPRESSION = new IElementType("JSP_EXPRESSION", JspLanguage.INSTANCE);
 }
