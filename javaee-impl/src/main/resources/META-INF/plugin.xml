@@ -23,6 +23,12 @@
 	<depends optional="true" config-file="org.jetbrains.idea.maven.xml">org.jetbrains.idea.maven</depends>
 	<depends optional="true" config-file="com.intellij.spellchecker.xml">com.intellij.spellchecker</depends>
 	<resource-bundle>messages.J2EEBundle</resource-bundle>
+	<category>Web Framework</category>
+
+	<tags>
+		<tag>web.framework</tag>
+		<tag>software.framework</tag>
+	</tags>
 
 	<actions>
 		<action id="CreateJSPAction" class="consulo.javaee.jsp.actions.CreateJSPFileAction">
