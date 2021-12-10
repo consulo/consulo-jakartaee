@@ -1,13 +1,13 @@
 package consulo.javaee.jsp;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.intellij.ide.highlighter.XmlLikeFileType;
 import com.intellij.lang.xml.XMLLanguage;
 import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
 import consulo.javaee.JavaEEIcons;
+import consulo.localize.LocalizeValue;
 import consulo.ui.image.Image;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
@@ -31,9 +31,9 @@ public class JspxFileType  extends XmlLikeFileType implements TemplateLanguageFi
 
 	@Nonnull
 	@Override
-	public String getDescription()
+	public LocalizeValue getDescription()
 	{
-		return "JSPX files";
+		return LocalizeValue.localizeTODO("JSPX files");
 	}
 
 	@Nonnull
@@ -43,7 +43,7 @@ public class JspxFileType  extends XmlLikeFileType implements TemplateLanguageFi
 		return "jspx";
 	}
 
-	@Nullable
+	@Nonnull
 	@Override
 	public Image getIcon()
 	{

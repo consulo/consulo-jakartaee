@@ -16,13 +16,14 @@
 
 package consulo.javaee.jsp;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.intellij.ide.highlighter.XmlLikeFileType;
 import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
 import consulo.javaee.JavaEEIcons;
+import consulo.localize.LocalizeValue;
 import consulo.ui.image.Image;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL
@@ -46,9 +47,9 @@ public class JspFileType extends XmlLikeFileType implements TemplateLanguageFile
 
 	@Nonnull
 	@Override
-	public String getDescription()
+	public LocalizeValue getDescription()
 	{
-		return "JSP files";
+		return LocalizeValue.localizeTODO("JSP files");
 	}
 
 	@Nonnull
