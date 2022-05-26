@@ -1,8 +1,6 @@
 package consulo.javaee.jsp.psi.impl.java.parsing;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.codeInsight.daemon.JavaErrorMessages;
+import com.intellij.codeInsight.daemon.JavaErrorBundle;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiParser;
@@ -14,6 +12,8 @@ import com.intellij.psi.jsp.JspTokenType;
 import com.intellij.psi.tree.IElementType;
 import consulo.javaee.jsp.psi.impl.java.JspJavaElements;
 import consulo.lang.LanguageVersion;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
@@ -143,19 +143,19 @@ public class JavaInJspParser implements PsiParser
 			builder.advanceLexer();
 			if(tokenType == JavaTokenType.ELSE_KEYWORD)
 			{
-				error.error(JavaErrorMessages.message("else.without.if"));
+				error.error(JavaErrorBundle.message("else.without.if"));
 			}
 			else if(tokenType == JavaTokenType.CATCH_KEYWORD)
 			{
-				error.error(JavaErrorMessages.message("catch.without.try"));
+				error.error(JavaErrorBundle.message("catch.without.try"));
 			}
 			else if(tokenType == JavaTokenType.FINALLY_KEYWORD)
 			{
-				error.error(JavaErrorMessages.message("finally.without.try"));
+				error.error(JavaErrorBundle.message("finally.without.try"));
 			}
 			else
 			{
-				error.error(JavaErrorMessages.message("unexpected.token"));
+				error.error(JavaErrorBundle.message("unexpected.token"));
 			}
 		}
 	}
