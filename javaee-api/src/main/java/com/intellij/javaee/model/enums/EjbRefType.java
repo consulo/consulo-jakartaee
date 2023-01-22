@@ -31,7 +31,7 @@ package com.intellij.javaee.model.enums;
  * 	    Session
  * </pre>
  */
-public enum EjbRefType implements com.intellij.util.xml.NamedEnum {
+public enum EjbRefType implements consulo.xml.util.xml.NamedEnum {
 	ENTITY ("Entity"),
 	SESSION ("Session");
 

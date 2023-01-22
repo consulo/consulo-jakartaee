@@ -19,16 +19,16 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import javax.annotation.Nonnull;
-
+import com.intellij.java.impl.util.xml.ExtendClass;
+import com.intellij.java.language.psi.CommonClassNames;
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.web.converters.HttpErrorCodeConverter;
-import com.intellij.openapi.paths.PathReference;
-import com.intellij.psi.CommonClassNames;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.Convert;
-import com.intellij.util.xml.ExtendClass;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.language.psi.path.PathReference;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericDomValue;
+
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:error-pageType interface.

@@ -15,8 +15,8 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericValue;
+import com.intellij.java.language.psi.PsiClass;
+import consulo.xml.util.xml.GenericValue;
 
 /**
  * @author peter

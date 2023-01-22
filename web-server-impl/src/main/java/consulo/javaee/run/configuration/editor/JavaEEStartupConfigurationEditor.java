@@ -1,21 +1,14 @@
 package consulo.javaee.run.configuration.editor;
 
-import com.intellij.execution.Executor;
 import com.intellij.javaee.J2EEBundle;
-import com.intellij.openapi.options.ConfigurationException;
-import com.intellij.openapi.options.SettingsEditor;
-import com.intellij.openapi.ui.VerticalFlowLayout;
-import com.intellij.openapi.util.Couple;
-import com.intellij.ui.*;
-import com.intellij.ui.components.JBCheckBox;
-import com.intellij.ui.components.JBLabel;
-import com.intellij.ui.components.JBList;
-import com.intellij.ui.components.JBTextField;
-import com.intellij.ui.table.TableView;
-import com.intellij.util.ui.ColumnInfo;
-import com.intellij.util.ui.JBUI;
-import com.intellij.util.ui.ListTableModel;
+import consulo.configurable.ConfigurationException;
+import consulo.execution.configuration.ui.SettingsEditor;
+import consulo.execution.executor.Executor;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+import consulo.ui.ex.awt.*;
+import consulo.ui.ex.awt.table.ListTableModel;
+import consulo.ui.ex.awt.table.TableView;
+import consulo.util.lang.Couple;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;

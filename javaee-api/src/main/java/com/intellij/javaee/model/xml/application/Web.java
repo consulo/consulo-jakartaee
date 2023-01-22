@@ -20,8 +20,8 @@
 package com.intellij.javaee.model.xml.application;
 
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Required;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.Required;
 
 /**
  * http://java.sun.com/xml/ns/javaee:webType interface.

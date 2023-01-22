@@ -1,7 +1,5 @@
 package com.intellij.javaee.model.xml.web.converters;
 
-import java.util.Collection;
-
 import com.intellij.jam.model.common.CommonModelElement;
 import com.intellij.jam.view.JamDeleteHandler;
 import com.intellij.javaee.model.xml.Listener;
@@ -9,8 +7,10 @@ import com.intellij.javaee.model.xml.web.Filter;
 import com.intellij.javaee.model.xml.web.FilterMapping;
 import com.intellij.javaee.model.xml.web.Servlet;
 import com.intellij.javaee.model.xml.web.ServletMapping;
-import com.intellij.psi.PsiElement;
-import com.intellij.util.containers.ContainerUtil;
+import consulo.language.psi.PsiElement;
+import consulo.util.collection.ContainerUtil;
+
+import java.util.Collection;
 
 /**
  * @author Dmitry Avdeev

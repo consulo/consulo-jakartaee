@@ -19,13 +19,13 @@
 
 package com.intellij.javaee.model.xml;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.javaee.model.enums.EjbRefType;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.PropertyAccessor;
-import javax.annotation.Nonnull;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.PropertyAccessor;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**

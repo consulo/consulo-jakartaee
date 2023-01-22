@@ -1,25 +1,26 @@
 package consulo.javaee.run.configuration.state;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import com.intellij.execution.Executor;
-import com.intellij.execution.executors.DefaultDebugExecutor;
-import com.intellij.execution.impl.ConsoleViewImpl;
-import com.intellij.execution.process.ProcessHandler;
-import com.intellij.execution.runners.RunContentBuilder;
-import com.intellij.execution.ui.ExecutionConsole;
-import com.intellij.execution.ui.ExecutionConsoleEx;
-import com.intellij.execution.ui.RunnerLayoutUi;
-import com.intellij.execution.ui.layout.LayoutStateDefaults;
-import com.intellij.execution.ui.layout.PlaceInGrid;
-import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
-import com.intellij.javaee.deployment.DeploymentView;
-import com.intellij.javaee.run.execution.JavaeeConsoleView;
-import com.intellij.javaee.serverInstances.J2EEServerInstance;
-import com.intellij.openapi.project.Project;
-import com.intellij.ui.content.Content;
+import consulo.jakartaee.webServer.impl.appServerIntegrations.AppServerIntegration;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentView;
+import consulo.jakartaee.webServer.impl.run.execution.JavaeeConsoleView;
+import consulo.jakartaee.webServer.impl.serverInstances.J2EEServerInstance;
+import consulo.execution.debug.DefaultDebugExecutor;
+import consulo.execution.executor.Executor;
+import consulo.execution.runner.RunContentBuilder;
+import consulo.execution.ui.ExecutionConsole;
+import consulo.execution.ui.ExecutionConsoleEx;
+import consulo.execution.ui.layout.LayoutStateDefaults;
+import consulo.execution.ui.layout.PlaceInGrid;
+import consulo.execution.ui.layout.RunnerLayoutUi;
+import consulo.ide.impl.idea.execution.impl.ConsoleViewImpl;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 import consulo.javaee.run.configuration.state.view.DeploymentViewImpl;
+import consulo.process.ProcessHandler;
+import consulo.project.Project;
+import consulo.ui.ex.content.Content;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL

@@ -15,24 +15,24 @@
  */
 package com.intellij.javaee.model.xml.web.converters;
 
+import com.intellij.javaee.model.xml.web.HttpErrorCode;
+import consulo.language.editor.completion.lookup.LookupElement;
+import consulo.language.editor.completion.lookup.LookupElementBuilder;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.NamedEnumUtil;
+import consulo.xml.util.xml.ResolvingConverter;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.regex.Pattern;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.intellij.codeInsight.lookup.LookupElement;
-import com.intellij.codeInsight.lookup.LookupElementBuilder;
-import com.intellij.javaee.model.xml.web.HttpErrorCode;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.NamedEnumUtil;
-import com.intellij.util.xml.ResolvingConverter;
-
 /**
  * @author Yann C&eacute;bron
  */
-public class HttpErrorCodeConverter extends ResolvingConverter<HttpErrorCode> {
+public class HttpErrorCodeConverter extends ResolvingConverter<HttpErrorCode>
+{
 
   private static final Pattern HTTP_STATUS_CODE = Pattern.compile("\\d{3}");
 

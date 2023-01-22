@@ -16,18 +16,21 @@
 
 package consulo.javaee.artifact;
 
+import consulo.annotation.component.ExtensionImpl;
+import consulo.compiler.artifact.element.ModuleOutputElementTypeBase;
+import consulo.compiler.artifact.element.ModuleOutputPackagingElementImpl;
+import consulo.component.util.pointer.NamedPointer;
+import consulo.content.base.WebResourcesFolderTypeProvider;
+import consulo.module.Module;
+import consulo.project.Project;
+
 import javax.annotation.Nonnull;
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.project.Project;
-import com.intellij.packaging.impl.elements.moduleContent.ModuleOutputElementTypeBase;
-import com.intellij.packaging.impl.elements.moduleContent.ModuleOutputPackagingElementImpl;
-import consulo.roots.impl.WebResourcesFolderTypeProvider;
-import consulo.util.pointers.NamedPointer;
 
 /**
  * @author VISTALL
  * @since 07.11.13.
  */
+@ExtensionImpl
 public class WebResourceModuleOutputElementType extends ModuleOutputElementTypeBase
 {
 	public static WebResourceModuleOutputElementType getInstance()
@@ -40,7 +43,7 @@ public class WebResourceModuleOutputElementType extends ModuleOutputElementTypeB
 		super("java-web-resource", WebResourcesFolderTypeProvider.getInstance());
 	}
 
-	public ModuleOutputPackagingElementImpl createElement(@Nonnull com.intellij.openapi.project.Project project, @Nonnull NamedPointer<Module> pointer)
+	public ModuleOutputPackagingElementImpl createElement(@Nonnull Project project, @Nonnull NamedPointer<Module> pointer)
 	{
 		return new WebResourceModuleOutputPackagingElement(this, project, pointer, myContentFolderTypeProvider);
 	}

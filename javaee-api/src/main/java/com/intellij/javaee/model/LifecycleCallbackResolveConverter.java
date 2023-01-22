@@ -15,9 +15,9 @@
  */
 package com.intellij.javaee.model;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.xml.LifecycleCallback;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericDomValue;
 
 /**
  * @author peter
@@ -31,5 +31,4 @@ public class LifecycleCallbackResolveConverter extends InterceptorMethodResolveC
   protected GenericDomValue<PsiClass> getPsiClassValue(final LifecycleCallback parent) {
     return parent.getLifecycleCallbackClass();
   }
-
 }

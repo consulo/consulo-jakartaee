@@ -15,10 +15,10 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.enums.CmpVersion;
 import com.intellij.javaee.model.enums.PersistenceType;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericValue;
+import consulo.xml.util.xml.GenericValue;
 
 import java.util.List;
 

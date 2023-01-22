@@ -1,26 +1,26 @@
 package consulo.java.web.maven;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
+import consulo.compiler.artifact.Artifact;
+import consulo.compiler.artifact.ArtifactTemplate;
+import consulo.compiler.artifact.ModifiableArtifactModel;
+import consulo.content.ContentFolderTypeProvider;
+import consulo.content.base.WebResourcesFolderTypeProvider;
+import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
+import consulo.javaee.artifact.ExplodedWarArtifactTemplate;
+import consulo.javaee.artifact.WarArtifactTemplate;
+import consulo.maven.importing.MavenImporterFromBuildPlugin;
+import consulo.module.Module;
+import consulo.util.collection.MultiMap;
 import org.jetbrains.idea.maven.importing.MavenModifiableModelsProvider;
 import org.jetbrains.idea.maven.importing.MavenRootModelAdapter;
 import org.jetbrains.idea.maven.project.MavenProject;
 import org.jetbrains.idea.maven.project.MavenProjectChanges;
 import org.jetbrains.idea.maven.project.MavenProjectsProcessorTask;
 import org.jetbrains.idea.maven.project.MavenProjectsTree;
-import com.intellij.openapi.module.Module;
-import com.intellij.packaging.artifacts.Artifact;
-import com.intellij.packaging.artifacts.ArtifactTemplate;
-import com.intellij.packaging.artifacts.ModifiableArtifactModel;
-import com.intellij.util.containers.MultiMap;
-import consulo.javaee.artifact.ExplodedWarArtifactTemplate;
-import consulo.javaee.artifact.WarArtifactTemplate;
-import consulo.javaee.module.extension.JavaWebModuleExtension;
-import consulo.maven.importing.MavenImporterFromBuildPlugin;
-import consulo.roots.ContentFolderTypeProvider;
-import consulo.roots.impl.WebResourcesFolderTypeProvider;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author VISTALL

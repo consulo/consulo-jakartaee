@@ -19,16 +19,16 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.EjbAsteriskResolveConverter;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.Convert;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.SubTag;
-import javax.annotation.Nonnull;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.SubTag;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**

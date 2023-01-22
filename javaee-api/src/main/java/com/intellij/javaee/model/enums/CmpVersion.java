@@ -31,7 +31,7 @@ package com.intellij.javaee.model.enums;
  * 	    2.x
  * </pre>
  */
-public enum CmpVersion implements com.intellij.util.xml.NamedEnum {
+public enum CmpVersion implements consulo.xml.util.xml.NamedEnum {
 	CmpVersion_1_X ("1.x"),
 	CmpVersion_2_X ("2.x");
 

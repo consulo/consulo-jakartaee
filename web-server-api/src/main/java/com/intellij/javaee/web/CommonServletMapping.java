@@ -16,12 +16,11 @@
 
 package com.intellij.javaee.web;
 
-import java.util.List;
+import consulo.language.psi.PsiElement;
+import consulo.xml.util.xml.GenericValue;
 
 import javax.annotation.Nullable;
-
-import com.intellij.psi.PsiElement;
-import com.intellij.util.xml.GenericValue;
+import java.util.List;
 
 /**
  * @author Dmitry Avdeev

@@ -19,10 +19,10 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import java.util.List;
-
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.util.xml.Stubbed;
+import consulo.xml.util.xml.Stubbed;
+
+import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:jsp-configType interface.
@@ -33,15 +33,19 @@ import com.intellij.util.xml.Stubbed;
  * 	two subelements, taglib and jsp-property-group.
  * </pre>
  */
-public interface JspConfig extends JavaeeDomModelElement {
+public interface JspConfig extends JavaeeDomModelElement
+{
 
 	/**
 	 * Returns the list of taglib children.
+	 *
 	 * @return the list of taglib children.
 	 */
 	List<Taglib> getTaglibs();
+
 	/**
 	 * Adds new child to the list of taglib children.
+	 *
 	 * @return created child
 	 */
 	Taglib addTaglib();
@@ -49,15 +53,16 @@ public interface JspConfig extends JavaeeDomModelElement {
 
 	/**
 	 * Returns the list of jsp-property-group children.
+	 *
 	 * @return the list of jsp-property-group children.
 	 */
-        @Stubbed
+	@Stubbed
 	List<JspPropertyGroup> getJspPropertyGroups();
+
 	/**
 	 * Adds new child to the list of jsp-property-group children.
+	 *
 	 * @return created child
 	 */
 	JspPropertyGroup addJspPropertyGroup();
-
-
 }

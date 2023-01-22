@@ -15,23 +15,22 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
-import com.intellij.jam.view.DeleteHandler;
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.javaee.ejb.EjbMethod;
 import com.intellij.javaee.model.common.EnvironmentGroup;
 import com.intellij.javaee.model.enums.TransAttribute;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiMethod;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.PrimaryKey;
-import javax.annotation.Nonnull;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.NameValue;
+import consulo.xml.util.xml.PrimaryKey;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
  * @author peter
  */
-@DeleteHandler("com.intellij.openapi.module.EjbDeleteHandler")
+//@DeleteHandler("com.intellij.openapi.module.EjbDeleteHandler")
 public interface EnterpriseBean extends EnvironmentGroup, SecurityGroup, InterceptorMethodContainer {
 
   @Nonnull

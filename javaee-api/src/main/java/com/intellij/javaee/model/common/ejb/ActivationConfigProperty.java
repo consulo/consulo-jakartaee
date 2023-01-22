@@ -15,10 +15,10 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.PrimaryKey;
-import com.intellij.util.xml.PropertyAccessor;
 import com.intellij.javaee.model.common.JavaeeModelElement;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.PrimaryKey;
+import consulo.xml.util.xml.PropertyAccessor;
 
 /**
  * @author peter

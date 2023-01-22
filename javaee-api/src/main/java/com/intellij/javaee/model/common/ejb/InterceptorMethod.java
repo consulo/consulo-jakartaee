@@ -16,9 +16,9 @@
 
 package com.intellij.javaee.model.common.ejb;
 
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiMethod;
-import com.intellij.util.IncorrectOperationException;
+import com.intellij.java.language.psi.PsiMethod;
+import consulo.language.psi.PsiFile;
+import consulo.language.util.IncorrectOperationException;
 
 /**
  * @author Gregory.Shrago

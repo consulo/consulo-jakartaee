@@ -19,16 +19,19 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import com.intellij.ide.presentation.Presentation;
 import com.intellij.jam.view.DeleteHandler;
+import com.intellij.java.impl.util.xml.ClassMappingNameConverter;
+import com.intellij.java.impl.util.xml.ClassTemplate;
+import com.intellij.java.impl.util.xml.ExtendClass;
+import com.intellij.java.impl.util.xml.MappingClass;
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.J2EEFileTemplateNames;
 import com.intellij.javaee.model.xml.*;
 import com.intellij.javaee.model.xml.web.converters.WebDeleteHandler;
 import com.intellij.javaee.web.CommonFilter;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.*;
-import javax.annotation.Nonnull;
+import consulo.xml.util.xml.*;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
@@ -44,7 +47,7 @@ import java.util.List;
  * 	Used in: web-app
  * </pre>
  */
-@Presentation(icon = "AllIcons.General.Filter")
+//@Presentation(icon = "AllIcons.General.Filter")
 @DeleteHandler(handlerClass = WebDeleteHandler.class)
 public interface Filter extends CommonFilter, JavaeeDomModelElement, DescriptionGroup {
 
@@ -65,7 +68,7 @@ public interface Filter extends CommonFilter, JavaeeDomModelElement, Description
         @Required
         @Convert(ClassMappingNameConverter.class)
         @Stubbed
-        GenericDomValue<String> getFilterName();
+	GenericDomValue<String> getFilterName();
 
 
 	/**

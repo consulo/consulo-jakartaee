@@ -16,28 +16,26 @@
 
 package com.intellij.javaee.model;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.intellij.codeInsight.CodeInsightBundle;
+import com.intellij.java.impl.util.xml.converters.AbstractMemberResolveConverter;
+import com.intellij.java.language.psi.*;
+import com.intellij.java.language.psi.util.PropertyMemberType;
+import com.intellij.java.language.psi.util.PropertyUtil;
 import com.intellij.javaee.model.common.EjbReference;
 import com.intellij.javaee.model.common.Resource;
 import com.intellij.javaee.model.xml.InjectionTarget;
 import com.intellij.javaee.model.xml.ServiceRef;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.psi.*;
-import com.intellij.psi.util.PropertyMemberType;
-import com.intellij.psi.util.PropertyUtil;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.DomUtil;
-import com.intellij.util.xml.converters.AbstractMemberResolveConverter;
-import com.intellij.util.xml.converters.AbstractMethodResolveConverter;
+import consulo.language.editor.CodeInsightBundle;
+import consulo.util.lang.StringUtil;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.DomUtil;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author Gregory.Shrago
  */
 public class EjbInjectionTargetConverter extends AbstractMemberResolveConverter {
-
   @Nonnull
   protected PsiType getPsiType(final ConvertContext context) {
     final Resource resource;

@@ -15,9 +15,9 @@
  */
 package com.intellij.javaee.model.common.managedbean;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.EnvironmentGroup;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericValue;
+import consulo.xml.util.xml.GenericValue;
 
 /**
  * @author Gregory.Shrago

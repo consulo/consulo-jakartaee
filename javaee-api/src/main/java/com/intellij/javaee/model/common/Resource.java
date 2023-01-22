@@ -15,12 +15,12 @@
  */
 package com.intellij.javaee.model.common;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.enums.ResAuth;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.Convert;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.PrimaryKey;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.NameValue;
+import consulo.xml.util.xml.PrimaryKey;
 
 /**
  * @author peter

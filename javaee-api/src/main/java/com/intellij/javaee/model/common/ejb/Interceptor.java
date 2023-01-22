@@ -16,13 +16,12 @@
 
 package com.intellij.javaee.model.common.ejb;
 
-import com.intellij.jam.view.DeleteHandler;
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.EnvironmentGroup;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.Processor;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.PrimaryKey;
+import consulo.application.util.function.Processor;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.NameValue;
+import consulo.xml.util.xml.PrimaryKey;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,7 +29,7 @@ import com.intellij.util.xml.PrimaryKey;
  * Date: 07.02.2006
  * Time: 16:24:44
  */
-@DeleteHandler("com.intellij.openapi.module.EjbDeleteHandler")
+//@DeleteHandler("com.intellij.openapi.module.EjbDeleteHandler")
 public interface Interceptor extends EnvironmentGroup, InterceptorMethodContainer {
 
   @PrimaryKey

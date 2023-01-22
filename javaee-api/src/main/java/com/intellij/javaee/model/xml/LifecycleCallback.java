@@ -19,11 +19,12 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiMethod;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Convert;
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.javaee.model.LifecycleCallbackResolveConverter;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericDomValue;
+
 import javax.annotation.Nonnull;
 
 /**

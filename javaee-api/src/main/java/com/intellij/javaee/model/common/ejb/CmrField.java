@@ -16,8 +16,8 @@
 package com.intellij.javaee.model.common.ejb;
 
 import com.intellij.jam.view.DeleteHandler;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.NameValue;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.NameValue;
 import com.intellij.javaee.model.enums.Multiplicity;
 import com.intellij.javaee.model.enums.CmrFieldType;
 import com.intellij.javaee.model.common.JavaeeModelElement;

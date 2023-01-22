@@ -15,17 +15,17 @@
  */
 package com.intellij.javaee.model;
 
-import com.intellij.codeInsight.CodeInsightBundle;
 import com.intellij.javaee.model.common.ejb.*;
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.module.Module;
-import com.intellij.util.CommonProcessors;
-import com.intellij.util.Processor;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.DomElement;
-import com.intellij.util.xml.ModuleContextProvider;
-import javax.annotation.Nonnull;
+import consulo.application.util.function.CommonProcessors;
+import consulo.application.util.function.Processor;
+import consulo.language.editor.CodeInsightBundle;
+import consulo.module.Module;
+import consulo.util.lang.Comparing;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.DomElement;
+import consulo.xml.util.xml.ModuleContextProvider;
 
+import javax.annotation.Nonnull;
 import java.util.Collection;
 import java.util.List;
 

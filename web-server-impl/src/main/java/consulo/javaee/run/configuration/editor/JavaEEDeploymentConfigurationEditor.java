@@ -1,38 +1,30 @@
 package consulo.javaee.run.configuration.editor;
 
-import com.intellij.icons.AllIcons;
-import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.run.configuration.CommonModel;
-import com.intellij.openapi.actionSystem.ActionToolbarPosition;
-import com.intellij.openapi.options.ConfigurationException;
-import com.intellij.openapi.options.SettingsEditor;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.popup.JBPopupFactory;
-import com.intellij.openapi.ui.popup.ListPopup;
-import com.intellij.openapi.ui.popup.ListPopupStep;
-import com.intellij.openapi.ui.popup.PopupStep;
-import com.intellij.openapi.ui.popup.util.BaseListPopupStep;
-import com.intellij.openapi.util.Disposer;
-import com.intellij.packaging.artifacts.Artifact;
-import com.intellij.packaging.artifacts.ArtifactManager;
-import com.intellij.packaging.artifacts.ArtifactPointer;
-import com.intellij.packaging.impl.ui.ChooseArtifactsDialog;
-import com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
-import com.intellij.remoteServer.impl.configuration.deploySource.impl.ArtifactDeploymentSourceImpl;
-import com.intellij.ui.ColoredListCellRenderer;
-import com.intellij.ui.IdeBorderFactory;
-import com.intellij.ui.SimpleTextAttributes;
-import com.intellij.ui.ToolbarDecorator;
-import com.intellij.ui.components.JBList;
-import com.intellij.ui.components.panels.Wrapper;
-import com.intellij.util.ui.JBUI;
+import consulo.application.AllIcons;
+import consulo.compiler.artifact.Artifact;
+import consulo.compiler.artifact.ArtifactManager;
+import consulo.compiler.artifact.ArtifactPointer;
+import consulo.compiler.artifact.execution.BuildArtifactsBeforeRunTaskHelper;
+import consulo.configurable.ConfigurationException;
+import consulo.dataContext.DataContext;
+import consulo.dataContext.DataManager;
+import consulo.disposer.Disposer;
+import consulo.execution.configuration.ui.SettingsEditor;
+import consulo.ide.impl.idea.packaging.impl.ui.ChooseArtifactsDialog;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
+import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
 import consulo.javaee.artifact.ExplodedWarArtifactType;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
-import consulo.packaging.artifacts.ArtifactPointerUtil;
-import consulo.packaging.impl.run.BuildArtifactsBeforeRunTaskProvider;
+import consulo.project.Project;
+import consulo.remoteServer.configuration.deployment.ArtifactDeploymentSource;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.remoteServer.configuration.deployment.DeploymentSourceFactory;
+import consulo.ui.ex.SimpleTextAttributes;
+import consulo.ui.ex.action.ActionToolbarPosition;
+import consulo.ui.ex.awt.*;
+import consulo.ui.ex.popup.*;
 import consulo.ui.image.Image;
 
 import javax.annotation.Nonnull;
@@ -56,11 +48,14 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 
 	private JBList<DeployItem> myDeploySourceList = new JBList<>(new DefaultListModel<>());
 
+	private final BuildArtifactsBeforeRunTaskHelper myBuildArtifactsBeforeRunTaskHelper;
+
 	public JavaEEDeploymentConfigurationEditor(Project project, JavaEEServerBundleType bundleType, CommonModel commonModel)
 	{
 		myProject = project;
 		myBundleType = bundleType;
 		myCommonModel = commonModel;
+		myBuildArtifactsBeforeRunTaskHelper = project.getInstance(BuildArtifactsBeforeRunTaskHelper.class);
 	}
 
 	@Nonnull
@@ -150,7 +145,9 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 
 					if(artifact != null)
 					{
-						BuildArtifactsBeforeRunTaskProvider.setBuildArtifactBeforeRunOption(myDeploySourceList, myProject, artifact, false);
+						DataContext context = DataManager.getInstance().getDataContext(myDeploySourceList);
+
+						myBuildArtifactsBeforeRunTaskHelper.setBuildArtifactBeforeRunOption(context, artifact, false);
 					}
 				}
 
@@ -231,16 +228,18 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 
 		if(dialog.isOK())
 		{
+			DeploymentSourceFactory factory = myProject.getInstance(DeploymentSourceFactory.class);
+
+			DataContext context = DataManager.getInstance().getDataContext(myDeploySourceList);
 			for(Artifact artifact : dialog.getChosenElements())
 			{
-				ArtifactPointer artifactPointer = ArtifactPointerUtil.getPointerManager(myProject).create(artifact);
-				ArtifactDeploymentSourceImpl deploymentSource = new ArtifactDeploymentSourceImpl(artifactPointer);
+				ArtifactDeploymentSource deploymentSource = factory.createArtifactDeploymentSource(artifact);
 
 				DeployItem element = new DeployItem(myCommonModel, deploymentSource, myBundleType);
 				model.addElement(element);
 				myDeploySourceList.setSelectedValue(element, true);
 
-				BuildArtifactsBeforeRunTaskProvider.setBuildArtifactBeforeRunOption(myDeploySourceList, myProject, artifact, true);
+				myBuildArtifactsBeforeRunTaskHelper.setBuildArtifactBeforeRunOption(context, artifact, true);
 			}
 		}
 	}

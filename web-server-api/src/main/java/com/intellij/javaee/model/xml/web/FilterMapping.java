@@ -19,16 +19,12 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import java.util.List;
-
 import com.intellij.javaee.model.enums.Dispatcher;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.web.converters.ServletNameConverter;
-import com.intellij.util.xml.Convert;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Required;
-import com.intellij.util.xml.RootScopeProvider;
-import com.intellij.util.xml.Scope;
+import consulo.xml.util.xml.*;
+
+import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:filter-mappingType interface.
@@ -67,7 +63,7 @@ public interface FilterMapping extends JavaeeDomModelElement {
 	 */
         @Scope(RootScopeProvider.class)
         @Required
-        GenericDomValue<Filter> getFilterName();
+		GenericDomValue<Filter> getFilterName();
 
 
 	/**

@@ -16,16 +16,15 @@
 
 package com.intellij.javaee.model.xml.web.converters;
 
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.ResolvingConverter;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
-import javax.annotation.Nonnull;
-
-import org.jetbrains.annotations.NonNls;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.ResolvingConverter;
 
 /**
  * @author Dmitry Avdeev

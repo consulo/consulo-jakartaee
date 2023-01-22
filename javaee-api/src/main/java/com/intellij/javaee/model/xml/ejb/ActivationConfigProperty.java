@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.ejb;
 import javax.annotation.Nonnull;
 
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericDomValue;
 
 /**
  * http://java.sun.com/xml/ns/javaee:activation-config-propertyType interface.

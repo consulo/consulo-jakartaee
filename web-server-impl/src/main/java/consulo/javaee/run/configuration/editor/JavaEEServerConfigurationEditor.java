@@ -1,28 +1,25 @@
 package consulo.javaee.run.configuration.editor;
 
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-
-import javax.swing.JComponent;
-import javax.swing.JPanel;
-
-import javax.annotation.Nonnull;
-import com.intellij.execution.ui.AlternativeJREPanel;
 import com.intellij.javaee.J2EEBundle;
-import com.intellij.javaee.run.configuration.ApplicationServerSelectionListener;
-import com.intellij.openapi.options.ConfigurationException;
-import com.intellij.openapi.options.SettingsEditor;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel;
-import com.intellij.openapi.ui.LabeledComponent;
-import com.intellij.openapi.ui.VerticalFlowLayout;
-import com.intellij.openapi.util.Conditions;
-import com.intellij.openapi.util.Disposer;
-import com.intellij.ui.IdeBorderFactory;
-import com.intellij.ui.components.panels.Wrapper;
+import consulo.jakartaee.webServer.impl.run.configuration.ApplicationServerSelectionListener;
+import consulo.configurable.ConfigurationException;
+import consulo.content.bundle.Sdk;
+import consulo.disposer.Disposer;
+import consulo.execution.configuration.ui.SettingsEditor;
+import consulo.ide.impl.idea.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
-import consulo.roots.ui.configuration.SdkComboBox;
+import consulo.module.ui.awt.SdkComboBox;
+import consulo.ui.ex.awt.IdeBorderFactory;
+import consulo.ui.ex.awt.LabeledComponent;
+import consulo.ui.ex.awt.VerticalFlowLayout;
+import consulo.ui.ex.awt.Wrapper;
+import consulo.util.lang.function.Conditions;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 /**
  * @author VISTALL
@@ -59,12 +56,6 @@ public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfig
 		JPanel openBrowserPanel = new JPanel();
 		openBrowserPanel.setBorder(IdeBorderFactory.createTitledBorder("Open browser"));
 		verticalLayout.add(openBrowserPanel);
-
-		if(myBundleType.isJreCustomizable())
-		{
-			AlternativeJREPanel panel = new AlternativeJREPanel();
-			verticalLayout.add(panel);
-		}
 
 		verticalLayout.add(mySettingsWrapper);
 

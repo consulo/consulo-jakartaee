@@ -19,12 +19,12 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
-import com.intellij.ide.presentation.Presentation;
 import com.intellij.jam.view.DeleteHandler;
+import com.intellij.java.impl.util.xml.ClassMappingNameConverter;
+import com.intellij.java.impl.util.xml.ClassTemplate;
+import com.intellij.java.impl.util.xml.ExtendClass;
+import com.intellij.java.impl.util.xml.MappingClass;
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.J2EEFileTemplateNames;
 import com.intellij.javaee.model.xml.DescriptionGroup;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
@@ -32,16 +32,10 @@ import com.intellij.javaee.model.xml.RunAs;
 import com.intellij.javaee.model.xml.SecurityRoleRef;
 import com.intellij.javaee.model.xml.web.converters.WebDeleteHandler;
 import com.intellij.javaee.web.CommonServlet;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.ClassMappingNameConverter;
-import com.intellij.util.xml.ClassTemplate;
-import com.intellij.util.xml.Convert;
-import com.intellij.util.xml.ExtendClass;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.MappingClass;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.Required;
-import com.intellij.util.xml.Stubbed;
+import consulo.xml.util.xml.*;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:servletType interface.
@@ -55,7 +49,7 @@ import com.intellij.util.xml.Stubbed;
  * 	Used in: web-app
  * </pre>
  */
-@Presentation(icon = "AllIcons.Nodes.Servlet")
+//@Presentation(icon = "AllIcons.Nodes.Servlet")
 @DeleteHandler(handlerClass = WebDeleteHandler.class)
 public interface Servlet extends CommonServlet, JavaeeDomModelElement, DescriptionGroup
 {

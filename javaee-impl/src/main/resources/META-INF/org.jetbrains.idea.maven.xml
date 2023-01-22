@@ -1,5 +1,0 @@
-<consulo-plugin>
-	<extensions defaultExtensionNs="org.jetbrains.idea.maven">
-		<importer implementation="consulo.java.web.maven.WarMavenImporter" />
-	</extensions>
-</consulo-plugin>

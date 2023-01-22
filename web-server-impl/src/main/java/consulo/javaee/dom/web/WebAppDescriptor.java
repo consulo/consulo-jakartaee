@@ -16,28 +16,29 @@
 
 package consulo.javaee.dom.web;
 
-import java.util.List;
+import com.intellij.javaee.model.xml.web.WebApp;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.component.util.Iconable;
+import consulo.jakartaee.web.JavaWebConstants;
+import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
+import consulo.java.impl.roots.SpecialDirUtil;
+import consulo.javaee.JavaEEIcons;
+import consulo.language.util.ModuleUtilCore;
+import consulo.module.Module;
+import consulo.ui.image.Image;
+import consulo.virtualFileSystem.VirtualFile;
+import consulo.xml.psi.xml.XmlFile;
+import consulo.xml.util.xml.DomFileDescription;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import com.intellij.javaee.model.xml.web.WebApp;
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleUtilCore;
-import com.intellij.openapi.util.Iconable;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.xml.XmlFile;
-import com.intellij.util.xml.DomFileDescription;
-import consulo.java.roots.SpecialDirUtil;
-import consulo.javaee.JavaEEIcons;
-import consulo.javaee.JavaWebConstants;
-import consulo.javaee.module.extension.JavaWebModuleExtension;
-import consulo.ui.image.Image;
+import java.util.List;
 
 /**
  * @author VISTALL
  * @since 07.11.13.
  */
+@ExtensionImpl
 public class WebAppDescriptor extends DomFileDescription<WebApp>
 {
 	public WebAppDescriptor()

@@ -16,11 +16,11 @@
 
 package com.intellij.javaee.model.common.ejb;
 
-import javax.annotation.Nullable;
-
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.JavaeeModelElement;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.Processor;
+import consulo.application.util.function.Processor;
+
+import javax.annotation.Nullable;
 
 public interface InterceptorMethodContainer extends JavaeeModelElement {
 

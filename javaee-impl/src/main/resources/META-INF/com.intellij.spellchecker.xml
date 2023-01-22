@@ -1,5 +1,0 @@
-<consulo-plugin>
-	<extensions defaultExtensionNs="com.intellij.spellchecker">
-		<support language="JSP" implementationClass="com.intellij.spellchecker.tokenizer.SpellcheckingStrategy"/>
-	</extensions>
-</consulo-plugin>

@@ -16,8 +16,8 @@
 
 package com.intellij.javaee.model.common;
 
+import com.intellij.java.language.psi.CommonClassNames;
 import org.jetbrains.annotations.NonNls;
-import com.intellij.psi.CommonClassNames;
 
 /**
  * Created by IntelliJ IDEA.

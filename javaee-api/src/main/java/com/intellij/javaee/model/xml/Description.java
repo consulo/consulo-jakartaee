@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml;
 
 import javax.annotation.Nonnull;
 
-import com.intellij.util.xml.GenericAttributeValue;
+import consulo.xml.util.xml.GenericAttributeValue;
 
 /**
  * http://java.sun.com/xml/ns/javaee:descriptionType interface.

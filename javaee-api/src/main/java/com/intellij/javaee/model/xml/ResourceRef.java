@@ -19,15 +19,15 @@
 
 package com.intellij.javaee.model.xml;
 
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.javaee.model.common.ResAuthConverter;
 import com.intellij.javaee.model.enums.ResAuth;
 import com.intellij.javaee.model.enums.ResSharingScope;
-import com.intellij.javaee.model.common.ResAuthConverter;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.Convert;
-import javax.annotation.Nonnull;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.NameValue;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**

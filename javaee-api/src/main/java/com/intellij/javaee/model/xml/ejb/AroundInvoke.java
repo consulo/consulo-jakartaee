@@ -19,14 +19,14 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.javaee.model.xml.JavaeeDomModelElement;
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.javaee.model.AroundInvokeResolveConverter;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiMethod;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Convert;
+import com.intellij.javaee.model.xml.JavaeeDomModelElement;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericDomValue;
+
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:around-invokeType interface.
@@ -59,7 +59,7 @@ public interface AroundInvoke extends JavaeeDomModelElement {
 	 * </pre>
 	 * @return the value of the class child.
 	 */
-	@com.intellij.util.xml.SubTag ("class")
+	@consulo.xml.util.xml.SubTag ("class")
 	GenericDomValue<PsiClass> getClazz();
 
 

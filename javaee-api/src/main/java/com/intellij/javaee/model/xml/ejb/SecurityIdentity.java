@@ -22,8 +22,8 @@ package com.intellij.javaee.model.xml.ejb;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.RunAs;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.SubTag;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.SubTag;
 import javax.annotation.Nonnull;
 
 import java.util.List;

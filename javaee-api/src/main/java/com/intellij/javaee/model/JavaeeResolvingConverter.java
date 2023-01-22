@@ -16,10 +16,10 @@
 package com.intellij.javaee.model;
 
 import com.intellij.javaee.model.common.JavaeeModelElement;
-import com.intellij.psi.PsiElement;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.ElementPresentationManager;
-import com.intellij.util.xml.ResolvingConverter;
+import consulo.language.psi.PsiElement;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.ElementPresentationManager;
+import consulo.xml.util.xml.ResolvingConverter;
 
 /**
  * @author peter

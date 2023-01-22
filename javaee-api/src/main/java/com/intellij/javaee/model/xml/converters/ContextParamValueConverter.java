@@ -16,11 +16,11 @@
 package com.intellij.javaee.model.xml.converters;
 
 import com.intellij.javaee.model.xml.ParamValue;
-import com.intellij.openapi.extensions.Extensions;
-import com.intellij.openapi.module.Module;
-import com.intellij.util.xml.Converter;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.WrappingConverter;
+import consulo.module.Module;
+import consulo.xml.util.xml.Converter;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.WrappingConverter;
+
 import javax.annotation.Nonnull;
 
 /**
@@ -36,7 +36,7 @@ public class ContextParamValueConverter extends WrappingConverter {
     if (value != null) {
       String paramName = value.getParamName().getStringValue();
       if (paramName != null) {
-        for (ContextParamsProvider provider : Extensions.getExtensions(ContextParamsProvider.EP_NAME)) {
+        for (ContextParamsProvider provider : ContextParamsProvider.EP_NAME.getExtensionList()) {
           Converter converter = provider.getContextParamValueConverter(paramName, module);
           if (converter != null) return converter;
         }

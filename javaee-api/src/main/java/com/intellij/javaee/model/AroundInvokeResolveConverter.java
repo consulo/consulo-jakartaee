@@ -15,9 +15,9 @@
  */
 package com.intellij.javaee.model;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.xml.ejb.AroundInvoke;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericDomValue;
 
 /**
  * @author peter

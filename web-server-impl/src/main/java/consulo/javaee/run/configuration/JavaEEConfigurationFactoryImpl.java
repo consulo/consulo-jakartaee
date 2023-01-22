@@ -1,22 +1,21 @@
 package consulo.javaee.run.configuration;
 
+import consulo.jakartaee.webServer.impl.oss.server.JavaeeConfigurationFactory;
+import consulo.jakartaee.webServer.impl.oss.server.JavaeeConfigurationType;
+import consulo.jakartaee.webServer.impl.oss.server.JavaeeServerModel;
+import consulo.jakartaee.webServer.impl.run.configuration.J2EEConfigurationFactory;
+import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
+import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
+import consulo.content.bundle.Sdk;
+import consulo.content.bundle.SdkTable;
+import consulo.execution.configuration.ConfigurationType;
+import consulo.execution.configuration.RunConfiguration;
+import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.project.Project;
+import consulo.ui.image.Image;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.Icon;
-
-import com.intellij.execution.configurations.ConfigurationType;
-import com.intellij.execution.configurations.RunConfiguration;
-import com.intellij.javaee.oss.server.JavaeeConfigurationFactory;
-import com.intellij.javaee.oss.server.JavaeeConfigurationType;
-import com.intellij.javaee.oss.server.JavaeeServerModel;
-import com.intellij.javaee.run.configuration.J2EEConfigurationFactory;
-import com.intellij.javaee.run.configuration.ServerModel;
-import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.projectRoots.SdkTable;
-import consulo.javaee.bundle.JavaEEServerBundleType;
-import consulo.ui.image.Image;
 
 /**
  * @author VISTALL

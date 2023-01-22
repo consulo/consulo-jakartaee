@@ -16,8 +16,8 @@
 
 package com.intellij.javaee;
 
-import com.intellij.util.descriptors.ConfigFileMetaData;
-import com.intellij.util.descriptors.ConfigFileVersion;
+import com.intellij.java.impl.util.descriptors.ConfigFileMetaData;
+import com.intellij.java.impl.util.descriptors.ConfigFileVersion;
 
 /**
  * author: lesya

@@ -19,10 +19,10 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import java.util.List;
-
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericDomValue;
+
+import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:welcome-file-listType interface.

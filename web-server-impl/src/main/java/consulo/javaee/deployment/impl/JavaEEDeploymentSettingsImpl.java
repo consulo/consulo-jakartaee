@@ -1,23 +1,20 @@
 package consulo.javaee.deployment.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
+import consulo.compiler.artifact.Artifact;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentSettings;
+import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
+import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.project.Project;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.remoteServer.configuration.deployment.DeploymentSourceFactory;
+import consulo.remoteServer.configuration.deployment.DeploymentSourceType;
 import org.jdom.Element;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.deployment.DeploymentSettings;
-import com.intellij.javaee.run.configuration.CommonModel;
-import com.intellij.openapi.project.Project;
-import com.intellij.packaging.artifacts.Artifact;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSourceType;
-import com.intellij.remoteServer.impl.configuration.deploySource.impl.ArtifactDeploymentSourceImpl;
-import consulo.javaee.bundle.JavaEEServerBundleType;
-import consulo.packaging.artifacts.ArtifactPointerUtil;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -29,12 +26,14 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings
 	private final Project myProject;
 	private final JavaEEServerBundleType myBundleType;
 	private final CommonModel myCommonModel;
+	private final DeploymentSourceFactory myDeploymentSourceFactory;
 
 	public JavaEEDeploymentSettingsImpl(Project project, JavaEEServerBundleType bundleType, CommonModel commonModel)
 	{
 		myProject = project;
 		myBundleType = bundleType;
 		myCommonModel = commonModel;
+		myDeploymentSourceFactory = project.getInstance(DeploymentSourceFactory.class);
 	}
 
 	public void addModel(@Nonnull DeploymentModel model)
@@ -102,7 +101,7 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings
 	@Override
 	public DeploymentModel getOrCreateModel(@Nonnull Artifact artifact)
 	{
-		return getOrCreateModel(new ArtifactDeploymentSourceImpl(ArtifactPointerUtil.getPointerManager(myProject).create(artifact)));
+		return getOrCreateModel(myDeploymentSourceFactory.createArtifactDeploymentSource(artifact));
 	}
 
 	@Nonnull

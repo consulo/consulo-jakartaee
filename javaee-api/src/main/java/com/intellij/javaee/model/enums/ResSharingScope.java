@@ -32,7 +32,7 @@ package com.intellij.javaee.model.enums;
  * 	The default value is Shareable.
  * </pre>
  */
-public enum ResSharingScope implements com.intellij.util.xml.NamedEnum {
+public enum ResSharingScope implements consulo.xml.util.xml.NamedEnum {
 	SHAREABLE ("Shareable"),
 	UNSHAREABLE ("Unshareable");
 

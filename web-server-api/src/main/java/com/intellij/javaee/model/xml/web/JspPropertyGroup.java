@@ -19,20 +19,15 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import java.util.List;
+import com.intellij.javaee.model.xml.*;
+import com.intellij.javaee.web.StaticPathReferenceConverter;
+import consulo.language.psi.path.PathReference;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.Stubbed;
 
 import javax.annotation.Nonnull;
-
-import com.intellij.javaee.model.xml.Description;
-import com.intellij.javaee.model.xml.DescriptionGroup;
-import com.intellij.javaee.model.xml.DisplayName;
-import com.intellij.javaee.model.xml.Icon;
-import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.javaee.web.StaticPathReferenceConverter;
-import com.intellij.openapi.paths.PathReference;
-import com.intellij.util.xml.Convert;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Stubbed;
+import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:jsp-property-groupType interface.
@@ -53,7 +48,8 @@ import com.intellij.util.xml.Stubbed;
  *               whitespaces must be removed from the response output.
  * </pre>
  */
-public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGroup {
+public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGroup
+{
 
 	/**
 	 * Returns the list of url-pattern children.
@@ -67,13 +63,16 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * 	the developer with a descriptive error message.
 	 * 	The container must preserve all characters including whitespaces.
 	 * </pre>
+	 *
 	 * @return the list of url-pattern children.
 	 */
 	@Nonnull
-        @Stubbed
+	@Stubbed
 	List<GenericDomValue<String>> getUrlPatterns();
+
 	/**
 	 * Adds new child to the list of url-pattern children.
+	 *
 	 * @return created child
 	 */
 	GenericDomValue<String> addUrlPattern();
@@ -96,9 +95,10 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * 	- true
 	 * 	- false
 	 * </pre>
+	 *
 	 * @return the value of the el-ignored child.
 	 */
-        @Stubbed
+	@Stubbed
 	GenericDomValue<Boolean> getElIgnored();
 
 
@@ -126,10 +126,11 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * 	collapsing the existing whitespace, this base type may be
 	 * 	used.
 	 * </pre>
+	 *
 	 * @return the value of the page-encoding child.
 	 */
 	@Stubbed
-        GenericDomValue<String> getPageEncoding();
+	GenericDomValue<String> getPageEncoding();
 
 
 	/**
@@ -147,6 +148,7 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * 	- true
 	 * 	- false
 	 * </pre>
+	 *
 	 * @return the value of the scripting-invalid child.
 	 */
 	GenericDomValue<Boolean> getScriptingInvalid();
@@ -170,6 +172,7 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * 	- true
 	 * 	- false
 	 * </pre>
+	 *
 	 * @return the value of the is-xml child.
 	 */
 	GenericDomValue<Boolean> getIsXml();
@@ -199,17 +202,20 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * 	are preferred.  The exception is .war files where absolute
 	 * 	names are preferred for consistency with the Servlet API.
 	 * </pre>
+	 *
 	 * @return the list of include-prelude children.
 	 */
-        @Convert(value = StaticPathReferenceConverter.class)
-        @Stubbed
-        List<GenericDomValue<PathReference>> getIncludePreludes();
+	@Convert(value = StaticPathReferenceConverter.class)
+	@Stubbed
+	List<GenericDomValue<PathReference>> getIncludePreludes();
+
 	/**
 	 * Adds new child to the list of include-prelude children.
+	 *
 	 * @return created child
 	 */
-        @Convert(value = StaticPathReferenceConverter.class)
-        GenericDomValue<PathReference> addIncludePrelude();
+	@Convert(value = StaticPathReferenceConverter.class)
+	GenericDomValue<PathReference> addIncludePrelude();
 
 
 	/**
@@ -236,17 +242,20 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * 	are preferred.  The exception is .war files where absolute
 	 * 	names are preferred for consistency with the Servlet API.
 	 * </pre>
+	 *
 	 * @return the list of include-coda children.
 	 */
-        @Convert(value = StaticPathReferenceConverter.class)
-        @Stubbed
-        List<GenericDomValue<PathReference>> getIncludeCodas();
+	@Convert(value = StaticPathReferenceConverter.class)
+	@Stubbed
+	List<GenericDomValue<PathReference>> getIncludeCodas();
+
 	/**
 	 * Adds new child to the list of include-coda children.
+	 *
 	 * @return created child
 	 */
-        @Convert(value = StaticPathReferenceConverter.class)
-        GenericDomValue<PathReference> addIncludeCoda();
+	@Convert(value = StaticPathReferenceConverter.class)
+	GenericDomValue<PathReference> addIncludeCoda();
 
 
 	/**
@@ -266,6 +275,7 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * 	- true
 	 * 	- false
 	 * </pre>
+	 *
 	 * @return the value of the deferred-syntax-allowed-as-literal child.
 	 */
 	GenericDomValue<Boolean> getDeferredSyntaxAllowedAsLiteral();
@@ -287,6 +297,7 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 	 * 	- true
 	 * 	- false
 	 * </pre>
+	 *
 	 * @return the value of the trim-directive-whitespaces child.
 	 */
 	GenericDomValue<Boolean> getTrimDirectiveWhitespaces();
@@ -294,11 +305,14 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 
 	/**
 	 * Returns the list of description children.
+	 *
 	 * @return the list of description children.
 	 */
 	List<Description> getDescriptions();
+
 	/**
 	 * Adds new child to the list of description children.
+	 *
 	 * @return created child
 	 */
 	Description addDescription();
@@ -306,11 +320,14 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 
 	/**
 	 * Returns the list of display-name children.
+	 *
 	 * @return the list of display-name children.
 	 */
 	List<DisplayName> getDisplayNames();
+
 	/**
 	 * Adds new child to the list of display-name children.
+	 *
 	 * @return created child
 	 */
 	DisplayName addDisplayName();
@@ -318,11 +335,14 @@ public interface JspPropertyGroup extends JavaeeDomModelElement, DescriptionGrou
 
 	/**
 	 * Returns the list of icon children.
+	 *
 	 * @return the list of icon children.
 	 */
 	List<Icon> getIcons();
+
 	/**
 	 * Adds new child to the list of icon children.
+	 *
 	 * @return created child
 	 */
 	Icon addIcon();

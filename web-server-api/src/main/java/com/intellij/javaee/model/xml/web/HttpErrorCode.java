@@ -15,7 +15,7 @@
  */
 package com.intellij.javaee.model.xml.web;
 
-import com.intellij.util.xml.NamedEnum;
+import consulo.xml.util.xml.NamedEnum;
 
 /**
  * @author Yann C&eacute;bron

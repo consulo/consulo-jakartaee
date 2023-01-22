@@ -41,7 +41,7 @@ package com.intellij.javaee.model.enums;
  * 	  
  * </pre>
  */
-public enum EnvEntryTypeValues implements com.intellij.util.xml.NamedEnum {
+public enum EnvEntryTypeValues implements consulo.xml.util.xml.NamedEnum {
 	JAVA_LANG_BOOLEAN ("java.lang.Boolean"),
 	JAVA_LANG_BYTE ("java.lang.Byte"),
 	JAVA_LANG_CHARACTER ("java.lang.Character"),

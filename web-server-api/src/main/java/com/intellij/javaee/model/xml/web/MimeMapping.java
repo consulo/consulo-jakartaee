@@ -19,14 +19,14 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import javax.annotation.Nonnull;
-
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.web.converters.MappingExtensionConverter;
 import com.intellij.javaee.model.xml.web.converters.MimeTypeConverter;
-import com.intellij.util.xml.Convert;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.NameValue;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.NameValue;
+
+import javax.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:mime-mappingType interface.
@@ -37,7 +37,8 @@ import com.intellij.util.xml.NameValue;
  * 	Used in: web-app
  * </pre>
  */
-public interface MimeMapping extends JavaeeDomModelElement {
+public interface MimeMapping extends JavaeeDomModelElement
+{
 
 	/**
 	 * Returns the value of the extension child.
@@ -49,11 +50,12 @@ public interface MimeMapping extends JavaeeDomModelElement {
 	 * 	collapsing the existing whitespace, this base type may be
 	 * 	used.
 	 * </pre>
+	 *
 	 * @return the value of the extension child.
 	 */
-        @Convert(MappingExtensionConverter.class)
-        @NameValue
-        @Nonnull
+	@Convert(MappingExtensionConverter.class)
+	@NameValue
+	@Nonnull
 	GenericDomValue<String> getExtension();
 
 
@@ -66,10 +68,11 @@ public interface MimeMapping extends JavaeeDomModelElement {
 	 * 	"text/plain"
 	 * 	Used in: mime-mapping
 	 * </pre>
+	 *
 	 * @return the value of the mime-type child.
 	 */
-        @Convert(MimeTypeConverter.class)
-        @Nonnull
+	@Convert(MimeTypeConverter.class)
+	@Nonnull
 	GenericDomValue<String> getMimeType();
 
 

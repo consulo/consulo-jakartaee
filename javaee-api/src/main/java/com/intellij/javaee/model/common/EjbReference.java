@@ -15,11 +15,11 @@
  */
 package com.intellij.javaee.model.common;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.javaee.model.xml.DescriptionOwner;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.PrimaryKey;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.PrimaryKey;
 
 /**
  * @author peter

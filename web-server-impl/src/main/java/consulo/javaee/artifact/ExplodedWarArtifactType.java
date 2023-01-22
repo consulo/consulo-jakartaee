@@ -16,23 +16,24 @@
 
 package consulo.javaee.artifact;
 
-import java.util.Collections;
-import java.util.List;
+import com.intellij.javaee.J2EEBundle;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.jakartaee.webServer.impl.ui.packaging.WebApplicationArtifactType;
+import consulo.compiler.artifact.ArtifactTemplate;
+import consulo.compiler.artifact.element.ArtifactRootElementImpl;
+import consulo.compiler.artifact.element.CompositePackagingElement;
+import consulo.compiler.artifact.element.PackagingElementFactory;
+import consulo.compiler.artifact.element.PackagingElementResolvingContext;
 
 import javax.annotation.Nonnull;
-
-import com.intellij.javaee.J2EEBundle;
-import com.intellij.javaee.ui.packaging.WebApplicationArtifactType;
-import com.intellij.packaging.artifacts.ArtifactTemplate;
-import com.intellij.packaging.elements.CompositePackagingElement;
-import com.intellij.packaging.elements.PackagingElementFactory;
-import com.intellij.packaging.elements.PackagingElementResolvingContext;
-import com.intellij.packaging.impl.elements.ArtifactRootElementImpl;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author VISTALL
  * @since 07.11.13.
  */
+@ExtensionImpl
 public class ExplodedWarArtifactType extends WebApplicationArtifactType
 {
 	public static ExplodedWarArtifactType getInstance()

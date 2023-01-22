@@ -1,13 +1,13 @@
 package com.intellij.javaee.ejb;
 
-import java.util.List;
-
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.javaee.model.common.ejb.SecurityGroup;
 import com.intellij.javaee.model.enums.TransAttribute;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiMethod;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.PrimaryKey;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.PrimaryKey;
+
+import java.util.List;
 
 /**
  * @author peter

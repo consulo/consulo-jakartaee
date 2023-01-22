@@ -16,7 +16,8 @@
 
 package com.intellij.javaee.model.common.ejb;
 
-import com.intellij.psi.PsiMember;
+import com.intellij.java.language.psi.PsiMember;
+
 import javax.annotation.Nullable;
 
 /**

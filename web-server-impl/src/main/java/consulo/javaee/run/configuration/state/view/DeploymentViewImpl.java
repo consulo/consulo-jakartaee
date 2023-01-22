@@ -1,23 +1,19 @@
 package consulo.javaee.run.configuration.state.view;
 
-import com.intellij.icons.AllIcons;
 import com.intellij.javaee.J2EEBundle;
-import com.intellij.javaee.deployment.DeploymentManager;
-import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.deployment.DeploymentStatus;
-import com.intellij.javaee.deployment.DeploymentView;
-import com.intellij.openapi.actionSystem.ActionToolbarPosition;
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
-import com.intellij.ui.CollectionListModel;
-import com.intellij.ui.ColoredListCellRenderer;
-import com.intellij.ui.ToolbarDecorator;
-import com.intellij.ui.components.JBList;
-import com.intellij.util.ui.JBUI;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentManager;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentStatus;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentView;
+import consulo.application.AllIcons;
 import consulo.javaee.JavaEEIcons;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 import consulo.ui.annotation.RequiredUIAccess;
+import consulo.ui.ex.action.ActionToolbarPosition;
+import consulo.ui.ex.action.AnAction;
+import consulo.ui.ex.action.AnActionEvent;
+import consulo.ui.ex.action.ToggleAction;
+import consulo.ui.ex.awt.*;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;

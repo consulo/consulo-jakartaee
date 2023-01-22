@@ -17,18 +17,18 @@
 package com.intellij.javaee.model.common;
 
 import com.intellij.javaee.model.enums.ResAuth;
-import com.intellij.psi.xml.XmlDoctype;
-import com.intellij.psi.xml.XmlDocument;
-import com.intellij.psi.xml.XmlProlog;
-import com.intellij.psi.xml.XmlTag;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.DomElement;
-import com.intellij.util.xml.ResolvingConverter;
-import com.intellij.util.xml.DomUtil;
+import consulo.xml.psi.xml.XmlDoctype;
+import consulo.xml.psi.xml.XmlDocument;
+import consulo.xml.psi.xml.XmlProlog;
+import consulo.xml.psi.xml.XmlTag;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.DomElement;
+import consulo.xml.util.xml.DomUtil;
+import consulo.xml.util.xml.ResolvingConverter;
 import org.jetbrains.annotations.NonNls;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.Arrays;
 import java.util.Collection;
 

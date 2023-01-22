@@ -20,8 +20,8 @@
 package com.intellij.javaee.model.xml;
 
 import com.intellij.javaee.model.enums.EnvEntryTypeValues;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.NameValue;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.NameValue;
 import javax.annotation.Nonnull;
 
 import java.util.List;

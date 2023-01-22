@@ -15,11 +15,11 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
-import com.intellij.javaee.model.enums.ResultTypeMapping;
+import com.intellij.java.language.psi.PsiMethod;
+import com.intellij.java.language.psi.PsiType;
 import com.intellij.javaee.model.common.JavaeeModelElement;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.psi.PsiMethod;
-import com.intellij.psi.PsiType;
+import com.intellij.javaee.model.enums.ResultTypeMapping;
+import consulo.xml.util.xml.GenericValue;
 
 import java.util.List;
 

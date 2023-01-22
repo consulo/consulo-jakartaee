@@ -46,6 +46,4 @@ public interface LocaleEncodingMappingList extends JavaeeDomModelElement {
 	 * @return created child
 	 */
 	LocaleEncodingMapping addLocaleEncodingMapping();
-
-
 }

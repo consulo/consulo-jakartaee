@@ -1,48 +1,29 @@
 package consulo.javaee.run.configuration;
 
-import java.util.Collection;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
-import org.jdom.Element;
-
-import javax.annotation.Nullable;
-import com.intellij.diagnostic.logging.LogConfigurationPanel;
-import com.intellij.execution.ExecutionBundle;
-import com.intellij.execution.ExecutionException;
-import com.intellij.execution.Executor;
-import com.intellij.execution.JavaRunConfigurationExtensionManager;
-import com.intellij.execution.configurations.ConfigurationFactory;
-import com.intellij.execution.configurations.ConfigurationInfoProvider;
-import com.intellij.execution.configurations.ConfigurationPerRunnerSettings;
-import com.intellij.execution.configurations.LocatableConfigurationBase;
-import com.intellij.execution.configurations.LogFileOptions;
-import com.intellij.execution.configurations.PredefinedLogFile;
-import com.intellij.execution.configurations.RunConfiguration;
-import com.intellij.execution.configurations.RunProfileState;
-import com.intellij.execution.configurations.RuntimeConfigurationException;
-import com.intellij.execution.runners.ExecutionEnvironment;
-import com.intellij.execution.runners.ProgramRunner;
+import com.intellij.java.execution.impl.JavaRunConfigurationExtensionManager;
 import com.intellij.javaee.J2EEBundle;
-import com.intellij.javaee.appServerIntegrations.AppServerIntegration;
-import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.deployment.DeploymentSettings;
-import com.intellij.javaee.oss.server.JavaeeServerModel;
-import com.intellij.javaee.run.configuration.CommonStrategy;
-import com.intellij.javaee.run.configuration.ServerModel;
-import com.intellij.javaee.run.localRun.ExecutableObjectStartupPolicy;
-import com.intellij.openapi.compiler.CompileScope;
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.options.SettingsEditor;
-import com.intellij.openapi.options.SettingsEditorGroup;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.projectRoots.SdkTable;
-import com.intellij.openapi.util.InvalidDataException;
-import com.intellij.openapi.util.WriteExternalException;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.packaging.artifacts.Artifact;
+import consulo.jakartaee.webServer.impl.appServerIntegrations.AppServerIntegration;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentSettings;
+import consulo.jakartaee.webServer.impl.oss.server.JavaeeServerModel;
+import consulo.jakartaee.webServer.impl.run.configuration.CommonStrategy;
+import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
+import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
+import consulo.compiler.artifact.Artifact;
+import consulo.compiler.scope.CompileScope;
+import consulo.content.bundle.Sdk;
+import consulo.content.bundle.SdkTable;
+import consulo.execution.ExecutionBundle;
+import consulo.execution.RuntimeConfigurationException;
+import consulo.execution.configuration.*;
+import consulo.execution.configuration.log.LogFileOptions;
+import consulo.execution.configuration.log.PredefinedLogFile;
+import consulo.execution.configuration.log.ui.LogConfigurationPanel;
+import consulo.execution.configuration.ui.SettingsEditor;
+import consulo.execution.configuration.ui.SettingsEditorGroup;
+import consulo.execution.executor.Executor;
+import consulo.execution.runner.ExecutionEnvironment;
+import consulo.execution.runner.ProgramRunner;
 import consulo.java.debugger.impl.GenericDebugRunnerConfiguration;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
@@ -50,6 +31,18 @@ import consulo.javaee.run.configuration.editor.JavaEEDeploymentConfigurationEdit
 import consulo.javaee.run.configuration.editor.JavaEEServerConfigurationEditor;
 import consulo.javaee.run.configuration.editor.JavaEEStartupConfigurationEditor;
 import consulo.javaee.run.configuration.state.JavaEECommandLineState;
+import consulo.module.Module;
+import consulo.process.ExecutionException;
+import consulo.project.Project;
+import consulo.util.lang.StringUtil;
+import consulo.util.xml.serializer.InvalidDataException;
+import consulo.util.xml.serializer.WriteExternalException;
+import org.jdom.Element;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * @author VISTALL

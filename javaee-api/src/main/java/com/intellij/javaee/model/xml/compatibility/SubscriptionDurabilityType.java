@@ -19,7 +19,7 @@
 
 package com.intellij.javaee.model.xml.compatibility;
 
-import com.intellij.util.xml.NamedEnum;
+import consulo.xml.util.xml.NamedEnum;
 import org.jetbrains.annotations.NonNls;
 
 /**

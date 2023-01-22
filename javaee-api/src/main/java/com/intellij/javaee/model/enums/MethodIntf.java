@@ -49,7 +49,7 @@ package com.intellij.javaee.model.enums;
  *             MessageEndpoint
  * </pre>
  */
-public enum MethodIntf implements com.intellij.util.xml.NamedEnum {
+public enum MethodIntf implements consulo.xml.util.xml.NamedEnum {
 	HOME ("Home"),
 	LOCAL ("Local"),
 	LOCAL_HOME ("LocalHome"),

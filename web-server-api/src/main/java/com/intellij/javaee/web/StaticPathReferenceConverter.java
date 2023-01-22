@@ -16,17 +16,17 @@
 
 package com.intellij.javaee.web;
 
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiReference;
+import consulo.language.psi.path.PathReference;
+import consulo.language.psi.path.PathReferenceManager;
+import consulo.language.psi.path.PathReferenceProvider;
+import consulo.xml.psi.xml.XmlElement;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.converters.PathReferenceConverter;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import com.intellij.openapi.paths.PathReference;
-import com.intellij.openapi.paths.PathReferenceManager;
-import com.intellij.openapi.paths.PathReferenceProvider;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiReference;
-import com.intellij.psi.xml.XmlElement;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.converters.PathReferenceConverter;
 
 /**
  * @author Dmitry Avdeev

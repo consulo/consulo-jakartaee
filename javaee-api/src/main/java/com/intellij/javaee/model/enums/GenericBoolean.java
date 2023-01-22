@@ -28,7 +28,7 @@ package com.intellij.javaee.model.enums;
  * 	not designated by xsd:boolean
  * </pre>
  */
-public enum GenericBoolean implements com.intellij.util.xml.NamedEnum {
+public enum GenericBoolean implements consulo.xml.util.xml.NamedEnum {
 	FALSE ("false"),
 	NO ("no"),
 	TRUE ("true"),

@@ -19,11 +19,12 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiMember;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Convert;
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.java.language.psi.PsiMember;
 import com.intellij.javaee.model.EjbInjectionTargetConverter;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericDomValue;
+
 import javax.annotation.Nonnull;
 
 /**
@@ -76,7 +77,7 @@ public interface InjectionTarget extends JavaeeDomModelElement {
 	 * @return the value of the injection-target-name child.
 	 */
         @Convert(EjbInjectionTargetConverter.class)
-        @com.intellij.util.xml.SubTag("injection-target-name")
+        @consulo.xml.util.xml.SubTag("injection-target-name")
         @Nonnull
 	GenericDomValue<PsiMember> getInjectionTargetMember();
 

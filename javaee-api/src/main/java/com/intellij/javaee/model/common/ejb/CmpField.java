@@ -15,18 +15,18 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
-import com.intellij.jam.view.DeleteHandler;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.Required;
-import com.intellij.psi.PsiMember;
+import com.intellij.java.language.psi.PsiMember;
 import com.intellij.javaee.model.common.JavaeeModelElement;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.NameValue;
+import consulo.xml.util.xml.Required;
+
 import javax.annotation.Nullable;
 
 /**
  * @author peter
  */
-@DeleteHandler("com.intellij.openapi.module.EjbDeleteHandler")
+//@DeleteHandler("com.intellij.openapi.module.EjbDeleteHandler")
 public interface CmpField extends JavaeeModelElement {
   @Nullable
   EntityBean getEntityBean();

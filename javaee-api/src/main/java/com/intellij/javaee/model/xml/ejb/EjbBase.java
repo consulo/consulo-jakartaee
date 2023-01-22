@@ -16,14 +16,14 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.javaee.model.EjbNameConverter;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.javaee.model.xml.DescriptionGroup;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.JndiEnvironmentRefsGroup;
-import com.intellij.javaee.model.EjbNameConverter;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Convert;
+import consulo.xml.util.xml.Convert;
+import consulo.xml.util.xml.GenericDomValue;
 
 /**
  * Created by IntelliJ IDEA.

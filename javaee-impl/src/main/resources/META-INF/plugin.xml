@@ -20,8 +20,7 @@
 	<version>SNAPSHOT</version>
 	<depends>com.intellij.xml</depends>
 	<depends>consulo.java</depends>
-	<depends optional="true" config-file="org.jetbrains.idea.maven.xml">org.jetbrains.idea.maven</depends>
-	<depends optional="true" config-file="com.intellij.spellchecker.xml">com.intellij.spellchecker</depends>
+	<depends optional="true">org.jetbrains.idea.maven</depends>
 	<resource-bundle>messages.J2EEBundle</resource-bundle>
 	<category>Web Framework</category>
 
@@ -29,84 +28,4 @@
 		<tag>web.framework</tag>
 		<tag>software.framework</tag>
 	</tags>
-
-	<actions>
-		<action id="CreateJSPAction" class="consulo.javaee.jsp.actions.CreateJSPFileAction">
-			<add-to-group group-id="NewGroup1" anchor="first"/>
-		</action>
-	</actions>
-
-	<extensionPoints>
-		<extensionPoint name="contextParamsProvider" interface="com.intellij.javaee.model.xml.converters.ContextParamsProvider"/>
-
-		<extensionPoint name="appServerIntegration" interface="com.intellij.javaee.appServerIntegrations.AppServerIntegration"/>
-		<extensionPoint name="descriptorMetaDataProvider" interface="com.intellij.javaee.facet.DescriptorMetaDataProvider"/>
-	</extensionPoints>
-
-	<extensions defaultExtensionNs="com.intellij.xml">
-		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" path="/standardSchemas/web-app_2_5.xsd" version="2.5"/>
-		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" path="/standardSchemas/web-app_3_0.xsd" version="3.0"/>
-		<standardResource url="http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd" path="/standardSchemas/web-app_3_1.xsd" version="3.1"/>
-	</extensions>
-
-	<extensions defaultExtensionNs="com.intellij.xml">
-		<xmlExtension implementation="consulo.javaee.jsp.psi.impl.descriptor.JspXmlExtension"/>
-		<elementDescriptorProvider implementation="consulo.javaee.jsp.psi.impl.descriptor.JspXmlElementDescriptorProvider"/>
-	</extensions>
-
-	<extensions defaultExtensionNs="com.intellij.xml.dom">
-		<fileDescription implementation="consulo.javaee.dom.web.WebAppDescriptor"/>
-	</extensions>
-
-	<extensions defaultExtensionNs="com.intellij">
-		<internalFileTemplate name="JSP File"/>
-		<internalFileTemplate name="JSPX File"/>
-
-		<filePropertyPusher implementation="consulo.javaee.jsp.roots.impl.JspWebRooLanguageLevelPusher"/>
-
-		<lang.inspectionSuppressor language="JSP" implementationClass="consulo.javaee.jsp.codeInsight.daemon.JspInspectionSuppressor"/>
-
-		<resolveScopeEnlarger implementation="consulo.javaee.jsp.psi.impl.java.JspJavaResolveScopeEnlarger"/>
-
-		<packaging.artifactType implementation="consulo.javaee.artifact.ExplodedWarArtifactType"/>
-		<packaging.artifactType implementation="consulo.javaee.artifact.WarArtifactType"/>
-		<packaging.elementType implementation="consulo.javaee.artifact.WebResourceModuleOutputElementType"/>
-
-		<projectService serviceInterface="com.intellij.javaee.deployment.DeploymentManager"
-						serviceImplementation="consulo.javaee.deployment.impl.DeploymentManagerImpl"/>
-
-		<fileTypeFactory implementation="consulo.javaee.jsp.JspFileTypeFactory"/>
-		<fileTypeFactory implementation="consulo.javaee.artifact.WarFileTypeFactory"/>
-
-		<lang.fileViewProviderFactory language="JSP" implementationClass="consulo.javaee.jsp.JspFileViewProviderFactory"/>
-		<lang.parserDefinition language="JSP" implementationClass="consulo.javaee.jsp.JspParserDefinition"/>
-		<editorHighlighterProvider filetype="JSP" implementationClass="consulo.javaee.jsp.JspEditorHighlighterProvider"/>
-
-		<lang.ast.compositeFactory implementation="consulo.javaee.jsp.psi.JspCompositeElementFactory"/>
-		<lang.ast.leafFactory implementation="consulo.javaee.jsp.psi.JspLeafElementFactory"/>
-
-		<highlightVisitor implementation="consulo.javaee.jsp.codeInsight.daemon.analysis.JspJavaHighlightVisitorImpl"/>
-		<problemFileHighlightFilter implementation="consulo.javaee.jsp.codeInsight.daemon.JspProblemFileHighlightFilter"/>
-		<problemHighlightFilter implementation="consulo.javaee.jsp.codeInsight.daemon.JspProblemHighlightFilter"/>
-		<lang.syntaxHighlighterFactory language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighterFactory"/>
-		<braceMatcher filetype="JSP" implementationClass="com.intellij.xml.impl.XmlBraceMatcher"/>
-		<lang.braceMatcher language="JSP" implementationClass="consulo.javaee.jsp.highlight.JspPairBraceMatcher"/>
-		<syntaxHighlighter key="JSP" implementationClass="consulo.javaee.jsp.highlight.JspSyntaxHighlighter"/>
-		<contentFolderSupportPatcher implementation="consulo.javaee.module.JavaWebContentFolderSupportPatcher"/>
-
-		<stubElementTypeHolder class="consulo.javaee.jsp.psi.impl.java.JspJavaStubElements"/>
-		<stubElementTypeHolder class="consulo.javaee.jsp.psi.impl.JspStubElements"/>
-		<psi.referenceContributor language="JSP" implementation="consulo.javaee.jsp.psi.impl.reference.JspReferenceContributor"/>
-
-		<lang.formatter language="JSP" implementationClass="consulo.javaee.jsp.format.JspFormattingModelBuilder"/>
-
-		<applicationService serviceInterface="com.intellij.javaee.run.configuration.J2EEConfigurationFactory"
-							serviceImplementation="consulo.javaee.run.configuration.J2EEConfigurationFactoryImpl"/>
-		<moduleExtensionProvider key="java-web"
-								 parentKey="java"
-								 icon="consulo.platform.base.PlatformIconGroup@general.web"
-								 name="JSP"
-								 immutableClass="consulo.javaee.module.extension.JavaWebModuleExtension"
-								 mutableClass="consulo.javaee.module.extension.JavaWebMutableModuleExtension"/>
-	</extensions>
 </consulo-plugin>

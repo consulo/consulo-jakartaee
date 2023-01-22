@@ -30,7 +30,7 @@ package com.intellij.javaee.model.enums;
  * 	    Container
  * </pre>
  */
-public enum PersistenceType implements com.intellij.util.xml.NamedEnum {
+public enum PersistenceType implements consulo.xml.util.xml.NamedEnum {
 	BEAN ("Bean"),
 	CONTAINER ("Container");
 

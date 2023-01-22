@@ -15,9 +15,7 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
-import com.intellij.psi.PsiClass;
-import com.intellij.javaee.model.common.ejb.EnterpriseBean;
-import com.intellij.javaee.model.common.ejb.EntityBean;
+import com.intellij.java.language.psi.PsiClass;
 
 /**
  * @author peter

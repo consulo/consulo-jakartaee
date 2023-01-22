@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.ejb;
 import com.intellij.javaee.model.enums.TransAttribute;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericDomValue;
 import javax.annotation.Nonnull;
 
 import java.util.List;

@@ -15,20 +15,23 @@
  */
 package com.intellij.javaee.model;
 
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.javaee.model.common.ejb.EjbCommonModelUtil;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.ejb.EjbBase;
 import com.intellij.javaee.model.xml.ejb.Interceptor;
 import com.intellij.javaee.model.xml.ejb.MethodParams;
-import com.intellij.openapi.util.Condition;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiMethod;
-import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.GenericDomValue;
-import javax.annotation.Nonnull;
+import consulo.util.collection.ContainerUtil;
+import consulo.util.lang.function.Condition;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.GenericDomValue;
 
-import java.util.*;
+import javax.annotation.Nonnull;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Set;
 
 /**
  * @author peter

@@ -19,15 +19,13 @@
 
 package com.intellij.javaee.model.xml;
 
-import java.util.List;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.NameValue;
+import consulo.xml.util.xml.Required;
+import consulo.xml.util.xml.Stubbed;
 
 import javax.annotation.Nonnull;
-import com.intellij.ide.presentation.Presentation;
-import com.intellij.jam.view.DeleteHandler;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.Required;
-import com.intellij.util.xml.Stubbed;
+import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:security-roleType interface.
@@ -47,8 +45,8 @@ import com.intellij.util.xml.Stubbed;
  * 	  
  * </pre>
  */
-@Presentation(icon = "AllIcons.Nodes.SecurityRole")
-@DeleteHandler("com.intellij.openapi.module.EjbDeleteHandler")
+//@Presentation(icon = "AllIcons.Nodes.SecurityRole")
+//@DeleteHandler("com.intellij.openapi.module.EjbDeleteHandler")
 public interface SecurityRole extends JavaeeDomModelElement, DescriptionOwner, com.intellij.javaee.model.common.ejb.SecurityRole {
 
 	/**

@@ -19,8 +19,7 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.javaee.model.xml.InjectionTarget;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericDomValue;
 
 import java.util.List;
 

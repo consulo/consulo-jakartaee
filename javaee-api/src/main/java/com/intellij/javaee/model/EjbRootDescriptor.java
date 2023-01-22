@@ -15,10 +15,10 @@
  */
 package com.intellij.javaee.model;
 
+import com.intellij.java.impl.util.descriptors.ConfigFileMetaData;
+import com.intellij.java.impl.util.descriptors.ConfigFileVersion;
 import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.J2EEFileTemplateNames;
-import com.intellij.util.descriptors.ConfigFileMetaData;
-import com.intellij.util.descriptors.ConfigFileVersion;
 import org.jetbrains.annotations.NonNls;
 
 /**

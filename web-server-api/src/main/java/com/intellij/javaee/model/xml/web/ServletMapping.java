@@ -19,19 +19,13 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import java.util.List;
-
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.web.converters.ServletNameConverter;
 import com.intellij.javaee.web.CommonServlet;
 import com.intellij.javaee.web.CommonServletMapping;
-import com.intellij.util.xml.Convert;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.Required;
-import com.intellij.util.xml.RootScopeProvider;
-import com.intellij.util.xml.Scope;
-import com.intellij.util.xml.Stubbed;
+import consulo.xml.util.xml.*;
+
+import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:servlet-mappingType interface.

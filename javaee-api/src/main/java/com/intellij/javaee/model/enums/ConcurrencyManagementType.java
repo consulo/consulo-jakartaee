@@ -32,7 +32,7 @@ package com.intellij.javaee.model.enums;
  * 	Bean managed concurrency can only be specified for a singleton bean.
  * </pre>
  */
-public enum ConcurrencyManagementType implements com.intellij.util.xml.NamedEnum {
+public enum ConcurrencyManagementType implements consulo.xml.util.xml.NamedEnum {
 	BEAN ("Bean"),
 	CONTAINER ("Container"),
 	NOT_ALLOWED ("NotAllowed");

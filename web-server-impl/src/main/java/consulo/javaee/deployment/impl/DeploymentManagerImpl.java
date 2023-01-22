@@ -1,28 +1,29 @@
 package consulo.javaee.deployment.impl;
 
-import java.io.File;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import consulo.annotation.component.ServiceImpl;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentManager;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentProvider;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentStatus;
+import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
+import consulo.jakartaee.webServer.impl.serverInstances.J2EEServerInstance;
+import consulo.compiler.artifact.Artifact;
+import consulo.javaee.module.extension.JavaEEModuleExtension;
+import consulo.project.Project;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
-import com.intellij.javaee.deployment.DeploymentManager;
-import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.deployment.DeploymentProvider;
-import com.intellij.javaee.deployment.DeploymentStatus;
-import com.intellij.javaee.run.configuration.CommonModel;
-import com.intellij.javaee.serverInstances.J2EEServerInstance;
-import com.intellij.openapi.project.Project;
-import com.intellij.packaging.artifacts.Artifact;
-import consulo.javaee.module.extension.JavaEEModuleExtension;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.io.File;
+import java.util.List;
 
 /**
  * @author VISTALL
  * @since 17-Jul-17
  */
 @Singleton
+@ServiceImpl
 public class DeploymentManagerImpl extends DeploymentManager
 {
 	private final Project myProject;

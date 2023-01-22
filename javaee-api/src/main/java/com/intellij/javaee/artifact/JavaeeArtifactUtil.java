@@ -1,17 +1,17 @@
 package com.intellij.javaee.artifact;
 
-import java.util.Collection;
+import consulo.compiler.artifact.Artifact;
+import consulo.compiler.artifact.ArtifactType;
+import consulo.compiler.artifact.element.PackagingElement;
+import consulo.compiler.artifact.element.PackagingElementResolvingContext;
+import consulo.content.library.Library;
+import consulo.ide.ServiceManager;
+import consulo.javaee.module.extension.JavaEEModuleExtension;
+import consulo.project.Project;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.intellij.openapi.components.ServiceManager;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.roots.libraries.Library;
-import com.intellij.packaging.artifacts.Artifact;
-import com.intellij.packaging.artifacts.ArtifactType;
-import com.intellij.packaging.elements.PackagingElement;
-import com.intellij.packaging.elements.PackagingElementResolvingContext;
-import consulo.javaee.module.extension.JavaEEModuleExtension;
+import java.util.Collection;
 
 /**
  * @author nik
@@ -24,7 +24,7 @@ public abstract class JavaeeArtifactUtil {
   public abstract Collection<? extends ArtifactType> getAllJavaeeArtifactTypes();
 
   public abstract <F extends JavaEEModuleExtension<?>> Collection<F> getFacetsIncludedInArtifact(@Nonnull Project project, @Nonnull Artifact artifact,
-                                                                                    @Nullable Class<F> facetType);
+																								 @Nullable Class<F> facetType);
 
   @Nonnull
   public abstract Collection<Artifact> getArtifactsContainingFacet(@Nonnull JavaEEModuleExtension facet, @Nullable ArtifactType artifactType);

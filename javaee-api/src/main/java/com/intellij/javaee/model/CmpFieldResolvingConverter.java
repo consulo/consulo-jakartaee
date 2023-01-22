@@ -15,16 +15,15 @@
  */
 package com.intellij.javaee.model;
 
+import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.model.common.ejb.CmpField;
 import com.intellij.javaee.model.common.ejb.EntityBean;
-import com.intellij.javaee.J2EEBundle;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.ElementPresentationManager;
-import com.intellij.codeInsight.CodeInsightBundle;
+import consulo.language.editor.CodeInsightBundle;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.ElementPresentationManager;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.Collection;
 import java.util.Collections;
 

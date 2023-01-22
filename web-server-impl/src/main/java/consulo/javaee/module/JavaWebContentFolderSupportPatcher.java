@@ -1,18 +1,20 @@
 package consulo.javaee.module;
 
-import java.util.Set;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.content.ContentFolderTypeProvider;
+import consulo.content.base.WebResourcesFolderTypeProvider;
+import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
+import consulo.module.content.layer.ContentFolderSupportPatcher;
+import consulo.module.content.layer.ModifiableRootModel;
 
 import javax.annotation.Nonnull;
-import com.intellij.openapi.roots.ModifiableRootModel;
-import consulo.javaee.module.extension.JavaWebModuleExtension;
-import consulo.roots.ContentFolderSupportPatcher;
-import consulo.roots.ContentFolderTypeProvider;
-import consulo.roots.impl.WebResourcesFolderTypeProvider;
+import java.util.Set;
 
 /**
  * @author VISTALL
  * @since 19.04.14
  */
+@ExtensionImpl
 public class JavaWebContentFolderSupportPatcher implements ContentFolderSupportPatcher
 {
 	@Override

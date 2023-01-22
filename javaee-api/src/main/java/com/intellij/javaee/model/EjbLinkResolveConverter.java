@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 
 import com.intellij.javaee.model.common.ejb.EjbCommonModelUtil;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
-import com.intellij.util.xml.ConvertContext;
+import consulo.xml.util.xml.ConvertContext;
 
 /**
  * @author peter

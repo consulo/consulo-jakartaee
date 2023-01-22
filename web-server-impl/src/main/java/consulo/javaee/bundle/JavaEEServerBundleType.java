@@ -1,12 +1,12 @@
 package consulo.javaee.bundle;
 
+import consulo.content.bundle.SdkType;
+import consulo.execution.configuration.ui.SettingsEditor;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
+import consulo.jakartaee.webServer.impl.oss.server.JavaeeIntegration;
+import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
 import org.jetbrains.annotations.NonNls;
-import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.oss.server.JavaeeIntegration;
-import com.intellij.javaee.run.configuration.CommonModel;
-import com.intellij.openapi.options.SettingsEditor;
-import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 
 /**
  * @author VISTALL

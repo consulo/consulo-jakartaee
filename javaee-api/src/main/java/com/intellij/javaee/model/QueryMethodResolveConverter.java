@@ -15,15 +15,15 @@
  */
 package com.intellij.javaee.model;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.xml.ejb.EntityBean;
 import com.intellij.javaee.model.xml.ejb.MethodParams;
 import com.intellij.javaee.model.xml.ejb.Query;
 import com.intellij.javaee.model.xml.ejb.QueryMethod;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.ConvertContext;
+import consulo.xml.util.xml.ConvertContext;
 import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
 
+import javax.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -32,7 +32,7 @@ import java.util.Set;
 /**
  * @author peter
  */
-public class QueryMethodResolveConverter extends com.intellij.util.xml.converters.AbstractMethodResolveConverter<QueryMethod> {
+public class QueryMethodResolveConverter extends AbstractMethodResolveConverter<QueryMethod> {
 
   public QueryMethodResolveConverter() {
     super(QueryMethod.class);

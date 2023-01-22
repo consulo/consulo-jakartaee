@@ -20,7 +20,7 @@
 package com.intellij.javaee.model.xml.compatibility;
 
 
-import com.intellij.util.xml.*;
+import consulo.xml.util.xml.*;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import javax.annotation.Nonnull;
 

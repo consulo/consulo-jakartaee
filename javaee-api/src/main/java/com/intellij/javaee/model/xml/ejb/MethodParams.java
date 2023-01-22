@@ -19,10 +19,10 @@
 
 package com.intellij.javaee.model.xml.ejb;
 
+import com.intellij.java.impl.util.xml.converters.AbstractMethodParams;
+import com.intellij.java.language.psi.PsiType;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.util.xml.converters.AbstractMethodParams;
-import com.intellij.psi.PsiType;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericDomValue;
 
 import java.util.List;
 
@@ -34,7 +34,8 @@ import java.util.List;
  * 	fully-qualified Java type names of the method parameters.
  * </pre>
  */
-public interface MethodParams extends JavaeeDomModelElement, AbstractMethodParams {
+public interface MethodParams extends JavaeeDomModelElement, AbstractMethodParams
+{
 
 	/**
 	 * Returns the list of method-param children.

@@ -16,15 +16,12 @@
 
 package com.intellij.javaee.model;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.JavaeeModelElement;
-import com.intellij.psi.PsiClass;
 
 /**
  * @author Dmitry Avdeev
  */
 public interface CommonListener extends JavaeeModelElement {
-
-
   PsiClass getPsiClass();
-
 }

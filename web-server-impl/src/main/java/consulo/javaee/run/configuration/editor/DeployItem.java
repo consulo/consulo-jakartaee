@@ -1,15 +1,15 @@
 package consulo.javaee.run.configuration.editor;
 
-import com.intellij.javaee.deployment.DeploymentModel;
-import com.intellij.javaee.run.configuration.CommonModel;
-import com.intellij.openapi.Disposable;
-import com.intellij.openapi.options.ConfigurationException;
-import com.intellij.openapi.options.SettingsEditor;
-import com.intellij.openapi.util.Disposer;
-import com.intellij.packaging.artifacts.ArtifactPointer;
-import com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.compiler.artifact.ArtifactPointer;
+import consulo.configurable.ConfigurationException;
+import consulo.disposer.Disposable;
+import consulo.disposer.Disposer;
+import consulo.execution.configuration.ui.SettingsEditor;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
+import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.remoteServer.configuration.deployment.ArtifactDeploymentSource;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
 
 /**
  * @author VISTALL

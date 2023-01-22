@@ -15,17 +15,16 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
-import java.util.Arrays;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
-import org.jetbrains.annotations.NonNls;
+import com.intellij.java.impl.util.descriptors.ConfigFileVersion;
 import com.intellij.javaee.JavaeeVersion;
 import com.intellij.javaee.model.EjbRootDescriptor;
 import com.intellij.javaee.model.common.JavaeeCommonConstants;
-import com.intellij.util.descriptors.ConfigFileVersion;
-import com.intellij.util.xml.NamedEnum;
+import consulo.xml.util.xml.NamedEnum;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author peter

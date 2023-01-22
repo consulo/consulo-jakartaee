@@ -16,21 +16,22 @@
 
 package com.intellij.javaee.model.xml.web.converters;
 
-import com.intellij.javaee.model.enums.WebAppVersion;
 import com.intellij.javaee.model.xml.web.FilterMapping;
 import com.intellij.javaee.model.xml.web.Servlet;
 import com.intellij.javaee.model.xml.web.WebApp;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.DomResolveConverter;
-import javax.annotation.Nonnull;
+import com.intellij.javaee.model.xml.web.WebAppVersion;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.DomResolveConverter;
 
+import javax.annotation.Nonnull;
 import java.util.Collections;
 import java.util.Set;
 
 /**
  * @author peter
  */
-public class ServletNameConverter extends DomResolveConverter<Servlet> {
+public class ServletNameConverter extends DomResolveConverter<Servlet>
+{
   public ServletNameConverter() {
     super(Servlet.class);
   }

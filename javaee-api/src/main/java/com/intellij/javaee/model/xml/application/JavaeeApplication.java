@@ -29,8 +29,8 @@ import com.intellij.javaee.model.xml.DisplayName;
 import com.intellij.javaee.model.xml.Icon;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.SecurityRole;
-import com.intellij.util.xml.GenericAttributeValue;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericAttributeValue;
+import consulo.xml.util.xml.GenericDomValue;
 
 /**
  * http://java.sun.com/xml/ns/javaee:applicationType interface.

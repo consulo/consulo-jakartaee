@@ -31,7 +31,7 @@ package com.intellij.javaee.model.enums;
  *             Extended
  * </pre>
  */
-public enum PersistenceContextType implements com.intellij.util.xml.NamedEnum {
+public enum PersistenceContextType implements consulo.xml.util.xml.NamedEnum {
 	EXTENDED ("Extended"),
 	TRANSACTIONAL ("Transactional");
 

@@ -15,18 +15,17 @@
  */
 package com.intellij.javaee.model.xml.converters;
 
+import consulo.module.Module;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.ModuleContextProvider;
+import consulo.xml.util.xml.ResolvingConverter;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import com.intellij.openapi.extensions.Extensions;
-import com.intellij.openapi.module.Module;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.ModuleContextProvider;
-import com.intellij.util.xml.ResolvingConverter;
 
 /**
  * @author Serega.Vasiliev
@@ -37,7 +36,7 @@ public class ContextParamNameConverter extends ResolvingConverter<String> {
   public Collection<? extends String> getVariants(ConvertContext context) {
     List<String> paramNames = new ArrayList<String>();
     Module[] modules = ModuleContextProvider.getModules(context.getFile());
-    for (ContextParamsProvider provider : Extensions.getExtensions(ContextParamsProvider.EP_NAME)) {
+    for (ContextParamsProvider provider : ContextParamsProvider.EP_NAME.getExtensionList()) {
       for (Module module : modules) {
         paramNames.addAll(provider.getContextParamNames(module, context));
       }

@@ -23,8 +23,8 @@ import javax.annotation.Nonnull;
 
 import com.intellij.javaee.model.enums.ConcurrentLockType;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Required;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.Required;
 
 /**
  * http://java.sun.com/xml/ns/javaee:concurrent-methodType interface.

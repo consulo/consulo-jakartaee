@@ -23,7 +23,7 @@ import com.intellij.javaee.model.enums.CmrFieldType;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.DescriptionOwner;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericDomValue;
 import javax.annotation.Nonnull;
 
 import java.util.List;

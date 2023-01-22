@@ -17,7 +17,7 @@
 package com.intellij.javaee.web;
 
 import com.intellij.javaee.model.common.JavaeeModelElement;
-import com.intellij.util.xml.MutableGenericValue;
+import consulo.xml.util.xml.MutableGenericValue;
 
 /**
  * @author Dmitry Avdeev

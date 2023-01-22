@@ -19,16 +19,15 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.ide.presentation.Presentation;
+import com.intellij.java.impl.util.xml.ClassTemplate;
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.J2EEFileTemplateNames;
 import com.intellij.javaee.model.CommonListener;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.ClassTemplate;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.Stubbed;
-import javax.annotation.Nonnull;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.NameValue;
+import consulo.xml.util.xml.Stubbed;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
@@ -39,7 +38,7 @@ import java.util.List;
  * 	application listener bean.
  * </pre>
  */
-@Presentation(icon = "AllIcons.Nodes.Weblistener")
+//@Presentation(icon = "AllIcons.Nodes.Weblistener")
 public interface Listener extends CommonListener, JavaeeDomModelElement, DescriptionGroup {
 
 	/**

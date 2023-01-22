@@ -19,14 +19,13 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.intellij.javaee.model.enums.TransportGuarantee;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericDomValue;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:user-data-constraintType interface.

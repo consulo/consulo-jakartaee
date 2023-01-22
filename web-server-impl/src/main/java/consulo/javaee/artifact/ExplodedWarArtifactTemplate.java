@@ -16,40 +16,29 @@
 
 package consulo.javaee.artifact;
 
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleUtilCore;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.roots.LibraryOrderEntry;
-import com.intellij.openapi.roots.ModuleOrderEntry;
-import com.intellij.openapi.roots.ModuleRootModel;
-import com.intellij.openapi.roots.RootPolicy;
-import com.intellij.openapi.roots.impl.ModuleLibraryTable;
-import com.intellij.openapi.roots.impl.libraries.LibraryTableImplUtil;
-import com.intellij.openapi.roots.libraries.Library;
-import com.intellij.openapi.roots.libraries.LibraryTable;
-import com.intellij.openapi.roots.ui.configuration.ChooseModulesDialog;
-import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
-import com.intellij.packaging.artifacts.ArtifactTemplate;
-import com.intellij.packaging.elements.CompositePackagingElement;
-import com.intellij.packaging.elements.PackagingElementFactory;
-import com.intellij.packaging.elements.PackagingElementResolvingContext;
-import com.intellij.packaging.impl.elements.DirectoryElementType;
-import com.intellij.packaging.impl.elements.DirectoryPackagingElement;
-import com.intellij.packaging.impl.elements.LibraryElementType;
-import com.intellij.packaging.impl.elements.LibraryPackagingElement;
-import com.intellij.packaging.impl.elements.moduleContent.ProductionModuleOutputElementType;
-import com.intellij.util.containers.ArrayListSet;
 import consulo.annotation.access.RequiredReadAction;
-import consulo.javaee.JavaWebConstants;
-import consulo.javaee.module.extension.JavaWebModuleExtension;
-import consulo.packaging.impl.elements.ZipArchiveElementType;
-import consulo.packaging.impl.elements.ZipArchivePackagingElement;
-import consulo.packaging.impl.elements.moduleContent.ProductionResourceModuleOutputElementType;
-import consulo.roots.ContentFolderScopes;
-import consulo.roots.impl.ProductionContentFolderTypeProvider;
-import consulo.roots.impl.ProductionResourceContentFolderTypeProvider;
-import consulo.roots.impl.WebResourcesFolderTypeProvider;
-import consulo.util.pointers.NamedPointer;
+import consulo.compiler.artifact.ArtifactTemplate;
+import consulo.compiler.artifact.element.*;
+import consulo.component.util.pointer.NamedPointer;
+import consulo.content.base.WebResourcesFolderTypeProvider;
+import consulo.content.library.Library;
+import consulo.content.library.LibraryTable;
+import consulo.ide.impl.idea.openapi.roots.ui.configuration.ChooseModulesDialog;
+import consulo.ide.impl.idea.util.containers.ArrayListSet;
+import consulo.jakartaee.web.JavaWebConstants;
+import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
+import consulo.language.content.LanguageContentFolderScopes;
+import consulo.language.content.ProductionContentFolderTypeProvider;
+import consulo.language.content.ProductionResourceContentFolderTypeProvider;
+import consulo.language.util.ModuleUtilCore;
+import consulo.module.Module;
+import consulo.module.content.layer.ModuleRootModel;
+import consulo.module.content.layer.ModulesProvider;
+import consulo.module.content.layer.orderEntry.LibraryOrderEntry;
+import consulo.module.content.layer.orderEntry.ModuleOrderEntry;
+import consulo.module.content.layer.orderEntry.RootPolicy;
+import consulo.project.Project;
+import consulo.util.lang.Pair;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -88,7 +77,7 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 		libDir.setDirectoryName("lib");
 		webInfDir.addFirstChild(libDir);
 
-		Set<Library> libraries = new ArrayListSet<>();
+		Set<Pair<Library, Module>> libraries = new ArrayListSet<>();
 		Set<Module> modules = new ArrayListSet<>();
 
 		collectInfo(modules, libraries, modulesProvider, module);
@@ -101,26 +90,29 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 			ZipArchivePackagingElement zipArchivePackagingElement = ZipArchiveElementType.getInstance().createEmpty(project);
 			zipArchivePackagingElement.setArchiveFileName(toAddModule.getName() + ".jar");
 
-			if(rootModel.getContentFolders(ContentFolderScopes.of(ProductionContentFolderTypeProvider.getInstance())).length > 0)
+			if(rootModel.getContentFolders(LanguageContentFolderScopes.of(ProductionContentFolderTypeProvider.getInstance())).length > 0)
 			{
 				zipArchivePackagingElement.addFirstChild(ProductionModuleOutputElementType.getInstance().createElement(project, pointer));
 			}
 
-			if(rootModel.getContentFolders(ContentFolderScopes.of(ProductionResourceContentFolderTypeProvider.getInstance())).length > 0)
+			if(rootModel.getContentFolders(LanguageContentFolderScopes.of(ProductionResourceContentFolderTypeProvider.getInstance())).length > 0)
 			{
 				zipArchivePackagingElement.addFirstChild(ProductionResourceModuleOutputElementType.getInstance().createElement(project, pointer));
 			}
 
 			libDir.addFirstChild(zipArchivePackagingElement);
 
-			if(rootModel.getContentFolders(ContentFolderScopes.of(WebResourcesFolderTypeProvider.getInstance())).length > 0)
+			if(rootModel.getContentFolders(LanguageContentFolderScopes.of(WebResourcesFolderTypeProvider.getInstance())).length > 0)
 			{
 				root.addFirstChild(WebResourceModuleOutputElementType.getInstance().createElement(project, pointer));
 			}
 		}
 
-		for(Library library : libraries)
+		for(Pair<Library, Module> pair : libraries)
 		{
+			Library library = pair.getKey();
+			Module librayModule = pair.getValue();
+
 			LibraryPackagingElement libraryPackagingElement = LibraryElementType.getInstance().createEmpty(project);
 			libraryPackagingElement.setLibraryName(library.getName());
 
@@ -129,9 +121,9 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 			String tableLevel = table == null ? null : table.getTableLevel();
 			libraryPackagingElement.setLevel(tableLevel);
 
-			if(LibraryTableImplUtil.MODULE_LEVEL.equals(tableLevel))
+			if(librayModule != null)
 			{
-				libraryPackagingElement.setModuleName(((ModuleLibraryTable) table).getModule().getName());
+				libraryPackagingElement.setModuleName(librayModule.getName());
 			}
 
 			libDir.addFirstChild(libraryPackagingElement);
@@ -140,7 +132,7 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 		return new NewArtifactConfiguration(root, ExplodedWarArtifactType.getInstance().getPresentableName() + ": " + module.getName(), ExplodedWarArtifactType.getInstance());
 	}
 
-	private static void collectInfo(final Set<Module> modules, final Set<Library> libraries, final ModulesProvider modulesProvider, Module module)
+	private static void collectInfo(final Set<Module> modules, final Set<Pair<Library, Module>> libraries, final ModulesProvider modulesProvider, Module module)
 	{
 		modules.add(module);
 
@@ -156,7 +148,14 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 				{
 					return null;
 				}
-				libraries.add(library);
+				if(libraryOrderEntry.isModuleLevel())
+				{
+					libraries.add(Pair.create(library, libraryOrderEntry.getOwnerModule()));
+				}
+				else
+				{
+					libraries.add(Pair.create(library, null));
+				}
 				return null;
 			}
 
@@ -168,6 +167,7 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 				{
 					return null;
 				}
+
 				if(!modules.contains(moduleDependency))
 				{
 					collectInfo(modules, libraries, modulesProvider, moduleDependency);

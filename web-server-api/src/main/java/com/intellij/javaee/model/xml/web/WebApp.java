@@ -19,15 +19,14 @@
 
 package com.intellij.javaee.model.xml.web;
 
-import java.util.List;
+import com.intellij.javaee.model.xml.*;
+import consulo.xml.util.xml.GenericAttributeValue;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.Stubbed;
+import consulo.xml.util.xml.SubTag;
 
 import javax.annotation.Nonnull;
-import com.intellij.javaee.model.enums.WebAppVersion;
-import com.intellij.javaee.model.xml.*;
-import com.intellij.util.xml.GenericAttributeValue;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.Stubbed;
-import com.intellij.util.xml.SubTag;
+import java.util.List;
 
 /**
  * http://java.sun.com/xml/ns/javaee:web-appType interface.
@@ -78,7 +77,7 @@ public interface WebApp extends JavaeeDomModelElement, DescriptionGroup, JndiEnv
 	 * </pre>
 	 * @return the value of the distributable child.
 	 */
-	@SubTag (value = "distributable", indicator = true)
+	@SubTag(value = "distributable", indicator = true)
 	GenericDomValue<Boolean> getDistributable();
 
 

@@ -19,8 +19,8 @@
 
 package com.intellij.javaee.model.xml;
 
-import com.intellij.util.xml.GenericAttributeValue;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.GenericAttributeValue;
+import consulo.xml.util.xml.GenericDomValue;
 
 /**
  * http://java.sun.com/xml/ns/javaee:iconType interface.

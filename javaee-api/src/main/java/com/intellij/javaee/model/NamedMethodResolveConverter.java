@@ -20,7 +20,7 @@ import com.intellij.javaee.model.xml.ejb.NamedMethod;
 /**
  * @author peter
  */
-public abstract class NamedMethodResolveConverter extends com.intellij.util.xml.converters.AbstractMethodResolveConverter<NamedMethod> {
+public abstract class NamedMethodResolveConverter extends AbstractMethodResolveConverter<NamedMethod> {
 
   public NamedMethodResolveConverter() {
     super(NamedMethod.class);

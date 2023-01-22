@@ -16,11 +16,11 @@
 package com.intellij.javaee.model;
 
 import com.intellij.javaee.J2EEBundle;
-import com.intellij.openapi.util.Pair;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.ResolvingConverter;
-import javax.annotation.Nonnull;
+import consulo.util.lang.Pair;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.ResolvingConverter;
 
+import javax.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.Collection;
 

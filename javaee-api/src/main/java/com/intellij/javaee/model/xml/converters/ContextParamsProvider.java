@@ -15,24 +15,27 @@
  */
 package com.intellij.javaee.model.xml.converters;
 
-import java.util.Collections;
-import java.util.Set;
+import consulo.annotation.component.ComponentScope;
+import consulo.annotation.component.ExtensionAPI;
+import consulo.component.extension.ExtensionPointName;
+import consulo.module.Module;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.Converter;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.intellij.openapi.extensions.ExtensionPointName;
-import com.intellij.openapi.module.Module;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.Converter;
+import java.util.Collections;
+import java.util.Set;
 
 /**
  * @author Sergey Vasiliev
  */
+@ExtensionAPI(ComponentScope.APPLICATION)
 public abstract class ContextParamsProvider {
-  public static final ExtensionPointName<ContextParamsProvider> EP_NAME = ExtensionPointName.create("consulo.javaee.contextParamsProvider");
+  public static final ExtensionPointName<ContextParamsProvider> EP_NAME = ExtensionPointName.create(ContextParamsProvider.class);
 
   /**
-   * @param module         All modules from {@link com.intellij.util.xml.ModuleContextProvider#getModules}.
+   * @param module         All modules from {@link consulo.xml.util.xml.ModuleContextProvider#getModules}.
    * @param convertContext Current convert context.
    * @return Parameter names applicable in this context.
    */
@@ -42,7 +45,7 @@ public abstract class ContextParamsProvider {
   }
 
   /**
-   * @deprecated use {@link #getContextParamNames(com.intellij.openapi.module.Module, com.intellij.util.xml.ConvertContext)}
+   * @deprecated use {@link #getContextParamNames(Module, consulo.xml.util.xml.ConvertContext)}
    */
   @Deprecated
   public Set<String> getContextParamNames(@Nonnull Module module) {

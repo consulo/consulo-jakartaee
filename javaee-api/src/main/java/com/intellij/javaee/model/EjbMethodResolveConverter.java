@@ -15,11 +15,7 @@
  */
 package com.intellij.javaee.model;
 
-import java.util.Collection;
-import java.util.HashSet;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.ejb.EjbWithHome;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.javaee.model.common.ejb.MessageDrivenBean;
@@ -27,15 +23,19 @@ import com.intellij.javaee.model.common.ejb.SessionBean;
 import com.intellij.javaee.model.enums.MethodIntf;
 import com.intellij.javaee.model.xml.ejb.Method;
 import com.intellij.javaee.model.xml.ejb.MethodParams;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.xml.ConvertContext;
-import com.intellij.util.xml.GenericValue;
+import consulo.util.collection.ContainerUtil;
+import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.util.xml.GenericValue;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * @author peter
  */
-public class EjbMethodResolveConverter extends com.intellij.util.xml.converters.AbstractMethodResolveConverter<Method> {
+public class EjbMethodResolveConverter extends AbstractMethodResolveConverter<Method> {
 
   public EjbMethodResolveConverter() {
     super(Method.class);

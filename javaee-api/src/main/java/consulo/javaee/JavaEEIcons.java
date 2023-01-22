@@ -1,16 +1,16 @@
 package consulo.javaee;
 
 import consulo.annotation.DeprecationInfo;
-import consulo.javaee.api.icon.JavaEEApiIconGroup;
+import consulo.javaee.icon.JavaEEApiIconGroup;
 import consulo.ui.image.Image;
 
 @Deprecated
 @DeprecationInfo("Use JavaEEApiIconGroup")
 public interface JavaEEIcons
 {
-	Image BuildOnFrameDeactivation = JavaEEApiIconGroup.buildOnFrameDeactivation();
+	Image BuildOnFrameDeactivation = JavaEEApiIconGroup.buildonframedeactivation();
 	Image Jsp = JavaEEApiIconGroup.jsp();
 	Image Jspx = JavaEEApiIconGroup.jspx();
-	Image WarArtifact = JavaEEApiIconGroup.warArtifact();
+	Image WarArtifact = JavaEEApiIconGroup.warartifact();
 	Image Web_xml = JavaEEApiIconGroup.web_xml();
 }

@@ -1,6 +1,6 @@
 package consulo.javaee.module.extension;
 
-import com.intellij.util.descriptors.ConfigFileContainer;
+import com.intellij.java.impl.util.descriptors.ConfigFileContainer;
 import consulo.module.extension.ModuleExtension;
 
 /**

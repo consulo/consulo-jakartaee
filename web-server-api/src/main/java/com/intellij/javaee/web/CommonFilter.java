@@ -16,15 +16,15 @@
 
 package com.intellij.javaee.web;
 
-import java.util.List;
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.javaee.model.common.JavaeeModelElement;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.MutableGenericValue;
+import consulo.xml.util.xml.NameValue;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.intellij.javaee.model.common.JavaeeModelElement;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.MutableGenericValue;
-import com.intellij.util.xml.NameValue;
+import java.util.List;
 
 /**
  * @author Dmitry Avdeev
@@ -45,5 +45,4 @@ public interface CommonFilter extends JavaeeModelElement
 
 	@Nullable
 	PsiClass getPsiClass();
-
 }

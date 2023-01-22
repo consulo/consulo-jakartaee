@@ -34,7 +34,7 @@ package com.intellij.javaee.model.enums;
  * 	    Container
  * </pre>
  */
-public enum ResAuth implements com.intellij.util.xml.NamedEnum {
+public enum ResAuth implements consulo.xml.util.xml.NamedEnum {
 	APPLICATION ("Application"),
 	CONTAINER ("Container");
 

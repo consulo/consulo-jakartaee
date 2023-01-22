@@ -1,23 +1,22 @@
 package consulo.javaee.run.configuration.state;
 
-import java.util.Collections;
+import com.intellij.java.execution.configurations.PatchedRunnableState;
+import consulo.jakartaee.webServer.impl.oss.server.JavaeeStartupPolicy;
+import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObject;
+import consulo.jakartaee.webServer.impl.run.localRun.ScriptHelper;
+import consulo.execution.DefaultExecutionResult;
+import consulo.execution.ExecutionResult;
+import consulo.execution.configuration.CommandLineState;
+import consulo.execution.executor.Executor;
+import consulo.execution.runner.ExecutionEnvironment;
+import consulo.execution.runner.ProgramRunner;
+import consulo.execution.ui.console.ConsoleView;
+import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+import consulo.process.ExecutionException;
+import consulo.process.ProcessHandler;
 
 import javax.annotation.Nonnull;
-
-import com.intellij.execution.DefaultExecutionResult;
-import com.intellij.execution.ExecutionException;
-import com.intellij.execution.ExecutionResult;
-import com.intellij.execution.Executor;
-import com.intellij.execution.configurations.CommandLineState;
-import com.intellij.execution.configurations.PatchedRunnableState;
-import com.intellij.execution.process.ProcessHandler;
-import com.intellij.execution.runners.ExecutionEnvironment;
-import com.intellij.execution.runners.ProgramRunner;
-import com.intellij.execution.ui.ConsoleView;
-import com.intellij.javaee.oss.server.JavaeeStartupPolicy;
-import com.intellij.javaee.run.localRun.ExecutableObject;
-import com.intellij.javaee.run.localRun.ScriptHelper;
-import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+import java.util.Collections;
 
 /**
  * @author VISTALL

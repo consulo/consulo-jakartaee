@@ -16,21 +16,17 @@
 
 package consulo.javaee.artifact;
 
-import javax.annotation.Nonnull;
+import consulo.compiler.artifact.ArtifactType;
+import consulo.compiler.artifact.element.*;
+import consulo.component.util.pointer.NamedPointer;
+import consulo.content.ContentFolderTypeProvider;
+import consulo.language.content.LanguageContentFolderScopes;
+import consulo.module.Module;
+import consulo.module.content.ModuleRootManager;
+import consulo.project.Project;
+import consulo.virtualFileSystem.VirtualFile;
 
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.roots.ModuleRootManager;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.packaging.artifacts.ArtifactType;
-import com.intellij.packaging.elements.ArtifactIncrementalCompilerContext;
-import com.intellij.packaging.elements.IncrementalCompilerInstructionCreator;
-import com.intellij.packaging.elements.PackagingElementResolvingContext;
-import com.intellij.packaging.elements.PackagingElementType;
-import com.intellij.packaging.impl.elements.moduleContent.ModuleOutputPackagingElementImpl;
-import consulo.roots.ContentFolderScopes;
-import consulo.roots.ContentFolderTypeProvider;
-import consulo.util.pointers.NamedPointer;
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
@@ -50,14 +46,14 @@ public class WebResourceModuleOutputPackagingElement extends ModuleOutputPackagi
 
 	@Override
 	public void computeIncrementalCompilerInstructions(@Nonnull IncrementalCompilerInstructionCreator creator,
-			@Nonnull PackagingElementResolvingContext resolvingContext,
-			@Nonnull ArtifactIncrementalCompilerContext compilerContext,
-			@Nonnull ArtifactType artifactType)
+													   @Nonnull PackagingElementResolvingContext resolvingContext,
+													   @Nonnull ArtifactIncrementalCompilerContext compilerContext,
+													   @Nonnull ArtifactType artifactType)
 	{
 		Module module = findModule(resolvingContext);
 		if(module != null)
 		{
-			VirtualFile[] virtualFiles = ModuleRootManager.getInstance(module).getContentFolderFiles(ContentFolderScopes.of(myContentFolderType));
+			VirtualFile[] virtualFiles = ModuleRootManager.getInstance(module).getContentFolderFiles(LanguageContentFolderScopes.of(myContentFolderType));
 
 			for(VirtualFile virtualFile : virtualFiles)
 			{

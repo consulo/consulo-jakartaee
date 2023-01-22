@@ -34,7 +34,7 @@ import org.jetbrains.annotations.NonNls;
  * 	    Stateless
  * </pre>
  */
-public enum SessionType implements com.intellij.util.xml.NamedEnum {
+public enum SessionType implements consulo.xml.util.xml.NamedEnum {
 	SINGLETON ("Singleton"),
 	STATEFUL ("Stateful"),
 	STATELESS ("Stateless");

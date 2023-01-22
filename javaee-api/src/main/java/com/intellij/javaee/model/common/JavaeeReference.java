@@ -15,9 +15,9 @@
  */
 package com.intellij.javaee.model.common;
 
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.PrimaryKey;
-import com.intellij.psi.PsiMember;
+import com.intellij.java.language.psi.PsiMember;
+import consulo.xml.util.xml.GenericValue;
+import consulo.xml.util.xml.PrimaryKey;
 
 import java.util.List;
 

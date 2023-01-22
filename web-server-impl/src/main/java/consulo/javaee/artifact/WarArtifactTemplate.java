@@ -16,27 +16,18 @@
 
 package consulo.javaee.artifact;
 
+import consulo.compiler.artifact.*;
+import consulo.compiler.artifact.element.*;
+import consulo.ide.impl.idea.packaging.impl.ui.ChooseArtifactsDialog;
+import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
+import consulo.module.Module;
+import consulo.module.content.layer.ModuleRootModel;
+
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-
-import javax.annotation.Nullable;
-
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.roots.ModuleRootModel;
-import com.intellij.packaging.artifacts.Artifact;
-import com.intellij.packaging.artifacts.ArtifactManager;
-import com.intellij.packaging.artifacts.ArtifactPointerManager;
-import com.intellij.packaging.artifacts.ArtifactTemplate;
-import com.intellij.packaging.elements.CompositePackagingElement;
-import com.intellij.packaging.elements.PackagingElementFactory;
-import com.intellij.packaging.elements.PackagingElementResolvingContext;
-import com.intellij.packaging.impl.artifacts.ArtifactUtil;
-import com.intellij.packaging.impl.elements.ArtifactElementType;
-import com.intellij.packaging.impl.elements.ArtifactPackagingElement;
-import com.intellij.packaging.impl.ui.ChooseArtifactsDialog;
-import consulo.javaee.module.extension.JavaWebModuleExtension;
 
 /**
  * @author VISTALL

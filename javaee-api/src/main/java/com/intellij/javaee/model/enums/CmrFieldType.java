@@ -19,7 +19,7 @@
 
 package com.intellij.javaee.model.enums;
 
-import com.intellij.psi.CommonClassNames;
+import com.intellij.java.language.psi.CommonClassNames;
 
 /**
  * http://java.sun.com/xml/ns/javaee:cmr-field-typeType enumeration.
@@ -31,7 +31,7 @@ import com.intellij.psi.CommonClassNames;
  * 	must be either: java.util.Collection or java.util.Set.
  * </pre>
  */
-public enum CmrFieldType implements com.intellij.util.xml.NamedEnum {
+public enum CmrFieldType implements consulo.xml.util.xml.NamedEnum {
 	JAVA_UTIL_COLLECTION ("java.util.Collection"),
 	JAVA_UTIL_SET (CommonClassNames.JAVA_UTIL_SET);
 

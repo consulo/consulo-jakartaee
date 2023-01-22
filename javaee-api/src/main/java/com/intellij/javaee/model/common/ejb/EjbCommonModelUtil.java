@@ -15,23 +15,23 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.javaee.ejb.role.EjbClassRoleEnum;
+import com.intellij.javaee.model.xml.ejb.EjbBase;
+import consulo.module.Module;
+import consulo.module.extension.ModuleExtension;
+import consulo.project.Project;
+import consulo.util.collection.ContainerUtil;
+import consulo.util.lang.Pair;
+import consulo.xml.util.xml.ElementPresentationManager;
+import consulo.xml.util.xml.GenericValue;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.intellij.javaee.ejb.role.EjbClassRoleEnum;
-import com.intellij.javaee.model.xml.ejb.EjbBase;
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Pair;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.Function;
-import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.xml.ElementPresentationManager;
-import com.intellij.util.xml.GenericValue;
-import consulo.module.extension.ModuleExtension;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Function;
 
 /**
  * @author peter
@@ -49,45 +49,45 @@ public class EjbCommonModelUtil
 		final ArrayList<T> result = new ArrayList<T>();
 		if(includeClass)
 		{
-			ContainerUtil.addIfNotNull(result, mapper.fun(Pair.create(ejb.getEjbClass(), EjbClassRoleEnum.EJB_CLASS_ROLE_EJB_CLASS)));
+			ContainerUtil.addIfNotNull(result, mapper.apply(Pair.create(ejb.getEjbClass(), EjbClassRoleEnum.EJB_CLASS_ROLE_EJB_CLASS)));
 		}
 		if(ejb instanceof EjbWithHome)
 		{
 			final EjbWithHome ejbWithHome = (EjbWithHome) ejb;
 			if(includeHomeInterfaces)
 			{
-				ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(ejbWithHome.getHome(), EjbClassRoleEnum.EJB_CLASS_ROLE_HOME_INTERFACE)));
-				ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(ejbWithHome.getLocalHome(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_HOME_INTERFACE)));
+				ContainerUtil.addIfNotNull(result,mapper.apply(Pair.create(ejbWithHome.getHome(), EjbClassRoleEnum.EJB_CLASS_ROLE_HOME_INTERFACE)));
+				ContainerUtil.addIfNotNull(result,mapper.apply(Pair.create(ejbWithHome.getLocalHome(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_HOME_INTERFACE)));
 			}
 			if(includeComponentInterfaces)
 			{
-				ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(ejbWithHome.getRemote(), EjbClassRoleEnum.EJB_CLASS_ROLE_REMOTE_INTERFACE)));
-				ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(ejbWithHome.getLocal(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_INTERFACE)));
+				ContainerUtil.addIfNotNull(result,mapper.apply(Pair.create(ejbWithHome.getRemote(), EjbClassRoleEnum.EJB_CLASS_ROLE_REMOTE_INTERFACE)));
+				ContainerUtil.addIfNotNull(result,mapper.apply(Pair.create(ejbWithHome.getLocal(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_INTERFACE)));
 				if(ejb instanceof SessionBean)
 				{
 					final SessionBean sessionBean = (SessionBean) ejb;
 					if(Boolean.TRUE.equals(sessionBean.getLocalBean().getValue()))
 					{
-						ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(sessionBean.getEjbClass(), EjbClassRoleEnum.EJB_CLASS_ROLE_EJB_CLASS)));
+						ContainerUtil.addIfNotNull(result,mapper.apply(Pair.create(sessionBean.getEjbClass(), EjbClassRoleEnum.EJB_CLASS_ROLE_EJB_CLASS)));
 					}
 					else
 					{
 						for(GenericValue<PsiClass> genericValue : sessionBean.getBusinessLocals())
 						{
-							ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(genericValue, EjbClassRoleEnum.EJB_CLASS_ROLE_BUSINESS_LOCAL_INTERFACE)));
+							ContainerUtil.addIfNotNull(result,mapper.apply(Pair.create(genericValue, EjbClassRoleEnum.EJB_CLASS_ROLE_BUSINESS_LOCAL_INTERFACE)));
 						}
 						for(GenericValue<PsiClass> genericValue : sessionBean.getBusinessRemotes())
 						{
-							ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(genericValue, EjbClassRoleEnum.EJB_CLASS_ROLE_BUSINESS_REMOTE_INTERFACE)));
+							ContainerUtil.addIfNotNull(result,mapper.apply(Pair.create(genericValue, EjbClassRoleEnum.EJB_CLASS_ROLE_BUSINESS_REMOTE_INTERFACE)));
 						}
-						ContainerUtil.addIfNotNull(result,mapper.fun(Pair.create(sessionBean.getServiceEndpoint(), EjbClassRoleEnum.EJB_CLASS_ROLE_SERVICE_ENDPOINT_INTERFACE)));
+						ContainerUtil.addIfNotNull(result,mapper.apply(Pair.create(sessionBean.getServiceEndpoint(), EjbClassRoleEnum.EJB_CLASS_ROLE_SERVICE_ENDPOINT_INTERFACE)));
 					}
 				}
 			}
 		}
 		if(includeComponentInterfaces && ejb instanceof MessageDrivenBean)
 		{
-			ContainerUtil.addIfNotNull(result, mapper.fun(Pair.create((((MessageDrivenBean) ejb)).getMessageListenerInterface(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_INTERFACE)));
+			ContainerUtil.addIfNotNull(result, mapper.apply(Pair.create((((MessageDrivenBean) ejb)).getMessageListenerInterface(), EjbClassRoleEnum.EJB_CLASS_ROLE_LOCAL_INTERFACE)));
 		}
 		return result;
 	}
@@ -95,27 +95,13 @@ public class EjbCommonModelUtil
 	public static List<GenericValue<PsiClass>> getEjbClassesReferences(
 			EnterpriseBean ejb, boolean includeClass, boolean includeHomeInterfaces, boolean includeComponentInterfaces)
 	{
-		return collectEjbClasses(ejb, includeClass, includeHomeInterfaces, includeComponentInterfaces, new Function<Pair<GenericValue<PsiClass>,
-				EjbClassRoleEnum>, GenericValue<PsiClass>>()
-		{
-			public GenericValue<PsiClass> fun(final Pair<GenericValue<PsiClass>, EjbClassRoleEnum> s)
-			{
-				return s.getFirst();
-			}
-		});
+		return collectEjbClasses(ejb, includeClass, includeHomeInterfaces, includeComponentInterfaces, s -> s.getFirst());
 	}
 
 	public static List<PsiClass> getEjbClasses(
 			EnterpriseBean ejb, boolean includeClass, boolean includeHomeInterfaces, boolean includeComponentInterfaces)
 	{
-		return collectEjbClasses(ejb, includeClass, includeHomeInterfaces, includeComponentInterfaces, new Function<Pair<GenericValue<PsiClass>,
-				EjbClassRoleEnum>, PsiClass>()
-		{
-			public PsiClass fun(final Pair<GenericValue<PsiClass>, EjbClassRoleEnum> s)
-			{
-				return s.getFirst().getValue();
-			}
-		});
+		return collectEjbClasses(ejb, includeClass, includeHomeInterfaces, includeComponentInterfaces, s -> s.getFirst().getValue());
 	}
 
 	/*  @NotNull
@@ -126,7 +112,7 @@ public class EjbCommonModelUtil
 																	@NotNull final Function<EjbClassRole, T> mapper) {
 		for (EjbClassRole role : EjbHelper.getEjbHelper().getAllEjbRoles(project)) {
 		  if ((module == null || module == role.getModule()) && (facet == null || facet == role.getFacet())) {
-			ContainerUtil.addIfNotNull(mapper.fun(role), result);
+			ContainerUtil.addIfNotNull(mapper.apply(role), result);
 		  }
 		}
 		return result;

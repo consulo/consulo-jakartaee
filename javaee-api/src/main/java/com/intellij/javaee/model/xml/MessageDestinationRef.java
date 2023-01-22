@@ -19,12 +19,12 @@
 
 package com.intellij.javaee.model.xml;
 
+import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.enums.MessageDestinationUsage;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericDomValue;
-import com.intellij.util.xml.NameValue;
-import javax.annotation.Nonnull;
+import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.util.xml.NameValue;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
