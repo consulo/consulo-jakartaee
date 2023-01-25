@@ -1,5 +1,6 @@
 package consulo.java.web.maven;
 
+import consulo.annotation.component.ExtensionImpl;
 import consulo.compiler.artifact.Artifact;
 import consulo.compiler.artifact.ArtifactTemplate;
 import consulo.compiler.artifact.ModifiableArtifactModel;
@@ -26,6 +27,7 @@ import java.util.Map;
  * @author VISTALL
  * @since 19.04.14
  */
+@ExtensionImpl
 public class WarMavenImporter extends MavenImporterFromBuildPlugin
 {
 	public WarMavenImporter()
