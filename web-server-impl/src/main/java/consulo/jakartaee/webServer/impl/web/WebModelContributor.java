@@ -19,6 +19,8 @@ import com.intellij.javaee.model.CommonListener;
 import com.intellij.javaee.web.CommonFilter;
 import com.intellij.javaee.web.CommonServlet;
 import com.intellij.javaee.web.CommonServletMapping;
+import consulo.annotation.component.ComponentScope;
+import consulo.annotation.component.ExtensionAPI;
 import consulo.component.extension.ExtensionPointName;
 
 import java.util.Collections;
@@ -29,9 +31,10 @@ import java.util.List;
  *
  * @since 144
  */
+@ExtensionAPI(ComponentScope.APPLICATION)
 public abstract class WebModelContributor {
 
-  static final ExtensionPointName<WebModelContributor> EP_NAME = ExtensionPointName.create("com.intellij.javaee.web.webModelContributor");
+  static final ExtensionPointName<WebModelContributor> EP_NAME = ExtensionPointName.create(WebModelContributor.class);
 
   public List<CommonServlet> getServlets(Module module) {
     return Collections.emptyList();

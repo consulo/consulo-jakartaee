@@ -15,14 +15,16 @@
  */
 package consulo.jakartaee.webServer.impl.appServerIntegrations;
 
+import consulo.annotation.component.ComponentScope;
+import consulo.annotation.component.ExtensionAPI;
 import consulo.component.extension.ExtensionPointName;
-import consulo.component.extension.Extensions;
 
+@ExtensionAPI(ComponentScope.APPLICATION)
 public class EjbCustomPageProvider {
-  public static final ExtensionPointName<EjbCustomPageProvider> EXTENSION_POINT = ExtensionPointName.create("com.intellij.javaee.ejbCustomPageProvider");
+  public static final ExtensionPointName<EjbCustomPageProvider> EXTENSION_POINT = ExtensionPointName.create(EjbCustomPageProvider.class);
 
   public static EjbCustomPageProvider[] getEjbCustomPageProviders() {
-    return Extensions.getExtensions(EXTENSION_POINT);
+    return EXTENSION_POINT.getExtensions();
   }
 /*
   @Nullable 
