@@ -10,9 +10,8 @@ import consulo.xml.util.xml.highlighting.BasicDomElementsInspection;
 
 import javax.annotation.Nonnull;
 
-public abstract class JavaeeInspection extends BasicDomElementsInspection<JavaeeDomModelElement>
-{
-
+public abstract class JavaeeInspection extends BasicDomElementsInspection<JavaeeDomModelElement, Object> {
+    @SafeVarargs
     protected JavaeeInspection(Class<? extends JavaeeDomModelElement> type, Class<? extends JavaeeDomModelElement>... types) {
         super(type, types);
     }
