@@ -5,8 +5,9 @@ import consulo.java.impl.util.JavaProjectRootsUtil;
 import consulo.jsp.impl.language.JspFileType;
 import consulo.language.editor.ProblemHighlightFilter;
 import consulo.language.psi.PsiFile;
-import consulo.module.content.ProjectRootManager;
+import consulo.module.content.ProjectFileIndex;
 import consulo.virtualFileSystem.VirtualFile;
+import jakarta.inject.Inject;
 
 import javax.annotation.Nonnull;
 
@@ -17,6 +18,14 @@ import javax.annotation.Nonnull;
 @ExtensionImpl
 public class JspProblemHighlightFilter extends ProblemHighlightFilter
 {
+	private final ProjectFileIndex myProjectFileIndex;
+
+	@Inject
+	public JspProblemHighlightFilter(ProjectFileIndex projectFileIndex)
+	{
+		myProjectFileIndex = projectFileIndex;
+	}
+
 	@Override
 	public boolean shouldHighlight(@Nonnull PsiFile psiFile)
 	{
@@ -32,7 +41,7 @@ public class JspProblemHighlightFilter extends ProblemHighlightFilter
 			if(psiFile.getFileType() == JspFileType.INSTANCE)
 			{
 				final VirtualFile virtualFile = psiFile.getVirtualFile();
-				if(virtualFile != null && ProjectRootManager.getInstance(psiFile.getProject()).getFileIndex().isInLibrarySource(virtualFile))
+				if(virtualFile != null && myProjectFileIndex.isInLibrarySource(virtualFile))
 				{
 					return false;
 				}
