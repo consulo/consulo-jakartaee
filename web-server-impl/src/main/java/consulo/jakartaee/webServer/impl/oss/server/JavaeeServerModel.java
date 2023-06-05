@@ -15,8 +15,6 @@ import consulo.execution.RuntimeConfigurationException;
 import consulo.execution.configuration.RuntimeConfigurationError;
 import consulo.execution.configuration.log.LogFileOptions;
 import consulo.execution.configuration.log.PredefinedLogFile;
-import consulo.ide.impl.idea.openapi.deployment.DeploymentUtil;
-import consulo.ide.impl.idea.util.PathUtil;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentManager;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
@@ -36,6 +34,7 @@ import consulo.javaee.module.extension.JavaEEModuleExtension;
 import consulo.process.ExecutionException;
 import consulo.process.ProcessHandler;
 import consulo.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.util.io.ClassPathUtil;
 import consulo.util.lang.Pair;
 import consulo.util.lang.StringUtil;
 import consulo.util.xml.serializer.DefaultJDOMExternalizer;
@@ -335,7 +334,7 @@ public abstract class JavaeeServerModel implements ServerModel, PredefinedLogFil
 	protected List<File> getLibraries() throws ExecutionException
 	{
 		List<File> libraries = new ArrayList<>();
-		libraries.add(new File(PathUtil.getJarPathForClass(getClass())));
+		libraries.add(new File(ClassPathUtil.getJarPathForClass(getClass())));
 
 		Sdk serverBundle = config.getServerBundle();
 		if(serverBundle != null)

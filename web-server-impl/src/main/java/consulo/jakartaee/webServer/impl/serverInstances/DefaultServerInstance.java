@@ -15,21 +15,21 @@
  */
 package consulo.jakartaee.webServer.impl.serverInstances;
 
-import consulo.jakartaee.webServer.impl.appServerIntegrations.AppServerIntegration;
 import com.intellij.javaee.artifact.JavaeeArtifactUtil;
-import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
-import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
-import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
-import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObject;
 import consulo.application.ApplicationManager;
 import consulo.application.util.function.Computable;
 import consulo.compiler.artifact.Artifact;
 import consulo.execution.ui.layout.RunnerLayoutUi;
-import consulo.ide.impl.idea.util.containers.ContainerUtil;
+import consulo.jakartaee.webServer.impl.appServerIntegrations.AppServerIntegration;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
+import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
+import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
+import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObject;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 import consulo.logging.Logger;
 import consulo.process.ExecutionException;
 import consulo.process.ProcessHandler;
+import consulo.util.collection.Lists;
 import org.jetbrains.annotations.NonNls;
 
 import javax.annotation.Nonnull;
@@ -44,7 +44,7 @@ import java.util.Set;
 
 public class DefaultServerInstance implements J2EEServerInstance {
   private static final Logger LOG = Logger.getInstance(DefaultServerInstance.class);
-  private final List<J2EEServerStateListener> myListeners = ContainerUtil.createLockFreeCopyOnWriteList();
+  private final List<J2EEServerStateListener> myListeners = Lists.newLockFreeCopyOnWriteList();
   private final CommonModel myCommonModel;
   private final String myHost;
   private final int myPort;

@@ -15,9 +15,7 @@ import consulo.xml.util.xml.DomElement;
 import javax.swing.*;
 import javax.swing.table.TableCellEditor;
 
-public abstract class EditableTreeColumnInfo<T extends DomElement> extends TreeColumnInfo
-{
-
+public abstract class EditableTreeColumnInfo<T extends DomElement> extends TreeColumnInfo {
     private static final DefaultCellEditor editor = new DefaultCellEditor(new JTextField());
 
     private final Project project;

@@ -18,7 +18,7 @@ package consulo.javaee.artifact;
 
 import consulo.compiler.artifact.*;
 import consulo.compiler.artifact.element.*;
-import consulo.ide.impl.idea.packaging.impl.ui.ChooseArtifactsDialog;
+import consulo.compiler.artifact.ui.awt.ChooseArtifactsDialog;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.module.Module;
 import consulo.module.content.layer.ModuleRootModel;

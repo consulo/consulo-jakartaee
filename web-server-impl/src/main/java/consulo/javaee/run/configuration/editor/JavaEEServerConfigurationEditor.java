@@ -1,6 +1,8 @@
 package consulo.javaee.run.configuration.editor;
 
 import com.intellij.javaee.J2EEBundle;
+import consulo.content.bundle.SdkModel;
+import consulo.ide.setting.ShowSettingsUtil;
 import consulo.jakartaee.webServer.impl.run.configuration.ApplicationServerSelectionListener;
 import consulo.configurable.ConfigurationException;
 import consulo.content.bundle.Sdk;
@@ -47,8 +49,7 @@ public class JavaEEServerConfigurationEditor extends SettingsEditor<JavaEEConfig
 	{
 		JPanel verticalLayout = new JPanel(new VerticalFlowLayout(0, 0));
 
-		ProjectSdksModel model = new ProjectSdksModel();
-		model.reset();
+		SdkModel model = ShowSettingsUtil.getInstance().getSdksModel();
 
 		myBundleBox = new SdkComboBox(model, Conditions.equalTo(myBundleType), true);
 		verticalLayout.add(LabeledComponent.left(myBundleBox, J2EEBundle.message("label.run.configuration.properties.application.server")));

@@ -23,8 +23,6 @@ import consulo.component.util.pointer.NamedPointer;
 import consulo.content.base.WebResourcesFolderTypeProvider;
 import consulo.content.library.Library;
 import consulo.content.library.LibraryTable;
-import consulo.ide.impl.idea.openapi.roots.ui.configuration.ChooseModulesDialog;
-import consulo.ide.impl.idea.util.containers.ArrayListSet;
 import consulo.jakartaee.web.JavaWebConstants;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.language.content.LanguageContentFolderScopes;
@@ -37,12 +35,14 @@ import consulo.module.content.layer.ModulesProvider;
 import consulo.module.content.layer.orderEntry.LibraryOrderEntry;
 import consulo.module.content.layer.orderEntry.ModuleOrderEntry;
 import consulo.module.content.layer.orderEntry.RootPolicy;
+import consulo.module.ui.awt.ChooseModulesDialog;
 import consulo.project.Project;
 import consulo.util.lang.Pair;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -77,8 +77,8 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate
 		libDir.setDirectoryName("lib");
 		webInfDir.addFirstChild(libDir);
 
-		Set<Pair<Library, Module>> libraries = new ArrayListSet<>();
-		Set<Module> modules = new ArrayListSet<>();
+		Set<Pair<Library, Module>> libraries = new LinkedHashSet<>();
+		Set<Module> modules = new LinkedHashSet<>();
 
 		collectInfo(modules, libraries, modulesProvider, module);
 

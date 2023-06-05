@@ -25,7 +25,6 @@ import consulo.application.util.function.Processor;
 import consulo.compiler.artifact.Artifact;
 import consulo.document.util.TextRange;
 import consulo.ide.ServiceManager;
-import consulo.ide.impl.idea.openapi.vfs.VfsUtilCore;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.jakartaee.webServer.impl.WebDirectoryElement;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
@@ -45,6 +44,7 @@ import consulo.util.collection.SmartList;
 import consulo.util.io.UriUtil;
 import consulo.util.lang.Pair;
 import consulo.virtualFileSystem.VirtualFile;
+import consulo.virtualFileSystem.util.VirtualFileUtil;
 import consulo.xml.psi.xml.XmlFile;
 import consulo.xml.util.xml.DomUtil;
 import consulo.xml.util.xml.GenericDomValue;
@@ -105,7 +105,7 @@ public abstract class WebUtil
 			{
 				continue;
 			}
-			if(VfsUtilCore.isAncestor(file, selectedFile, false))
+			if(VirtualFileUtil.isAncestor(file, selectedFile, false))
 			{
 				return webRoot;
 			}
@@ -122,7 +122,7 @@ public abstract class WebUtil
 			{
 				continue;
 			}
-			if(VfsUtilCore.isAncestor(resDir, file, false))
+			if(VirtualFileUtil.isAncestor(resDir, file, false))
 			{
 				return true;
 			}
