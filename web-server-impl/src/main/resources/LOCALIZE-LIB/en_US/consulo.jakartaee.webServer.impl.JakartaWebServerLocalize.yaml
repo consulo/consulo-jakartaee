@@ -1,0 +1,76 @@
+Integration.name:
+  text: '{0} Server'
+Integration.description:
+  text: Allows configuring and using {0} application server directly from IntelliJ IDEA, for deploying and running/debugging web- and enterprise applications.
+PersistentDataEditor.label.home:
+  text: '{0} &Home:'
+PersistentDataEditor.label.version:
+  text: '{0} Version:'
+PersistentDataEditor.chooser.title:
+  text: '{0} Home Directory'
+PersistentDataEditor.chooser.description:
+  text: Select {0} home directory
+PersistentDataEditor.warning:
+  text: <html><body><b>Warning:</b> The selected directory is not a valid {0} home</body></html>
+PersistentDataEditor.invalid:
+  text: Directory ''{1}'' is not a valid {0} home
+PersistentDataEditor.unknown:
+  text: <unknown>
+ServerHelper.libraries.title:
+  text: Searching for Application Server Libraries
+ServerHelper.libraries.error:
+  text: Application server libraries not found
+ConfigurationType.name:
+  text: '{0} Server'
+ConfigurationType.description:
+  text: '{0} Server Run Configuration'
+ConfigurationType.local:
+  text: Local
+ConfigurationType.remote:
+  text: Remote
+RunEditor.title:
+  text: '{0} Server Settings'
+RunEditor.username:
+  text: '&Username:'
+RunEditor.password:
+  text: 'Pass&word:'
+AppDescriptor.title:
+  text: '{0} Application Deployment Descriptor'
+EjbDescriptor.title:
+  text: '{0} EJB Deployment Descriptor'
+CmpDescriptor.title:
+  text: '{0} CMP Deployment Descriptor'
+WebDescriptor.title:
+  text: '{0} Web Deployment Descriptor'
+ServerModel.password:
+  text: Username but no password specified
+ServerModel.logfile:
+  text: '{0} Log'
+ServerInstance.facet.status:
+  text: |
+    [{0,time,yyyy-MM-dd hh:mm:ss,SSS}] Facet {1}: {2}
+ServerInstance.artifact.status:
+  text: |
+    [{0,time,yyyy-MM-dd hh:mm:ss,SSS}] Artifact {1}: {2}
+ServerInstance.facet.nosource:
+  text: |
+    Configuration Error: Facet ''{0}'' has no deployment source
+ServerInstance.artifact.nosource:
+  text: |
+    Configuration Error: Artifact ''{0}'' has no deployment source
+Editor.title:
+  text: '{0} Settings'
+EnableEditor.enable:
+  text: Override {0} defaults
+GenericAction.add:
+  text: Add
+GenericAction.edit:
+  text: Edit
+GenericAction.reset:
+  text: Reset
+GenericAction.remove:
+  text: Remove
+GenericAction.source:
+  text: Edit Source
+Error.fileNotFound:
+  text: File ''{0}'' not found

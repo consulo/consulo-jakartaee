@@ -4,13 +4,14 @@
 
 package consulo.jakartaee.webServer.impl.oss.server;
 
-import consulo.jakartaee.webServer.impl.oss.JavaeeBundle;
+import consulo.jakartaee.webServer.impl.localize.JakartaWebServerLocalize;
 import consulo.jakartaee.webServer.impl.run.configuration.J2EEConfigurationType;
 import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
 import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
 import consulo.execution.configuration.ConfigurationFactory;
 import consulo.execution.configuration.RunConfiguration;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.localize.LocalizeValue;
 import consulo.project.Project;
 import consulo.ui.image.Image;
 
@@ -47,15 +48,15 @@ public abstract class JavaeeConfigurationType extends J2EEConfigurationType
 	}
 
 	@Override
-	public String getDisplayName()
+	public LocalizeValue getDisplayName()
 	{
-		return JavaeeBundle.message("ConfigurationType.name", myBundleType.getPresentableName());
+		return JakartaWebServerLocalize.configurationtypeName(myBundleType.getPresentableName());
 	}
 
 	@Override
-	public String getConfigurationTypeDescription()
+	public LocalizeValue getConfigurationTypeDescription()
 	{
-		return JavaeeBundle.message("ConfigurationType.description", myBundleType.getPresentableName());
+		return JakartaWebServerLocalize.configurationtypeDescription(myBundleType.getPresentableName());
 	}
 
 	@Override

@@ -1,16 +1,17 @@
 package consulo.javaee.run.configuration;
 
+import consulo.content.bundle.Sdk;
+import consulo.content.bundle.SdkTable;
+import consulo.execution.configuration.ConfigurationType;
+import consulo.execution.configuration.RunConfiguration;
 import consulo.jakartaee.webServer.impl.oss.server.JavaeeConfigurationFactory;
 import consulo.jakartaee.webServer.impl.oss.server.JavaeeConfigurationType;
 import consulo.jakartaee.webServer.impl.oss.server.JavaeeServerModel;
 import consulo.jakartaee.webServer.impl.run.configuration.J2EEConfigurationFactory;
 import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
 import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
-import consulo.content.bundle.Sdk;
-import consulo.content.bundle.SdkTable;
-import consulo.execution.configuration.ConfigurationType;
-import consulo.execution.configuration.RunConfiguration;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.localize.LocalizeValue;
 import consulo.project.Project;
 import consulo.ui.image.Image;
 
@@ -23,7 +24,7 @@ import javax.annotation.Nullable;
  */
 public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory
 {
-	public JavaEEConfigurationFactoryImpl(ConfigurationType type, String name, Image icon, boolean local, JavaEEServerBundleType bundleType)
+	public JavaEEConfigurationFactoryImpl(ConfigurationType type, LocalizeValue name, Image icon, boolean local, JavaEEServerBundleType bundleType)
 	{
 		super(type, name, icon, local, bundleType);
 	}

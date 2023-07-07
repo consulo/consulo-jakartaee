@@ -12,6 +12,7 @@ import consulo.execution.configuration.ConfigurationFactoryEx;
 import consulo.execution.configuration.ConfigurationType;
 import consulo.execution.configuration.RunConfiguration;
 import consulo.javaee.bundle.JavaEEServerBundleType;
+import consulo.localize.LocalizeValue;
 import consulo.project.Project;
 import consulo.ui.image.Image;
 
@@ -20,12 +21,12 @@ import javax.annotation.Nullable;
 
 public abstract class JavaeeConfigurationFactory extends ConfigurationFactoryEx
 {
-	private final String myName;
+	private final LocalizeValue myName;
 	private final Image myIcon;
 	protected final boolean myLocal;
 	protected JavaEEServerBundleType myBundleType;
 
-	protected JavaeeConfigurationFactory(ConfigurationType type, String name, Image icon, boolean local, JavaEEServerBundleType bundleType)
+	protected JavaeeConfigurationFactory(ConfigurationType type, LocalizeValue name, Image icon, boolean local, JavaEEServerBundleType bundleType)
 	{
 		super(type);
 		myName = name;
@@ -34,8 +35,9 @@ public abstract class JavaeeConfigurationFactory extends ConfigurationFactoryEx
 		myBundleType = bundleType;
 	}
 
+	@Nonnull
 	@Override
-	public String getName()
+	public LocalizeValue getName()
 	{
 		return myName;
 	}

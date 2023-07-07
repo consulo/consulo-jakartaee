@@ -49,5 +49,6 @@ module consulo.jakartaee.web.impl
 	exports consulo.javaee.run.configuration;
 	exports consulo.javaee.run.configuration.editor;
 	exports consulo.javaee.run.configuration.state;
+	exports consulo.jakartaee.webServer.impl.localize;
 	exports consulo.javaee.run.configuration.state.view;
 }
