@@ -28,5 +28,6 @@ module consulo.jakartaee.api
 	exports com.intellij.javaee.model.xml.ejb;
 	exports consulo.javaee;
 	exports consulo.javaee.icon;
+	exports consulo.jakarta.localize;
 	exports consulo.javaee.module.extension;
 }

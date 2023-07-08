@@ -63,9 +63,9 @@ public class J2EEConfigurationFactoryImpl extends J2EEConfigurationFactory
 	}
 
 	@Override
-	public ConfigurationFactory createFactory(J2EEConfigurationType type, boolean isLocal, String name)
+	public ConfigurationFactory createFactory(J2EEConfigurationType type, boolean isLocal, String id, LocalizeValue name)
 	{
-		return new JavaEEConfigurationFactoryImpl(type, LocalizeValue.of(name), isLocal ? type.getLocalIcon() : type.getRemoteIcon(), isLocal, type.getBundleType());
+		return new JavaEEConfigurationFactoryImpl(type, id, name, isLocal ? type.getLocalIcon() : type.getRemoteIcon(), isLocal, type.getBundleType());
 	}
 
 	@Override

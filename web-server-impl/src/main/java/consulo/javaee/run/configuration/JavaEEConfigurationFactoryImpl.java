@@ -24,9 +24,9 @@ import javax.annotation.Nullable;
  */
 public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory
 {
-	public JavaEEConfigurationFactoryImpl(ConfigurationType type, LocalizeValue name, Image icon, boolean local, JavaEEServerBundleType bundleType)
+	public JavaEEConfigurationFactoryImpl(ConfigurationType type, String id, LocalizeValue name, Image icon, boolean local, JavaEEServerBundleType bundleType)
 	{
-		super(type, name, icon, local, bundleType);
+		super(type, id, name, icon, local, bundleType);
 	}
 
 	@Override

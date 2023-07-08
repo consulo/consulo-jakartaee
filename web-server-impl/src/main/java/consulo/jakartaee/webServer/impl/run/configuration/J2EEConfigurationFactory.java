@@ -17,14 +17,15 @@ package consulo.jakartaee.webServer.impl.run.configuration;
 
 import consulo.annotation.component.ComponentScope;
 import consulo.annotation.component.ServiceAPI;
-import consulo.jakartaee.webServer.impl.appServerIntegrations.ApplicationServer;
-import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
 import consulo.execution.RunnerAndConfigurationSettings;
 import consulo.execution.configuration.ConfigurationFactory;
 import consulo.execution.configuration.RunConfiguration;
 import consulo.ide.ServiceManager;
+import consulo.jakartaee.webServer.impl.appServerIntegrations.ApplicationServer;
+import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.language.psi.PsiFile;
+import consulo.localize.LocalizeValue;
 import consulo.project.Project;
 
 import javax.annotation.Nonnull;
@@ -57,7 +58,7 @@ public abstract class J2EEConfigurationFactory
 
 	public abstract RunnerAndConfigurationSettings addAppServerConfiguration(@Nonnull Project project, @Nonnull ConfigurationFactory type, @Nonnull ApplicationServer appServer);
 
-	public abstract ConfigurationFactory createFactory(J2EEConfigurationType type, boolean isLocal, String name);
+	public abstract ConfigurationFactory createFactory(J2EEConfigurationType type, boolean isLocal, String id, LocalizeValue name);
 
 	public abstract boolean isConfigurationApplicable(@Nonnull J2EEConfigurationType type, @Nonnull Project project);
 }

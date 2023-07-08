@@ -4,13 +4,13 @@
 
 package consulo.jakartaee.webServer.impl.oss.server;
 
+import consulo.execution.configuration.ConfigurationFactory;
+import consulo.execution.configuration.ConfigurationType;
+import consulo.execution.configuration.RunConfiguration;
 import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
 import consulo.jakartaee.webServer.impl.run.configuration.J2EEConfigurationFactory;
 import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
 import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
-import consulo.execution.configuration.ConfigurationFactoryEx;
-import consulo.execution.configuration.ConfigurationType;
-import consulo.execution.configuration.RunConfiguration;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.localize.LocalizeValue;
 import consulo.project.Project;
@@ -19,25 +19,34 @@ import consulo.ui.image.Image;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public abstract class JavaeeConfigurationFactory extends ConfigurationFactoryEx
+public abstract class JavaeeConfigurationFactory extends ConfigurationFactory
 {
+	private final String myId;
 	private final LocalizeValue myName;
 	private final Image myIcon;
 	protected final boolean myLocal;
 	protected JavaEEServerBundleType myBundleType;
 
-	protected JavaeeConfigurationFactory(ConfigurationType type, LocalizeValue name, Image icon, boolean local, JavaEEServerBundleType bundleType)
+	protected JavaeeConfigurationFactory(ConfigurationType type, String id, LocalizeValue name, Image icon, boolean local, JavaEEServerBundleType bundleType)
 	{
 		super(type);
+		myId = id;
 		myName = name;
 		myIcon = icon;
 		myLocal = local;
 		myBundleType = bundleType;
 	}
 
+	@jakarta.annotation.Nonnull
+	@Override
+	public String getId()
+	{
+		return myId;
+	}
+
 	@Nonnull
 	@Override
-	public LocalizeValue getName()
+	public LocalizeValue getDisplayName()
 	{
 		return myName;
 	}

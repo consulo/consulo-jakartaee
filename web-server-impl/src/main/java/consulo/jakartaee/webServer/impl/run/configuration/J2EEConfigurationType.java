@@ -16,6 +16,7 @@
 package consulo.jakartaee.webServer.impl.run.configuration;
 
 import com.intellij.javaee.J2EEBundle;
+import consulo.jakarta.localize.JakartaLocalize;
 import consulo.jakartaee.webServer.impl.appServerIntegrations.AppServerIntegration;
 import consulo.content.bundle.Sdk;
 import consulo.execution.configuration.ConfigurationFactory;
@@ -37,8 +38,8 @@ public abstract class J2EEConfigurationType implements ConfigurationType
 
 	protected void init()
 	{
-		myRemoteFactory = J2EEConfigurationFactory.getInstance().createFactory(this, false, J2EEBundle.message("run.configuration.remote"));
-		myLocalFactory = J2EEConfigurationFactory.getInstance().createFactory(this, true, J2EEBundle.message("run.configuration.local"));
+		myRemoteFactory = J2EEConfigurationFactory.getInstance().createFactory(this, false, "Remote", JakartaLocalize.runConfigurationRemote());
+		myLocalFactory = J2EEConfigurationFactory.getInstance().createFactory(this, true, "Local", JakartaLocalize.runConfigurationLocal());
 	}
 
 	public ConfigurationFactory getLocalFactory()
