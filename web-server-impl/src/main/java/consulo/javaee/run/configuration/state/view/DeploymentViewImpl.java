@@ -1,13 +1,13 @@
 package consulo.javaee.run.configuration.state.view;
 
 import com.intellij.javaee.J2EEBundle;
+import consulo.application.AllIcons;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentManager;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentStatus;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentView;
-import consulo.application.AllIcons;
-import consulo.javaee.JavaEEIcons;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.ui.annotation.RequiredUIAccess;
 import consulo.ui.ex.action.ActionToolbarPosition;
 import consulo.ui.ex.action.AnAction;
@@ -83,7 +83,7 @@ public class DeploymentViewImpl implements DeploymentView
 
 			}
 		});
-		decorator.addExtraAction(new ToggleAction(J2EEBundle.message("action.name.build.on.frame.deactivation"), null, JavaEEIcons.BuildOnFrameDeactivation)
+		decorator.addExtraAction(new ToggleAction(J2EEBundle.message("action.name.build.on.frame.deactivation"), null, PlatformIconGroup.actionsCompile())
 		{
 			@Override
 			public boolean isSelected(AnActionEvent e)
