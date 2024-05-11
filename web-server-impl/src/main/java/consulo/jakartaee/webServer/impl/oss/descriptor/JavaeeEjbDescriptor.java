@@ -6,15 +6,15 @@ package consulo.jakartaee.webServer.impl.oss.descriptor;
 
 import consulo.jakartaee.webServer.impl.oss.JavaeeBundle;
 import consulo.jakartaee.webServer.impl.oss.server.JavaeeIntegration;
-import consulo.application.AllIcons;
 import consulo.javaee.module.extension.EjbModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
+import consulo.ui.image.Image;
 
 class JavaeeEjbDescriptor extends JavaeeDescriptor
 {
 	JavaeeEjbDescriptor()
 	{
-		super(AllIcons.Nodes.Ejb);
+		super(Image.empty(Image.DEFAULT_ICON_SIZE));
 	}
 
 	@Override
