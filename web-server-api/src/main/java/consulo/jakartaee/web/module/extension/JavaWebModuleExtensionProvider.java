@@ -44,7 +44,7 @@ public class JavaWebModuleExtensionProvider implements ModuleExtensionProvider<J
 	@Override
 	public Image getIcon()
 	{
-		return PlatformIconGroup.generalWeb();
+		return PlatformIconGroup.nodesPpweb();
 	}
 
 	@Nonnull
