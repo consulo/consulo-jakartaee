@@ -27,13 +27,13 @@ public class JavaEEStartupConfigurationEditor extends SettingsEditor<JavaEEConfi
 	{
 		JPanel panel = new JPanel(new VerticalFlowLayout());
 		JBList<Executor> executorList = new JBList<>(new CollectionListModel<>(Executor.EP_NAME.getExtensionList()));
-		executorList.setCellRenderer(new ColoredListCellRenderer<Executor>()
+		executorList.setCellRenderer(new ColoredListCellRenderer<>()
 		{
 			@Override
 			protected void customizeCellRenderer(@Nonnull JList<? extends Executor> list, Executor value, int index, boolean selected, boolean hasFocus)
 			{
 				setIcon(value.getIcon());
-				append(value.getActionName());
+				append(value.getActionName().get());
 			}
 		});
 		JScrollPane scrollPane = ScrollPaneFactory.createScrollPane(executorList);
