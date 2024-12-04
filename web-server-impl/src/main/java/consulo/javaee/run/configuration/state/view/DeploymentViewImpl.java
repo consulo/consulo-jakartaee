@@ -46,7 +46,7 @@ public class DeploymentViewImpl implements DeploymentView
 				DeploymentStatus deploymentStatus = DeploymentManager.getInstance(myConfiguration.getProject()).getDeploymentStatus(value, myConfiguration);
 
 				setIcon(deploymentStatus.getIcon(value.getDeploymentSource().getIcon()));
-				append(value.getDeploymentSource().getPresentableName());
+				append(value.getDeploymentSource().getPresentableName().get());
 				setToolTipText(deploymentStatus.getDescription());
 			}
 		});
