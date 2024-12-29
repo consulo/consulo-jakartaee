@@ -3,8 +3,8 @@ package consulo.jakartaee.webServer.impl.deployment;
 import consulo.compiler.artifact.Artifact;
 import consulo.remoteServer.configuration.deployment.DeploymentSource;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.List;
 
 /**

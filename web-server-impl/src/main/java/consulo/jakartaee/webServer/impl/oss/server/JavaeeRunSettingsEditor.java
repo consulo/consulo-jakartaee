@@ -14,7 +14,7 @@ import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.proxy.EventDispatcher;
 import consulo.ui.ex.awt.IdeBorderFactory;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import javax.swing.*;
 
 public abstract class JavaeeRunSettingsEditor<T extends JavaeeServerModel> extends SettingsEditor<CommonModel> implements PredefinedLogFilesProviderEditor

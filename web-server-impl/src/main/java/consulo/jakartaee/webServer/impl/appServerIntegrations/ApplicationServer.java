@@ -18,8 +18,8 @@ package consulo.jakartaee.webServer.impl.appServerIntegrations;
 import consulo.annotation.DeprecationInfo;
 import consulo.content.library.Library;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.Collection;
 
 @Deprecated

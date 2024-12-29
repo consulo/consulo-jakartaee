@@ -7,8 +7,8 @@ package consulo.jakartaee.webServer.impl.oss.server;
 import java.io.File;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentStatus;

@@ -21,7 +21,7 @@ import consulo.javaee.module.extension.JavaEEModuleExtension;
 import consulo.language.psi.PsiFile;
 import consulo.project.Project;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 
 public abstract class JspDeploymentManager {

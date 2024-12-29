@@ -19,7 +19,7 @@ package consulo.jakartaee.webServer.impl.appServerIntegrations;
 import com.intellij.java.impl.util.descriptors.ConfigFileMetaData;
 import com.intellij.java.impl.util.descriptors.ConfigFileMetaDataProvider;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Collection;
 
 /**

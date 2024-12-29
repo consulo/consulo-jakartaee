@@ -8,7 +8,7 @@ import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import consulo.xml.util.xml.highlighting.BasicDomElementsInspection;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public abstract class JavaeeInspection extends BasicDomElementsInspection<JavaeeDomModelElement, Object> {
     @SafeVarargs

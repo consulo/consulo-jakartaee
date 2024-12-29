@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;

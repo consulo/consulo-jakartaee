@@ -26,7 +26,7 @@ import consulo.compiler.artifact.element.PackagingElementFactory;
 import consulo.compiler.artifact.element.PackagingElementResolvingContext;
 import consulo.compiler.artifact.element.ZipArchivePackagingElement;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Collections;
 import java.util.List;
 

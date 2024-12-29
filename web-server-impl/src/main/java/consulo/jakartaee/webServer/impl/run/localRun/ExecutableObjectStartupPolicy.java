@@ -17,7 +17,7 @@ package consulo.jakartaee.webServer.impl.run.localRun;
 
 import consulo.execution.runner.ProgramRunner;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 public interface ExecutableObjectStartupPolicy
 {

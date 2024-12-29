@@ -6,7 +6,7 @@ import com.intellij.javaee.oss.agent.AgentProxyFactory;
 import com.intellij.javaee.oss.agent.ParametersMap;
 import com.intellij.openapi.util.io.FileSystemUtil;
 import com.intellij.openapi.util.io.FileUtil;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
 import org.jetbrains.idea.tomcat.agent.TomEEDeployPropertyNames;
 

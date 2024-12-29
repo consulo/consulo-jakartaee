@@ -5,7 +5,7 @@ import consulo.execution.RuntimeConfigurationException;
 import consulo.execution.configuration.RunConfigurationBase;
 import consulo.execution.configuration.RunnerSettings;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * @author nik

@@ -25,8 +25,8 @@ import consulo.language.codeStyle.template.BlockWithParent;
 import consulo.language.codeStyle.template.DataLanguageBlockFragmentWrapper;
 import consulo.util.lang.Pair;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

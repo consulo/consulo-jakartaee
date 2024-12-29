@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml.application;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.DescriptionGroup;

@@ -19,7 +19,7 @@ package com.intellij.javaee.web;
 import consulo.language.psi.PsiElement;
 import consulo.xml.util.xml.GenericValue;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import java.util.List;
 
 /**

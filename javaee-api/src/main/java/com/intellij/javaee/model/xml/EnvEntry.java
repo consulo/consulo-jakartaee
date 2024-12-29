@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml;
 import com.intellij.javaee.model.enums.EnvEntryTypeValues;
 import consulo.xml.util.xml.GenericDomValue;
 import consulo.xml.util.xml.NameValue;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import java.util.List;
 

@@ -12,7 +12,7 @@ import consulo.jsp.impl.language.psi.java.JspJavaStubElements;
 import consulo.language.psi.stub.IStubFileElementType;
 import consulo.language.psi.stub.PsiFileStubImpl;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

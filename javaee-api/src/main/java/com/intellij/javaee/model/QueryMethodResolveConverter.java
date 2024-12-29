@@ -23,7 +23,7 @@ import com.intellij.javaee.model.xml.ejb.QueryMethod;
 import consulo.xml.util.xml.ConvertContext;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;

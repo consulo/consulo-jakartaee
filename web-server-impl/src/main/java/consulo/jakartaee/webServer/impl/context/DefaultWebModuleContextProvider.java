@@ -2,8 +2,8 @@ package consulo.jakartaee.webServer.impl.context;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import com.intellij.javaee.model.xml.application.JavaeeApplication;
 import com.intellij.javaee.model.xml.application.JavaeeModule;
 import com.intellij.javaee.model.xml.application.Web;

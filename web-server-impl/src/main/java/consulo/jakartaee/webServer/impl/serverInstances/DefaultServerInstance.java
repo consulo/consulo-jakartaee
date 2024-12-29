@@ -32,7 +32,7 @@ import consulo.process.ProcessHandler;
 import consulo.util.collection.Lists;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.io.IOException;
 import java.net.BindException;
 import java.net.ServerSocket;

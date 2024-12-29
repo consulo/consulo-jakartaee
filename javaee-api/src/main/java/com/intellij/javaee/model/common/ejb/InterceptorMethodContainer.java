@@ -20,7 +20,7 @@ import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.JavaeeModelElement;
 import consulo.application.util.function.Processor;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 public interface InterceptorMethodContainer extends JavaeeModelElement {
 

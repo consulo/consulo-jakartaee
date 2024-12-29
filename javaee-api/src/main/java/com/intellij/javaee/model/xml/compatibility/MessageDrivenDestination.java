@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.compatibility;
 
 import consulo.xml.util.xml.*;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * ejb-jar_2_0.dtd:message-driven-destination interface.

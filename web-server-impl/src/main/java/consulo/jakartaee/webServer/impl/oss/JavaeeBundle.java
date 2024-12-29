@@ -8,7 +8,7 @@ import consulo.component.util.localize.AbstractBundle;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.PropertyKey;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public class JavaeeBundle extends AbstractBundle
 {

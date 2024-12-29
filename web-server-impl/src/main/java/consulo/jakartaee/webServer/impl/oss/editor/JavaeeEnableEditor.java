@@ -9,7 +9,7 @@ import consulo.application.Result;
 import consulo.language.editor.WriteCommandAction;
 import consulo.xml.util.xml.DomElement;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;

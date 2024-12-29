@@ -20,7 +20,7 @@ import consulo.ide.ServiceManager;
 import consulo.process.ProcessHandler;
 import consulo.project.Project;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * author: lesya

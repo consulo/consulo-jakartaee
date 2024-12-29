@@ -22,8 +22,8 @@ import consulo.language.editor.CodeInsightBundle;
 import consulo.xml.util.xml.ConvertContext;
 import consulo.xml.util.xml.ElementPresentationManager;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.Collection;
 import java.util.Collections;
 

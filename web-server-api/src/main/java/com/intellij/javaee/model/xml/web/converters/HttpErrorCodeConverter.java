@@ -22,8 +22,8 @@ import consulo.xml.util.xml.ConvertContext;
 import consulo.xml.util.xml.NamedEnumUtil;
 import consulo.xml.util.xml.ResolvingConverter;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.regex.Pattern;

@@ -6,7 +6,7 @@ package consulo.jakartaee.webServer.impl.oss.server;
 
 import java.io.File;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentStatus;

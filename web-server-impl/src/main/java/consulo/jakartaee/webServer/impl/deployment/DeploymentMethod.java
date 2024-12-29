@@ -16,8 +16,8 @@
 package consulo.jakartaee.webServer.impl.deployment;
 
 import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
-import javax.annotation.Nullable;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+import jakarta.annotation.Nonnull;
 
 import javax.swing.*;
 

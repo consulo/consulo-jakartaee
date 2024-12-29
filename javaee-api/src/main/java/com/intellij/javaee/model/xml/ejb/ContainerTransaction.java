@@ -23,7 +23,7 @@ import com.intellij.javaee.model.enums.TransAttribute;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import consulo.xml.util.xml.GenericDomValue;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import java.util.List;
 

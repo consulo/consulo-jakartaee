@@ -6,7 +6,7 @@ import com.intellij.javaee.oss.admin.jmx.JmxAdminException;
 import com.intellij.openapi.util.io.FileUtil;
 import org.jdom.Document;
 import org.jdom.Element;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import org.jetbrains.idea.tomcat.TomcatContexts;
 import org.jetbrains.idea.tomcat.TomcatDeploymentModelBase;
 import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;

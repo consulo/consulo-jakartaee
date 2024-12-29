@@ -31,7 +31,7 @@ import org.jdom.JDOMException;
 import org.jdom.Namespace;
 import org.jdom.input.SAXBuilder;
 import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import org.jetbrains.idea.tomcat.model.TomcatContextRoot;
 import org.jetbrains.idea.tomcat.server.TomcatIntegration;
 import org.jetbrains.idea.tomcat.server.TomcatLocalModel;

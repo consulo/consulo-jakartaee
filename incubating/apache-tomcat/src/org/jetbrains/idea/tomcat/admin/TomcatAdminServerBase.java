@@ -3,7 +3,7 @@ package org.jetbrains.idea.tomcat.admin;
 import java.io.File;
 import java.io.IOException;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import javax.management.JMException;
 import javax.management.MBeanServerConnection;
 

@@ -17,7 +17,7 @@ import consulo.module.content.layer.ContentFolder;
 import consulo.xml.patterns.XmlPatterns;
 import consulo.xml.psi.xml.XmlAttribute;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;

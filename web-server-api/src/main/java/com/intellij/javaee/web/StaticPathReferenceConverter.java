@@ -25,8 +25,8 @@ import consulo.xml.psi.xml.XmlElement;
 import consulo.xml.util.xml.ConvertContext;
 import consulo.xml.util.xml.converters.PathReferenceConverter;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * @author Dmitry Avdeev

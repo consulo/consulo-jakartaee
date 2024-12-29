@@ -16,7 +16,7 @@
 
 package consulo.jakartaee.webServer.impl.serverInstances;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import consulo.jakartaee.webServer.impl.appServerIntegrations.ApplicationServer;
 
 import java.util.EventListener;

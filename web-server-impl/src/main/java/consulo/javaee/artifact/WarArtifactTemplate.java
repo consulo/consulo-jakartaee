@@ -23,7 +23,7 @@ import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.module.Module;
 import consulo.module.content.layer.ModuleRootModel;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

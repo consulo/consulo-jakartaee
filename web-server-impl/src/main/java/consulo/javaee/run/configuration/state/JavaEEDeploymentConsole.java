@@ -19,8 +19,8 @@ import consulo.process.ProcessHandler;
 import consulo.project.Project;
 import consulo.ui.ex.content.Content;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL

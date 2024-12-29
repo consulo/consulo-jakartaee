@@ -18,7 +18,7 @@ import consulo.ui.ex.awt.VerticalFlowLayout;
 import consulo.ui.ex.awt.Wrapper;
 import consulo.util.lang.function.Conditions;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;

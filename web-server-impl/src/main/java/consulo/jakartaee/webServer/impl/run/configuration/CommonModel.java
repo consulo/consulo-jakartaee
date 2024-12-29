@@ -26,8 +26,8 @@ import consulo.execution.configuration.ModuleRunConfiguration;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.Collection;
 import java.util.List;
 

@@ -19,7 +19,7 @@ import com.intellij.java.language.psi.PsiClass;
 import com.intellij.java.language.psi.ServerPageFile;
 import consulo.xml.psi.xml.XmlTag;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 public interface JspFile extends BaseJspFile, ServerPageFile
 {

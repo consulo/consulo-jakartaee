@@ -19,7 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import org.jetbrains.idea.tomcat.server.TomcatLocalModel;
 import org.jetbrains.idea.tomcat.server.TomcatServerModel;
 import com.intellij.execution.ExecutionException;

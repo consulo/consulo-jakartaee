@@ -24,7 +24,7 @@ import consulo.xml.util.xml.NameValue;
 import consulo.xml.util.xml.Required;
 import consulo.xml.util.xml.Stubbed;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 
 /**

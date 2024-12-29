@@ -8,7 +8,7 @@ import java.lang.ref.SoftReference;
 import java.util.ResourceBundle;
 
 import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import org.jetbrains.annotations.PropertyKey;
 import com.intellij.CommonBundle;
 

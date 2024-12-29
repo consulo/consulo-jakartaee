@@ -22,7 +22,7 @@ import consulo.language.psi.PsiFile;
 import consulo.xml.psi.xml.XmlFile;
 import consulo.xml.psi.xml.XmlTag;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public interface BaseJspFile extends XmlFile
 {

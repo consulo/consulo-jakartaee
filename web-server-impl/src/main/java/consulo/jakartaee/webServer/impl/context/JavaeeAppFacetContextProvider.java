@@ -1,6 +1,6 @@
 package consulo.jakartaee.webServer.impl.context;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
 import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;

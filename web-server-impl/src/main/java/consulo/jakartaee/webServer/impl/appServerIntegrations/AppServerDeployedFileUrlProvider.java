@@ -21,7 +21,7 @@ import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
 import consulo.jakartaee.webServer.impl.serverInstances.J2EEServerInstance;
 import consulo.compiler.artifact.ArtifactUtil;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * @author nik

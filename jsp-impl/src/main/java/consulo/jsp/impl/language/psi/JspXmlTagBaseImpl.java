@@ -7,7 +7,7 @@ import consulo.language.psi.PsiElementVisitor;
 import consulo.xml.psi.impl.source.xml.XmlTagImpl;
 import consulo.xml.psi.xml.XmlTag;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

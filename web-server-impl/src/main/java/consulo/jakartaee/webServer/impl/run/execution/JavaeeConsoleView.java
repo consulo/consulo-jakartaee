@@ -21,7 +21,7 @@ import consulo.jakartaee.webServer.impl.serverInstances.J2EEServerInstance;
 import consulo.process.ProcessHandler;
 import consulo.util.dataholder.Key;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * @author nik

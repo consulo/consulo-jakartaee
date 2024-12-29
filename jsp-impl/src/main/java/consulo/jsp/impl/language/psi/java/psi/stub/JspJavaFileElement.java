@@ -12,8 +12,8 @@ import consulo.language.impl.ast.TreeElement;
 import consulo.language.impl.psi.SourceTreeToPsiMap;
 import consulo.logging.Logger;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL

@@ -15,7 +15,7 @@
  */
 package consulo.jakartaee.webServer.impl.appServerIntegrations;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import java.io.File;
 

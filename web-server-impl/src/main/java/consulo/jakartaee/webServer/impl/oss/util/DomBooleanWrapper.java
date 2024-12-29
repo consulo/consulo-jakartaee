@@ -8,7 +8,7 @@ import consulo.xml.util.xml.DomElement;
 import consulo.xml.util.xml.GenericDomValue;
 import consulo.xml.util.xml.ui.DomWrapper;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.lang.reflect.InvocationTargetException;
 
 public class DomBooleanWrapper extends DomWrapper<Boolean>

@@ -50,8 +50,8 @@ import consulo.xml.util.xml.DomUtil;
 import consulo.xml.util.xml.GenericDomValue;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

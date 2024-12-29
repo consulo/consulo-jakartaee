@@ -7,11 +7,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import org.jetbrains.idea.tomcat.TomcatBundle;
 import org.jetbrains.idea.tomcat.TomcatModuleDeploymentModel;
 import org.jetbrains.idea.tomcat.admin.TomEEAgentAdminServerImpl;

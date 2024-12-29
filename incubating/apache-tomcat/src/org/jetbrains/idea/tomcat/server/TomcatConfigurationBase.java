@@ -1,6 +1,6 @@
 package org.jetbrains.idea.tomcat.server;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.idea.tomcat.TomcatPersistentDataWrapper;

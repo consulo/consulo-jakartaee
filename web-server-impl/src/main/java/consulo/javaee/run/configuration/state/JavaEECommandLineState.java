@@ -14,7 +14,7 @@ import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 import consulo.process.ExecutionException;
 import consulo.process.ProcessHandler;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Collections;
 
 /**

@@ -12,7 +12,7 @@ import javax.swing.Icon;
 import javax.swing.JCheckBox;
 import javax.swing.plaf.metal.MetalIconFactory;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 public class TripleCheckBox extends JCheckBox {
 

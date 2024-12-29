@@ -7,7 +7,7 @@ package consulo.jakartaee.webServer.impl.oss.util;
 import consulo.xml.util.xml.ui.BaseModifiableControl;
 import consulo.xml.util.xml.ui.DomWrapper;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

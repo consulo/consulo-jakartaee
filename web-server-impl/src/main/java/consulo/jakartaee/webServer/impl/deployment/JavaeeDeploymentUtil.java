@@ -18,7 +18,7 @@ package consulo.jakartaee.webServer.impl.deployment;
 import consulo.compiler.artifact.ArtifactType;
 import consulo.ide.ServiceManager;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Collection;
 
 /**

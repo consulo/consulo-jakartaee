@@ -7,7 +7,7 @@ package consulo.jakartaee.webServer.impl.oss.util;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 public abstract class FilteringIterator<T> implements Iterator<T> {
 

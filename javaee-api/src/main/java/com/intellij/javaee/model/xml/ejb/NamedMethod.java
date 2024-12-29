@@ -26,7 +26,7 @@ import consulo.xml.util.xml.Convert;
 import consulo.xml.util.xml.GenericDomValue;
 import consulo.xml.util.xml.SubTag;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:named-methodType interface.

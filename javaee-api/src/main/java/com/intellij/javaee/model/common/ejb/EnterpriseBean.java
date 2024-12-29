@@ -24,7 +24,7 @@ import consulo.xml.util.xml.GenericValue;
 import consulo.xml.util.xml.NameValue;
 import consulo.xml.util.xml.PrimaryKey;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 
 /**

@@ -7,8 +7,8 @@ import consulo.jakartaee.webServer.impl.appServerIntegrations.AppServerIntegrati
 import consulo.component.extension.ExtensionPointName;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * @author nik

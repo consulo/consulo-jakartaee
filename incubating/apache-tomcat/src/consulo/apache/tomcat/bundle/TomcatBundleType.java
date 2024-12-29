@@ -19,8 +19,8 @@ package consulo.apache.tomcat.bundle;
 import java.io.File;
 import java.io.IOException;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.idea.tomcat.TomcatDeploymentSettingsEditor;

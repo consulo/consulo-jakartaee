@@ -24,7 +24,7 @@ import com.intellij.javaee.model.xml.*;
 import consulo.xml.util.xml.GenericAttributeValue;
 import consulo.xml.util.xml.GenericDomValue;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 
 /**

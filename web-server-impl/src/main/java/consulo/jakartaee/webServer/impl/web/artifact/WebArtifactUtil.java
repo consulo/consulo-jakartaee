@@ -23,8 +23,8 @@ import consulo.ide.ServiceManager;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.project.Project;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.Collection;
 
 /**

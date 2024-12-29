@@ -1,6 +1,6 @@
 package org.jetbrains.idea.tomcat.server.tomee;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import org.jetbrains.idea.tomcat.TomcatBundle;
 import org.jetbrains.idea.tomcat.server.TomcatIntegration;
 import com.intellij.javaee.openapi.ex.AppServerIntegrationsManager;

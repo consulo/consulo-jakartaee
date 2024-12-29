@@ -11,8 +11,8 @@ import consulo.remoteServer.configuration.deployment.DeploymentSourceFactory;
 import consulo.remoteServer.configuration.deployment.DeploymentSourceType;
 import org.jdom.Element;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -2,7 +2,7 @@ package consulo.jsp.impl.language.psi;
 
 import consulo.jsp.language.psi.xml.JspDirective;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

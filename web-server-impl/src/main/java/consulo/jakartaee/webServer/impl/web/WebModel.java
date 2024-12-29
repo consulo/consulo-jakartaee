@@ -21,7 +21,7 @@ import com.intellij.javaee.web.CommonFilter;
 import com.intellij.javaee.web.CommonServlet;
 import com.intellij.javaee.web.CommonServletMapping;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 
 /**

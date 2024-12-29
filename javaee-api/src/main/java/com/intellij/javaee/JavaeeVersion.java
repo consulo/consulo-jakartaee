@@ -1,6 +1,6 @@
 package com.intellij.javaee;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author Gregory.Shrago

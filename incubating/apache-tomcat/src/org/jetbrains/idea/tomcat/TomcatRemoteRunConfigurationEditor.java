@@ -6,8 +6,8 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import org.jetbrains.idea.tomcat.server.TomcatRemoteModel;
 import org.jetbrains.idea.tomcat.server.TomcatRunSettingsEditor;
 import com.intellij.javaee.oss.transport.MultiTargetRemoteServerModel;

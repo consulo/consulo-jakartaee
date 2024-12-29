@@ -4,7 +4,7 @@ import consulo.language.Language;
 import consulo.language.psi.stub.IStubFileElementType;
 import consulo.language.psi.stub.PsiFileStub;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

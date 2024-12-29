@@ -9,7 +9,7 @@ import consulo.project.Project;
 import consulo.virtualFileSystem.VirtualFile;
 import consulo.xml.util.xml.ConvertContext;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL

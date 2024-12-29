@@ -34,7 +34,7 @@ import com.intellij.javaee.model.xml.web.converters.WebDeleteHandler;
 import com.intellij.javaee.web.CommonServlet;
 import consulo.xml.util.xml.*;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 
 /**

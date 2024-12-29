@@ -6,7 +6,7 @@ import consulo.language.impl.ast.ASTLeafFactory;
 import consulo.language.impl.ast.LeafElement;
 import consulo.language.version.LanguageVersion;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

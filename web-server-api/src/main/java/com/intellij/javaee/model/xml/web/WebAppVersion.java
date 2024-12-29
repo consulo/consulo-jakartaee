@@ -25,7 +25,7 @@ import com.intellij.javaee.JavaeeVersion;
 import consulo.jsp.language.file.JspVersion;
 import consulo.xml.util.xml.NamedEnum;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:web-app-versionType enumeration.

@@ -28,7 +28,7 @@ import consulo.language.lexer.Lexer;
 import consulo.xml.editor.XmlHighlighterColors;
 import consulo.xml.psi.xml.XmlTokenType;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 

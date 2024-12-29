@@ -15,7 +15,7 @@
  */
 package consulo.jakartaee.webServer.impl.deployment;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import java.io.FileFilter;
 

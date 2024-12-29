@@ -2,7 +2,7 @@ package org.jetbrains.idea.tomcat;
 
 import java.io.File;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.util.io.FileUtil;

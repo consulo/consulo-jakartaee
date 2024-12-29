@@ -25,7 +25,7 @@ import com.intellij.javaee.model.xml.*;
 import com.intellij.javaee.model.xml.compatibility.MessageDrivenSupport;
 import consulo.xml.util.xml.GenericDomValue;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 
 /**

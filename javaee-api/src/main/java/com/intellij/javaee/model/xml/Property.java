@@ -20,7 +20,7 @@
 package com.intellij.javaee.model.xml;
 
 import consulo.xml.util.xml.GenericDomValue;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * http://java.sun.com/xml/ns/javaee:propertyType interface.

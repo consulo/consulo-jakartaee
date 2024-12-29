@@ -23,7 +23,7 @@ import com.intellij.javaee.model.xml.web.WebAppVersion;
 import consulo.xml.util.xml.ConvertContext;
 import consulo.xml.util.xml.DomResolveConverter;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Collections;
 import java.util.Set;
 

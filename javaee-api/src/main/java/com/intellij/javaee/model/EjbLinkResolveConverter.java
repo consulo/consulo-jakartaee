@@ -17,7 +17,7 @@ package com.intellij.javaee.model;
 
 import java.util.Collection;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import com.intellij.javaee.model.common.ejb.EjbCommonModelUtil;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;

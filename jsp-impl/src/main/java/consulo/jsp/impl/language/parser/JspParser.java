@@ -12,7 +12,7 @@ import consulo.localize.LocalizeValue;
 import consulo.xml.psi.xml.XmlElementType;
 import consulo.xml.psi.xml.XmlTokenType;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

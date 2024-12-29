@@ -19,7 +19,7 @@ import consulo.application.util.SystemInfo;
 import consulo.process.cmd.GeneralCommandLine;
 import consulo.util.io.FileUtil;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.io.File;
 import java.io.IOException;
 

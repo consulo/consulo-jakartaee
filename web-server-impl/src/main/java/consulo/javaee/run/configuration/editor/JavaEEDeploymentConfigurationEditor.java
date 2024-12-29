@@ -27,7 +27,7 @@ import consulo.ui.ex.awt.*;
 import consulo.ui.ex.popup.*;
 import consulo.ui.image.Image;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

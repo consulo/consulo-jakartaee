@@ -19,8 +19,8 @@ package consulo.jakartaee.webServer.impl.run.configuration;
 import consulo.execution.configuration.log.LogFileOptions;
 import consulo.execution.configuration.log.PredefinedLogFile;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * @author nik

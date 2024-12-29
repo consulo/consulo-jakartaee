@@ -3,7 +3,7 @@ package consulo.jakartaee.webServer.impl.oss.descriptor;
 import consulo.jakartaee.webServer.impl.facet.DescriptorMetaDataProvider;
 import consulo.jakartaee.webServer.impl.oss.server.JavaeeIntegration;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

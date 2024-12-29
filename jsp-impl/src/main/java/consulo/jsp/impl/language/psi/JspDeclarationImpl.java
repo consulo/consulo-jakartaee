@@ -1,6 +1,6 @@
 package consulo.jsp.impl.language.psi;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import consulo.jsp.language.psi.xml.JspDeclaration;
 

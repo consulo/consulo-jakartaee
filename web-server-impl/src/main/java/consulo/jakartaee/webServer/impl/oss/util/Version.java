@@ -1,6 +1,6 @@
 package consulo.jakartaee.webServer.impl.oss.util;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL

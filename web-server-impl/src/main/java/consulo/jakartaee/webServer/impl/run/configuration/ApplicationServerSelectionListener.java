@@ -18,7 +18,7 @@ package consulo.jakartaee.webServer.impl.run.configuration;
 
 import consulo.content.bundle.Sdk;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import java.util.EventListener;
 
 /**
