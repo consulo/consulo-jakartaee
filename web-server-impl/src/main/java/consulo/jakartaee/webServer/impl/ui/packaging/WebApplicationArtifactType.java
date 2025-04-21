@@ -16,30 +16,25 @@ import jakarta.annotation.Nullable;
  * @author VISTALL
  * @since 03-Jul-17
  */
-public abstract class WebApplicationArtifactType extends ArtifactType
-{
-	protected WebApplicationArtifactType(@NonNls String id, String title)
-	{
-		super(id, title);
-	}
+public abstract class WebApplicationArtifactType extends ArtifactType {
+    protected WebApplicationArtifactType(@NonNls String id, String title) {
+        super(id, title);
+    }
 
-	@Nullable
-	@Override
-	public String getDefaultPathFor(@Nonnull PackagingElementOutputKind packagingElementOutputKind)
-	{
-		return "/";
-	}
+    @Nullable
+    @Override
+    public String getDefaultPathFor(@Nonnull PackagingElementOutputKind packagingElementOutputKind) {
+        return "/";
+    }
 
-	@Override
-	public boolean isAvailableForAdd(@Nonnull ModulesProvider modulesProvider)
-	{
-		return ModuleUtilCore.hasModuleExtension(modulesProvider, JavaWebModuleExtension.class);
-	}
+    @Override
+    public boolean isAvailableForAdd(@Nonnull ModulesProvider modulesProvider) {
+        return ModuleUtilCore.hasModuleExtension(modulesProvider, JavaWebModuleExtension.class);
+    }
 
-	@Nonnull
-	@Override
-	public Image getIcon()
-	{
-		return JavaEEIcons.WarArtifact;
-	}
+    @Nonnull
+    @Override
+    public Image getIcon() {
+        return JavaEEIcons.WarArtifact;
+    }
 }

@@ -8,6 +8,7 @@ import consulo.module.content.layer.ContentFolderSupportPatcher;
 import consulo.module.content.layer.ModifiableRootModel;
 
 import jakarta.annotation.Nonnull;
+
 import java.util.Set;
 
 /**
@@ -15,15 +16,12 @@ import java.util.Set;
  * @since 19.04.14
  */
 @ExtensionImpl
-public class JavaWebContentFolderSupportPatcher implements ContentFolderSupportPatcher
-{
-	@Override
-	public void patch(@Nonnull ModifiableRootModel model, @Nonnull Set<ContentFolderTypeProvider> set)
-	{
-		JavaWebModuleExtension extension = model.getExtension(JavaWebModuleExtension.class);
-		if(extension != null)
-		{
-			set.add(WebResourcesFolderTypeProvider.getInstance());
-		}
-	}
+public class JavaWebContentFolderSupportPatcher implements ContentFolderSupportPatcher {
+    @Override
+    public void patch(@Nonnull ModifiableRootModel model, @Nonnull Set<ContentFolderTypeProvider> set) {
+        JavaWebModuleExtension extension = model.getExtension(JavaWebModuleExtension.class);
+        if (extension != null) {
+            set.add(WebResourcesFolderTypeProvider.getInstance());
+        }
+    }
 }

@@ -24,6 +24,7 @@ import consulo.module.Module;
 import consulo.module.content.layer.ModuleRootModel;
 
 import jakarta.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -33,71 +34,67 @@ import java.util.Set;
  * @author VISTALL
  * @since 07.11.13.
  */
-public class WarArtifactTemplate extends ArtifactTemplate
-{
-	private PackagingElementResolvingContext myContext;
+public class WarArtifactTemplate extends ArtifactTemplate {
+    private PackagingElementResolvingContext myContext;
 
-	public WarArtifactTemplate(PackagingElementResolvingContext context)
-	{
-		myContext = context;
-	}
+    public WarArtifactTemplate(PackagingElementResolvingContext context) {
+        myContext = context;
+    }
 
-	public static NewArtifactConfiguration doCreateArtifactTemplate(Artifact artifact, PackagingElementResolvingContext context)
-	{
-		Set<Module> modulesIncludedInArtifacts = ArtifactUtil.getModulesIncludedInArtifacts(Collections.singletonList(artifact), context.getProject());
+    public static NewArtifactConfiguration doCreateArtifactTemplate(Artifact artifact, PackagingElementResolvingContext context) {
+        Set<Module> modulesIncludedInArtifacts =
+            ArtifactUtil.getModulesIncludedInArtifacts(Collections.singletonList(artifact), context.getProject());
 
-		String moduleName = artifact.getName();
+        String moduleName = artifact.getName();
 
-		for(Module modulesIncludedInArtifact : modulesIncludedInArtifacts)
-		{
-			ModuleRootModel rootModel = context.getModulesProvider().getRootModel(modulesIncludedInArtifact);
+        for (Module modulesIncludedInArtifact : modulesIncludedInArtifacts) {
+            ModuleRootModel rootModel = context.getModulesProvider().getRootModel(modulesIncludedInArtifact);
 
-			JavaWebModuleExtension extension = rootModel.getExtension(JavaWebModuleExtension.class);
-			if(extension != null)
-			{
-				moduleName = modulesIncludedInArtifact.getName();
-				break;
-			}
-		}
+            JavaWebModuleExtension extension = rootModel.getExtension(JavaWebModuleExtension.class);
+            if (extension != null) {
+                moduleName = modulesIncludedInArtifact.getName();
+                break;
+            }
+        }
 
-		PackagingElementFactory elementFactory = PackagingElementFactory.getInstance(context.getProject());
+        PackagingElementFactory elementFactory = PackagingElementFactory.getInstance(context.getProject());
 
-		CompositePackagingElement<?> root = WarArtifactType.getInstance().createRootElement(elementFactory, moduleName);
+        CompositePackagingElement<?> root = WarArtifactType.getInstance().createRootElement(elementFactory, moduleName);
 
-		ArtifactPackagingElement artifactPackagingElement = ArtifactElementType.getInstance().createEmpty(context.getProject());
-		artifactPackagingElement.setArtifactPointer(ArtifactPointerManager.getInstance(context.getProject()).create(artifact));
+        ArtifactPackagingElement artifactPackagingElement = ArtifactElementType.getInstance().createEmpty(context.getProject());
+        artifactPackagingElement.setArtifactPointer(ArtifactPointerManager.getInstance(context.getProject()).create(artifact));
 
-		root.addFirstChild(artifactPackagingElement);
+        root.addFirstChild(artifactPackagingElement);
 
-		return new NewArtifactConfiguration(root, WarArtifactType.getInstance().getPresentableName() + ": " + moduleName, WarArtifactType.getInstance());
-	}
+        return new NewArtifactConfiguration(
+            root,
+            WarArtifactType.getInstance().getPresentableName() + ": " + moduleName,
+            WarArtifactType.getInstance()
+        );
+    }
 
-	@Nullable
-	@Override
-	public NewArtifactConfiguration createArtifact()
-	{
-		List<Artifact> artifacts = new ArrayList<>();
-		for(Artifact artifact : ArtifactManager.getInstance(myContext.getProject()).getArtifacts())
-		{
-			if(artifact.getArtifactType() == ExplodedWarArtifactType.getInstance())
-			{
-				artifacts.add(artifact);
-			}
-		}
+    @Nullable
+    @Override
+    public NewArtifactConfiguration createArtifact() {
+        List<Artifact> artifacts = new ArrayList<>();
+        for (Artifact artifact : ArtifactManager.getInstance(myContext.getProject()).getArtifacts()) {
+            if (artifact.getArtifactType() == ExplodedWarArtifactType.getInstance()) {
+                artifacts.add(artifact);
+            }
+        }
 
-		ChooseArtifactsDialog dialog = new ChooseArtifactsDialog(myContext.getProject(), artifacts, "Choose Artifact", "Choose Exploded War Artifact");
+        ChooseArtifactsDialog dialog =
+            new ChooseArtifactsDialog(myContext.getProject(), artifacts, "Choose Artifact", "Choose Exploded War Artifact");
 
-		List<Artifact> artifactList = dialog.showAndGetResult();
-		if(artifactList.size() != 1)
-		{
-			return null;
-		}
-		return doCreateArtifactTemplate(artifactList.get(0), myContext);
-	}
+        List<Artifact> artifactList = dialog.showAndGetResult();
+        if (artifactList.size() != 1) {
+            return null;
+        }
+        return doCreateArtifactTemplate(artifactList.get(0), myContext);
+    }
 
-	@Override
-	public String getPresentableName()
-	{
-		return "From Exploded Artifact";
-	}
+    @Override
+    public String getPresentableName() {
+        return "From Exploded Artifact";
+    }
 }

@@ -12,28 +12,23 @@ import org.jetbrains.annotations.NonNls;
  * @author VISTALL
  * @since 09-Jul-17
  */
-public abstract class JavaEEServerBundleType extends SdkType
-{
-	public JavaEEServerBundleType(@NonNls String name)
-	{
-		super(name);
-	}
+public abstract class JavaEEServerBundleType extends SdkType {
+    public JavaEEServerBundleType(@NonNls String name) {
+        super(name);
+    }
 
-	public DeploymentModel createNewDeploymentModel(CommonModel commonModel, DeploymentSource source)
-	{
-		return null;
-	}
+    public DeploymentModel createNewDeploymentModel(CommonModel commonModel, DeploymentSource source) {
+        return null;
+    }
 
-	public SettingsEditor<DeploymentModel> createAdditionalDeploymentSettingsEditor(CommonModel commonModel, DeploymentSource source)
-	{
-		return null;
-	}
+    public SettingsEditor<DeploymentModel> createAdditionalDeploymentSettingsEditor(CommonModel commonModel, DeploymentSource source) {
+        return null;
+    }
 
-	public boolean isJreCustomizable()
-	{
-		return false;
-	}
+    public boolean isJreCustomizable() {
+        return false;
+    }
 
-	@Deprecated
-	public abstract JavaeeIntegration getIntegration();
+    @Deprecated
+    public abstract JavaeeIntegration getIntegration();
 }

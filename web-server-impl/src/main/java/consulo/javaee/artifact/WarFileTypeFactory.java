@@ -12,11 +12,9 @@ import jakarta.annotation.Nonnull;
  * @since 12.11.13.
  */
 @ExtensionImpl
-public class WarFileTypeFactory extends FileTypeFactory
-{
-	@Override
-	public void createFileTypes(@Nonnull FileTypeConsumer fileTypeConsumer)
-	{
-		fileTypeConsumer.consume(JarArchiveFileType.INSTANCE, "war");
-	}
+public class WarFileTypeFactory extends FileTypeFactory {
+    @Override
+    public void createFileTypes(@Nonnull FileTypeConsumer fileTypeConsumer) {
+        fileTypeConsumer.consume(JarArchiveFileType.INSTANCE, "war");
+    }
 }

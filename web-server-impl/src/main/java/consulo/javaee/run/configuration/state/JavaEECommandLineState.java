@@ -15,45 +15,43 @@ import consulo.process.ExecutionException;
 import consulo.process.ProcessHandler;
 
 import jakarta.annotation.Nonnull;
+
 import java.util.Collections;
 
 /**
  * @author VISTALL
  * @since 16-Jul-17
  */
-public class JavaEECommandLineState extends CommandLineState implements PatchedRunnableState
-{
-	public JavaEECommandLineState(ExecutionEnvironment environment)
-	{
-		super(environment);
-	}
+public class JavaEECommandLineState extends CommandLineState implements PatchedRunnableState {
+    public JavaEECommandLineState(ExecutionEnvironment environment) {
+        super(environment);
+    }
 
-	@Override
-	@Nonnull
-	public ExecutionResult execute(@Nonnull final Executor executor, @Nonnull final ProgramRunner runner) throws ExecutionException
-	{
-		ProcessHandler processHandler = startProcess();
-		JavaEEDeploymentConsole console = new JavaEEDeploymentConsole(executor, (JavaEEConfigurationImpl) getEnvironment().getRunProfile(), getEnvironment().getProject());
-		console.attachToProcess(processHandler);
-		return new DefaultExecutionResult(console, processHandler, createActions(console, processHandler, executor));
-	}
+    @Override
+    @Nonnull
+    public ExecutionResult execute(@Nonnull final Executor executor, @Nonnull final ProgramRunner runner) throws ExecutionException {
+        ProcessHandler processHandler = startProcess();
+        JavaEEDeploymentConsole console =
+            new JavaEEDeploymentConsole(executor, (JavaEEConfigurationImpl)getEnvironment().getRunProfile(), getEnvironment().getProject());
+        console.attachToProcess(processHandler);
+        return new DefaultExecutionResult(console, processHandler, createActions(console, processHandler, executor));
+    }
 
-	@Nonnull
-	@Override
-	protected ProcessHandler startProcess() throws ExecutionException
-	{
-		JavaEEConfigurationImpl configuration = (JavaEEConfigurationImpl) getEnvironment().getRunProfile();
+    @Nonnull
+    @Override
+    protected ProcessHandler startProcess() throws ExecutionException {
+        JavaEEConfigurationImpl configuration = (JavaEEConfigurationImpl)getEnvironment().getRunProfile();
 
-		JavaeeStartupPolicy startupPolicy = (JavaeeStartupPolicy) configuration.getStartupPolicy();
+        JavaeeStartupPolicy startupPolicy = (JavaeeStartupPolicy)configuration.getStartupPolicy();
 
-		ScriptHelper startupScriptHelper = startupPolicy.createStartupScriptHelper(getEnvironment().getRunner());
+        ScriptHelper startupScriptHelper = startupPolicy.createStartupScriptHelper(getEnvironment().getRunner());
 
-		assert startupScriptHelper != null;
+        assert startupScriptHelper != null;
 
-		ExecutableObject defaultScript = startupScriptHelper.getDefaultScript(configuration);
+        ExecutableObject defaultScript = startupScriptHelper.getDefaultScript(configuration);
 
-		assert defaultScript != null;
+        assert defaultScript != null;
 
-		return defaultScript.createProcessHandler(null, Collections.emptyMap());
-	}
+        return defaultScript.createProcessHandler(null, Collections.emptyMap());
+    }
 }

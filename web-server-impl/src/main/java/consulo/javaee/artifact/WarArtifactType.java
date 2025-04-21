@@ -27,6 +27,7 @@ import consulo.compiler.artifact.element.PackagingElementResolvingContext;
 import consulo.compiler.artifact.element.ZipArchivePackagingElement;
 
 import jakarta.annotation.Nonnull;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -35,29 +36,24 @@ import java.util.List;
  * @since 07.11.13.
  */
 @ExtensionImpl
-public class WarArtifactType extends WebApplicationArtifactType
-{
-	public static WarArtifactType getInstance()
-	{
-		return EP_NAME.findExtension(WarArtifactType.class);
-	}
+public class WarArtifactType extends WebApplicationArtifactType {
+    public static WarArtifactType getInstance() {
+        return EP_NAME.findExtension(WarArtifactType.class);
+    }
 
-	public WarArtifactType()
-	{
-		super("war", J2EEBundle.message("war.artifact.name"));
-	}
+    public WarArtifactType() {
+        super("war", J2EEBundle.message("war.artifact.name"));
+    }
 
-	@Nonnull
-	@Override
-	public List<? extends ArtifactTemplate> getNewArtifactTemplates(@Nonnull PackagingElementResolvingContext context)
-	{
-		return Collections.singletonList(new WarArtifactTemplate(context));
-	}
+    @Nonnull
+    @Override
+    public List<? extends ArtifactTemplate> getNewArtifactTemplates(@Nonnull PackagingElementResolvingContext context) {
+        return Collections.singletonList(new WarArtifactTemplate(context));
+    }
 
-	@Nonnull
-	@Override
-	public CompositePackagingElement<?> createRootElement(@Nonnull PackagingElementFactory factory, @Nonnull String s)
-	{
-		return new ZipArchivePackagingElement(ArtifactUtil.suggestArtifactFileName(s) + ".war");
-	}
+    @Nonnull
+    @Override
+    public CompositePackagingElement<?> createRootElement(@Nonnull PackagingElementFactory factory, @Nonnull String s) {
+        return new ZipArchivePackagingElement(ArtifactUtil.suggestArtifactFileName(s) + ".war");
+    }
 }

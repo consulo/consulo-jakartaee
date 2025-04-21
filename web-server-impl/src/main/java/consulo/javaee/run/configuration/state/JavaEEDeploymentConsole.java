@@ -26,70 +26,63 @@ import jakarta.annotation.Nullable;
  * @author VISTALL
  * @since 16-Jul-17
  */
-public class JavaEEDeploymentConsole extends ConsoleViewImpl implements ExecutionConsoleEx, JavaeeConsoleView
-{
-	private final Executor myExecutor;
-	private final JavaEEConfigurationImpl myConfiguration;
+public class JavaEEDeploymentConsole extends ConsoleViewImpl implements ExecutionConsoleEx, JavaeeConsoleView {
+    private final Executor myExecutor;
+    private final JavaEEConfigurationImpl myConfiguration;
 
-	private final DeploymentViewImpl myDeploymentView;
+    private final DeploymentViewImpl myDeploymentView;
 
-	public JavaEEDeploymentConsole(Executor executor, JavaEEConfigurationImpl configuration, @Nonnull Project project)
-	{
-		super(project, true);
-		myExecutor = executor;
-		myConfiguration = configuration;
-		myDeploymentView = new DeploymentViewImpl(myConfiguration);
-	}
+    public JavaEEDeploymentConsole(Executor executor, JavaEEConfigurationImpl configuration, @Nonnull Project project) {
+        super(project, true);
+        myExecutor = executor;
+        myConfiguration = configuration;
+        myDeploymentView = new DeploymentViewImpl(myConfiguration);
+    }
 
-	@Override
-	public void buildUi(RunnerLayoutUi ui)
-	{
-		int index = myExecutor == DefaultDebugExecutor.getDebugExecutorInstance() ? 1 : 0;
+    @Override
+    public void buildUi(RunnerLayoutUi ui) {
+        int index = myExecutor == DefaultDebugExecutor.getDebugExecutorInstance() ? 1 : 0;
 
-		((LayoutStateDefaults) ui).initTabDefaults(index, "Server", null);
+        ((LayoutStateDefaults)ui).initTabDefaults(index, "Server", null);
 
-		final Content consoleContent = ui.createContent(ExecutionConsole.CONSOLE_CONTENT_ID, getComponent(), "Output", null, getPreferredFocusableComponent());
-		consoleContent.setCloseable(false);
+        final Content consoleContent =
+            ui.createContent(ExecutionConsole.CONSOLE_CONTENT_ID, getComponent(), "Output", null, getPreferredFocusableComponent());
+        consoleContent.setCloseable(false);
 
-		RunContentBuilder.addAdditionalConsoleEditorActions(this, consoleContent);
+        RunContentBuilder.addAdditionalConsoleEditorActions(this, consoleContent);
 
-		ui.addContent(consoleContent, index, PlaceInGrid.center, false);
+        ui.addContent(consoleContent, index, PlaceInGrid.center, false);
 
 
-		final Content deploymentContent = ui.createContent("JavaEEDeployment", myDeploymentView.getComponent(), "Deployment", null, null);
-		deploymentContent.setCloseable(false);
-		ui.addContent(deploymentContent, index, PlaceInGrid.left, false);
-	}
+        final Content deploymentContent = ui.createContent("JavaEEDeployment", myDeploymentView.getComponent(), "Deployment", null, null);
+        deploymentContent.setCloseable(false);
+        ui.addContent(deploymentContent, index, PlaceInGrid.left, false);
+    }
 
-	@Nullable
-	@Override
-	public String getExecutionConsoleId()
-	{
-		return "JavaEEDeploymentConsoleView";
-	}
+    @Nullable
+    @Override
+    public String getExecutionConsoleId() {
+        return "JavaEEDeploymentConsoleView";
+    }
 
-	@Override
-	public AppServerIntegration getIntegration()
-	{
-		return null;
-	}
+    @Override
+    public AppServerIntegration getIntegration() {
+        return null;
+    }
 
-	@Override
-	public J2EEServerInstance getServerInstance()
-	{
-		return null;
-	}
+    @Override
+    public J2EEServerInstance getServerInstance() {
+        return null;
+    }
 
-	@Override
-	public ProcessHandler getProcessHandler()
-	{
-		return null;
-	}
+    @Override
+    public ProcessHandler getProcessHandler() {
+        return null;
+    }
 
-	@Nullable
-	@Override
-	public DeploymentView getDeploymentView()
-	{
-		return myDeploymentView;
-	}
+    @Nullable
+    @Override
+    public DeploymentView getDeploymentView() {
+        return myDeploymentView;
+    }
 }

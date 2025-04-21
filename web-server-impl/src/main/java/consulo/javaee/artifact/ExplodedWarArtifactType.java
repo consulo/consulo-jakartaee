@@ -26,6 +26,7 @@ import consulo.compiler.artifact.element.PackagingElementFactory;
 import consulo.compiler.artifact.element.PackagingElementResolvingContext;
 
 import jakarta.annotation.Nonnull;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -34,29 +35,24 @@ import java.util.List;
  * @since 07.11.13.
  */
 @ExtensionImpl
-public class ExplodedWarArtifactType extends WebApplicationArtifactType
-{
-	public static ExplodedWarArtifactType getInstance()
-	{
-		return EP_NAME.findExtension(ExplodedWarArtifactType.class);
-	}
+public class ExplodedWarArtifactType extends WebApplicationArtifactType {
+    public static ExplodedWarArtifactType getInstance() {
+        return EP_NAME.findExtension(ExplodedWarArtifactType.class);
+    }
 
-	public ExplodedWarArtifactType()
-	{
-		super("exploded-war", J2EEBundle.message("exploded.war.artifact.name"));
-	}
+    public ExplodedWarArtifactType() {
+        super("exploded-war", J2EEBundle.message("exploded.war.artifact.name"));
+    }
 
-	@Nonnull
-	@Override
-	public List<? extends ArtifactTemplate> getNewArtifactTemplates(@Nonnull PackagingElementResolvingContext context)
-	{
-		return Collections.singletonList(new ExplodedWarArtifactTemplate(context));
-	}
+    @Nonnull
+    @Override
+    public List<? extends ArtifactTemplate> getNewArtifactTemplates(@Nonnull PackagingElementResolvingContext context) {
+        return Collections.singletonList(new ExplodedWarArtifactTemplate(context));
+    }
 
-	@Nonnull
-	@Override
-	public CompositePackagingElement<?> createRootElement(@Nonnull PackagingElementFactory factory, @Nonnull String s)
-	{
-		return new ArtifactRootElementImpl();
-	}
+    @Nonnull
+    @Override
+    public CompositePackagingElement<?> createRootElement(@Nonnull PackagingElementFactory factory, @Nonnull String s) {
+        return new ArtifactRootElementImpl();
+    }
 }
