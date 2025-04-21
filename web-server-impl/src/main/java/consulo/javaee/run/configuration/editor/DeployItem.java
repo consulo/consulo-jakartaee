@@ -13,56 +13,47 @@ import consulo.remoteServer.configuration.deployment.DeploymentSource;
 
 /**
  * @author VISTALL
- * @since 09-Jul-17
+ * @since 2017-07-09
  */
-class DeployItem implements Disposable
-{
-	private final DeploymentSource myDeploymentSource;
-	private final DeploymentModel myDeploymentModel;
+class DeployItem implements Disposable {
+    private final DeploymentSource myDeploymentSource;
+    private final DeploymentModel myDeploymentModel;
 
-	private SettingsEditor<DeploymentModel> myEditor;
+    private SettingsEditor<DeploymentModel> myEditor;
 
-	DeployItem(CommonModel commonModel, DeploymentSource deploymentSource, JavaEEServerBundleType bundleType)
-	{
-		myDeploymentSource = deploymentSource;
+    DeployItem(CommonModel commonModel, DeploymentSource deploymentSource, JavaEEServerBundleType bundleType) {
+        myDeploymentSource = deploymentSource;
 
-		myDeploymentModel = bundleType.createNewDeploymentModel(commonModel, deploymentSource);
-		myEditor = bundleType.createAdditionalDeploymentSettingsEditor(commonModel, deploymentSource);
+        myDeploymentModel = bundleType.createNewDeploymentModel(commonModel, deploymentSource);
+        myEditor = bundleType.createAdditionalDeploymentSettingsEditor(commonModel, deploymentSource);
 
-		Disposer.register(this, myEditor);
-	}
+        Disposer.register(this, myEditor);
+    }
 
-	public SettingsEditor<DeploymentModel> getEditor()
-	{
-		return myEditor;
-	}
+    public SettingsEditor<DeploymentModel> getEditor() {
+        return myEditor;
+    }
 
-	public void apply() throws ConfigurationException
-	{
-		myEditor.applyTo(myDeploymentModel);
-	}
+    public void apply() throws ConfigurationException {
+        myEditor.applyTo(myDeploymentModel);
+    }
 
-	public DeploymentModel getDeploymentModel()
-	{
-		return myDeploymentModel;
-	}
+    public DeploymentModel getDeploymentModel() {
+        return myDeploymentModel;
+    }
 
-	public DeploymentSource getDeploymentSource()
-	{
-		return myDeploymentSource;
-	}
+    public DeploymentSource getDeploymentSource() {
+        return myDeploymentSource;
+    }
 
-	public ArtifactPointer getArtifactPointer()
-	{
-		if(myDeploymentSource instanceof ArtifactDeploymentSource)
-		{
-			return ((ArtifactDeploymentSource) myDeploymentSource).getArtifactPointer();
-		}
-		return null;
-	}
+    public ArtifactPointer getArtifactPointer() {
+        if (myDeploymentSource instanceof ArtifactDeploymentSource artifactDeploymentSource) {
+            return artifactDeploymentSource.getArtifactPointer();
+        }
+        return null;
+    }
 
-	@Override
-	public void dispose()
-	{
-	}
+    @Override
+    public void dispose() {
+    }
 }

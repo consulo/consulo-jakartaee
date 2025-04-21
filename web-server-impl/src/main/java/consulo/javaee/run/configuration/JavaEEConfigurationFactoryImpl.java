@@ -20,70 +20,68 @@ import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL
- * @since 09-Jul-17
+ * @since 2017-07-09
  */
-public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory
-{
-	public JavaEEConfigurationFactoryImpl(ConfigurationType type, String id, LocalizeValue name, Image icon, boolean local, JavaEEServerBundleType bundleType)
-	{
-		super(type, id, name, icon, local, bundleType);
-	}
+public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory {
+    public JavaEEConfigurationFactoryImpl(
+        ConfigurationType type,
+        String id,
+        LocalizeValue name,
+        Image icon,
+        boolean local,
+        JavaEEServerBundleType bundleType
+    ) {
+        super(type, id, name, icon, local, bundleType);
+    }
 
-	@Override
-	public boolean isApplicable(@Nonnull Project project)
-	{
-		return J2EEConfigurationFactory.getInstance().isConfigurationApplicable((JavaeeConfigurationType) getType(), project);
-	}
+    @Override
+    public boolean isApplicable(@Nonnull Project project) {
+        return J2EEConfigurationFactory.getInstance().isConfigurationApplicable((JavaeeConfigurationType)getType(), project);
+    }
 
-	@Override
-	public void onNewConfigurationCreated(@Nonnull RunConfiguration configuration)
-	{
-		super.onNewConfigurationCreated(configuration);
+    @Override
+    public void onNewConfigurationCreated(@Nonnull RunConfiguration configuration) {
+        super.onNewConfigurationCreated(configuration);
 
-		JavaEEConfigurationImpl javaEEConfiguration = (JavaEEConfigurationImpl) configuration;
+        JavaEEConfigurationImpl javaEEConfiguration = (JavaEEConfigurationImpl)configuration;
 
-		JavaeeServerModel serverModel = (JavaeeServerModel) javaEEConfiguration.getServerModel();
+        JavaeeServerModel serverModel = (JavaeeServerModel)javaEEConfiguration.getServerModel();
 
-		Sdk sdk = SdkTable.getInstance().findMostRecentSdkOfType(myBundleType);
-		if(sdk != null)
-		{
-			javaEEConfiguration.APPLICATION_SERVER_NAME = sdk.getName();
-		}
+        Sdk sdk = SdkTable.getInstance().findMostRecentSdkOfType(myBundleType);
+        if (sdk != null) {
+            javaEEConfiguration.APPLICATION_SERVER_NAME = sdk.getName();
+        }
 
-		serverModel.onNewConfigurationCreated();
-	}
+        serverModel.onNewConfigurationCreated();
+    }
 
-	@Override
-	public void onConfigurationCopied(@Nonnull RunConfiguration configuration)
-	{
-		super.onConfigurationCopied(configuration);
+    @Override
+    public void onConfigurationCopied(@Nonnull RunConfiguration configuration) {
+        super.onConfigurationCopied(configuration);
 
-		JavaEEConfigurationImpl javaEEConfiguration = (JavaEEConfigurationImpl) configuration;
+        JavaEEConfigurationImpl javaEEConfiguration = (JavaEEConfigurationImpl)configuration;
 
-		JavaeeServerModel serverModel = (JavaeeServerModel) javaEEConfiguration.getServerModel();
+        JavaeeServerModel serverModel = (JavaeeServerModel)javaEEConfiguration.getServerModel();
 
-		serverModel.onConfigurationCopied();
-	}
+        serverModel.onConfigurationCopied();
+    }
 
-	@Override
-	public boolean canConfigurationBeSingleton()
-	{
-		return false;
-	}
+    @Override
+    public boolean canConfigurationBeSingleton() {
+        return false;
+    }
 
-	@Nonnull
-	@Override
-	protected ServerModel createServerModel()
-	{
-		JavaeeConfigurationType type = (JavaeeConfigurationType) getType();
-		return myLocal ? type.createLocalModel() : type.createRemoteModel();
-	}
+    @Nonnull
+    @Override
+    protected ServerModel createServerModel() {
+        JavaeeConfigurationType type = (JavaeeConfigurationType)getType();
+        return myLocal ? type.createLocalModel() : type.createRemoteModel();
+    }
 
-	@Nullable
-	@Override
-	protected ExecutableObjectStartupPolicy createPolicy()
-	{
-		JavaeeConfigurationType type = (JavaeeConfigurationType) getType();
-		return type.createStartupPolicy();
-	}
+    @Nullable
+    @Override
+    protected ExecutableObjectStartupPolicy createPolicy() {
+        JavaeeConfigurationType type = (JavaeeConfigurationType)getType();
+        return type.createStartupPolicy();
+    }
 }

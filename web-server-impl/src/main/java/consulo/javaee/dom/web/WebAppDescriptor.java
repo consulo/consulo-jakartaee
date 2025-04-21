@@ -17,6 +17,7 @@
 package consulo.javaee.dom.web;
 
 import com.intellij.javaee.model.xml.web.WebApp;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.component.util.Iconable;
 import consulo.jakartaee.web.JavaWebConstants;
@@ -32,59 +33,52 @@ import consulo.xml.util.xml.DomFileDescription;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+
 import java.util.List;
 
 /**
  * @author VISTALL
- * @since 07.11.13.
+ * @since 2013-11-07
  */
 @ExtensionImpl
-public class WebAppDescriptor extends DomFileDescription<WebApp>
-{
-	public WebAppDescriptor()
-	{
-		super(WebApp.class, "web-app");
-	}
+public class WebAppDescriptor extends DomFileDescription<WebApp> {
+    public WebAppDescriptor() {
+        super(WebApp.class, "web-app");
+    }
 
-	@Nullable
-	@Override
-	public Image getFileIcon(@Iconable.IconFlags int flags)
-	{
-		return JavaEEIcons.Web_xml;
-	}
+    @Nullable
+    @Override
+    public Image getFileIcon(@Iconable.IconFlags int flags) {
+        return JavaEEIcons.Web_xml;
+    }
 
-	@Override
-	public boolean isMyFile(@Nonnull XmlFile file)
-	{
-		if(!super.isMyFile(file))
-		{
-			return false;
-		}
+    @Override
+    @RequiredReadAction
+    public boolean isMyFile(@Nonnull XmlFile file) {
+        if (!super.isMyFile(file)) {
+            return false;
+        }
 
-		if(!file.getName().equals(JavaWebConstants.WEB_APP_XML))
-		{
-			return false;
-		}
+        if (!file.getName().equals(JavaWebConstants.WEB_APP_XML)) {
+            return false;
+        }
 
-		Module module = ModuleUtilCore.findModuleForPsiElement(file);
-		if(module == null || ModuleUtilCore.getExtension(module, JavaWebModuleExtension.class) == null)
-		{
-			return false;
-		}
+        Module module = ModuleUtilCore.findModuleForPsiElement(file);
+        if (module == null || ModuleUtilCore.getExtension(module, JavaWebModuleExtension.class) == null) {
+            return false;
+        }
 
-		VirtualFile virtualFile = file.getVirtualFile();
-		if(virtualFile == null)
-		{
-			return false;
-		}
+        VirtualFile virtualFile = file.getVirtualFile();
+        if (virtualFile == null) {
+            return false;
+        }
 
-		VirtualFile parent = virtualFile.getParent();
-		if(parent != null && parent.getName().equals(JavaWebConstants.WEB_INF))
-		{
-			List<VirtualFile> specialDirs = SpecialDirUtil.collectSpecialDirs(module, JavaWebConstants.WEB_INF);
-			return specialDirs.contains(parent);
-		}
+        VirtualFile parent = virtualFile.getParent();
+        if (parent != null && parent.getName().equals(JavaWebConstants.WEB_INF)) {
+            List<VirtualFile> specialDirs = SpecialDirUtil.collectSpecialDirs(module, JavaWebConstants.WEB_INF);
+            return specialDirs.contains(parent);
+        }
 
-		return true;
-	}
+        return true;
+    }
 }

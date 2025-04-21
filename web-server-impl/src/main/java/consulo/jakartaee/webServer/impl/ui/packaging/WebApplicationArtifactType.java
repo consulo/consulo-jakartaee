@@ -5,41 +5,36 @@ import consulo.compiler.artifact.element.PackagingElementOutputKind;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.javaee.JavaEEIcons;
 import consulo.language.util.ModuleUtilCore;
+import consulo.localize.LocalizeValue;
 import consulo.module.content.layer.ModulesProvider;
 import consulo.ui.image.Image;
-import org.jetbrains.annotations.NonNls;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL
- * @since 03-Jul-17
+ * @since 2017-07-03
  */
-public abstract class WebApplicationArtifactType extends ArtifactType
-{
-	protected WebApplicationArtifactType(@NonNls String id, String title)
-	{
-		super(id, title);
-	}
+public abstract class WebApplicationArtifactType extends ArtifactType {
+    protected WebApplicationArtifactType(String id, LocalizeValue title) {
+        super(id, title);
+    }
 
-	@Nullable
-	@Override
-	public String getDefaultPathFor(@Nonnull PackagingElementOutputKind packagingElementOutputKind)
-	{
-		return "/";
-	}
+    @Nullable
+    @Override
+    public String getDefaultPathFor(@Nonnull PackagingElementOutputKind packagingElementOutputKind) {
+        return "/";
+    }
 
-	@Override
-	public boolean isAvailableForAdd(@Nonnull ModulesProvider modulesProvider)
-	{
-		return ModuleUtilCore.hasModuleExtension(modulesProvider, JavaWebModuleExtension.class);
-	}
+    @Override
+    public boolean isAvailableForAdd(@Nonnull ModulesProvider modulesProvider) {
+        return ModuleUtilCore.hasModuleExtension(modulesProvider, JavaWebModuleExtension.class);
+    }
 
-	@Nonnull
-	@Override
-	public Image getIcon()
-	{
-		return JavaEEIcons.WarArtifact;
-	}
+    @Nonnull
+    @Override
+    public Image getIcon() {
+        return JavaEEIcons.WarArtifact;
+    }
 }

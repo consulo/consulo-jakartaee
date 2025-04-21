@@ -30,35 +30,41 @@ import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL
- * @since 07.11.13.
+ * @since 2013-11-07
  */
-public class WebResourceModuleOutputPackagingElement extends ModuleOutputPackagingElementImpl
-{
-	public WebResourceModuleOutputPackagingElement(PackagingElementType type, Project project, NamedPointer<Module> modulePointer, ContentFolderTypeProvider contentFolderType)
-	{
-		super(type, project, modulePointer, contentFolderType);
-	}
+public class WebResourceModuleOutputPackagingElement extends ModuleOutputPackagingElementImpl {
+    public WebResourceModuleOutputPackagingElement(
+        PackagingElementType type,
+        Project project,
+        NamedPointer<Module> modulePointer,
+        ContentFolderTypeProvider contentFolderType
+    ) {
+        super(type, project, modulePointer, contentFolderType);
+    }
 
-	public WebResourceModuleOutputPackagingElement(PackagingElementType type, Project project, ContentFolderTypeProvider contentFolderType)
-	{
-		super(type, project, contentFolderType);
-	}
+    public WebResourceModuleOutputPackagingElement(
+        PackagingElementType type,
+        Project project,
+        ContentFolderTypeProvider contentFolderType
+    ) {
+        super(type, project, contentFolderType);
+    }
 
-	@Override
-	public void computeIncrementalCompilerInstructions(@Nonnull IncrementalCompilerInstructionCreator creator,
-													   @Nonnull PackagingElementResolvingContext resolvingContext,
-													   @Nonnull ArtifactIncrementalCompilerContext compilerContext,
-													   @Nonnull ArtifactType artifactType)
-	{
-		Module module = findModule(resolvingContext);
-		if(module != null)
-		{
-			VirtualFile[] virtualFiles = ModuleRootManager.getInstance(module).getContentFolderFiles(LanguageContentFolderScopes.of(myContentFolderType));
+    @Override
+    public void computeIncrementalCompilerInstructions(
+        @Nonnull IncrementalCompilerInstructionCreator creator,
+        @Nonnull PackagingElementResolvingContext resolvingContext,
+        @Nonnull ArtifactIncrementalCompilerContext compilerContext,
+        @Nonnull ArtifactType artifactType
+    ) {
+        Module module = findModule(resolvingContext);
+        if (module != null) {
+            VirtualFile[] virtualFiles =
+                ModuleRootManager.getInstance(module).getContentFolderFiles(LanguageContentFolderScopes.of(myContentFolderType));
 
-			for(VirtualFile virtualFile : virtualFiles)
-			{
-				creator.addDirectoryCopyInstructions(virtualFile, null);
-			}
-		}
-	}
+            for (VirtualFile virtualFile : virtualFiles) {
+                creator.addDirectoryCopyInstructions(virtualFile, null);
+            }
+        }
+    }
 }

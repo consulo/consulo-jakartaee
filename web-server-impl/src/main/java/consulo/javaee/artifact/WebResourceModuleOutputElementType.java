@@ -28,30 +28,26 @@ import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL
- * @since 07.11.13.
+ * @since 2013-11-07
  */
 @ExtensionImpl
-public class WebResourceModuleOutputElementType extends ModuleOutputElementTypeBase
-{
-	public static WebResourceModuleOutputElementType getInstance()
-	{
-		return getInstance(WebResourceModuleOutputElementType.class);
-	}
+public class WebResourceModuleOutputElementType extends ModuleOutputElementTypeBase {
+    public static WebResourceModuleOutputElementType getInstance() {
+        return getInstance(WebResourceModuleOutputElementType.class);
+    }
 
-	public WebResourceModuleOutputElementType()
-	{
-		super("java-web-resource", WebResourcesFolderTypeProvider.getInstance());
-	}
+    public WebResourceModuleOutputElementType() {
+        super("java-web-resource", WebResourcesFolderTypeProvider.getInstance());
+    }
 
-	public ModuleOutputPackagingElementImpl createElement(@Nonnull Project project, @Nonnull NamedPointer<Module> pointer)
-	{
-		return new WebResourceModuleOutputPackagingElement(this, project, pointer, myContentFolderTypeProvider);
-	}
+    @Override
+    public ModuleOutputPackagingElementImpl createElement(@Nonnull Project project, @Nonnull NamedPointer<Module> pointer) {
+        return new WebResourceModuleOutputPackagingElement(this, project, pointer, myContentFolderTypeProvider);
+    }
 
-	@Nonnull
-	@Override
-	public ModuleOutputPackagingElementImpl createEmpty(@Nonnull Project project)
-	{
-		return new WebResourceModuleOutputPackagingElement(this, project, myContentFolderTypeProvider);
-	}
+    @Nonnull
+    @Override
+    public ModuleOutputPackagingElementImpl createEmpty(@Nonnull Project project) {
+        return new WebResourceModuleOutputPackagingElement(this, project, myContentFolderTypeProvider);
+    }
 }

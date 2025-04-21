@@ -16,47 +16,45 @@
 
 package consulo.javaee.artifact;
 
-import com.intellij.javaee.J2EEBundle;
 import consulo.annotation.component.ExtensionImpl;
-import consulo.jakartaee.webServer.impl.ui.packaging.WebApplicationArtifactType;
+import consulo.application.Application;
 import consulo.compiler.artifact.ArtifactTemplate;
+import consulo.compiler.artifact.ArtifactType;
 import consulo.compiler.artifact.element.ArtifactRootElementImpl;
 import consulo.compiler.artifact.element.CompositePackagingElement;
 import consulo.compiler.artifact.element.PackagingElementFactory;
 import consulo.compiler.artifact.element.PackagingElementResolvingContext;
-
+import consulo.jakarta.localize.JakartaLocalize;
+import consulo.jakartaee.webServer.impl.ui.packaging.WebApplicationArtifactType;
 import jakarta.annotation.Nonnull;
+
 import java.util.Collections;
 import java.util.List;
 
 /**
  * @author VISTALL
- * @since 07.11.13.
+ * @since 2013-11-07
  */
 @ExtensionImpl
-public class ExplodedWarArtifactType extends WebApplicationArtifactType
-{
-	public static ExplodedWarArtifactType getInstance()
-	{
-		return EP_NAME.findExtension(ExplodedWarArtifactType.class);
-	}
+public class ExplodedWarArtifactType extends WebApplicationArtifactType {
+    @Nonnull
+    public static ExplodedWarArtifactType getInstance() {
+        return Application.get().getExtensionPoint(ArtifactType.class).findExtensionOrFail(ExplodedWarArtifactType.class);
+    }
 
-	public ExplodedWarArtifactType()
-	{
-		super("exploded-war", J2EEBundle.message("exploded.war.artifact.name"));
-	}
+    public ExplodedWarArtifactType() {
+        super("exploded-war", JakartaLocalize.explodedWarArtifactName());
+    }
 
-	@Nonnull
-	@Override
-	public List<? extends ArtifactTemplate> getNewArtifactTemplates(@Nonnull PackagingElementResolvingContext context)
-	{
-		return Collections.singletonList(new ExplodedWarArtifactTemplate(context));
-	}
+    @Nonnull
+    @Override
+    public List<? extends ArtifactTemplate> getNewArtifactTemplates(@Nonnull PackagingElementResolvingContext context) {
+        return Collections.singletonList(new ExplodedWarArtifactTemplate(context));
+    }
 
-	@Nonnull
-	@Override
-	public CompositePackagingElement<?> createRootElement(@Nonnull PackagingElementFactory factory, @Nonnull String s)
-	{
-		return new ArtifactRootElementImpl();
-	}
+    @Nonnull
+    @Override
+    public CompositePackagingElement<?> createRootElement(@Nonnull PackagingElementFactory factory, @Nonnull String s) {
+        return new ArtifactRootElementImpl();
+    }
 }
