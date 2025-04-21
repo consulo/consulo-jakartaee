@@ -1,19 +1,11 @@
 package consulo.javaee.run.configuration;
 
 import com.intellij.java.execution.impl.JavaRunConfigurationExtensionManager;
-import com.intellij.javaee.J2EEBundle;
-import consulo.jakartaee.webServer.impl.appServerIntegrations.AppServerIntegration;
-import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
-import consulo.jakartaee.webServer.impl.deployment.DeploymentSettings;
-import consulo.jakartaee.webServer.impl.oss.server.JavaeeServerModel;
-import consulo.jakartaee.webServer.impl.run.configuration.CommonStrategy;
-import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
-import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.compiler.artifact.Artifact;
 import consulo.compiler.scope.CompileScope;
 import consulo.content.bundle.Sdk;
 import consulo.content.bundle.SdkTable;
-import consulo.execution.ExecutionBundle;
 import consulo.execution.RuntimeConfigurationException;
 import consulo.execution.configuration.*;
 import consulo.execution.configuration.log.LogFileOptions;
@@ -22,8 +14,17 @@ import consulo.execution.configuration.log.ui.LogConfigurationPanel;
 import consulo.execution.configuration.ui.SettingsEditor;
 import consulo.execution.configuration.ui.SettingsEditorGroup;
 import consulo.execution.executor.Executor;
+import consulo.execution.localize.ExecutionLocalize;
 import consulo.execution.runner.ExecutionEnvironment;
 import consulo.execution.runner.ProgramRunner;
+import consulo.jakarta.localize.JakartaLocalize;
+import consulo.jakartaee.webServer.impl.appServerIntegrations.AppServerIntegration;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
+import consulo.jakartaee.webServer.impl.deployment.DeploymentSettings;
+import consulo.jakartaee.webServer.impl.oss.server.JavaeeServerModel;
+import consulo.jakartaee.webServer.impl.run.configuration.CommonStrategy;
+import consulo.jakartaee.webServer.impl.run.configuration.ServerModel;
+import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
 import consulo.java.debugger.impl.GenericDebugRunnerConfiguration;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
@@ -37,17 +38,16 @@ import consulo.project.Project;
 import consulo.util.lang.StringUtil;
 import consulo.util.xml.serializer.InvalidDataException;
 import consulo.util.xml.serializer.WriteExternalException;
-import org.jdom.Element;
-
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import org.jdom.Element;
 
 import java.util.Collection;
 import java.util.List;
 
 /**
  * @author VISTALL
- * @since 09-Jul-17
+ * @since 2017-07-09
  */
 public class JavaEEConfigurationImpl extends LocatableConfigurationBase implements CommonStrategy, GenericDebugRunnerConfiguration {
     private JavaEEServerBundleType myBundleType;
@@ -181,6 +181,7 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
 
     @Nullable
     @Override
+    @RequiredReadAction
     public DeploymentModel getDeploymentModel(Artifact artifact) {
         return myDeploymentSettings.getOrCreateModel(artifact);
     }
@@ -240,14 +241,14 @@ public class JavaEEConfigurationImpl extends LocatableConfigurationBase implemen
     @SuppressWarnings("unchecked")
     public SettingsEditor<? extends RunConfiguration> getConfigurationEditor() {
         SettingsEditorGroup group = new SettingsEditorGroup<>();
-        group.addEditor(J2EEBundle.message("title.run.configuration.editor.server"), new JavaEEServerConfigurationEditor(myBundleType));
+        group.addEditor(JakartaLocalize.titleRunConfigurationEditorServer().get(), new JavaEEServerConfigurationEditor(myBundleType));
         group.addEditor(
-            J2EEBundle.message("title.run.configuration.editor.deployment"),
+            JakartaLocalize.titleRunConfigurationEditorDeployment().get(),
             new JavaEEDeploymentConfigurationEditor(getProject(), myBundleType, this)
         );
-        group.addEditor(ExecutionBundle.message("logs.tab.title"), new LogConfigurationPanel<>());
+        group.addEditor(ExecutionLocalize.logsTabTitle().get(), new LogConfigurationPanel<>());
         JavaRunConfigurationExtensionManager.getInstance().appendEditors(this, group);
-        group.addEditor(ExecutionBundle.message("run.configuration.startup.connection.rab.title"), new JavaEEStartupConfigurationEditor());
+        group.addEditor(ExecutionLocalize.runConfigurationStartupConnectionRabTitle().get(), new JavaEEStartupConfigurationEditor());
         return group;
     }
 

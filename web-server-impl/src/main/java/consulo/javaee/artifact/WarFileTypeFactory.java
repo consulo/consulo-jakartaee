@@ -9,7 +9,7 @@ import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL
- * @since 12.11.13.
+ * @since 2013-11-12
  */
 @ExtensionImpl
 public class WarFileTypeFactory extends FileTypeFactory {

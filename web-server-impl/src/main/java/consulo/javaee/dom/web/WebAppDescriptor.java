@@ -17,6 +17,7 @@
 package consulo.javaee.dom.web;
 
 import com.intellij.javaee.model.xml.web.WebApp;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.component.util.Iconable;
 import consulo.jakartaee.web.JavaWebConstants;
@@ -37,7 +38,7 @@ import java.util.List;
 
 /**
  * @author VISTALL
- * @since 07.11.13.
+ * @since 2013-11-07
  */
 @ExtensionImpl
 public class WebAppDescriptor extends DomFileDescription<WebApp> {
@@ -52,6 +53,7 @@ public class WebAppDescriptor extends DomFileDescription<WebApp> {
     }
 
     @Override
+    @RequiredReadAction
     public boolean isMyFile(@Nonnull XmlFile file) {
         if (!super.isMyFile(file)) {
             return false;

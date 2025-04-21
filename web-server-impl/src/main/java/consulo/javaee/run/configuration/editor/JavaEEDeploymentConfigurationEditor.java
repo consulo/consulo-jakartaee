@@ -1,6 +1,5 @@
 package consulo.javaee.run.configuration.editor;
 
-import consulo.application.AllIcons;
 import consulo.compiler.artifact.Artifact;
 import consulo.compiler.artifact.ArtifactManager;
 import consulo.compiler.artifact.ArtifactPointer;
@@ -17,10 +16,13 @@ import consulo.javaee.artifact.ExplodedWarArtifactType;
 import consulo.javaee.bundle.JavaEEServerBundleType;
 import consulo.javaee.deployment.impl.JavaEEDeploymentSettingsImpl;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+import consulo.localize.LocalizeValue;
+import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.project.Project;
 import consulo.remoteServer.configuration.deployment.ArtifactDeploymentSource;
 import consulo.remoteServer.configuration.deployment.DeploymentSource;
 import consulo.remoteServer.configuration.deployment.DeploymentSourceFactory;
+import consulo.ui.annotation.RequiredUIAccess;
 import consulo.ui.ex.SimpleTextAttributes;
 import consulo.ui.ex.action.ActionToolbarPosition;
 import consulo.ui.ex.awt.*;
@@ -37,7 +39,7 @@ import java.util.List;
 
 /**
  * @author VISTALL
- * @since 09-Jul-17
+ * @since 2017-07-09
  */
 public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEEConfigurationImpl> {
     public static String ARTIFACT = "Artifact...";
@@ -62,7 +64,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
     protected JComponent createEditor() {
         DefaultListModel<DeployItem> model = (DefaultListModel<DeployItem>)myDeploySourceList.getModel();
 
-        myDeploySourceList.setCellRenderer(new ColoredListCellRenderer<DeployItem>() {
+        myDeploySourceList.setCellRenderer(new ColoredListCellRenderer<>() {
             @Override
             protected void customizeCellRenderer(
                 @Nonnull JList<? extends DeployItem> list,
@@ -72,8 +74,8 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
                 boolean hasFocus
             ) {
                 DeploymentSource deploymentSource = value.getDeploymentSource();
-                if (deploymentSource instanceof ArtifactDeploymentSource) {
-                    ArtifactPointer artifactPointer = ((ArtifactDeploymentSource)deploymentSource).getArtifactPointer();
+                if (deploymentSource instanceof ArtifactDeploymentSource artifactDeploymentSource) {
+                    ArtifactPointer artifactPointer = artifactDeploymentSource.getArtifactPointer();
                     Artifact artifact = artifactPointer.get();
                     if (artifact != null) {
                         append(artifact.getName());
@@ -81,7 +83,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
                     }
                     else {
                         append(artifactPointer.getName(), SimpleTextAttributes.ERROR_ATTRIBUTES);
-                        setIcon(AllIcons.Toolbar.Unknown);
+                        setIcon(PlatformIconGroup.toolbarUnknown());
                     }
                 }
                 else {
@@ -96,8 +98,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
         JPanel mainPanel = new JPanel(new BorderLayout());
 
         ToolbarDecorator decorator = ToolbarDecorator.createDecorator(myDeploySourceList);
-        decorator.setAddAction(anActionButton ->
-        {
+        decorator.setAddAction(anActionButton -> {
             ListPopupStep<String> step = new BaseListPopupStep<String>("Select source", ARTIFACT) {
                 @Override
                 public PopupStep onChosen(String selectedValue, boolean finalChoice) {
@@ -115,7 +116,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
                 @Override
                 public Image getIconFor(String value) {
                     if (ARTIFACT.equals(value)) {
-                        return AllIcons.Nodes.Artifact;
+                        return PlatformIconGroup.nodesArtifact();
                     }
                     return super.getIconFor(value);
                 }
@@ -183,6 +184,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
         return rootPanel;
     }
 
+    @RequiredUIAccess
     private void selectArtifact(DefaultListModel<DeployItem> model) {
         Artifact[] artifacts = ArtifactManager.getInstance(myProject).getArtifacts();
 
@@ -205,7 +207,8 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
 
             listArtifacts.add(artifact);
         }
-        ChooseArtifactsDialog dialog = new ChooseArtifactsDialog(myProject, listArtifacts, "Choose Artifact", null);
+        ChooseArtifactsDialog dialog =
+            new ChooseArtifactsDialog(myProject, listArtifacts, LocalizeValue.localizeTODO("Choose Artifact"), LocalizeValue.empty());
         dialog.show();
 
         if (dialog.isOK()) {

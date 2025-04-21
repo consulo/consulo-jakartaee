@@ -13,7 +13,7 @@ import consulo.remoteServer.configuration.deployment.DeploymentSource;
 
 /**
  * @author VISTALL
- * @since 09-Jul-17
+ * @since 2017-07-09
  */
 class DeployItem implements Disposable {
     private final DeploymentSource myDeploymentSource;
@@ -47,8 +47,8 @@ class DeployItem implements Disposable {
     }
 
     public ArtifactPointer getArtifactPointer() {
-        if (myDeploymentSource instanceof ArtifactDeploymentSource) {
-            return ((ArtifactDeploymentSource)myDeploymentSource).getArtifactPointer();
+        if (myDeploymentSource instanceof ArtifactDeploymentSource artifactDeploymentSource) {
+            return artifactDeploymentSource.getArtifactPointer();
         }
         return null;
     }

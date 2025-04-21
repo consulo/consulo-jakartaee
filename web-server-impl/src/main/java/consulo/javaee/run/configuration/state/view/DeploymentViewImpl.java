@@ -1,12 +1,12 @@
 package consulo.javaee.run.configuration.state.view;
 
-import com.intellij.javaee.J2EEBundle;
-import consulo.application.AllIcons;
+import consulo.jakarta.localize.JakartaLocalize;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentManager;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentStatus;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentView;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
+import consulo.localize.LocalizeValue;
 import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.ui.annotation.RequiredUIAccess;
 import consulo.ui.ex.action.ActionToolbarPosition;
@@ -14,7 +14,6 @@ import consulo.ui.ex.action.AnAction;
 import consulo.ui.ex.action.AnActionEvent;
 import consulo.ui.ex.action.ToggleAction;
 import consulo.ui.ex.awt.*;
-
 import jakarta.annotation.Nonnull;
 
 import javax.swing.*;
@@ -22,7 +21,7 @@ import java.util.List;
 
 /**
  * @author VISTALL
- * @since 16-Jul-17
+ * @since 2017-07-16
  */
 public class DeploymentViewImpl implements DeploymentView {
     private JavaEEConfigurationImpl myConfiguration;
@@ -37,7 +36,7 @@ public class DeploymentViewImpl implements DeploymentView {
         CollectionListModel<DeploymentModel> model =
             new CollectionListModel<>(myConfiguration.getDeploymentSettings().getDeploymentModels());
         myDeploymentList = new JBList<>(model);
-        myDeploymentList.setCellRenderer(new ColoredListCellRenderer<DeploymentModel>() {
+        myDeploymentList.setCellRenderer(new ColoredListCellRenderer<>() {
             @Override
             protected void customizeCellRenderer(
                 @Nonnull JList<? extends DeploymentModel> list,
@@ -60,36 +59,48 @@ public class DeploymentViewImpl implements DeploymentView {
         decorator.setPanelBorder(JBUI.Borders.empty());
         decorator.disableUpDownActions();
         decorator.disableRemoveAction();
-        decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.deploy.selected"), null, AllIcons.Nodes.Deploy) {
+        decorator.addExtraAction(new AnAction(
+            JakartaLocalize.actionNameDeploySelected(),
+            LocalizeValue.empty(),
+            PlatformIconGroup.nodesDeploy()
+        ) {
             @RequiredUIAccess
             @Override
             public void actionPerformed(@Nonnull AnActionEvent anActionEvent) {
             }
         });
-        decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.undeploy"), null, AllIcons.Nodes.Undeploy) {
+        decorator.addExtraAction(new AnAction(
+            JakartaLocalize.actionNameUndeploy(),
+            LocalizeValue.empty(),
+            PlatformIconGroup.nodesUndeploy()
+        ) {
             @RequiredUIAccess
             @Override
             public void actionPerformed(@Nonnull AnActionEvent anActionEvent) {
             }
         });
-        decorator.addExtraAction(new AnAction(J2EEBundle.message("action.name.refresh.deployment.status"), null, AllIcons.Actions.Refresh) {
+        decorator.addExtraAction(new AnAction(
+            JakartaLocalize.actionNameRefreshDeploymentStatus(),
+            LocalizeValue.empty(),
+            PlatformIconGroup.actionsRefresh()
+        ) {
             @RequiredUIAccess
             @Override
             public void actionPerformed(@Nonnull AnActionEvent anActionEvent) {
             }
         });
         decorator.addExtraAction(new ToggleAction(
-            J2EEBundle.message("action.name.build.on.frame.deactivation"),
-            null,
+            JakartaLocalize.actionNameBuildOnFrameDeactivation(),
+            LocalizeValue.empty(),
             PlatformIconGroup.actionsCompile()
         ) {
             @Override
-            public boolean isSelected(AnActionEvent e) {
+            public boolean isSelected(@Nonnull AnActionEvent e) {
                 return false;
             }
 
             @Override
-            public void setSelected(AnActionEvent e, boolean state) {
+            public void setSelected(@Nonnull AnActionEvent e, boolean state) {
             }
         });
 

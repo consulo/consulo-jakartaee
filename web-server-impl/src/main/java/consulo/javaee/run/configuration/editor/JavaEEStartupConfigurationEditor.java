@@ -1,15 +1,14 @@
 package consulo.javaee.run.configuration.editor;
 
-import com.intellij.javaee.J2EEBundle;
 import consulo.configurable.ConfigurationException;
 import consulo.execution.configuration.ui.SettingsEditor;
 import consulo.execution.executor.Executor;
+import consulo.jakarta.localize.JakartaLocalize;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 import consulo.ui.ex.awt.*;
 import consulo.ui.ex.awt.table.ListTableModel;
 import consulo.ui.ex.awt.table.TableView;
 import consulo.util.lang.Couple;
-
 import jakarta.annotation.Nonnull;
 
 import javax.swing.*;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 
 /**
  * @author VISTALL
- * @since 11-Jul-17
+ * @since 2017-07-11
  */
 public class JavaEEStartupConfigurationEditor extends SettingsEditor<JavaEEConfigurationImpl> {
     @Nonnull
@@ -46,24 +45,24 @@ public class JavaEEStartupConfigurationEditor extends SettingsEditor<JavaEEConfi
         JBTextField startupScript = new JBTextField();
         JBTextField shutdownScript = new JBTextField();
 
-        JBCheckBox startScriptDefault = new JBCheckBox(J2EEBundle.message("checkbox.edit.script.properties.use.default"));
-        JBCheckBox shutdownScriptDefault = new JBCheckBox(J2EEBundle.message("checkbox.edit.script.properties.use.default"));
+        JBCheckBox startScriptDefault = new JBCheckBox(JakartaLocalize.checkboxEditScriptPropertiesUseDefault().get());
+        JBCheckBox shutdownScriptDefault = new JBCheckBox(JakartaLocalize.checkboxEditScriptPropertiesUseDefault().get());
 
         JPanel scriptPanel = new JPanel(new GridLayout(2, 3));
         panel.add(scriptPanel);
-        scriptPanel.add(new JBLabel(J2EEBundle.message("label.run.configuration.editor.startup.script")));
+        scriptPanel.add(new JBLabel(JakartaLocalize.labelRunConfigurationEditorStartupScript().get()));
         scriptPanel.add(startupScript);
         scriptPanel.add(startScriptDefault);
-        scriptPanel.add(new JBLabel(J2EEBundle.message("label.run.configuration.editor.shutdown.script")));
+        scriptPanel.add(new JBLabel(JakartaLocalize.labelRunConfigurationEditorShutdownScript().get()));
         scriptPanel.add(shutdownScript);
         scriptPanel.add(shutdownScriptDefault);
 
         JPanel envPanel = new JPanel(new BorderLayout());
         envPanel.setBorder(IdeBorderFactory.createTitledBorder(
-            J2EEBundle.message("border.run.configuration.editor.environment.variables"),
+            JakartaLocalize.borderRunConfigurationEditorEnvironmentVariables().get(),
             false
         ));
-        JBCheckBox passEnvVariables = new JBCheckBox(J2EEBundle.message("checkbox.run.configuration.editor.pass.environment.variables"));
+        JBCheckBox passEnvVariables = new JBCheckBox(JakartaLocalize.checkboxRunConfigurationEditorPassEnvironmentVariables().get());
         envPanel.add(passEnvVariables, BorderLayout.NORTH);
 
         java.util.List<Couple<String>> env = new ArrayList<>();

@@ -15,7 +15,10 @@
  */
 package com.intellij.javaee;
 
+import consulo.annotation.DeprecationInfo;
+import consulo.annotation.internal.MigratedExtensionsTo;
 import consulo.component.util.localize.AbstractBundle;
+import consulo.jakarta.localize.JakartaLocalize;
 import org.jetbrains.annotations.PropertyKey;
 
 /**
@@ -24,6 +27,9 @@ import org.jetbrains.annotations.PropertyKey;
  * Date: Aug 25, 2005
  * Time: 6:54:12 PM
  */
+@Deprecated
+@DeprecationInfo("Use JakartaLocalize")
+@MigratedExtensionsTo(JakartaLocalize.class)
 public class J2EEBundle extends AbstractBundle
 {
 	private static final J2EEBundle ourInstance = new J2EEBundle();

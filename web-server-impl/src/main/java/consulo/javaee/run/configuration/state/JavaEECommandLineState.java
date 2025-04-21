@@ -20,7 +20,7 @@ import java.util.Collections;
 
 /**
  * @author VISTALL
- * @since 16-Jul-17
+ * @since 2017-07-16
  */
 public class JavaEECommandLineState extends CommandLineState implements PatchedRunnableState {
     public JavaEECommandLineState(ExecutionEnvironment environment) {
@@ -29,7 +29,7 @@ public class JavaEECommandLineState extends CommandLineState implements PatchedR
 
     @Override
     @Nonnull
-    public ExecutionResult execute(@Nonnull final Executor executor, @Nonnull final ProgramRunner runner) throws ExecutionException {
+    public ExecutionResult execute(@Nonnull Executor executor, @Nonnull ProgramRunner runner) throws ExecutionException {
         ProcessHandler processHandler = startProcess();
         JavaEEDeploymentConsole console =
             new JavaEEDeploymentConsole(executor, (JavaEEConfigurationImpl)getEnvironment().getRunProfile(), getEnvironment().getProject());

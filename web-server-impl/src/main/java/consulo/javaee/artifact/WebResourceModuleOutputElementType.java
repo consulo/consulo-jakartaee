@@ -28,7 +28,7 @@ import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL
- * @since 07.11.13.
+ * @since 2013-11-07
  */
 @ExtensionImpl
 public class WebResourceModuleOutputElementType extends ModuleOutputElementTypeBase {
@@ -40,6 +40,7 @@ public class WebResourceModuleOutputElementType extends ModuleOutputElementTypeB
         super("java-web-resource", WebResourcesFolderTypeProvider.getInstance());
     }
 
+    @Override
     public ModuleOutputPackagingElementImpl createElement(@Nonnull Project project, @Nonnull NamedPointer<Module> pointer) {
         return new WebResourceModuleOutputPackagingElement(this, project, pointer, myContentFolderTypeProvider);
     }

@@ -29,6 +29,7 @@ import consulo.language.content.LanguageContentFolderScopes;
 import consulo.language.content.ProductionContentFolderTypeProvider;
 import consulo.language.content.ProductionResourceContentFolderTypeProvider;
 import consulo.language.util.ModuleUtilCore;
+import consulo.localize.LocalizeValue;
 import consulo.module.Module;
 import consulo.module.content.layer.ModuleRootModel;
 import consulo.module.content.layer.ModulesProvider;
@@ -37,6 +38,7 @@ import consulo.module.content.layer.orderEntry.ModuleOrderEntry;
 import consulo.module.content.layer.orderEntry.RootPolicy;
 import consulo.module.ui.awt.ChooseModulesDialog;
 import consulo.project.Project;
+import consulo.ui.annotation.RequiredUIAccess;
 import consulo.util.lang.Pair;
 
 import jakarta.annotation.Nonnull;
@@ -49,7 +51,7 @@ import java.util.Set;
 
 /**
  * @author VISTALL
- * @since 07.11.13.
+ * @since 2013-11-07
  */
 public class ExplodedWarArtifactTemplate extends ArtifactTemplate {
     private final PackagingElementResolvingContext myContext;
@@ -133,9 +135,9 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate {
     }
 
     private static void collectInfo(
-        final Set<Module> modules,
-        final Set<Pair<Library, Module>> libraries,
-        final ModulesProvider modulesProvider,
+        Set<Module> modules,
+        Set<Pair<Library, Module>> libraries,
+        ModulesProvider modulesProvider,
         Module module
     ) {
         modules.add(module);
@@ -143,7 +145,7 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate {
         ModuleRootModel rootModel = modulesProvider.getRootModel(module);
 
         rootModel.orderEntries().withoutSdk().runtimeOnly().process(
-            new RootPolicy<Object>() {
+            new RootPolicy<>() {
                 @Override
                 public Object visitLibraryOrderEntry(LibraryOrderEntry libraryOrderEntry, Object value) {
                     Library library = libraryOrderEntry.getLibrary();
@@ -178,7 +180,7 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate {
 
     @Nullable
     @Override
-    @RequiredReadAction
+    @RequiredUIAccess
     public NewArtifactConfiguration createArtifact() {
         List<Module> modules = new ArrayList<>();
         for (Module module : myContext.getModulesProvider().getModules()) {
@@ -187,8 +189,12 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate {
             }
         }
 
-        ChooseModulesDialog dialog =
-            new ChooseModulesDialog(myContext.getProject(), modules, "Choose Module", "Choose Module For Artifact Creation");
+        ChooseModulesDialog dialog = new ChooseModulesDialog(
+            myContext.getProject(),
+            modules,
+            LocalizeValue.localizeTODO("Choose Module"),
+            LocalizeValue.localizeTODO("Choose Module For Artifact Creation")
+        );
         dialog.setSingleSelectionMode();
         List<Module> selectedModules = dialog.showAndGetResult();
         if (selectedModules.size() != 1) {
@@ -198,7 +204,7 @@ public class ExplodedWarArtifactTemplate extends ArtifactTemplate {
     }
 
     @Override
-    public String getPresentableName() {
-        return "From Module";
+    public LocalizeValue getPresentableName() {
+        return LocalizeValue.localizeTODO("From Module");
     }
 }

@@ -20,9 +20,11 @@ import consulo.compiler.artifact.*;
 import consulo.compiler.artifact.element.*;
 import consulo.compiler.artifact.ui.awt.ChooseArtifactsDialog;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
+import consulo.localize.LocalizeValue;
 import consulo.module.Module;
 import consulo.module.content.layer.ModuleRootModel;
 
+import consulo.ui.annotation.RequiredUIAccess;
 import jakarta.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -75,6 +77,7 @@ public class WarArtifactTemplate extends ArtifactTemplate {
 
     @Nullable
     @Override
+    @RequiredUIAccess
     public NewArtifactConfiguration createArtifact() {
         List<Artifact> artifacts = new ArrayList<>();
         for (Artifact artifact : ArtifactManager.getInstance(myContext.getProject()).getArtifacts()) {
@@ -83,8 +86,12 @@ public class WarArtifactTemplate extends ArtifactTemplate {
             }
         }
 
-        ChooseArtifactsDialog dialog =
-            new ChooseArtifactsDialog(myContext.getProject(), artifacts, "Choose Artifact", "Choose Exploded War Artifact");
+        ChooseArtifactsDialog dialog = new ChooseArtifactsDialog(
+            myContext.getProject(),
+            artifacts,
+            LocalizeValue.localizeTODO("Choose Artifact"),
+            LocalizeValue.localizeTODO("Choose Exploded War Artifact")
+        );
 
         List<Artifact> artifactList = dialog.showAndGetResult();
         if (artifactList.size() != 1) {
@@ -94,7 +101,7 @@ public class WarArtifactTemplate extends ArtifactTemplate {
     }
 
     @Override
-    public String getPresentableName() {
-        return "From Exploded Artifact";
+    public LocalizeValue getPresentableName() {
+        return LocalizeValue.localizeTODO("From Exploded Artifact");
     }
 }

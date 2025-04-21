@@ -30,7 +30,7 @@ import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL
- * @since 07.11.13.
+ * @since 2013-11-07
  */
 public class WebResourceModuleOutputPackagingElement extends ModuleOutputPackagingElementImpl {
     public WebResourceModuleOutputPackagingElement(

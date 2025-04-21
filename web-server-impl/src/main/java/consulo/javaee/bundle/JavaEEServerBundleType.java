@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NonNls;
 
 /**
  * @author VISTALL
- * @since 09-Jul-17
+ * @since 2017-07-09
  */
 public abstract class JavaEEServerBundleType extends SdkType {
     public JavaEEServerBundleType(@NonNls String name) {

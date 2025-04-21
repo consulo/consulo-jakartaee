@@ -1,5 +1,6 @@
 package consulo.javaee.deployment.impl;
 
+import consulo.annotation.access.RequiredReadAction;
 import consulo.compiler.artifact.Artifact;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentSettings;
@@ -19,7 +20,7 @@ import java.util.List;
 
 /**
  * @author VISTALL
- * @since 15-Jul-17
+ * @since 2017-07-15
  */
 public class JavaEEDeploymentSettingsImpl implements DeploymentSettings {
     private final List<DeploymentModel> myItems = new ArrayList<>();
@@ -87,6 +88,7 @@ public class JavaEEDeploymentSettingsImpl implements DeploymentSettings {
 
     @Nonnull
     @Override
+    @RequiredReadAction
     public DeploymentModel getOrCreateModel(@Nonnull Artifact artifact) {
         return getOrCreateModel(myDeploymentSourceFactory.createArtifactDeploymentSource(artifact));
     }

@@ -13,7 +13,7 @@ import java.util.Set;
 
 /**
  * @author VISTALL
- * @since 19.04.14
+ * @since 2014-04-19
  */
 @ExtensionImpl
 public class JavaWebContentFolderSupportPatcher implements ContentFolderSupportPatcher {

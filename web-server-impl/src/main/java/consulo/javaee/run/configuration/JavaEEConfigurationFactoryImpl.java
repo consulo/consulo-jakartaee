@@ -20,7 +20,7 @@ import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL
- * @since 09-Jul-17
+ * @since 2017-07-09
  */
 public class JavaEEConfigurationFactoryImpl extends JavaeeConfigurationFactory {
     public JavaEEConfigurationFactoryImpl(

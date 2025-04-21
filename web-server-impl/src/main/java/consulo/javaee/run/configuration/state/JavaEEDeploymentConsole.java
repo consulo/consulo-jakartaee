@@ -24,7 +24,7 @@ import jakarta.annotation.Nullable;
 
 /**
  * @author VISTALL
- * @since 16-Jul-17
+ * @since 2017-07-16
  */
 public class JavaEEDeploymentConsole extends ConsoleViewImpl implements ExecutionConsoleEx, JavaeeConsoleView {
     private final Executor myExecutor;
@@ -45,7 +45,7 @@ public class JavaEEDeploymentConsole extends ConsoleViewImpl implements Executio
 
         ((LayoutStateDefaults)ui).initTabDefaults(index, "Server", null);
 
-        final Content consoleContent =
+        Content consoleContent =
             ui.createContent(ExecutionConsole.CONSOLE_CONTENT_ID, getComponent(), "Output", null, getPreferredFocusableComponent());
         consoleContent.setCloseable(false);
 
@@ -54,7 +54,7 @@ public class JavaEEDeploymentConsole extends ConsoleViewImpl implements Executio
         ui.addContent(consoleContent, index, PlaceInGrid.center, false);
 
 
-        final Content deploymentContent = ui.createContent("JavaEEDeployment", myDeploymentView.getComponent(), "Deployment", null, null);
+        Content deploymentContent = ui.createContent("JavaEEDeployment", myDeploymentView.getComponent(), "Deployment", null, null);
         deploymentContent.setCloseable(false);
         ui.addContent(deploymentContent, index, PlaceInGrid.left, false);
     }
