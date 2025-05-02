@@ -1,5 +1,6 @@
 package consulo.javaee.run.configuration.editor;
 
+import consulo.application.Application;
 import consulo.configurable.ConfigurationException;
 import consulo.execution.configuration.ui.SettingsEditor;
 import consulo.execution.executor.Executor;
@@ -24,7 +25,7 @@ public class JavaEEStartupConfigurationEditor extends SettingsEditor<JavaEEConfi
     @Override
     protected JComponent createEditor() {
         JPanel panel = new JPanel(new VerticalFlowLayout());
-        JBList<Executor> executorList = new JBList<>(new CollectionListModel<>(Executor.EP_NAME.getExtensionList()));
+        JBList<Executor> executorList = new JBList<>(new CollectionListModel<>(Application.get().getExtensionList(Executor.class)));
         executorList.setCellRenderer(new ColoredListCellRenderer<>() {
             @Override
             protected void customizeCellRenderer(
