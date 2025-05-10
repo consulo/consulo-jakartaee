@@ -10,7 +10,6 @@ import com.intellij.java.language.psi.javadoc.PsiDocComment;
 import com.intellij.java.language.psi.util.MethodSignature;
 import com.intellij.java.language.psi.util.MethodSignatureBackedByPsiMethod;
 import consulo.annotation.access.RequiredReadAction;
-import consulo.java.language.module.util.JavaClassNames;
 import consulo.jsp.language.psi.java.JspClass;
 import consulo.jsp.language.psi.java.JspHolderMethod;
 import consulo.language.ast.ASTNode;
@@ -20,9 +19,9 @@ import consulo.language.psi.PsiManager;
 import consulo.language.psi.resolve.PsiScopeProcessor;
 import consulo.language.psi.resolve.ResolveState;
 import consulo.language.psi.util.PsiTreeUtil;
-
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+
 import java.util.List;
 
 /**
@@ -75,7 +74,7 @@ public class JspHolderMethodImpl extends ASTWrapperPsiElement implements JspHold
 	public PsiReferenceList getThrowsList()
 	{
 		LightReferenceListBuilder builder = new LightReferenceListBuilder(getManager(), PsiReferenceList.Role.THROWS_LIST);
-		builder.addReference(JavaClassNames.JAVA_LANG_THROWABLE);
+		builder.addReference(CommonClassNames.JAVA_LANG_THROWABLE);
 		return builder;
 	}
 
