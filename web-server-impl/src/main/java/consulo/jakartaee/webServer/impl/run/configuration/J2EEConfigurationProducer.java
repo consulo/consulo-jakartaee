@@ -27,8 +27,7 @@ import consulo.execution.action.RuntimeConfigurationProducer;
 import consulo.language.psi.PsiElement;
 import consulo.language.psi.PsiFile;
 
-public class J2EEConfigurationProducer extends RuntimeConfigurationProducer
-{
+public class J2EEConfigurationProducer extends RuntimeConfigurationProducer {
   private PsiFile myContainingFile;
 
   public J2EEConfigurationProducer(final J2EEConfigurationType configurationType) {
@@ -47,7 +46,7 @@ public class J2EEConfigurationProducer extends RuntimeConfigurationProducer
     return J2EEConfigurationFactory.getInstance().createSettingsByFile(myContainingFile, (J2EEConfigurationType)getConfigurationType());
   }
 
-  public int compareTo(Object o) {
+  public int compareTo(RuntimeConfigurationProducer o) {
     return PREFERED;
   }
 }
