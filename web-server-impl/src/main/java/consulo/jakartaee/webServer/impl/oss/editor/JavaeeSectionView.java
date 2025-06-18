@@ -3,6 +3,7 @@
  */
 package consulo.jakartaee.webServer.impl.oss.editor;
 
+import consulo.localize.LocalizeValue;
 import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.project.Project;
 import consulo.ui.ex.awt.ColumnInfo;
@@ -171,7 +172,7 @@ public class JavaeeSectionView implements CommittablePanel {
     }
 
     private ColumnInfo<RowElement, Object> createColumn() {
-        return new ColumnInfo<RowElement, Object>(null) {
+        return new ColumnInfo<RowElement, Object>(LocalizeValue.empty()) {
             @Override
             @Nullable
             public Object valueOf(RowElement item) {
@@ -198,7 +199,7 @@ public class JavaeeSectionView implements CommittablePanel {
     }
 
     private ColumnInfo<RowElement, String> createColumn(final int index) {
-        return new ColumnInfo<RowElement, String>(null) {
+        return new ColumnInfo<RowElement, String>(LocalizeValue.empty()) {
             @Override
             @Nullable
             public String valueOf(RowElement item) {
