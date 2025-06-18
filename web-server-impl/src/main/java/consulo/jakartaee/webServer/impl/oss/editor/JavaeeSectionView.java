@@ -3,7 +3,7 @@
  */
 package consulo.jakartaee.webServer.impl.oss.editor;
 
-import consulo.application.AllIcons;
+import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.project.Project;
 import consulo.ui.ex.awt.ColumnInfo;
 import consulo.ui.ex.awt.UIUtil;
@@ -33,18 +33,17 @@ public class JavaeeSectionView implements CommittablePanel {
 
     private final ColumnInfo<RowElement, ?>[] columns;
 
-    private final List<RowElement> items = new ArrayList<RowElement>();
+    private final List<RowElement> items = new ArrayList<>();
 
-    private final Set<JavaeeSection<?>> expanded = new HashSet<JavaeeSection<?>>();
+    private final Set<JavaeeSection<?>> expanded = new HashSet<>();
 
-    private final Map<JavaeeSection<?>, JavaeeSectionInfo<DomElement>[]> mapped =
-        new HashMap<JavaeeSection<?>, JavaeeSectionInfo<DomElement>[]>();
+    private final Map<JavaeeSection<?>, JavaeeSectionInfo<DomElement>[]> mapped = new HashMap<>();
 
     private static final Component EXPANDED_ICON = createLabel(UIUtil.getTreeExpandedIcon());
 
     private static final Component COLLAPSED_ICON = createLabel(UIUtil.getTreeCollapsedIcon());
 
-    private static final JavaeeSectionInfo<DomElement> EMPTY_COLUMN = new JavaeeSectionInfo<DomElement>(null) {
+    private static final JavaeeSectionInfo<DomElement> EMPTY_COLUMN = new JavaeeSectionInfo<>(null) {
         private final DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
 
         @Override
@@ -62,7 +61,7 @@ public class JavaeeSectionView implements CommittablePanel {
         this.sections = sections.clone();
         view = new SectionTableView(project, empty);
         JTable table = view.getTable();
-        table.setRowHeight(AllIcons.Nodes.Class.getHeight());
+        table.setRowHeight(PlatformIconGroup.nodesClass().getHeight());
         table.setShowVerticalLines(false);
         table.setIntercellSpacing(new Dimension(0, 1));
         table.addMouseListener(createMouseListener(table));
@@ -74,12 +73,15 @@ public class JavaeeSectionView implements CommittablePanel {
         reset();
     }
 
+    @Override
     public void dispose() {
     }
 
+    @Override
     public void commit() {
     }
 
+    @Override
     public void reset() {
         items.clear();
         for (JavaeeSection<?> section : sections) {
@@ -96,6 +98,7 @@ public class JavaeeSectionView implements CommittablePanel {
         view.reset(columns, items);
     }
 
+    @Override
     public JComponent getComponent() {
         return view;
     }
@@ -119,7 +122,7 @@ public class JavaeeSectionView implements CommittablePanel {
                     component.setSize(rect.getSize());
                     component.doLayout();
                     point.translate(-rect.x, -rect.y);
-                    if ((event.getClickCount() >= 2) || (component.findComponentAt(point) instanceof IconLabel)) {
+                    if (event.getClickCount() >= 2 || component.findComponentAt(point) instanceof IconLabel) {
                         items.get(row).handleDoubleClick();
                     }
                 }
@@ -250,8 +253,7 @@ public class JavaeeSectionView implements CommittablePanel {
 
         @Override
         protected void wrapValueSetting(@Nonnull RowElement item, Runnable setter) {
-            Object value = item.getElement();
-            if ((value instanceof DomElement) && ((DomElement) value).isValid()) {
+            if (item.getElement() instanceof DomElement domElement && domElement.isValid()) {
                 setter.run();
                 fireChanged();
             }
@@ -259,18 +261,9 @@ public class JavaeeSectionView implements CommittablePanel {
 
         @Override
         protected TableCellRenderer getTableCellRenderer(int row, int col, final TableCellRenderer renderer, Object value) {
-            return new TableCellRenderer() {
-                public Component getTableCellRendererComponent(
-                    JTable table,
-                    Object value,
-                    boolean selected,
-                    boolean focus,
-                    int row,
-                    int col
-                ) {
-                    Component component = renderer.getTableCellRendererComponent(table, value, selected, focus, row, col);
-                    return items.get(row).decorate((JComponent) component, table, col, selected);
-                }
+            return (table, value1, selected, focus, row1, col1) -> {
+                Component component = renderer.getTableCellRendererComponent(table, value1, selected, focus, row1, col1);
+                return items.get(row1).decorate((JComponent) component, table, col1, selected);
             };
         }
 
@@ -317,21 +310,25 @@ public class JavaeeSectionView implements CommittablePanel {
         }
 
         @Nonnull
+        @Override
         public JavaeeSection<?> getSection() {
             return section;
         }
 
         @Nullable
+        @Override
         public Object getElement() {
             return null;
         }
 
+        @Override
         public void handleDoubleClick() {
             if (expanded.remove(section) || expanded.add(section)) {
                 reset();
             }
         }
 
+        @Override
         public void handleLeftRight(boolean right) {
             if (right && expanded.add(section)) {
                 reset();
@@ -341,35 +338,42 @@ public class JavaeeSectionView implements CommittablePanel {
             }
         }
 
+        @Override
         public Component getFirstComponent(JTable table, boolean selected, boolean focus) {
             return expanded.contains(section) ? EXPANDED_ICON : COLLAPSED_ICON;
         }
 
         @Nullable
+        @Override
         public String getValue(int column) {
-            return ((column == 0) || expanded.contains(section)) ? getColumnInfo(section, column).getName() : null;
+            return column == 0 || expanded.contains(section) ? getColumnInfo(section, column).getName() : null;
         }
 
+        @Override
         public void setValue(int column, String value) {
         }
 
+        @Override
         public boolean isEditable(int column) {
             return false;
         }
 
         @Nullable
+        @Override
         public TableCellRenderer getRenderer(int column) {
             return null;
         }
 
         @Nullable
+        @Override
         public TableCellEditor getEditor(int column) {
             return null;
         }
 
         @Nonnull
+        @Override
         public JComponent decorate(JComponent component, JTable table, int column, boolean selected) {
-            Border border = BorderFactory.createEmptyBorder(0, 5, 0, ((column == 0) || (column == 2)) ? 5 : 0);
+            Border border = BorderFactory.createEmptyBorder(0, 5, 0, column == 0 || column == 2 ? 5 : 0);
             Color background = selected
                 ? StripeTableCellRenderer.darken(table.getSelectionBackground())
                 : new Color(table.getTableHeader().getBackground().getRGB());
@@ -390,11 +394,9 @@ public class JavaeeSectionView implements CommittablePanel {
 
         @Override
         public boolean equals(Object obj) {
-            if (obj instanceof SectionRowElement) {
-                SectionRowElement other = (SectionRowElement) obj;
-                return section.equals(other.getSection());
-            }
-            return false;
+            return obj == this
+                || obj instanceof SectionRowElement that
+                && section.equals(that.getSection());
         }
 
         @Override
@@ -416,49 +418,60 @@ public class JavaeeSectionView implements CommittablePanel {
         }
 
         @Nonnull
+        @Override
         public JavaeeSection<?> getSection() {
             return section;
         }
 
         @Nullable
+        @Override
         public Object getElement() {
             return element;
         }
 
+        @Override
         public void handleDoubleClick() {
         }
 
+        @Override
         public void handleLeftRight(boolean right) {
         }
 
+        @Override
         public Component getFirstComponent(JTable table, boolean selected, boolean focus) {
             return renderer.getTableCellRendererComponent(table, null, selected, focus, 0, 0);
         }
 
         @Nullable
+        @Override
         public String getValue(int column) {
             return getColumnInfo(section, column).valueOf(element);
         }
 
+        @Override
         public void setValue(int column, String value) {
             getColumnInfo(section, column).setValue(element, value);
         }
 
+        @Override
         public boolean isEditable(int column) {
             return getColumnInfo(section, column).isCellEditable(element);
         }
 
         @Nullable
+        @Override
         public TableCellRenderer getRenderer(int column) {
             return getColumnInfo(section, column).getRenderer(element);
         }
 
         @Nullable
+        @Override
         public TableCellEditor getEditor(int column) {
             return getColumnInfo(section, column).getEditor(element);
         }
 
         @Nonnull
+        @Override
         public JComponent decorate(JComponent component, JTable table, int column, boolean selected) {
             Border border = BorderFactory.createEmptyBorder(0, 5, 0, ((column == 0) || (column == 2)) ? 5 : 0);
             if (column > 0) {
@@ -470,11 +483,10 @@ public class JavaeeSectionView implements CommittablePanel {
 
         @Override
         public boolean equals(Object obj) {
-            if (obj instanceof DomRowElement) {
-                DomRowElement other = (DomRowElement) obj;
-                return section.equals(other.getSection()) && element.equals(other.getElement());
-            }
-            return false;
+            return obj == this
+                || obj instanceof DomRowElement that
+                && section.equals(that.getSection())
+                && element.equals(that.getElement());
         }
 
         @Override
