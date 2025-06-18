@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2004 - 2009 by Fuhrer Engineering AG, CH-2504 Biel/Bienne, Switzerland
  */
-
 package consulo.jakartaee.webServer.impl.oss.editor;
 
 import consulo.application.AllIcons;
@@ -15,6 +14,7 @@ import consulo.xml.util.xml.ui.StripeTableCellRenderer;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.*;
@@ -26,9 +26,7 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.*;
 
-public class JavaeeSectionView implements CommittablePanel
-{
-
+public class JavaeeSectionView implements CommittablePanel {
     private final SectionTableView view;
 
     private final JavaeeSection<?>[] sections;
@@ -39,7 +37,8 @@ public class JavaeeSectionView implements CommittablePanel
 
     private final Set<JavaeeSection<?>> expanded = new HashSet<JavaeeSection<?>>();
 
-    private final Map<JavaeeSection<?>, JavaeeSectionInfo<DomElement>[]> mapped = new HashMap<JavaeeSection<?>, JavaeeSectionInfo<DomElement>[]>();
+    private final Map<JavaeeSection<?>, JavaeeSectionInfo<DomElement>[]> mapped =
+        new HashMap<JavaeeSection<?>, JavaeeSectionInfo<DomElement>[]>();
 
     private static final Component EXPANDED_ICON = createLabel(UIUtil.getTreeExpandedIcon());
 
@@ -180,7 +179,14 @@ public class JavaeeSectionView implements CommittablePanel
             public TableCellRenderer getRenderer(final RowElement item) {
                 return new DefaultTableCellRenderer() {
                     @Override
-                    public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focus, int row, int col) {
+                    public Component getTableCellRendererComponent(
+                        JTable table,
+                        Object value,
+                        boolean selected,
+                        boolean focus,
+                        int row,
+                        int col
+                    ) {
                         return item.getFirstComponent(table, selected, focus);
                     }
                 };
@@ -226,9 +232,7 @@ public class JavaeeSectionView implements CommittablePanel
         return panel;
     }
 
-    private class SectionTableView extends AbstractTableView<RowElement>
-	{
-
+    private class SectionTableView extends AbstractTableView<RowElement> {
         SectionTableView(Project project, String empty) {
             super(project, empty, null);
         }
@@ -256,7 +260,14 @@ public class JavaeeSectionView implements CommittablePanel
         @Override
         protected TableCellRenderer getTableCellRenderer(int row, int col, final TableCellRenderer renderer, Object value) {
             return new TableCellRenderer() {
-                public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focus, int row, int col) {
+                public Component getTableCellRendererComponent(
+                    JTable table,
+                    Object value,
+                    boolean selected,
+                    boolean focus,
+                    int row,
+                    int col
+                ) {
                     Component component = renderer.getTableCellRendererComponent(table, value, selected, focus, row, col);
                     return items.get(row).decorate((JComponent) component, table, col, selected);
                 }
@@ -269,7 +280,6 @@ public class JavaeeSectionView implements CommittablePanel
     }
 
     private interface RowElement {
-
         @Nonnull
         JavaeeSection<?> getSection();
 
@@ -300,7 +310,6 @@ public class JavaeeSectionView implements CommittablePanel
     }
 
     private class SectionRowElement implements RowElement {
-
         private final JavaeeSection<?> section;
 
         private SectionRowElement(JavaeeSection<?> section) {
@@ -326,7 +335,8 @@ public class JavaeeSectionView implements CommittablePanel
         public void handleLeftRight(boolean right) {
             if (right && expanded.add(section)) {
                 reset();
-            } else if (!right && expanded.remove(section)) {
+            }
+            else if (!right && expanded.remove(section)) {
                 reset();
             }
         }
@@ -360,7 +370,9 @@ public class JavaeeSectionView implements CommittablePanel
         @Nonnull
         public JComponent decorate(JComponent component, JTable table, int column, boolean selected) {
             Border border = BorderFactory.createEmptyBorder(0, 5, 0, ((column == 0) || (column == 2)) ? 5 : 0);
-            Color background = selected ? StripeTableCellRenderer.darken(table.getSelectionBackground()) : new Color(table.getTableHeader().getBackground().getRGB());
+            Color background = selected
+                ? StripeTableCellRenderer.darken(table.getSelectionBackground())
+                : new Color(table.getTableHeader().getBackground().getRGB());
             component.setBackground(background);
             border = BorderFactory.createCompoundBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, background.darker()), border);
             if (expanded.contains(section)) {
@@ -392,7 +404,6 @@ public class JavaeeSectionView implements CommittablePanel
     }
 
     private class DomRowElement implements RowElement {
-
         private final DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
 
         private final JavaeeSection<?> section;
@@ -473,7 +484,6 @@ public class JavaeeSectionView implements CommittablePanel
     }
 
     private static class IconLabel extends JLabel {
-
         private IconLabel(Icon icon) {
             super(icon);
         }
