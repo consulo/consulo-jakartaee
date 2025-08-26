@@ -1,1611 +1,1611 @@
-deployment.status.name.deployed:
-  text: Deployed
-deployment.status.name.not.deployed:
-  text: Not deployed
-deployment.status.name.failed:
-  text: Failed
-deployment.status.name.deactivating:
-  text: Deactivating...
-deployment.status.name.preparing:
-  text: Preparing...
-deployment.status.name.prepared:
-  text: Prepared
-deployment.status.name.activating:
-  text: Activating...
-deployment.status.name.unprepared:
-  text: Unprepared
-deployment.status.name.unpreparing:
-  text: Unpreparing...
-deployment.status.name.unknown:
-  text: Unknown
-deployment.status.name.disconnected:
-  text: Disconnected
-deployment.status.name.excluded.from.deployment:
-  text: Excluded from deployment
-deployment.status.description.deployed:
-  text: Artifact is deployed successfully
-deployment.status.description.not.deployed:
-  text: Artifact is not deployed. Press 'Deploy' to start deployment
-deployment.status.description.failed:
-  text: Error during artifact deployment. See server log for details.
-deployment.status.description.deactivating:
-  text: Artifact is being undeployed, please wait...
-deployment.status.description.preparing:
-  text: Artifact is being deployed, please wait...
-deployment.status.description.prepared:
-  text: Artifact is being deployed, please wait...
-deployment.status.description.activating:
-  text: Artifact is being deployed, please wait...
-deployment.status.description.unprepared:
-  text: Artifact is being undeployed, please wait...
-deployment.status.description.unpreparing:
-  text: Artifact is being undeployed, please wait...
-deployment.status.description.unknown:
-  text: Status is unknown. Press 'Refresh' to reload deployment status from server.
-deployment.status.description.desconnected:
-  text: Server is not connected. Deploy is not available.
-deployment.status.description.excluded.from.deployment:
-  text: Artifact is excluded from deployment. To include, go to Run | Edit Configuration | Deployment and select artifact
-runtime.configuration.error.something.not.specified:
-  text: '{0} is not specified.'
-runtime.configuration.error.description.file.does.not.exist:
-  text: '{0} ''''{1}'''' does not exist.'
-run.configuration.remote:
-  text: Remote
-run.configuration.local:
-  text: Local
-message.text.error.while.creating.temp.file:
-  text: 'Error while creating temp file: {0}'
-button.add.appserver.descriptor:
-  text: Add Application &Server specific descriptor...
-warning.delete.deployment.descriptor.title:
-  text: Delete Deployment Descriptor
-additional.deployment.descriptor.file.description.additional.resource:
-  text: Additional Resource
-button.delete:
-  text: '&Delete'
-button.help:
-  text: '&Help'
-button.edit:
-  text: '&Edit...'
-button.remove:
-  text: '&Remove...'
-button.new:
-  text: '&New...'
-deployment.descriptor.title.application.module:
-  text: Application Module Deployment Descriptor
-deployment.descriptor.title.ejb.module:
-  text: EJB Module Deployment Descriptor
-deployment.descriptor.title.web.module:
-  text: Web Module Deployment Descriptor
-not.configured:
-  text: Not configured
-label.text.no.application.server.selected:
-  text: No Application Server Selected
-action.description.remove.application.server:
-  text: Remove application server
-action.description.add.application.server:
-  text: Add application server
-label.application.server.containing.libraries:
-  text: Libraries
-label.application.server.name:
-  text: '&Name:'
-message.text.warning:
-  text: Warning
-application.servers.configurable.display.name:
-  text: |-
-    Application
-    Servers
-message.text.class.not.found.in.application.server:
-  text: Class ''{0}'' not found in application server
-message.text.application.server.already.exists:
-  text: Application Server ''{0}'' already exists
-message.text.application.server.name.cannot.be.empty:
-  text: Application Server name cannot be empty
-generic.application.server.default.name:
-  text: Generic
-border.deployment.settings.deployment.source:
-  text: 'Deployment Source:'
-button.configure:
-  text: Con&figure...
-label.deployment.settings.deployment.method:
-  text: 'Deployment method:'
-checkbox.deployment.settings.deploy.ejb.at.server.startup:
-  text: '&Deploy ''EJB'' at server startup'
-checkbox.deployment.settings.deploy.facet:
-  text: Deploy {0}
-action.name.deploy.all:
-  text: Deploy All
-action.name.deploy.selected:
-  text: Deploy
-action.name.refresh.deployment.status:
-  text: Refresh Deployment Status
-action.name.undeploy:
-  text: Undeploy
-ejb.interface.type.base.interface:
-  text: base interface
-ejb.interface.type.local.home.interface:
-  text: local home interface
-ejb.interface.type.local.interface:
-  text: local interface
-ejb.interface.type.remote.interface:
-  text: remote interface
-message.title.warning:
-  text: Warning
-message.text.method.name.is.role.do.you.want.to.rename.fieldtitle:
-  text: |-
-    Method ''{0}'' is {1}.
-    Do you want to rename {2} ?
-message.title.fielddescription.found:
-  text: '{0} Found'
-message.text.class.name.is.ejb.class.for.ejb.name.do.you.want.to.rename.ejb.name.instead:
-  text: |-
-    Class ''{0}'' is EJB class for EJB ''{1}''.
-    Do you want to rename EJB ''{2}'' instead?
-message.text.class.name.is.ejb.class.for.several.ejbs.choose.ejb.to.rename.instead:
-  text: |-
-    Class ''{0}'' is EJB class for several EJBs.
-    Choose the EJB to rename if you want to rename one of the EJBs instead.
-message.title.related.ejb.to.class.found:
-  text: EJB class found
-model.object.type.cmp.field:
-  text: CMP field
-model.object.type.cmr.field:
-  text: CMR field
-model.object.type.ejb.environment.entry:
-  text: Environment Entry
-model.object.type.ejb.reference:
-  text: EJB reference
-model.object.type.ejb.local.reference:
-  text: EJB local reference
-model.object.type.ejb.relation:
-  text: EJB relation
-model.object.type.ejb.resource.environment.reference:
-  text: EJB resource environment reference
-model.object.type.service.reference:
-  text: Web Service reference
-model.object.type.ejb.message.destination.reference:
-  text: Message destination reference
-model.object.type.ejb.resource.reference:
-  text: EJB resource reference
-message.text.class.not.fount.in.project:
-  text: Class ''{0}'' not fount in the project
-message.title.class.not.found:
-  text: '{0} not found'
-confirmation.text.regenerate.equals.and.hashcode.for.class:
-  text: Regenerate equals and hashCode methods for class ''{0}''?
-message.title.primary.key.class.changed:
-  text: Primary Key Class Has Been Changed
-model.object.type.entity.bean:
-  text: Entity Bean
-model.object.type.message.driven.bean:
-  text: Message Driven Bean
-model.object.type.security.role:
-  text: Security Role
-model.object.type.session.bean:
-  text: Session Bean
-model.object.type.interceptor:
-  text: Interceptor
-model.object.type.managed.bean:
-  text: Managed Bean
-class.role.ejb.class:
-  text: EJB class
-class.role.home.interface:
-  text: Home Interface
-class.role.local.home.interface:
-  text: Local Home Interface
-class.role.local.interface:
-  text: Local Interface
-class.role.remote.interface:
-  text: Remote Interface
-class.role.business.local.interface:
-  text: Local Business Interface
-class.role.business.remote.interface:
-  text: Remote Business Interface
-class.role.unknown.ejb.class:
-  text: Unknown EJB class
-role.for.ejb.name.string.representation:
-  text: '{0} for EJB ''''{1}'''''
-role.for.interceptor.name.string.representation:
-  text: '{0} for ''''{1}'''''
-method.role.finder.method.declaration:
-  text: Finder Method Declaration
-method.role.create.method.declaration:
-  text: Create Method Declaration
-method.role.business.method.declaration:
-  text: Business Method Declaration
-method.role.cmp.field.getter.declaration:
-  text: CMP Field Getter Declaration
-method.role.cmp.field.setter.declaration:
-  text: CMP Field Setter Declaration
-method.role.cmr.field.getter.declaration:
-  text: CMR Field Getter Declaration
-method.role.cmr.field.setter.declaration:
-  text: CMR Field Setter Declaration
-method.role.home.business.method.declaration:
-  text: Home Business Method Declaration
-method.role.unknown.method.declaration:
-  text: Unknown Method Declaration
-method.role.home.business.method.implementation:
-  text: Home Business Method Implementation
-method.role.finder.method.implementation:
-  text: Finder Method Implementation
-method.role.selector.method.implementation:
-  text: Selector Method Implementation
-method.role.create.method.implementation:
-  text: Create Method Implementation
-method.role.post.create.method.implementation:
-  text: Post Create Method Implementation
-method.role.business.method.implementation:
-  text: Business Method Implementation
-method.role.cmp.field.getter.implementation:
-  text: CMP Field Getter Implementation
-method.role.cmp.field.setter.implementation:
-  text: CMP Field Setter Implementation
-method.role.cmr.field.getter.implementation:
-  text: CMR Field Getter Implementation
-method.role.cmr.field.setter.implementation:
-  text: CMR Field Setter Implementation
-method.role.method.implementation:
-  text: Method Implementation
-button.add:
-  text: '&Add...'
-label.ejb.roots.text:
-  text: Source roots for EJB classes
-command.name.rename.ejb:
-  text: Rename Ejb
-label.web.source.roots.text:
-  text: Source Roots
-label.j2ee.element.general.settings.description:
-  text: '&Description:'
-label.j2ee.element.general.settings.display.name:
-  text: 'Display &name:'
-action.name.edit.deployment.descriptor:
-  text: Edit Deployment Descriptor...
-project.view.pane.title.j2ee:
-  text: Java EE
-select.in.j2ee:
-  text: Framework Views
-dialog.title.packaging.choose.facets:
-  text: Choose Facets
-message.text.0.facet.1.module:
-  text: '''''{0}'''' facet (''''{1}'''' module)'
-message.text.0.facet.from.1.module:
-  text: (''{0}'' facet from ''{1}'' module)
-link.display.text.configure.j2ee.names:
-  text: Java EE Names
-label.configure.j2ee.names.prefix.and.suffix.are.taken.from:
-  text: prefix and suffix are taken from
-title.appserver.specific.validators:
-  text: Application Server specific validators
-appserver.validator.presentable.text:
-  text: '{0} for {1}'
-button.appserver.validator.add.text:
-  text: '&Add'
-button.appserver.validator.delete.text:
-  text: De&lete
-application.module.properties.general.tab:
-  text: General
-application.module.properties.security.roles:
-  text: Security Roles
-border.application.module.editor.general.properties.group:
-  text: General Properties
-dialog.title.deployment.descriptor.location:
-  text: Deployment Descriptor Location
-dialog.title.resource.location:
-  text: Resource Location
-javaee.facet.settings.display.name:
-  text: '{0} Settings'
-action.name.configure.j2ee.names:
-  text: _Java EE Names...
-j2ee.facet.fake.file.type:
-  text: Java EE facet fake file type
-column.name.module.editor.security.roles.role.name:
-  text: Role Name
-label.text.module.edutor.no.security.roles.configured:
-  text: No security roles configured
-command.name.create.directory:
-  text: Create directory
-message.title.error:
-  text: Error
-dialog.title.new.typename:
-  text: New {0}
-ejb.type.bmp.entity.bean:
-  text: BMP Entity Bean
-ejb.type.cmp.entity.bean:
-  text: CMP Entity Bean
-ejb.type.entity.bean:
-  text: Entity Bean
-ejb.type.session.bean:
-  text: Session Bean
-ejb.type.stateful.bean:
-  text: Stateful Session Bean
-ejb.type.stateless.bean:
-  text: Stateless Session Bean
-ejb.type.singleton.bean:
-  text: Singleton Session Bean
-ejb.type.message.bean:
-  text: Message Bean
-ejb.interceptor.type:
-  text: Interceptor
-data.source.type:
-  text: Data Source
-dialog.title.select.accessors.of.fields.to.include.in.transfer.object:
-  text: Select Accessors of Fields to Include in Transfer Object
-message.text.recommended.transfer.object.class.agrees.with.pattern:
-  text: |-
-    It is recommended that Transfer Object class name
-    agrees with following pattern: {0}
-label.create.transfer.object.transfer.object.class.name:
-  text: 'Transfer Object class name:'
-checkbox.create.transfer.object.generate.getter.in.interface:
-  text: Generate &getter in {0} interface
-checkbox.create.transfer.object.generate.setter.in.interface:
-  text: Generate &setter in {0} interface
-message.text.select.field.to.include.in.transfer.object:
-  text: Please select at least one field to include in Transfer Object.
-message.title.no.fields.selected:
-  text: No Fields Selected
-checkbox.delete.ejb.delete.following.classes:
-  text: '&Delete following classes:'
-command.name.delete.ejb.class:
-  text: Delete EJB Class
-local.vcs.label.name.deleting.ejb.class:
-  text: Deleting ejb class {0}
-dialog.title.remove.ejb.remote.interface:
-  text: Remove EJB Remote Interface
-dialog.title.remove.ejb.local.interface:
-  text: Remove EJB Local Interface
-dialog.title.create.new.cmp.field:
-  text: Create CMP Field
-dialog.title.edit.cmp.field:
-  text: Edit CMP Field
-facet.holder.node.text:
-  text: '{0} Facets'
-label.text.creating.ejb:
-  text: Creating EJB ''{0}''
-dialog.title.create.new.ejb.0:
-  text: Create New EJB ''{0}''
-action.name.create.bmp.entity.bean:
-  text: Create BMP Entity Bean
-action.name.create.cmp.entity.bean:
-  text: Create CMP Entity Bean
-action.name.new.cmp.field:
-  text: New CMP Field
-action.description.create.new.cmp.field:
-  text: Create new CMP field
-action.name.new.ejb.relationship:
-  text: New EJB Relationship
-action.description.create.new.ejb.relationship:
-  text: Create new EJB relationship
-message.text.must.be.cmp.entity.bean.with.local.interface:
-  text: There must be at least one CMP Entity Bean with local interface
-message.title.cannot.create.relationship:
-  text: Cannot Create Relationship
-action.name.create.message.bean:
-  text: Create Message Bean
-action.name.create.stateless.bean:
-  text: Create Stateless Session Bean
-action.name.create.stateful.bean:
-  text: Create Stateful Session Bean
-action.name.create.singleton.bean:
-  text: Create Singleton Session Bean
-action.name.create.new.transfer.object:
-  text: Transfer Object
-command.name.create.transfer.object:
-  text: Create Transfer Object
-apply.javaee.style.command:
-  text: Apply EJB 3.0 Style
-apply.javaee.style.title:
-  text: Apply EJB 3.0 Style
-apply.javaee.style.title.migrate:
-  text: Migrate to EJB 3.0
-apply.javaee.style.ejb.classes.to.process:
-  text: Enterprise JavaBean classes to be processed
-apply.javaee.style.method.exists:
-  text: There already is a method {0}
-apply.javaee.style.field.exists:
-  text: There already is a field {0}
-apply.javaee.style.prefer.injection:
-  text: Prefer resource injection
-apply.javaee.style.prefer.lookup:
-  text: Prefer lookup
-apply.javaee.style.prefer.default:
-  text: Leave as is if possible
-apply.javaee.style.prefer.replace.jndi.lookups:
-  text: Replace JNDI lookup with EJB context lookup
-apply.javaee.style.prefer.inline.injected.fields:
-  text: Inline injected fields
-apply.javaee.style.copy.metadata.from.xml:
-  text: Copy metadata from XML descriptor
-apply.javaee.style.drop.copied.tags:
-  text: Delete copied XML tags
-apply.javaee.style.environment.access.border.title:
-  text: Environment access
-apply.javaee.style.metadata.border.title:
-  text: EnterpriseBean XML descriptor
-apply.javaee.style.ejb.table.border.title:
-  text: EnterpriseBeans to apply EJB 3.0 style to
-apply.javaee.style.code.to.be.changed:
-  text: Code to be changed {0}
-apply.javaee.style.ejb.column.title:
-  text: Object
-apply.javaee.style.home.column.title:
-  text: Retain Home interfaces
-apply.javaee.style.usage.tooltip:
-  text: <html><body>{0}</body></html>
-apply.javaee.style.usage.tooltip.newline:
-  text: <br>
-apply.javaee.style.usage.delete:
-  text: Delete
-apply.javaee.style.usage.replace:
-  text: 'Replace with: <code>{0}</code>'
-apply.javaee.style.usage.add:
-  text: 'Add: <code>{0}</code>'
-apply.javaee.style.usage.add.after:
-  text: 'Append with: <code>{0}</code>'
-apply.javaee.style.usage.add.before:
-  text: 'Prepend with: <code>{0}</code>'
-apply.javaee.style.usage.set.tag.attribute:
-  text: 'Set tag attribute: <code>{0}="{1}"</code>'
-apply.javaee.style.processing.ejbs:
-  text: Processing Enterprise JavaBeans
-apply.javaee.style.processing.ejb:
-  text: Calculating required changes for ''{0}''
-apply.javaee.style.processing.interceptor:
-  text: Calculating required changes for ''{0}''
-apply.javaee.style.processing.home:
-  text: Calculating required changes for ''{0}'' home interface removal
-apply.javaee.style.processing.clients:
-  text: Processing Enterprise JavaBeans clients
-command.name.ejb.editing:
-  text: EJB Editing
-ejb.type.message.driven.bean:
-  text: Message Driven Bean
-ejb.fake.file.type:
-  text: EJB fake file type
-label.edit.cmp.field.description:
-  text: '&Description:'
-checkbox.edit.cmp.field.primary.key:
-  text: '&Primary Key'
-label.edit.cmp.field.name:
-  text: '&Name:'
-message.text.cmp.field.exists:
-  text: CMP field ''{0}'' already exists.
-message.text.cmp.field.name.not.valid:
-  text: CMP field name ''{0}'' is not a valid identifier.
-message.text.cmp.field.name.should.begin.with.a.lower.case.letter:
-  text: CMP field name should begin with a lower case letter.
-message.text.type.not.found:
-  text: Type ''{0}'' not found.
-label.edit.cmp.field.type:
-  text: '&Type:'
-dialog.title.choose.cmp.field.class:
-  text: Choose CMP Field Class
-column.name.edit.cmp.field.name:
-  text: Name
-column.name.edit.cmp.field.type:
-  text: Type
-column.name.edit.cmp.field.pk:
-  text: PK
-column.tooltip.edit.cmp.field.pk:
-  text: Is part of primary key
-button.rename.ejb.and.classes:
-  text: '&Rename EJB and Classes...'
-button.change.ejb.classes:
-  text: '&Change EJB Classes...'
-warning.text.class.does.not.exist:
-  text: Class ''{0}'' does not exist
-dialog.title.change.ejb.classes:
-  text: Change EJB Classes
-confirmation.text.class.does.not.exist.create.it:
-  text: Class {0} does not exist. Do you want to create it?
-confirmation.text.classes.do.not.exist.create.them:
-  text: |-
-    Classes
-    {0}
-    do not exist. Do you want to create them?
-message.title.change.ejb.classes:
-  text: Change EJB Classes
-dialog.title.choose.ejb.class:
-  text: Choose EJB Class
-label.ejb.class.properties.package:
-  text: '&Package:'
-dialog.title.choose.ejb.classes.package:
-  text: Choose EJB Classes Package
-label.ejb.class.properties.ejb.class:
-  text: 'EJB &Class:'
-dialog.title.choose.ejb.home.interface:
-  text: Choose EJB Home Interface
-label.ejb.class.properties.remote.interface:
-  text: '&Home:'
-label.ejb.class.properties.local.home:
-  text: 'L&ocal Home:'
-label.ejb.class.properties.remote:
-  text: 'R&emote:'
-label.ejb.class.properties.local:
-  text: 'Loc&al:'
-dialog.title.choose.ejb.remote.interface:
-  text: Choose EJB Remote Interface
-dialog.title.choose.ejb.local.home.interface:
-  text: Choose EJB Local Home Interface
-dialog.title.choose.ejb.local.interface:
-  text: Choose EJB Local Interface
-label.ejb.class.properties.primary.key.class:
-  text: 'Primary &Key Class:'
-dialog.title.choose.ejb.primary.key.class:
-  text: Choose EJB Primary Key Class
-message.text.ejb.exists.in.ejb.facet:
-  text: EJB ''{0}'' already exists in this EJB facet.
-checkbox.edit.ejb.class.enable.local.interface:
-  text: '&Local Interface'
-checkbox.edit.ejb.class.enable.remote.interface:
-  text: '&Remote Interface'
-label.edit.ejb.class.cmp.version:
-  text: CMP &Version
-entity.bean.general.tab.description.bean.persistence:
-  text: Bean-managed persistence
-entity.bean.general.tab.description.container.persistence:
-  text: Container-managed persistence, CMP version {0}
-entity.bean.general.tab.description.container.persistence.cmp.undefined:
-  text: Container-managed persistence
-ejb.relationship.editor.general.tab:
-  text: General
-ejb.module.properties.general.tab:
-  text: General
-ejb.module.properties.assembly.descriptor.tab:
-  text: Assembly Descriptor
-ejb.module.properties.method.permissions.tab:
-  text: Method Permissions
-ejb.module.properties.ejb.relations.tab:
-  text: EJB Relationships
-ejb.module.properties.transaction.attributes.tab:
-  text: Transaction Attributes
-dialog.title.choose.entity.bean.primary.key.class:
-  text: Choose Entity Bean Primary Key Class
-label.entity.bean.properties.primary.key.class:
-  text: '&Primary Key Class:'
-border.entity.bean.properties.cmp.fields:
-  text: CMP Fields
-label.entity.bean.properties.abstract.schema.name:
-  text: '&Abstract Schema Name:'
-label.message.bean.properties.transaction.type:
-  text: '&Transaction type:'
-label.message.bean.properties.acknowledge.mode:
-  text: '&Acknowledge Mode:'
-label.message.bean.properties.durability:
-  text: 'D&urability:'
-label.message.bean.properties.destination.type:
-  text: 'D&estination type:'
-label.message.bean.properties.message.selector:
-  text: '&Message Selector:'
-label.message.bean.properties.activation.config:
-  text: Activation Config
-dialog.title.primary.key.class:
-  text: Primary Key Class
-label.pk.class.dialog.pk.class.cant.contain.compound.primary.key:
-  text: <html>PK Class ''{0}'' can''t contain compound Primary Key.<br>Please either:<ul><li>Specify primary key class which can hold all CMP fields, or</li><li>Provide package and class names to create new Primary Key Class for you</li></html>
-border.pk.class.dialog.primary.key.class.package:
-  text: 'Primary Key Class Package:'
-dialog.title.choose.primary.key.class.package:
-  text: Choose Primary Key Class Package
-border.pk.class.dialog.primary.key.class.name:
-  text: 'Primary Key Class Name:'
-label.session.bean.properties.transaction.type:
-  text: 'Transaction type:'
-label.session.bean.properties.session.type:
-  text: 'Session type:'
-checkbox.entity.bean.properties.reentrant:
-  text: Reentrant
-title.module.ejb.local.references:
-  text: EJB Local References
-title.module.ejb.remote.references:
-  text: EJB Remote References
-title.module.ejb.resource.environment.references:
-  text: Resource Environment References
-title.module.ejb.resource.references:
-  text: Resource References
-title.module.service.references:
-  text: Web Service References
-title.module.message.destination.references:
-  text: Message Destination References
-title.module.security.roles:
-  text: Security Roles
-title.module.ejb.environment.entries:
-  text: Environment Entries
-title.module.properties.general:
-  text: General
-title.module.properties.ejb.classes:
-  text: EJB Classes
-title.module.properties.specifics:
-  text: Specifics
-title.module.properties.entity.bean.specifics:
-  text: Entity Bean Specifics
-title.module.properties.session.bean.specifics:
-  text: Session Bean Specifics
-title.module.properties.message.driven.bean.specifics:
-  text: Message Driven Bean Specifics
-column.name.message.bean.activation.config.name:
-  text: Name
-column.name.message.bean.activation.config.value:
-  text: Value
-column.name.ejb.environment.entries.type:
-  text: Type
-column.name.ejb.environment.entries.value:
-  text: Value
-dialog.title.ejb.relationship.properties:
-  text: EJB Relationship Properties
-message.text.name.is.not.valid.identifier:
-  text: '{0} is not a valid identifier'
-message.text.duplicate.role.names:
-  text: Duplicate role names
-message.text.cmr.field.0.already.defined:
-  text: CMR field ''{0}'' already defined in {1}.
-message.text.cmr.field.name.should.begin.with.a.lower.case.letter:
-  text: CMR field name should begin with a lower case letter.
-message.text.entity.bean.not.specified.for.cmr.field:
-  text: Existing Entity EJB name should be specified
-checkbox.edit.relationship.enable.cmr.field:
-  text: CMR Field
-checkbox.edit.relationship.getter:
-  text: Getter
-checkbox.edit.relationship.setter:
-  text: Setter
-checkbox.edit.relationship.cascade.delete:
-  text: Cascade Delete
-label.edit.relationship.field.type:
-  text: 'Field Type:'
-label.edit.relationship.field.name:
-  text: 'Field Name:'
-label.edit.relationship.role.name:
-  text: 'Role name:'
-label.edit.relationship.multiplicity:
-  text: 'Multiplicity:'
-label.edit.relationship.ejb:
-  text: 'EJB:'
-label.edit.relationship.description:
-  text: '&Description:'
-label.edit.relationship.relationship.name:
-  text: 'Relationship &Name:'
-title.edit.module.configured.ejbs:
-  text: Configured EJBs
-title.edit.module.general.properties:
-  text: General Properties
-button.configure.application.server:
-  text: Configure...
-border.edit.nodule.modules.and.libraries.to.package:
-  text: Modules and Libraries to Package
-tooltip.text.primary.key.class:
-  text: Primary Key Class
-column.name.method.permissions.name:
-  text: Name
-column.name.method.permissions.excluded:
-  text: Excluded
-column.name.method.permissions.unchecked:
-  text: Unchecked
-message.text.no.ejbs.in.this.module:
-  text: There are no EJBs and security roles in this module.<br>Method permissions are only available for existing EJBs.
-dialog.title.create.new.0:
-  text: Create {0}
-dialog.title.edit.0:
-  text: Edit {0}
-label.text.choose.component.interface:
-  text: 'Select EJB Component Interface to create reference to:'
-label.edit.ejb.reference.name:
-  text: '&Name:'
-label.edit.ejb.reference.type:
-  text: '&Type:'
-label.edit.ejb.reference.home.interface.class.name:
-  text: '&Home interface:'
-label.edit.ejb.reference.component.interface.class.name:
-  text: '&Remote interface:'
-label.edit.ejb.reference.link:
-  text: '&Link:'
-label.edit.ejb.reference.description:
-  text: '&Description:'
-column.name.message.destination.type:
-  text: Type
-column.name.message.destination.usage:
-  text: Usage
-column.name.message.destination.link:
-  text: Link
-column.name.ejb.reference.name:
-  text: Name
-column.name.ejb.reference.type:
-  text: Type
-column.name.ejb.reference.home:
-  text: Home
-column.name.ejb.reference.component:
-  text: Component
-column.name.ejb.reference.link:
-  text: Link
-column.name.description:
-  text: Description
-message.text.no.ejb.references.configured:
-  text: No EJB references configured
-column.name.service.reference.type:
-  text: Type
-column.name.service.reference.interface:
-  text: Service Interface
-column.name.service.reference.wsdl.file:
-  text: WSDL file
-column.name.ejb.resource.reference.type:
-  text: Type
-column.name.ejb.resource.reference.authentication:
-  text: Authentication
-column.name.ejb.resource.reference.scope:
-  text: Scope
-column.name.resource.environment.reference.type:
-  text: Type
-column.transaction.attributes.name:
-  text: Name
-column.transaction.attributes.transaction.attribute:
-  text: Transaction Attribute
-message.text.no.ejbs.in.this.module.no.transaction.attributes:
-  text: There are no EJBs in this module.<br>Transaction attributes are only available for existing EJBs.
-message.text.no.ejbs.in.this.module.no.interceptors:
-  text: There are no EJBs in this module.
-dialog.title.web.resource.directory.path:
-  text: Web Resource Directory Path
-dialog.title.web.resource.directory:
-  text: Web Resource Directory
-dialog.description.web.resource.directory:
-  text: Choose web resource directory where web files will be stored.
-label.new.web.root.web.resource.directory.path:
-  text: 'Web resource directory &path:'
-confirmation.text.create.directory:
-  text: Create the directory ''{0}'' ?
-message.title.directory.not.found:
-  text: Directory Not Found
-command.name.creating.web.root.dir:
-  text: creating dir
-message.text.error.creating.directory:
-  text: |-
-    Error creating directory.
-    {0}
-message.text.web.resource.directory.should.be.located.under.module.root:
-  text: |-
-    Web resource directory should be located under module root.
-    Please press ''...'' (ellipsis) button to browse module root directories.
-message.title.directory.not.in.module:
-  text: Directory Not in Module
-message.text.existing.web.resource.directory.configured.in.dir.which.includes.dir:
-  text: |-
-    <html><body>There is existing web resource directory configured in ''<b>{0}''</b>,
-    which already includes current directory ''<b>{1}''</b>.</body></html>
-message.title.conflicting.directory.found:
-  text: Conflicting Directory Found
-message.text.existing.web.resource.directory.configured.in.dir.which.will.be.included.in.dir:
-  text: |-
-    <html><body>There is existing web resource directory configured in ''<b>{0}''</b>,
-    which will be included in current directory ''<b>{1}''</b>.</body></html>
-message.text.cannot.find.file:
-  text: Cannot find file ''{0}''
-message.title.file.not.found:
-  text: File Not Found
-label.web.root.dialog.relative.path.in.deployment.directory:
-  text: '&Relative path in deployment directory:'
-jasper.validator.description:
-  text: Jasper Validator
-action.name.validate:
-  text: Validate
-action.description.validate:
-  text: Run validation on all files in the selected items
-action.text.validate.facet:
-  text: Validate all files in facet ''{0}''
-action.name.validate.location:
-  text: Validate {0}
-location.to.validate.jsp:
-  text: file ''{0}''
-location.to.validate.selected.jsps:
-  text: selected files
-location.to.validate.all.jsps.in.directory:
-  text: all files in directory ''{0}''
-location.to.validate.all.jsps.in.selected.directories:
-  text: all files in selected directories
-checkboxweb.module.editor.distributable:
-  text: Distributable
-message.text.cannot.find.jdk.for.module.set.jdk.for.the.module.or.project:
-  text: Cannot find JDK for module ''{0}''. Please set JDK for the module or project.
-message.text.remove.web.resource.directory:
-  text: Remove web resource directory ''{0}''?
-message.text.remove.selected.web.resource.directories:
-  text: Remove selected web resource directories?
-message.title.remove.web.resource.directory:
-  text: Remove Web Resource Directory
-column.name.edit.web.roots.web.resource.directory:
-  text: Web Resource Directory
-column.name.edit.web.roots..relative.to.deployment.root:
-  text: Path Relative to Deployment Root
-warning.duplicate.relative.deployment.path.text:
-  text: Duplicate relative deployment path ''{0}''
-message.title.unmark.web.resource.directory:
-  text: Unmark Web Resource Directory
-message.text.unmark.web.resource.directory:
-  text: Unmark Web resource directory ''{0}''
-column.name.edit.parameters.param.name:
-  text: Param Name
-column.name.edit.parameters.param.value:
-  text: Param Value
-message.text.no.parameters.configured:
-  text: No parameters configured
-j2ee.filter.string.representation:
-  text: Filter ''{0}''
-servlet.string.representation:
-  text: Servlet ''{0}''
-servlet.fake.file.type.description:
-  text: Servlet fake file type
-action.name.create.new.filter:
-  text: Create New Filter
-dialog.title.new.filter:
-  text: New Filter
-dialog.title.edit.filter:
-  text: Edit Filter
-message.title.choose.filter.class:
-  text: Choose Filter Class
-label.filter.properties.package:
-  text: 'Packa&ge:'
-dialog.title.choose.filter.package:
-  text: Choose Filter Package
-label.filter.peoperties.filter.class:
-  text: 'Filter &Class:'
-message.text.filter.exists:
-  text: Filter ''{0}'' already exists in this Web facet.
-message.title.filter.exists:
-  text: Filter Already Exists
-action.name.create.filter.mapping:
-  text: Create Filter Mapping
-column.name.filter.mapping.properties.filter:
-  text: Filter
-column.name.filter.mapping.properties.url.pattern:
-  text: URL Pattern
-column.name.filter.mapping.properties.servlet:
-  text: Servlet
-message.text.no.filters.configured:
-  text: No filters configured in this web facet.<br>Please create filter first.
-message.text.no.filter.mappings.configured:
-  text: No filter mappings configured
-action.name.create.new.listener:
-  text: Create New Listener
-dialog.title.new.listener:
-  text: New Listener
-label.listener.properties.package:
-  text: '&Package:'
-dialog.title.choose.listener.package:
-  text: Choose Listener Package
-label.edit.listener.listener.class:
-  text: 'Listener &Class:'
-message.text.listener.exists:
-  text: Listener ''{0}'' already exists in this Web facet.
-message.title.listener.exists:
-  text: Listener Already Exists
-tooltip.text.filter.class:
-  text: Filter ''{0}'' Class
-tooltip.text.listener.class:
-  text: Listener ''{0}'' Class
-tooltip.text.servlet.class:
-  text: Servlet ''{0}'' Class
-tooltip.text.web.resource.directory:
-  text: Web resource directory ({0})
-action.name.create.new.servlet:
-  text: Create New Servlet
-action.description.create.new.servlet:
-  text: Create new servlet
-dialog.title.new.servlet:
-  text: New Servlet
-button.change.class:
-  text: Change Class...
-button.rename.servlet:
-  text: Rename Servlet...
-label.edit.servlet.class.name:
-  text: 'Class name:'
-dialog.title.rename.servlet:
-  text: Rename Servlet
-label.rename.servlet.name:
-  text: 'Servlet name:'
-servlet.class.name.unknown:
-  text: Unknown
-dialog.title.choose.class:
-  text: Choose {0} Class
-label.edit.servlet.load.order:
-  text: 'Load &order:'
-checkbox.edit.servlet.load.on.startup:
-  text: '&Load on startup'
-button.change.servlet.jsp.file:
-  text: Change Class...
-dialog.title.jsp.file:
-  text: JSP File
-dialog.description.jsp.file:
-  text: Choose JSP file for servlet ''{0}''.
-servlet.jsp.file.name.unknown:
-  text: Unknown
-label.servlet.properties.package:
-  text: '&Package:'
-dialog.title.choose.package:
-  text: Choose {0} Package
-label.properties.class:
-  text: '&Class:'
-message.text.exists:
-  text: '{0} ''''{1}'''' already exists in this Web facet.'
-column.name.servlet.mapping.properties.servlet:
-  text: Servlet
-column.name.servlet.mapping.properties.url.pattern:
-  text: URL Pattern
-message.text.no.servlets.configured:
-  text: No servlets configured in this web facet.<br>Please create servlets first.
-message.text.no.servlet.mappings.configured:
-  text: No servlet mappings configured
-border.edit.web.module.web.resource.directories:
-  text: Web Resource Directories
-title.servlet.properties.general:
-  text: General
-title.servlet.properties.servlet.class:
-  text: Servlet Class
-title.servlet.properties.servlet.initialization.params:
-  text: Servlet Initialization Params
-border.web.module.assembly.properties.filter.mappings:
-  text: Filter Mappings
-border.web.module.assembly.properties.servlet.mappings:
-  text: Servlet Mappings
-border.web.module.assembly.properties.context.parameters:
-  text: Context Parameters
-border.web.module.properties.servlets.configured:
-  text: Servlets Configured
-border.web.module.properties.filters.configured:
-  text: Filters Configured
-border.web.module.properties.general.settings:
-  text: General Settings
-border.web.module.properties.display.name.description:
-  text: DISPLAY_NAME_DESCRIPTION
-border.web.module.properties.general.properties:
-  text: GENERAL_PROPERTIES
-web.module.properties.assembly.descriptor.tab:
-  text: Assembly Descriptor
-default.run.configuration.name.unnamed:
-  text: Unnamed
-title.run.configuration.editor.server:
-  text: Server
-title.run.configuration.editor.deployment:
-  text: Deployment
-tooltip.facet.excluded.from.deployment.text:
-  text: Facet is excluded from deployment
-exception.text.application.server.not.specified:
-  text: Application Server not specified
-exception.text.application.server.0.not.configured:
-  text: Application Server ''{0}'' is not configured
-directory.description.working.directory:
-  text: Working directory
-exception.text.malformed.url:
-  text: 'Malformed URL: ''''{0}'''''
-exception.text.no.facets.to.deploy:
-  text: There are no facets to deploy
-quickfix.popup.title.select.a.facet.to.deploy:
-  text: Select a facet to deploy
-quickfix.popup.title.select.an.artifact.to.deploy:
-  text: Select an artifact to deploy
-error.deployment.source.for.module.is.not.specified.message:
-  text: Deployment source (archive or exploded directory) for ''{0}'' is not specified
-exception.text.descriptor.not.defined:
-  text: '''''{0}'''' is not defined'
-exception.text.alternative.jre.not.specified:
-  text: Alternative JRE is not specified
-browser.launcher.name.system:
-  text: System
-label.run.configuration.properties.application.server:
-  text: 'Application &server:'
-button.configure.acclication.server:
-  text: '&Configure...'
-dialog.title.vm.parameters:
-  text: VM Options
-border.run.configuration.editor.remote.connection.settings.group:
-  text: Remote Connection Settings
-exception.text.invalid.port.value:
-  text: 'Invalid port value: {0}'
-label.run.configuration.editor.port:
-  text: '&Port:'
-label.run.configuration.editor.host:
-  text: '&Host:'
-border.run.configuration.editor.environment.variables:
-  text: Environment Variables
-checkbox.run.configuration.editor.pass.environment.variables:
-  text: Pass environment variables
-label.run.configuration.editor.shutdown.script:
-  text: 'Shutdown script:'
-label.run.configuration.editor.startup.script:
-  text: 'Startup script:'
-label.run.configuration.editor.add.vm.parameters:
-  text: <html><body>To {0} remote server JVM, it should be started with the following<br/>command line arguments (you may copy and paste them):</body></html>
-message.text.run.configuration.editor.no.specific.parameters.needed:
-  text: No specific parameters needed
-action.name.build.on.frame.deactivation:
-  text: Update Resources On Frame Deactivation
-action.description.build.on.frame.deactivation:
-  text: Update resources related to this process on frame deactivation
-updating.policy.hot.swap.classes:
-  text: '&Hot Swap classes'
-updating.policy.redeploy:
-  text: '&Redeploy'
-updating.policy.update.classes.and.resources:
-  text: Update &classes and resources
-updating.policy.update.resources:
-  text: '&Update resources'
-updating.policy.restart.server:
-  text: Restart &server
-exception.text.address.is.in.use:
-  text: Address {0} is already in use
-dialog.title.restart.server:
-  text: Restart Server
-message.text.run.configuration.already.run.do.you.want.to.restart.in.1:
-  text: Run configuration ''{0}'' is running. Do you want to restart the server in ''{1}'' mode?
-message.text.run.configuration.already.run:
-  text: Run configuration ''{0}'' is running.
-confirmation.text.server.is.being.connected.disconnect:
-  text: |-
-    It seems you already have connected to ''{0}'' .
-    Do you want to disconnect from server first?
-message.title.server.connected:
-  text: Server Already Connected
-message.text.connected.to.server:
-  text: Connected to server
-message.text.disconnected.from.server:
-  text: Disconnected from server
-message.text.cannot.open.url:
-  text: 'Cannot open URL. Please check this URL is correct:'
-message.title.open.url:
-  text: Open URL
-message.text.unable.to.connect:
-  text: Unable to connect to the {0}
-message.text.connected.to.the.server:
-  text: Connected to the server
-exception.text.error.connecting.exception.occured.with.message:
-  text: |-
-    Error Connecting to {0}.
-    Exception occurred : {1}
-    Exception message : {2}
-action.name.delete:
-  text: Delete
-dialog.title.configure.vm.and.program.parameters:
-  text: Configure VM and Program Parameters
-label.edit.parameters.program.parameters:
-  text: '&Program Arguments:'
-checkbox.edit.script.properties.use.default:
-  text: Use default
-dialog.title.select.startup.script:
-  text: Select Startup Script
-dialog.title.select.shutduwn.script:
-  text: Select Shutduwn Script
-dialog.title.default.startup.script:
-  text: Default Startup Script
-dialog.title.default.shutdown.script:
-  text: Default Shutdown Script
-tooltip.text.script.parameters:
-  text: Parameters...
-column.name.edit.deployment.descriptors.type:
-  text: Type
-column.name.edit.deployment.descriptors.path:
-  text: Path
-border.edit.deployment.descriptors.deployment.descriptors.group:
-  text: Deployment Descriptors
-model.object.type.filter:
-  text: Filter
-model.object.type.listener:
-  text: Listener
-model.object.type.servlet:
-  text: Servlet
-dialog.title.cant.create.class:
-  text: Can''t Create Class
-message.text.error.running.configuration.exception.occured.with.message:
-  text: |-
-    Error running {0}.
-    Exception occurred : {1}
-    Exception message : {2}
-exception.text.startup.script.is.not.specified:
-  text: startup script is not specified
-progress.text.jasper.validation.validating.path:
-  text: Validating {0}
-checkbox.cmp.field.properties.generate.setter.in.remote.interface:
-  text: R&emote Interface
-checkbox.cmp.field.properties.generate.setter.in.local.interface:
-  text: Local &Interface
-checkbox.cmp.field.properties.generate.getter.in.remote.interface:
-  text: '&Remote Interface'
-checkbox.cmp.field.properties.generate.getter.in.local.interface:
-  text: '&Local Interface'
-label.cmp.field.properties.generate.setter.in:
-  text: 'Generate setter in:'
-label.cmp.field.properties.generate.getter.in:
-  text: 'Generate getter in:'
-edit.servlet.jsp.file.add.library.button:
-  text: Add Library...
-ScriptInfo.error.startup.script.not.found:
-  text: Startup script file not found
-ScriptInfo.error.shutdown.script.not.found:
-  text: Shutdown script file not found
-combobox.deployment.descriptor.version:
-  text: Deployment descriptor &version
-error.deployment.descriptor.already.exists:
-  text: Deployment descriptor on file ''{0}'' already exists
-error.deployment.descriptor.target.in.use:
-  text: Deployment descriptor target file ''{0}'' is in use
-error.cannot.create.deployment.descriptor:
-  text: |-
-    Cannot create {0}
-    {1}
-title.edit.deployment.descriptor:
-  text: Edit Deployment Descriptor
-error.please.specify.path.to.deployment.descriptor:
-  text: Please specify path to {0}
-label.choose.or.create.deployment.descriptor.file:
-  text: Choose existing XML file for {0} or specify directory to create new file.
-deployment.descriptor.panel.directory.path.relative.to.deployment.root.label:
-  text: 'Directory &path relative to deployment root:'
-dialog.title.create.appserver.specific.descriptor:
-  text: Create Application Server Specific Descriptor
-label.appserver.text:
-  text: '&Application Server:'
-label.descriptor.type.text:
-  text: '&Descriptor:'
-label.descriptor.version.text:
-  text: '&Version:'
-intention.add.javaee.jar.text:
-  text: Add {0} jars to module dependencies
-dialog.title.choose.ejb.message.listener.interface:
-  text: Choose EJB Message Listener Interface
-dialog.title.choose.ejb.service.endpoint.interface:
-  text: Choose EJB Service Endpoint Interface
-label.ejb.class.properties.message.listener.interface:
-  text: '&Message Listener:'
-label.ejb.class.properties.service.endpoint.interface:
-  text: '&Service Endpoint:'
-class.role.service.endpoint.interface:
-  text: Service Endpoint Interface
-class.role.interceptor.class:
-  text: Interceptor
-property.message.driven.bean.activation.config.other:
-  text: Other...
-message.text.error.name.cannot.be.empty:
-  text: Name cannot be empty
-message.text.error.component.interface.name.should.be.not.empty:
-  text: Component interface name should not be empty
-message.text.error.home.interface.name.should.be.not.empty:
-  text: Home interface name should not be empty
-action.text.add.security.role:
-  text: Add Security Role...
-action.text.edit.security.role:
-  text: Edit Security Role...
-action.text.edit.security.role.0:
-  text: Edit Security Role ''{0}''
-action.text.remove.security.role:
-  text: Remove Security Role...
-action.text.remove.security.role.0:
-  text: Remove Security Role ''{0}''
-label.edit.security.role.name:
-  text: '&Name:'
-label.edit.security.role.description:
-  text: '&Description:'
-column.name.edit.cmp.field.local.getter:
-  text: LG
-column.tooltip.edit.cmp.field.local.getter:
-  text: Has local getter
-column.name.edit.cmp.field.local.setter:
-  text: LS
-column.tooltip.edit.cmp.field.local.setter:
-  text: Has local setter
-column.name.edit.cmp.field.remote.getter:
-  text: RG
-column.tooltip.edit.cmp.field.remote.getter:
-  text: Has remote getter
-column.name.edit.cmp.field.remote.setter:
-  text: RS
-column.tooltip.edit.cmp.field.remote.setter:
-  text: Has remote setter
-border.relationship.editor.role.1:
-  text: Role 1
-border.relationship.editor.role.2:
-  text: Role 2
-action.name.create.interceptor:
-  text: Create Interceptor
-border.interceptor.binding:
-  text: Interceptor Bindings
-column.name.ejb.business.tree.name:
-  text: Name
-column.name.ejb.business.tree.intercept:
-  text: Intercept
-migrate.entity.beans.to.persistence.module:
-  text: Replace Entity Beans with CMP to Persistence Unit (Project may not compile)
-ejb.validator.decription:
-  text: EJB Validator
-progress.validating.ejbs.text:
-  text: Validating EJBs...
-ejb.facet.display.name:
-  text: EJB
-javaeeapp.facet.display.name:
-  text: JavaEE Application
-javaee.facet.name.with.type:
-  text: '{0} Facet ''''{1}'''''
-label.description.edit.resource.environment.reference.dialog:
-  text: '&Description:'
-label.type.edit.resource.environment.reference.dialog:
-  text: '&Type:'
-label.name.edit.resource.environment.reference.dialog:
-  text: '&Name:'
-label.name.edit.environment.entries.dialog:
-  text: '&Name:'
-label.value.edit.environment.entries.dialog:
-  text: '&Value:'
-label.type.edit.environment.entries.dialog:
-  text: '&Type:'
-label.description.edit.environment.entries.dialog:
-  text: '&Description:'
-label.name.edit.service.reference.dialog:
-  text: '&Name:'
-label.type.edit.service.reference.dialog:
-  text: '&Type:'
-label.service.interface.edit.service.reference.dialog:
-  text: 'Service &interface:'
-label.jaxrpc.mapping.file.edit.service.reference.dialog:
-  text: 'JAX-RPC &mapping file:'
-label.wsdl.file.edit.service.reference.dialog:
-  text: '&WSDL file:'
-label.service.qname.edit.service.reference.dialog:
-  text: 'Service &QName:'
-label.description.edit.service.reference.dialog:
-  text: '&Description:'
-section.table.view.add:
-  text: '&Add...'
-section.table.view.add.0:
-  text: '&Add {0}...'
-section.table.view.edit:
-  text: '&Edit...'
-section.table.view.edit.0:
-  text: '&Edit {0}...'
-section.table.view.delete:
-  text: '&Delete...'
-section.table.view.delete.0:
-  text: '&Delete {0}...'
-label.name.edit.message.destination.reference.dialog:
-  text: '&Name:'
-label.type.edit.message.destination.reference.dialog:
-  text: '&Type:'
-label.usage.edit.message.destination.reference.dialog:
-  text: 'Message Destination &Usage:'
-label.link.edit.message.destination.reference.dialog:
-  text: 'Message Destination &Link:'
-label.description.edit.message.destination.reference.dialog:
-  text: '&Description:'
-label.name.edit.resource.reference.dialog:
-  text: '&Name:'
-label.type.edit.resource.reference.dialog:
-  text: '&Type:'
-label.authentification.edit.resource.reference.dialog:
-  text: '&Authentification:'
-label.description.edit.resource.reference.dialog:
-  text: '&Description:'
-title.choose.interceptor.method.types:
-  text: Select Interceptor Methods to Implement
-command.apply.interceptor.bindings.command:
-  text: Modify Interceptor Bindings
-dialog.title.edit.interceptor.bindings:
-  text: Edit Interceptor ''{0}'' bindings
-interceptor.method.container.node.title:
-  text: Interceptor methods
-dialog.title.error.no.deployment.descriptor:
-  text: No deployment descriptor
-dialog.message.error.no.web.xml:
-  text: There is no web.xml file in this Web facet, so this operation cannot be performed.
-label.select.server.to.open.text:
-  text: 'Select server instance to open file:'
-title.open.file.in.browser.text:
-  text: Open File in Browser
-presentable.server.instance.to.open.text:
-  text: '{0}: ''''{1}'''''
-action.open.jsp.file.in.browser.description:
-  text: An application server instance must be run in order to open JSP file in browser
-error.message.name.should.be.identifier:
-  text: Name should be identifier
-error.message.0.name.should.be.unique:
-  text: '{0} name should be unique'
-checkbox.default.interceptor:
-  text: '&Default Interceptor'
-dialog.title.edit.ejb.ql.query:
-  text: Edit EJB QL Query
-usages.of.ejb.class:
-  text: Usages of EJB &class
-usages.of.servlet.class:
-  text: Usages of Servlet &class
-dialog.title.rename.0:
-  text: Rename {0}
-model.object.type.abstract.schema.name:
-  text: Abstract Schema Name
-command.name.create.0.1:
-  text: Create {0} ''{1}''
-wizard.javaee.app.included.facet.tab.name:
-  text: Include Web and EJB Facets
-wizard.web.exploded.dir.tab.name:
-  text: Exploded Directory
-wizard.web.roots.tab.name:
-  text: Web Roots
-wizard.descriptors.tab.name:
-  text: Descriptors
-label.deployment.descriptors.wizard.step.text:
-  text: <html><body>Configure descriptors that will be used to deploy this facet.<br>You may add standard, proprietary and application server specific descriptors here.</body></html>
-label.delete.deployment.descriptor.text:
-  text: Delete selected deployment descriptor?
-checkbox.also.delete.file.from.disk.text:
-  text: '&Also delete file from disk'
-action.name.edit.ejb.relationship:
-  text: Edit EJB Relationship
-action.name.delete.ejb.relationships:
-  text: Delete EJB Relationships
-action.name.delete.ejb.relationship:
-  text: Delete EJB Relationship
-wizard.ejb.step.tab.name:
-  text: EJB Specification
-wizard.step.ejb.version.top.label.text:
-  text: |-
-    Please specify Enterprise JavaBeans specification version.
-    Note: existing descriptors if found will override these settings.
-wizard.step.ejb.version.button.text1:
-  text: Enterprise JavaBeans 1.&x
-wizard.step.ejb.version.button.text2:
-  text: Enterprise JavaBeans &2.0
-wizard.step.ejb.version.button.text21:
-  text: Enterprise JavaBeans 2.&1
-wizard.step.ejb.version.button.text3:
-  text: Enterprise JavaBeans &3.0
-wizard.step.ejb.version.button.text.annos.only:
-  text: Java @&Annotations Only (no ejb-jar.xml)
-wizard.step.ejb.version.button.add.persistence:
-  text: Add Java EE P&ersistence Support
-value.should.either.0.or.1:
-  text: Value should either {0} or {1}
-inspection.group.display.name.application.server.inspections:
-  text: Application Server Specific Inspections
-template.node.ejb:
-  text: EJB
-template.node.java.code.templates:
-  text: Java code templates
-template.node.deployment.descriptors:
-  text: Deployment descriptors
-template.node.application:
-  text: Application
-template.node.web:
-  text: Web
-servlet.reference.canonical.text:
-  text: Cannot resolve servlet ''{0}''.
-appserver.library.display.name:
-  text: Application Server {0, choice, 1#Library|2#Libraries}
-libraries.node.text.application.server:
-  text: Libraries contain classes that add up various functionality to your applications. Libraries also include source files and JavaDocs that can help you develop your projects.<br><br> IntelliJ IDEA uses libraries to assist you with code completion, validation, error highlighting, etc.<br><br>Application server libraries are the part of an application server (WebSphere, WebLogic, Tomcat etc.) and are available to your Web and Java EE applications that are configured with these servers.<br><br>Expand the node and select child items to manage Application server libraries that are installed in your system. <br><br> To attach a library to a module, select that module, click the Dependencies tab, click Add and specify the library location.
-library.configure.appserver.title:
-  text: Configure Application Server Libraries
-title.j2ee.names:
-  text: Java EE Names
-title.entity.bean:
-  text: Entity Bean
-editbox.default.pk.class:
-  text: 'Default PK Class:'
-label.prefix:
-  text: 'Prefix:'
-label.suffix:
-  text: 'Suffix:'
-editbox.j2eenames.ejb.class:
-  text: EJB Class
-editbox.j2eenames.home.interface:
-  text: Home Interface
-editbox.j2eenames.remote.interface:
-  text: Remote Interface
-editbox.j2eenames.local.home.interface:
-  text: Local Home Interface
-editbox.j2eenames.local.interface:
-  text: Local Interface
-editbox.j2eenames.ejb.name.tag:
-  text: <ejb-name> tag
-editbox.j2eenames.transfer.object:
-  text: Transfer Object
-editbox.j2eenames.servlet.class:
-  text: Servlet Class
-editbox.j2eenames.servlet.name.tag:
-  text: <servlet-name> tag
-editbox.j2eenames.filter.class:
-  text: Filter Class
-editbox.j2eenames.filter.name.tag:
-  text: <filter-name> tag
-editbox.j2eenames.listener.class:
-  text: Listener Class
-editbox.j2eenames.service.endpoint.interface:
-  text: Service Endpoint Interface
-label.j2eenames.session.bean:
-  text: Session Bean
-label.j2eenames.message.driven.bean:
-  text: Message Driven Bean
-label.j2eenames.servlet:
-  text: Servlet
-label.j2eenames.filter:
-  text: Filter
-label.j2eenames.listener:
-  text: Listener
-intention.add.method.to.ejb.class.family:
-  text: Add Method to EJB Class
-intention.add.method.to.ejb.class.text:
-  text: Add ''{0}'' to bean implementation class {1}
-intention.add.method.to.ejb.class.error.no.impl.class.message:
-  text: Bean implementation class was not found. No methods were generated.
-intention.add.method.to.ejb.interface.family:
-  text: Add Method to EJB Interface
-intention.add.method.to.ejb.interface.text:
-  text: Add ''{0}'' to bean interface
-intention.add.method.to.ejb.interface.error.no.home.interface:
-  text: Bean home interface class was not found. No methods were generated.
-intention.add.method.to.ejb.interface.error.no.interface:
-  text: Bean interface class was not found. No methods were generated.
-intention.add.method.to.ejb.interface.command.name:
-  text: Adding methods
-intention.add.method.to.ejb.interface.chooser.title:
-  text: Select interfaces
-intention.add.method.to.ejb.interface.chooser.label:
-  text: Add ''{0}'' to
-group.names.javaee.issues:
-  text: Java EE issues
-inspection.ejb.display.name:
-  text: EJB Classes Errors
-inspection.ejb.warning.display.name:
-  text: EJB Classes Warnings
-inspection.ejb.xml.display.name:
-  text: EJB Descriptor Inspection
-inspection.javaee.ejb.ql.display.name:
-  text: EJB QL Problems
-inspection.javaee.xml.display.name:
-  text: Java EE Application Descriptor Inspection
-inspection.javaee.web.xml.name:
-  text: Web.xml errors
-inspection.javaee.web.warnings.name:
-  text: Web.xml warnings
-inspection.javaee.web.xml.mime.type:
-  text: MIME type
-inspection.javaee.web.xml.mime.type.message:
-  text: '''''{0}'''' is not a valid MIME type'
-add.web.root:
-  text: Setup {0} as Web Root
-web.root.family:
-  text: Setup Web Root
-generated.ant.build.build.j2ee.data.for.facet.description:
-  text: Build configured Java EE directories and archives for facet ''{0}''
-generated.ant.build.build.j2ee.archive.for.facet.description:
-  text: Build Java EE archive for facet ''{0}''
-generated.ant.build.build.exploded.dir.for.facet.description:
-  text: Build exploded directory for facet ''{0}''
-generated.ant.build.exploded.target.comment:
-  text: |-
-    Call the target to build exploded directory for facet ''{0}''.
-           Path to the exploded directory is specified by parameter ''{1}''
-generated.ant.build.jar.target.comment:
-  text: |-
-    Call the target to build {0} archive for facet ''{1}''.
-           Path to the archive file is specified by parameter ''{2}''
-terms.web.directory:
-  text: web directory
-terms.web.directory.element:
-  text: web directory element
-action.CreateStatelessBean.text:
-  text: State_less Session Bean
-action.CreateStatefulBean.text:
-  text: State_ful Session Bean
-action.CreateSingletonBean.text:
-  text: Sin_gleton Session Bean
-action.CreateContainerManagedEntityBeanAction.text:
-  text: _CMP Entity Bean
-action.CreateBeanManagedEntityBeanAction.text:
-  text: _BMP Entity Bean
-action.CreateMessageBean.text:
-  text: _Message Bean
-action.CreateTransferObject.text:
-  text: _Transfer Object
-action.CreateCMPField.text:
-  text: _CMP Field
-action.CreateEJBRelationship.text:
-  text: EJB _Relationship
-action.CreateEJBInterceptor.text:
-  text: _Interceptor
-action.CreateJSPAction.text:
-  text: _JSP
-action.CreateJSPAction.description:
-  text: Create new JSP file in this directory
-action.CreateJSPXAction.text:
-  text: JSP_X
-action.CreateJSPXAction.description:
-  text: Create new JSPX file in this directory
-action.CreateServletAction.text:
-  text: _Servlet
-action.CreateServletAction.description:
-  text: Create new servlet
-action.CreateFilterAction.text:
-  text: _Filter
-action.CreateFilterAction.description:
-  text: Create new filter
-action.CreateListenerAction.text:
-  text: _Listener
-action.CreateListenerAction.description:
-  text: Create new listener
-group.GeneratePersistenceMapping.text:
-  text: Generate Persistence Mapping
-action.GenerateEJBReference.text:
-  text: '@EJB Reference'
-action.GenerateResourceReference.text:
-  text: '@Resource Reference'
-action.GeneratePersistenceContextReference.text:
-  text: '@PersistenceContext/Unit Reference'
-action.GenerateInterceptorMethods.text:
-  text: Interceptor Methods...
-action.GenerateEntityListenerMethods.text:
-  text: Entity Listener Methods...
-action.GenerateEJBFinderOrSelectorMethod.text:
-  text: EJB Finder/Selector Method...
-action.jpa.AddJpaProviderSupport.text:
-  text: Add JPA Provider Properties
-action.OpenPersistenceERDiagramAction.text:
-  text: ER Dia_gram
-action.EditEntityListenerBindingsAction.text:
-  text: Edit Entity Listener _Bindings...
-action.EditInterceptorBindingsAction.text:
-  text: Edit Interceptor _Bindings...
-action.ValidateJsp.text:
-  text: _Validate JSP
-action.ValidateJsp.description:
-  text: Validate selected JSP files
-action.PackageFile.text:
-  text: _Package file
-action.PackageFile.description:
-  text: Add selected file into exploded deployment directory or Java EE archive
-facet.0.in.module.1.text:
-  text: '{0} (in {1})'
-facet.0.in.module.1.text.detailed:
-  text: '''''{0}'''' facet (in module ''''{1}'''')'
-security.role.name.should.accord.to.nmtoken.pattern:
-  text: Security role name should accord to NMTOKEN pattern
-action.text.select.all:
-  text: Select All
-action.text.unselect.all:
-  text: Unselect All
-error.message.cyclic.dependency.between.facets:
-  text: Cyclic dependency between {0} and {1}
-plugin.com.intellij.javaee.description:
-  text: Provides support for Servlets, EJB, JPA and other Java EE technologies.
-group.JspActions.text:
-  text: JSP Actions
-group.JavaeeMigrationGroup.text:
-  text: Migration Actions
-group.NewGroupPersistence.text:
-  text: New Group Persistence
-browser.web.faced.not.configured:
-  text: Please, configure Web Facet first!
-browser.no.suitable.configuration.running:
-  text: There is no configured/running web-servers found! Please, run any web-configuration and hit the Refresh button!
-web.context.family:
-  text: Web Context Family
-web.context.fix:
-  text: Set context folder to ''/'' for {0}
-web.context.fix.for.directory:
-  text: Set context folder to ''/'' for all files in {0} directory
-action.ApplyJavaeeStyle.text:
-  text: Apply EJB 3.0 Style
-run.tab.title.output:
-  text: Output
-run.tab.title.deployment:
-  text: Deployment
-run.tab.title.server:
-  text: Server
-generate.context.param.action:
-  text: Init Context Param
-Form.TransportManagerConfigurable.type:
-  text: 'Type:'
 Form.TransportManagerConfigurable.host:
-  text: 'Host:'
+    text: 'Host:'
+Form.TransportManagerConfigurable.type:
+    text: 'Type:'
 LocalTransportHost.name:
-  text: Same file system
-message.text.able.to.bind.yet.able.to.connect.too:
-  text: It is possible to bind and connect to {0} at the same time - application server will probably compete with some other software on the port
+    text: Same file system
+ScriptInfo.error.shutdown.script.not.found:
+    text: Shutdown script file not found
+ScriptInfo.error.startup.script.not.found:
+    text: Startup script file not found
+action.ApplyJavaeeStyle.text:
+    text: Apply EJB 3.0 Style
+action.CreateBeanManagedEntityBeanAction.text:
+    text: _BMP Entity Bean
+action.CreateCMPField.text:
+    text: _CMP Field
+action.CreateContainerManagedEntityBeanAction.text:
+    text: _CMP Entity Bean
+action.CreateEJBInterceptor.text:
+    text: _Interceptor
+action.CreateEJBRelationship.text:
+    text: EJB _Relationship
+action.CreateFilterAction.description:
+    text: Create new filter
+action.CreateFilterAction.text:
+    text: _Filter
+action.CreateJSPAction.description:
+    text: Create new JSP file in this directory
+action.CreateJSPAction.text:
+    text: _JSP
+action.CreateJSPXAction.description:
+    text: Create new JSPX file in this directory
+action.CreateJSPXAction.text:
+    text: JSP_X
+action.CreateListenerAction.description:
+    text: Create new listener
+action.CreateListenerAction.text:
+    text: _Listener
+action.CreateMessageBean.text:
+    text: _Message Bean
+action.CreateServletAction.description:
+    text: Create new servlet
+action.CreateServletAction.text:
+    text: _Servlet
+action.CreateSingletonBean.text:
+    text: Sin_gleton Session Bean
+action.CreateStatefulBean.text:
+    text: State_ful Session Bean
+action.CreateStatelessBean.text:
+    text: State_less Session Bean
+action.CreateTransferObject.text:
+    text: _Transfer Object
+action.EditEntityListenerBindingsAction.text:
+    text: Edit Entity Listener _Bindings...
+action.EditInterceptorBindingsAction.text:
+    text: Edit Interceptor _Bindings...
+action.GenerateEJBFinderOrSelectorMethod.text:
+    text: EJB Finder/Selector Method...
+action.GenerateEJBReference.text:
+    text: '@EJB Reference'
+action.GenerateEntityListenerMethods.text:
+    text: Entity Listener Methods...
+action.GenerateInterceptorMethods.text:
+    text: Interceptor Methods...
+action.GeneratePersistenceContextReference.text:
+    text: '@PersistenceContext/Unit Reference'
+action.GenerateResourceReference.text:
+    text: '@Resource Reference'
+action.OpenPersistenceERDiagramAction.text:
+    text: ER Dia_gram
+action.PackageFile.description:
+    text: Add selected file into exploded deployment directory or Java EE archive
+action.PackageFile.text:
+    text: _Package file
+action.ValidateJsp.description:
+    text: Validate selected JSP files
+action.ValidateJsp.text:
+    text: _Validate JSP
+action.description.add.application.server:
+    text: Add application server
+action.description.build.on.frame.deactivation:
+    text: Update resources related to this process on frame deactivation
+action.description.create.new.cmp.field:
+    text: Create new CMP field
+action.description.create.new.ejb.relationship:
+    text: Create new EJB relationship
+action.description.create.new.servlet:
+    text: Create new servlet
+action.description.remove.application.server:
+    text: Remove application server
+action.description.validate:
+    text: Run validation on all files in the selected items
+action.jpa.AddJpaProviderSupport.text:
+    text: Add JPA Provider Properties
+action.name.build.on.frame.deactivation:
+    text: Update Resources On Frame Deactivation
+action.name.configure.j2ee.names:
+    text: _Java EE Names...
+action.name.create.bmp.entity.bean:
+    text: Create BMP Entity Bean
+action.name.create.cmp.entity.bean:
+    text: Create CMP Entity Bean
+action.name.create.filter.mapping:
+    text: Create Filter Mapping
+action.name.create.interceptor:
+    text: Create Interceptor
+action.name.create.message.bean:
+    text: Create Message Bean
+action.name.create.new.filter:
+    text: Create New Filter
+action.name.create.new.listener:
+    text: Create New Listener
+action.name.create.new.servlet:
+    text: Create New Servlet
+action.name.create.new.transfer.object:
+    text: Transfer Object
+action.name.create.singleton.bean:
+    text: Create Singleton Session Bean
+action.name.create.stateful.bean:
+    text: Create Stateful Session Bean
+action.name.create.stateless.bean:
+    text: Create Stateless Session Bean
+action.name.delete:
+    text: Delete
+action.name.delete.ejb.relationship:
+    text: Delete EJB Relationship
+action.name.delete.ejb.relationships:
+    text: Delete EJB Relationships
+action.name.deploy.all:
+    text: Deploy All
+action.name.deploy.selected:
+    text: Deploy
+action.name.edit.deployment.descriptor:
+    text: Edit Deployment Descriptor...
+action.name.edit.ejb.relationship:
+    text: Edit EJB Relationship
+action.name.new.cmp.field:
+    text: New CMP Field
+action.name.new.ejb.relationship:
+    text: New EJB Relationship
+action.name.refresh.deployment.status:
+    text: Refresh Deployment Status
+action.name.undeploy:
+    text: Undeploy
+action.name.validate:
+    text: Validate
+action.name.validate.location:
+    text: Validate {0}
+action.open.jsp.file.in.browser.description:
+    text: An application server instance must be run in order to open JSP file in browser
+action.text.add.security.role:
+    text: Add Security Role...
+action.text.edit.security.role:
+    text: Edit Security Role...
+action.text.edit.security.role.0:
+    text: Edit Security Role ''{0}''
+action.text.remove.security.role:
+    text: Remove Security Role...
+action.text.remove.security.role.0:
+    text: Remove Security Role ''{0}''
+action.text.select.all:
+    text: Select All
+action.text.unselect.all:
+    text: Unselect All
+action.text.validate.facet:
+    text: Validate all files in facet ''{0}''
+add.web.root:
+    text: Setup {0} as Web Root
+additional.deployment.descriptor.file.description.additional.resource:
+    text: Additional Resource
+application.module.properties.general.tab:
+    text: General
+application.module.properties.security.roles:
+    text: Security Roles
+application.servers.configurable.display.name:
+    text: |-
+        Application
+        Servers
+apply.javaee.style.code.to.be.changed:
+    text: Code to be changed {0}
+apply.javaee.style.command:
+    text: Apply EJB 3.0 Style
+apply.javaee.style.copy.metadata.from.xml:
+    text: Copy metadata from XML descriptor
+apply.javaee.style.drop.copied.tags:
+    text: Delete copied XML tags
+apply.javaee.style.ejb.classes.to.process:
+    text: Enterprise JavaBean classes to be processed
+apply.javaee.style.ejb.column.title:
+    text: Object
+apply.javaee.style.ejb.table.border.title:
+    text: EnterpriseBeans to apply EJB 3.0 style to
+apply.javaee.style.environment.access.border.title:
+    text: Environment access
+apply.javaee.style.field.exists:
+    text: There already is a field {0}
+apply.javaee.style.home.column.title:
+    text: Retain Home interfaces
+apply.javaee.style.metadata.border.title:
+    text: EnterpriseBean XML descriptor
+apply.javaee.style.method.exists:
+    text: There already is a method {0}
+apply.javaee.style.prefer.default:
+    text: Leave as is if possible
+apply.javaee.style.prefer.injection:
+    text: Prefer resource injection
+apply.javaee.style.prefer.inline.injected.fields:
+    text: Inline injected fields
+apply.javaee.style.prefer.lookup:
+    text: Prefer lookup
+apply.javaee.style.prefer.replace.jndi.lookups:
+    text: Replace JNDI lookup with EJB context lookup
+apply.javaee.style.processing.clients:
+    text: Processing Enterprise JavaBeans clients
+apply.javaee.style.processing.ejb:
+    text: Calculating required changes for ''{0}''
+apply.javaee.style.processing.ejbs:
+    text: Processing Enterprise JavaBeans
+apply.javaee.style.processing.home:
+    text: Calculating required changes for ''{0}'' home interface removal
+apply.javaee.style.processing.interceptor:
+    text: Calculating required changes for ''{0}''
+apply.javaee.style.title:
+    text: Apply EJB 3.0 Style
+apply.javaee.style.title.migrate:
+    text: Migrate to EJB 3.0
+apply.javaee.style.usage.add:
+    text: 'Add: <code>{0}</code>'
+apply.javaee.style.usage.add.after:
+    text: 'Append with: <code>{0}</code>'
+apply.javaee.style.usage.add.before:
+    text: 'Prepend with: <code>{0}</code>'
+apply.javaee.style.usage.delete:
+    text: Delete
+apply.javaee.style.usage.replace:
+    text: 'Replace with: <code>{0}</code>'
+apply.javaee.style.usage.set.tag.attribute:
+    text: 'Set tag attribute: <code>{0}="{1}"</code>'
+apply.javaee.style.usage.tooltip:
+    text: <html><body>{0}</body></html>
+apply.javaee.style.usage.tooltip.newline:
+    text: <br>
+appserver.library.display.name:
+    text: Application Server {0, choice, 1#Library|2#Libraries}
+appserver.validator.presentable.text:
+    text: '{0} for {1}'
+border.application.module.editor.general.properties.group:
+    text: General Properties
+border.deployment.settings.deployment.source:
+    text: 'Deployment Source:'
+border.edit.deployment.descriptors.deployment.descriptors.group:
+    text: Deployment Descriptors
+border.edit.nodule.modules.and.libraries.to.package:
+    text: Modules and Libraries to Package
+border.edit.web.module.web.resource.directories:
+    text: Web Resource Directories
+border.entity.bean.properties.cmp.fields:
+    text: CMP Fields
+border.interceptor.binding:
+    text: Interceptor Bindings
+border.pk.class.dialog.primary.key.class.name:
+    text: 'Primary Key Class Name:'
+border.pk.class.dialog.primary.key.class.package:
+    text: 'Primary Key Class Package:'
+border.relationship.editor.role.1:
+    text: Role 1
+border.relationship.editor.role.2:
+    text: Role 2
+border.run.configuration.editor.environment.variables:
+    text: Environment Variables
+border.run.configuration.editor.remote.connection.settings.group:
+    text: Remote Connection Settings
+border.web.module.assembly.properties.context.parameters:
+    text: Context Parameters
+border.web.module.assembly.properties.filter.mappings:
+    text: Filter Mappings
+border.web.module.assembly.properties.servlet.mappings:
+    text: Servlet Mappings
+border.web.module.properties.display.name.description:
+    text: DISPLAY_NAME_DESCRIPTION
+border.web.module.properties.filters.configured:
+    text: Filters Configured
+border.web.module.properties.general.properties:
+    text: GENERAL_PROPERTIES
+border.web.module.properties.general.settings:
+    text: General Settings
+border.web.module.properties.servlets.configured:
+    text: Servlets Configured
+browser.launcher.name.system:
+    text: System
+browser.no.suitable.configuration.running:
+    text: There is no configured/running web-servers found! Please, run any web-configuration and hit the Refresh button!
+browser.web.faced.not.configured:
+    text: Please, configure Web Facet first!
+button.add:
+    text: '&Add...'
+button.add.appserver.descriptor:
+    text: Add Application &Server specific descriptor...
+button.appserver.validator.add.text:
+    text: '&Add'
+button.appserver.validator.delete.text:
+    text: De&lete
+button.change.class:
+    text: Change Class...
+button.change.ejb.classes:
+    text: '&Change EJB Classes...'
+button.change.servlet.jsp.file:
+    text: Change Class...
+button.configure:
+    text: Con&figure...
+button.configure.acclication.server:
+    text: '&Configure...'
+button.configure.application.server:
+    text: Configure...
+button.delete:
+    text: '&Delete'
+button.edit:
+    text: '&Edit...'
+button.help:
+    text: '&Help'
+button.new:
+    text: '&New...'
+button.remove:
+    text: '&Remove...'
+button.rename.ejb.and.classes:
+    text: '&Rename EJB and Classes...'
+button.rename.servlet:
+    text: Rename Servlet...
+checkbox.also.delete.file.from.disk.text:
+    text: '&Also delete file from disk'
+checkbox.cmp.field.properties.generate.getter.in.local.interface:
+    text: '&Local Interface'
+checkbox.cmp.field.properties.generate.getter.in.remote.interface:
+    text: '&Remote Interface'
+checkbox.cmp.field.properties.generate.setter.in.local.interface:
+    text: Local &Interface
+checkbox.cmp.field.properties.generate.setter.in.remote.interface:
+    text: R&emote Interface
+checkbox.create.transfer.object.generate.getter.in.interface:
+    text: Generate &getter in {0} interface
+checkbox.create.transfer.object.generate.setter.in.interface:
+    text: Generate &setter in {0} interface
+checkbox.default.interceptor:
+    text: '&Default Interceptor'
+checkbox.delete.ejb.delete.following.classes:
+    text: '&Delete following classes:'
+checkbox.deployment.settings.deploy.ejb.at.server.startup:
+    text: '&Deploy ''EJB'' at server startup'
+checkbox.deployment.settings.deploy.facet:
+    text: Deploy {0}
+checkbox.edit.cmp.field.primary.key:
+    text: '&Primary Key'
+checkbox.edit.ejb.class.enable.local.interface:
+    text: '&Local Interface'
+checkbox.edit.ejb.class.enable.remote.interface:
+    text: '&Remote Interface'
+checkbox.edit.relationship.cascade.delete:
+    text: Cascade Delete
+checkbox.edit.relationship.enable.cmr.field:
+    text: CMR Field
+checkbox.edit.relationship.getter:
+    text: Getter
+checkbox.edit.relationship.setter:
+    text: Setter
+checkbox.edit.script.properties.use.default:
+    text: Use default
+checkbox.edit.servlet.load.on.startup:
+    text: '&Load on startup'
+checkbox.entity.bean.properties.reentrant:
+    text: Reentrant
+checkbox.run.configuration.editor.pass.environment.variables:
+    text: Pass environment variables
+checkboxweb.module.editor.distributable:
+    text: Distributable
+class.role.business.local.interface:
+    text: Local Business Interface
+class.role.business.remote.interface:
+    text: Remote Business Interface
+class.role.ejb.class:
+    text: EJB class
+class.role.home.interface:
+    text: Home Interface
+class.role.interceptor.class:
+    text: Interceptor
+class.role.local.home.interface:
+    text: Local Home Interface
+class.role.local.interface:
+    text: Local Interface
+class.role.remote.interface:
+    text: Remote Interface
+class.role.service.endpoint.interface:
+    text: Service Endpoint Interface
+class.role.unknown.ejb.class:
+    text: Unknown EJB class
+column.name.description:
+    text: Description
+column.name.edit.cmp.field.local.getter:
+    text: LG
+column.name.edit.cmp.field.local.setter:
+    text: LS
+column.name.edit.cmp.field.name:
+    text: Name
+column.name.edit.cmp.field.pk:
+    text: PK
+column.name.edit.cmp.field.remote.getter:
+    text: RG
+column.name.edit.cmp.field.remote.setter:
+    text: RS
+column.name.edit.cmp.field.type:
+    text: Type
+column.name.edit.deployment.descriptors.path:
+    text: Path
+column.name.edit.deployment.descriptors.type:
+    text: Type
+column.name.edit.parameters.param.name:
+    text: Param Name
+column.name.edit.parameters.param.value:
+    text: Param Value
+column.name.edit.web.roots..relative.to.deployment.root:
+    text: Path Relative to Deployment Root
+column.name.edit.web.roots.web.resource.directory:
+    text: Web Resource Directory
+column.name.ejb.business.tree.intercept:
+    text: Intercept
+column.name.ejb.business.tree.name:
+    text: Name
+column.name.ejb.environment.entries.type:
+    text: Type
+column.name.ejb.environment.entries.value:
+    text: Value
+column.name.ejb.reference.component:
+    text: Component
+column.name.ejb.reference.home:
+    text: Home
+column.name.ejb.reference.link:
+    text: Link
+column.name.ejb.reference.name:
+    text: Name
+column.name.ejb.reference.type:
+    text: Type
+column.name.ejb.resource.reference.authentication:
+    text: Authentication
+column.name.ejb.resource.reference.scope:
+    text: Scope
+column.name.ejb.resource.reference.type:
+    text: Type
+column.name.filter.mapping.properties.filter:
+    text: Filter
+column.name.filter.mapping.properties.servlet:
+    text: Servlet
+column.name.filter.mapping.properties.url.pattern:
+    text: URL Pattern
+column.name.message.bean.activation.config.name:
+    text: Name
+column.name.message.bean.activation.config.value:
+    text: Value
+column.name.message.destination.link:
+    text: Link
+column.name.message.destination.type:
+    text: Type
+column.name.message.destination.usage:
+    text: Usage
+column.name.method.permissions.excluded:
+    text: Excluded
+column.name.method.permissions.name:
+    text: Name
+column.name.method.permissions.unchecked:
+    text: Unchecked
+column.name.module.editor.security.roles.role.name:
+    text: Role Name
+column.name.resource.environment.reference.type:
+    text: Type
+column.name.service.reference.interface:
+    text: Service Interface
+column.name.service.reference.type:
+    text: Type
+column.name.service.reference.wsdl.file:
+    text: WSDL file
+column.name.servlet.mapping.properties.servlet:
+    text: Servlet
+column.name.servlet.mapping.properties.url.pattern:
+    text: URL Pattern
+column.tooltip.edit.cmp.field.local.getter:
+    text: Has local getter
+column.tooltip.edit.cmp.field.local.setter:
+    text: Has local setter
+column.tooltip.edit.cmp.field.pk:
+    text: Is part of primary key
+column.tooltip.edit.cmp.field.remote.getter:
+    text: Has remote getter
+column.tooltip.edit.cmp.field.remote.setter:
+    text: Has remote setter
+column.transaction.attributes.name:
+    text: Name
+column.transaction.attributes.transaction.attribute:
+    text: Transaction Attribute
+combobox.deployment.descriptor.version:
+    text: Deployment descriptor &version
+command.apply.interceptor.bindings.command:
+    text: Modify Interceptor Bindings
+command.name.create.0.1:
+    text: Create {0} ''{1}''
+command.name.create.directory:
+    text: Create directory
+command.name.create.transfer.object:
+    text: Create Transfer Object
+command.name.creating.web.root.dir:
+    text: creating dir
+command.name.delete.ejb.class:
+    text: Delete EJB Class
+command.name.ejb.editing:
+    text: EJB Editing
+command.name.rename.ejb:
+    text: Rename Ejb
+confirmation.text.class.does.not.exist.create.it:
+    text: Class {0} does not exist. Do you want to create it?
+confirmation.text.classes.do.not.exist.create.them:
+    text: |-
+        Classes
+        {0}
+        do not exist. Do you want to create them?
+confirmation.text.create.directory:
+    text: Create the directory ''{0}'' ?
+confirmation.text.regenerate.equals.and.hashcode.for.class:
+    text: Regenerate equals and hashCode methods for class ''{0}''?
+confirmation.text.server.is.being.connected.disconnect:
+    text: |-
+        It seems you already have connected to ''{0}'' .
+        Do you want to disconnect from server first?
+data.source.type:
+    text: Data Source
+default.run.configuration.name.unnamed:
+    text: Unnamed
+deployment.descriptor.panel.directory.path.relative.to.deployment.root.label:
+    text: 'Directory &path relative to deployment root:'
+deployment.descriptor.title.application.module:
+    text: Application Module Deployment Descriptor
+deployment.descriptor.title.ejb.module:
+    text: EJB Module Deployment Descriptor
+deployment.descriptor.title.web.module:
+    text: Web Module Deployment Descriptor
+deployment.status.description.activating:
+    text: Artifact is being deployed, please wait...
+deployment.status.description.deactivating:
+    text: Artifact is being undeployed, please wait...
+deployment.status.description.deployed:
+    text: Artifact is deployed successfully
+deployment.status.description.desconnected:
+    text: Server is not connected. Deploy is not available.
+deployment.status.description.excluded.from.deployment:
+    text: Artifact is excluded from deployment. To include, go to Run | Edit Configuration | Deployment and select artifact
+deployment.status.description.failed:
+    text: Error during artifact deployment. See server log for details.
+deployment.status.description.not.deployed:
+    text: Artifact is not deployed. Press 'Deploy' to start deployment
+deployment.status.description.prepared:
+    text: Artifact is being deployed, please wait...
+deployment.status.description.preparing:
+    text: Artifact is being deployed, please wait...
+deployment.status.description.unknown:
+    text: Status is unknown. Press 'Refresh' to reload deployment status from server.
+deployment.status.description.unprepared:
+    text: Artifact is being undeployed, please wait...
+deployment.status.description.unpreparing:
+    text: Artifact is being undeployed, please wait...
+deployment.status.name.activating:
+    text: Activating...
+deployment.status.name.deactivating:
+    text: Deactivating...
+deployment.status.name.deployed:
+    text: Deployed
+deployment.status.name.disconnected:
+    text: Disconnected
+deployment.status.name.excluded.from.deployment:
+    text: Excluded from deployment
+deployment.status.name.failed:
+    text: Failed
+deployment.status.name.not.deployed:
+    text: Not deployed
+deployment.status.name.prepared:
+    text: Prepared
+deployment.status.name.preparing:
+    text: Preparing...
+deployment.status.name.unknown:
+    text: Unknown
+deployment.status.name.unprepared:
+    text: Unprepared
+deployment.status.name.unpreparing:
+    text: Unpreparing...
+dialog.description.jsp.file:
+    text: Choose JSP file for servlet ''{0}''.
+dialog.description.web.resource.directory:
+    text: Choose web resource directory where web files will be stored.
+dialog.message.error.no.web.xml:
+    text: There is no web.xml file in this Web facet, so this operation cannot be performed.
+dialog.title.cant.create.class:
+    text: Can''t Create Class
+dialog.title.change.ejb.classes:
+    text: Change EJB Classes
+dialog.title.choose.class:
+    text: Choose {0} Class
+dialog.title.choose.cmp.field.class:
+    text: Choose CMP Field Class
+dialog.title.choose.ejb.class:
+    text: Choose EJB Class
+dialog.title.choose.ejb.classes.package:
+    text: Choose EJB Classes Package
+dialog.title.choose.ejb.home.interface:
+    text: Choose EJB Home Interface
+dialog.title.choose.ejb.local.home.interface:
+    text: Choose EJB Local Home Interface
+dialog.title.choose.ejb.local.interface:
+    text: Choose EJB Local Interface
+dialog.title.choose.ejb.message.listener.interface:
+    text: Choose EJB Message Listener Interface
+dialog.title.choose.ejb.primary.key.class:
+    text: Choose EJB Primary Key Class
+dialog.title.choose.ejb.remote.interface:
+    text: Choose EJB Remote Interface
+dialog.title.choose.ejb.service.endpoint.interface:
+    text: Choose EJB Service Endpoint Interface
+dialog.title.choose.entity.bean.primary.key.class:
+    text: Choose Entity Bean Primary Key Class
+dialog.title.choose.filter.package:
+    text: Choose Filter Package
+dialog.title.choose.listener.package:
+    text: Choose Listener Package
+dialog.title.choose.package:
+    text: Choose {0} Package
+dialog.title.choose.primary.key.class.package:
+    text: Choose Primary Key Class Package
+dialog.title.configure.vm.and.program.parameters:
+    text: Configure VM and Program Parameters
+dialog.title.create.appserver.specific.descriptor:
+    text: Create Application Server Specific Descriptor
+dialog.title.create.new.0:
+    text: Create {0}
+dialog.title.create.new.cmp.field:
+    text: Create CMP Field
+dialog.title.create.new.ejb.0:
+    text: Create New EJB ''{0}''
+dialog.title.default.shutdown.script:
+    text: Default Shutdown Script
+dialog.title.default.startup.script:
+    text: Default Startup Script
+dialog.title.deployment.descriptor.location:
+    text: Deployment Descriptor Location
+dialog.title.edit.0:
+    text: Edit {0}
+dialog.title.edit.cmp.field:
+    text: Edit CMP Field
+dialog.title.edit.ejb.ql.query:
+    text: Edit EJB QL Query
+dialog.title.edit.filter:
+    text: Edit Filter
+dialog.title.edit.interceptor.bindings:
+    text: Edit Interceptor ''{0}'' bindings
+dialog.title.ejb.relationship.properties:
+    text: EJB Relationship Properties
+dialog.title.error.no.deployment.descriptor:
+    text: No deployment descriptor
+dialog.title.jsp.file:
+    text: JSP File
+dialog.title.new.filter:
+    text: New Filter
+dialog.title.new.listener:
+    text: New Listener
+dialog.title.new.servlet:
+    text: New Servlet
+dialog.title.new.typename:
+    text: New {0}
+dialog.title.packaging.choose.facets:
+    text: Choose Facets
+dialog.title.primary.key.class:
+    text: Primary Key Class
+dialog.title.remove.ejb.local.interface:
+    text: Remove EJB Local Interface
+dialog.title.remove.ejb.remote.interface:
+    text: Remove EJB Remote Interface
+dialog.title.rename.0:
+    text: Rename {0}
+dialog.title.rename.servlet:
+    text: Rename Servlet
+dialog.title.resource.location:
+    text: Resource Location
+dialog.title.restart.server:
+    text: Restart Server
+dialog.title.select.accessors.of.fields.to.include.in.transfer.object:
+    text: Select Accessors of Fields to Include in Transfer Object
+dialog.title.select.shutduwn.script:
+    text: Select Shutduwn Script
+dialog.title.select.startup.script:
+    text: Select Startup Script
+dialog.title.vm.parameters:
+    text: VM Options
+dialog.title.web.resource.directory:
+    text: Web Resource Directory
+dialog.title.web.resource.directory.path:
+    text: Web Resource Directory Path
+directory.description.working.directory:
+    text: Working directory
+edit.servlet.jsp.file.add.library.button:
+    text: Add Library...
+editbox.default.pk.class:
+    text: 'Default PK Class:'
+editbox.j2eenames.ejb.class:
+    text: EJB Class
+editbox.j2eenames.ejb.name.tag:
+    text: <ejb-name> tag
+editbox.j2eenames.filter.class:
+    text: Filter Class
+editbox.j2eenames.filter.name.tag:
+    text: <filter-name> tag
+editbox.j2eenames.home.interface:
+    text: Home Interface
+editbox.j2eenames.listener.class:
+    text: Listener Class
+editbox.j2eenames.local.home.interface:
+    text: Local Home Interface
+editbox.j2eenames.local.interface:
+    text: Local Interface
+editbox.j2eenames.remote.interface:
+    text: Remote Interface
+editbox.j2eenames.service.endpoint.interface:
+    text: Service Endpoint Interface
+editbox.j2eenames.servlet.class:
+    text: Servlet Class
+editbox.j2eenames.servlet.name.tag:
+    text: <servlet-name> tag
+editbox.j2eenames.transfer.object:
+    text: Transfer Object
+ejb.facet.display.name:
+    text: EJB
+ejb.fake.file.type:
+    text: EJB fake file type
+ejb.interceptor.type:
+    text: Interceptor
+ejb.interface.type.base.interface:
+    text: base interface
+ejb.interface.type.local.home.interface:
+    text: local home interface
+ejb.interface.type.local.interface:
+    text: local interface
+ejb.interface.type.remote.interface:
+    text: remote interface
+ejb.module.properties.assembly.descriptor.tab:
+    text: Assembly Descriptor
+ejb.module.properties.ejb.relations.tab:
+    text: EJB Relationships
+ejb.module.properties.general.tab:
+    text: General
+ejb.module.properties.method.permissions.tab:
+    text: Method Permissions
+ejb.module.properties.transaction.attributes.tab:
+    text: Transaction Attributes
+ejb.relationship.editor.general.tab:
+    text: General
+ejb.type.bmp.entity.bean:
+    text: BMP Entity Bean
+ejb.type.cmp.entity.bean:
+    text: CMP Entity Bean
+ejb.type.entity.bean:
+    text: Entity Bean
+ejb.type.message.bean:
+    text: Message Bean
+ejb.type.message.driven.bean:
+    text: Message Driven Bean
+ejb.type.session.bean:
+    text: Session Bean
+ejb.type.singleton.bean:
+    text: Singleton Session Bean
+ejb.type.stateful.bean:
+    text: Stateful Session Bean
+ejb.type.stateless.bean:
+    text: Stateless Session Bean
+ejb.validator.decription:
+    text: EJB Validator
+entity.bean.general.tab.description.bean.persistence:
+    text: Bean-managed persistence
+entity.bean.general.tab.description.container.persistence:
+    text: Container-managed persistence, CMP version {0}
+entity.bean.general.tab.description.container.persistence.cmp.undefined:
+    text: Container-managed persistence
+error.cannot.create.deployment.descriptor:
+    text: |-
+        Cannot create {0}
+        {1}
+error.deployment.descriptor.already.exists:
+    text: Deployment descriptor on file ''{0}'' already exists
+error.deployment.descriptor.target.in.use:
+    text: Deployment descriptor target file ''{0}'' is in use
+error.deployment.source.for.module.is.not.specified.message:
+    text: Deployment source (archive or exploded directory) for ''{0}'' is not specified
+error.message.0.name.should.be.unique:
+    text: '{0} name should be unique'
+error.message.cyclic.dependency.between.facets:
+    text: Cyclic dependency between {0} and {1}
+error.message.name.should.be.identifier:
+    text: Name should be identifier
+error.please.specify.path.to.deployment.descriptor:
+    text: Please specify path to {0}
+exception.text.address.is.in.use:
+    text: Address {0} is already in use
+exception.text.alternative.jre.not.specified:
+    text: Alternative JRE is not specified
+exception.text.application.server.0.not.configured:
+    text: Application Server ''{0}'' is not configured
+exception.text.application.server.not.specified:
+    text: Application Server not specified
+exception.text.descriptor.not.defined:
+    text: '''''{0}'''' is not defined'
+exception.text.error.connecting.exception.occured.with.message:
+    text: |-
+        Error Connecting to {0}.
+        Exception occurred : {1}
+        Exception message : {2}
+exception.text.invalid.port.value:
+    text: 'Invalid port value: {0}'
+exception.text.malformed.url:
+    text: 'Malformed URL: ''''{0}'''''
+exception.text.no.facets.to.deploy:
+    text: There are no facets to deploy
+exception.text.startup.script.is.not.specified:
+    text: startup script is not specified
 exploded.war.artifact.name:
-  text: 'Web Application: Exploded'
+    text: 'Web Application: Exploded'
+facet.0.in.module.1.text:
+    text: '{0} (in {1})'
+facet.0.in.module.1.text.detailed:
+    text: '''''{0}'''' facet (in module ''''{1}'''')'
+facet.holder.node.text:
+    text: '{0} Facets'
+generate.context.param.action:
+    text: Init Context Param
+generated.ant.build.build.exploded.dir.for.facet.description:
+    text: Build exploded directory for facet ''{0}''
+generated.ant.build.build.j2ee.archive.for.facet.description:
+    text: Build Java EE archive for facet ''{0}''
+generated.ant.build.build.j2ee.data.for.facet.description:
+    text: Build configured Java EE directories and archives for facet ''{0}''
+generated.ant.build.exploded.target.comment:
+    text: |-
+        Call the target to build exploded directory for facet ''{0}''.
+               Path to the exploded directory is specified by parameter ''{1}''
+generated.ant.build.jar.target.comment:
+    text: |-
+        Call the target to build {0} archive for facet ''{1}''.
+               Path to the archive file is specified by parameter ''{2}''
+generic.application.server.default.name:
+    text: Generic
+group.GeneratePersistenceMapping.text:
+    text: Generate Persistence Mapping
+group.JavaeeMigrationGroup.text:
+    text: Migration Actions
+group.JspActions.text:
+    text: JSP Actions
+group.NewGroupPersistence.text:
+    text: New Group Persistence
+group.names.javaee.issues:
+    text: Java EE issues
+inspection.ejb.display.name:
+    text: EJB Classes Errors
+inspection.ejb.warning.display.name:
+    text: EJB Classes Warnings
+inspection.ejb.xml.display.name:
+    text: EJB Descriptor Inspection
+inspection.group.display.name.application.server.inspections:
+    text: Application Server Specific Inspections
+inspection.javaee.ejb.ql.display.name:
+    text: EJB QL Problems
+inspection.javaee.web.warnings.name:
+    text: Web.xml warnings
+inspection.javaee.web.xml.mime.type:
+    text: MIME type
+inspection.javaee.web.xml.mime.type.message:
+    text: '''''{0}'''' is not a valid MIME type'
+inspection.javaee.web.xml.name:
+    text: Web.xml errors
+inspection.javaee.xml.display.name:
+    text: Java EE Application Descriptor Inspection
+intention.add.javaee.jar.text:
+    text: Add {0} jars to module dependencies
+intention.add.method.to.ejb.class.error.no.impl.class.message:
+    text: Bean implementation class was not found. No methods were generated.
+intention.add.method.to.ejb.class.family:
+    text: Add Method to EJB Class
+intention.add.method.to.ejb.class.text:
+    text: Add ''{0}'' to bean implementation class {1}
+intention.add.method.to.ejb.interface.chooser.label:
+    text: Add ''{0}'' to
+intention.add.method.to.ejb.interface.chooser.title:
+    text: Select interfaces
+intention.add.method.to.ejb.interface.command.name:
+    text: Adding methods
+intention.add.method.to.ejb.interface.error.no.home.interface:
+    text: Bean home interface class was not found. No methods were generated.
+intention.add.method.to.ejb.interface.error.no.interface:
+    text: Bean interface class was not found. No methods were generated.
+intention.add.method.to.ejb.interface.family:
+    text: Add Method to EJB Interface
+intention.add.method.to.ejb.interface.text:
+    text: Add ''{0}'' to bean interface
+interceptor.method.container.node.title:
+    text: Interceptor methods
+j2ee.facet.fake.file.type:
+    text: Java EE facet fake file type
+j2ee.filter.string.representation:
+    text: Filter ''{0}''
+jasper.validator.description:
+    text: Jasper Validator
+javaee.facet.name.with.type:
+    text: '{0} Facet ''''{1}'''''
+javaee.facet.settings.display.name:
+    text: '{0} Settings'
+javaeeapp.facet.display.name:
+    text: JavaEE Application
+label.application.server.containing.libraries:
+    text: Libraries
+label.application.server.name:
+    text: '&Name:'
+label.appserver.text:
+    text: '&Application Server:'
+label.authentification.edit.resource.reference.dialog:
+    text: '&Authentification:'
+label.choose.or.create.deployment.descriptor.file:
+    text: Choose existing XML file for {0} or specify directory to create new file.
+label.cmp.field.properties.generate.getter.in:
+    text: 'Generate getter in:'
+label.cmp.field.properties.generate.setter.in:
+    text: 'Generate setter in:'
+label.configure.j2ee.names.prefix.and.suffix.are.taken.from:
+    text: prefix and suffix are taken from
+label.create.transfer.object.transfer.object.class.name:
+    text: 'Transfer Object class name:'
+label.delete.deployment.descriptor.text:
+    text: Delete selected deployment descriptor?
+label.deployment.descriptors.wizard.step.text:
+    text: <html><body>Configure descriptors that will be used to deploy this facet.<br>You may add standard, proprietary and application server specific descriptors here.</body></html>
+label.deployment.settings.deployment.method:
+    text: 'Deployment method:'
+label.description.edit.environment.entries.dialog:
+    text: '&Description:'
+label.description.edit.message.destination.reference.dialog:
+    text: '&Description:'
+label.description.edit.resource.environment.reference.dialog:
+    text: '&Description:'
+label.description.edit.resource.reference.dialog:
+    text: '&Description:'
+label.description.edit.service.reference.dialog:
+    text: '&Description:'
+label.descriptor.type.text:
+    text: '&Descriptor:'
+label.descriptor.version.text:
+    text: '&Version:'
+label.edit.cmp.field.description:
+    text: '&Description:'
+label.edit.cmp.field.name:
+    text: '&Name:'
+label.edit.cmp.field.type:
+    text: '&Type:'
+label.edit.ejb.class.cmp.version:
+    text: CMP &Version
+label.edit.ejb.reference.component.interface.class.name:
+    text: '&Remote interface:'
+label.edit.ejb.reference.description:
+    text: '&Description:'
+label.edit.ejb.reference.home.interface.class.name:
+    text: '&Home interface:'
+label.edit.ejb.reference.link:
+    text: '&Link:'
+label.edit.ejb.reference.name:
+    text: '&Name:'
+label.edit.ejb.reference.type:
+    text: '&Type:'
+label.edit.listener.listener.class:
+    text: 'Listener &Class:'
+label.edit.parameters.program.parameters:
+    text: '&Program Arguments:'
+label.edit.relationship.description:
+    text: '&Description:'
+label.edit.relationship.ejb:
+    text: 'EJB:'
+label.edit.relationship.field.name:
+    text: 'Field Name:'
+label.edit.relationship.field.type:
+    text: 'Field Type:'
+label.edit.relationship.multiplicity:
+    text: 'Multiplicity:'
+label.edit.relationship.relationship.name:
+    text: 'Relationship &Name:'
+label.edit.relationship.role.name:
+    text: 'Role name:'
+label.edit.security.role.description:
+    text: '&Description:'
+label.edit.security.role.name:
+    text: '&Name:'
+label.edit.servlet.class.name:
+    text: 'Class name:'
+label.edit.servlet.load.order:
+    text: 'Load &order:'
+label.ejb.class.properties.ejb.class:
+    text: 'EJB &Class:'
+label.ejb.class.properties.local:
+    text: 'Loc&al:'
+label.ejb.class.properties.local.home:
+    text: 'L&ocal Home:'
+label.ejb.class.properties.message.listener.interface:
+    text: '&Message Listener:'
+label.ejb.class.properties.package:
+    text: '&Package:'
+label.ejb.class.properties.primary.key.class:
+    text: 'Primary &Key Class:'
+label.ejb.class.properties.remote:
+    text: 'R&emote:'
+label.ejb.class.properties.remote.interface:
+    text: '&Home:'
+label.ejb.class.properties.service.endpoint.interface:
+    text: '&Service Endpoint:'
+label.ejb.roots.text:
+    text: Source roots for EJB classes
+label.entity.bean.properties.abstract.schema.name:
+    text: '&Abstract Schema Name:'
+label.entity.bean.properties.primary.key.class:
+    text: '&Primary Key Class:'
+label.filter.peoperties.filter.class:
+    text: 'Filter &Class:'
+label.filter.properties.package:
+    text: 'Packa&ge:'
+label.j2ee.element.general.settings.description:
+    text: '&Description:'
+label.j2ee.element.general.settings.display.name:
+    text: 'Display &name:'
+label.j2eenames.filter:
+    text: Filter
+label.j2eenames.listener:
+    text: Listener
+label.j2eenames.message.driven.bean:
+    text: Message Driven Bean
+label.j2eenames.servlet:
+    text: Servlet
+label.j2eenames.session.bean:
+    text: Session Bean
+label.jaxrpc.mapping.file.edit.service.reference.dialog:
+    text: 'JAX-RPC &mapping file:'
+label.link.edit.message.destination.reference.dialog:
+    text: 'Message Destination &Link:'
+label.listener.properties.package:
+    text: '&Package:'
+label.message.bean.properties.acknowledge.mode:
+    text: '&Acknowledge Mode:'
+label.message.bean.properties.activation.config:
+    text: Activation Config
+label.message.bean.properties.destination.type:
+    text: 'D&estination type:'
+label.message.bean.properties.durability:
+    text: 'D&urability:'
+label.message.bean.properties.message.selector:
+    text: '&Message Selector:'
+label.message.bean.properties.transaction.type:
+    text: '&Transaction type:'
+label.name.edit.environment.entries.dialog:
+    text: '&Name:'
+label.name.edit.message.destination.reference.dialog:
+    text: '&Name:'
+label.name.edit.resource.environment.reference.dialog:
+    text: '&Name:'
+label.name.edit.resource.reference.dialog:
+    text: '&Name:'
+label.name.edit.service.reference.dialog:
+    text: '&Name:'
+label.new.web.root.web.resource.directory.path:
+    text: 'Web resource directory &path:'
+label.pk.class.dialog.pk.class.cant.contain.compound.primary.key:
+    text: <html>PK Class ''{0}'' can''t contain compound Primary Key.<br>Please either:<ul><li>Specify primary key class which can hold all CMP fields, or</li><li>Provide package and class names to create new Primary Key Class for you</li></html>
+label.prefix:
+    text: 'Prefix:'
+label.properties.class:
+    text: '&Class:'
+label.rename.servlet.name:
+    text: 'Servlet name:'
+label.run.configuration.editor.add.vm.parameters:
+    text: <html><body>To {0} remote server JVM, it should be started with the following<br/>command line arguments (you may copy and paste them):</body></html>
+label.run.configuration.editor.host:
+    text: '&Host:'
+label.run.configuration.editor.port:
+    text: '&Port:'
+label.run.configuration.editor.shutdown.script:
+    text: 'Shutdown script:'
+label.run.configuration.editor.startup.script:
+    text: 'Startup script:'
+label.run.configuration.properties.application.server:
+    text: 'Application &server:'
+label.select.server.to.open.text:
+    text: 'Select server instance to open file:'
+label.service.interface.edit.service.reference.dialog:
+    text: 'Service &interface:'
+label.service.qname.edit.service.reference.dialog:
+    text: 'Service &QName:'
+label.servlet.properties.package:
+    text: '&Package:'
+label.session.bean.properties.session.type:
+    text: 'Session type:'
+label.session.bean.properties.transaction.type:
+    text: 'Transaction type:'
+label.suffix:
+    text: 'Suffix:'
+label.text.choose.component.interface:
+    text: 'Select EJB Component Interface to create reference to:'
+label.text.creating.ejb:
+    text: Creating EJB ''{0}''
+label.text.module.edutor.no.security.roles.configured:
+    text: No security roles configured
+label.text.no.application.server.selected:
+    text: No Application Server Selected
+label.type.edit.environment.entries.dialog:
+    text: '&Type:'
+label.type.edit.message.destination.reference.dialog:
+    text: '&Type:'
+label.type.edit.resource.environment.reference.dialog:
+    text: '&Type:'
+label.type.edit.resource.reference.dialog:
+    text: '&Type:'
+label.type.edit.service.reference.dialog:
+    text: '&Type:'
+label.usage.edit.message.destination.reference.dialog:
+    text: 'Message Destination &Usage:'
+label.value.edit.environment.entries.dialog:
+    text: '&Value:'
+label.web.root.dialog.relative.path.in.deployment.directory:
+    text: '&Relative path in deployment directory:'
+label.web.source.roots.text:
+    text: Source Roots
+label.wsdl.file.edit.service.reference.dialog:
+    text: '&WSDL file:'
+libraries.node.text.application.server:
+    text: Libraries contain classes that add up various functionality to your applications. Libraries also include source files and JavaDocs that can help you develop your projects.<br><br> IntelliJ IDEA uses libraries to assist you with code completion, validation, error highlighting, etc.<br><br>Application server libraries are the part of an application server (WebSphere, WebLogic, Tomcat etc.) and are available to your Web and Java EE applications that are configured with these servers.<br><br>Expand the node and select child items to manage Application server libraries that are installed in your system. <br><br> To attach a library to a module, select that module, click the Dependencies tab, click Add and specify the library location.
+library.configure.appserver.title:
+    text: Configure Application Server Libraries
+link.display.text.configure.j2ee.names:
+    text: Java EE Names
+local.vcs.label.name.deleting.ejb.class:
+    text: Deleting ejb class {0}
+location.to.validate.all.jsps.in.directory:
+    text: all files in directory ''{0}''
+location.to.validate.all.jsps.in.selected.directories:
+    text: all files in selected directories
+location.to.validate.jsp:
+    text: file ''{0}''
+location.to.validate.selected.jsps:
+    text: selected files
+message.text.0.facet.1.module:
+    text: '''''{0}'''' facet (''''{1}'''' module)'
+message.text.0.facet.from.1.module:
+    text: (''{0}'' facet from ''{1}'' module)
+message.text.able.to.bind.yet.able.to.connect.too:
+    text: It is possible to bind and connect to {0} at the same time - application server will probably compete with some other software on the port
+message.text.application.server.already.exists:
+    text: Application Server ''{0}'' already exists
+message.text.application.server.name.cannot.be.empty:
+    text: Application Server name cannot be empty
+message.text.cannot.find.file:
+    text: Cannot find file ''{0}''
+message.text.cannot.find.jdk.for.module.set.jdk.for.the.module.or.project:
+    text: Cannot find JDK for module ''{0}''. Please set JDK for the module or project.
+message.text.cannot.open.url:
+    text: 'Cannot open URL. Please check this URL is correct:'
+message.text.class.name.is.ejb.class.for.ejb.name.do.you.want.to.rename.ejb.name.instead:
+    text: |-
+        Class ''{0}'' is EJB class for EJB ''{1}''.
+        Do you want to rename EJB ''{2}'' instead?
+message.text.class.name.is.ejb.class.for.several.ejbs.choose.ejb.to.rename.instead:
+    text: |-
+        Class ''{0}'' is EJB class for several EJBs.
+        Choose the EJB to rename if you want to rename one of the EJBs instead.
+message.text.class.not.found.in.application.server:
+    text: Class ''{0}'' not found in application server
+message.text.class.not.fount.in.project:
+    text: Class ''{0}'' not fount in the project
+message.text.cmp.field.exists:
+    text: CMP field ''{0}'' already exists.
+message.text.cmp.field.name.not.valid:
+    text: CMP field name ''{0}'' is not a valid identifier.
+message.text.cmp.field.name.should.begin.with.a.lower.case.letter:
+    text: CMP field name should begin with a lower case letter.
+message.text.cmr.field.0.already.defined:
+    text: CMR field ''{0}'' already defined in {1}.
+message.text.cmr.field.name.should.begin.with.a.lower.case.letter:
+    text: CMR field name should begin with a lower case letter.
+message.text.connected.to.server:
+    text: Connected to server
+message.text.connected.to.the.server:
+    text: Connected to the server
+message.text.disconnected.from.server:
+    text: Disconnected from server
+message.text.duplicate.role.names:
+    text: Duplicate role names
+message.text.ejb.exists.in.ejb.facet:
+    text: EJB ''{0}'' already exists in this EJB facet.
+message.text.entity.bean.not.specified.for.cmr.field:
+    text: Existing Entity EJB name should be specified
+message.text.error.component.interface.name.should.be.not.empty:
+    text: Component interface name should not be empty
+message.text.error.creating.directory:
+    text: |-
+        Error creating directory.
+        {0}
+message.text.error.home.interface.name.should.be.not.empty:
+    text: Home interface name should not be empty
+message.text.error.name.cannot.be.empty:
+    text: Name cannot be empty
+message.text.error.running.configuration.exception.occured.with.message:
+    text: |-
+        Error running {0}.
+        Exception occurred : {1}
+        Exception message : {2}
+message.text.error.while.creating.temp.file:
+    text: 'Error while creating temp file: {0}'
+message.text.existing.web.resource.directory.configured.in.dir.which.includes.dir:
+    text: |-
+        <html><body>There is existing web resource directory configured in ''<b>{0}''</b>,
+        which already includes current directory ''<b>{1}''</b>.</body></html>
+message.text.existing.web.resource.directory.configured.in.dir.which.will.be.included.in.dir:
+    text: |-
+        <html><body>There is existing web resource directory configured in ''<b>{0}''</b>,
+        which will be included in current directory ''<b>{1}''</b>.</body></html>
+message.text.exists:
+    text: '{0} ''''{1}'''' already exists in this Web facet.'
+message.text.filter.exists:
+    text: Filter ''{0}'' already exists in this Web facet.
+message.text.listener.exists:
+    text: Listener ''{0}'' already exists in this Web facet.
+message.text.method.name.is.role.do.you.want.to.rename.fieldtitle:
+    text: |-
+        Method ''{0}'' is {1}.
+        Do you want to rename {2} ?
+message.text.must.be.cmp.entity.bean.with.local.interface:
+    text: There must be at least one CMP Entity Bean with local interface
+message.text.name.is.not.valid.identifier:
+    text: '{0} is not a valid identifier'
+message.text.no.ejb.references.configured:
+    text: No EJB references configured
+message.text.no.ejbs.in.this.module:
+    text: There are no EJBs and security roles in this module.<br>Method permissions are only available for existing EJBs.
+message.text.no.ejbs.in.this.module.no.interceptors:
+    text: There are no EJBs in this module.
+message.text.no.ejbs.in.this.module.no.transaction.attributes:
+    text: There are no EJBs in this module.<br>Transaction attributes are only available for existing EJBs.
+message.text.no.filter.mappings.configured:
+    text: No filter mappings configured
+message.text.no.filters.configured:
+    text: No filters configured in this web facet.<br>Please create filter first.
+message.text.no.parameters.configured:
+    text: No parameters configured
+message.text.no.servlet.mappings.configured:
+    text: No servlet mappings configured
+message.text.no.servlets.configured:
+    text: No servlets configured in this web facet.<br>Please create servlets first.
+message.text.recommended.transfer.object.class.agrees.with.pattern:
+    text: |-
+        It is recommended that Transfer Object class name
+        agrees with following pattern: {0}
+message.text.remove.selected.web.resource.directories:
+    text: Remove selected web resource directories?
+message.text.remove.web.resource.directory:
+    text: Remove web resource directory ''{0}''?
+message.text.run.configuration.already.run:
+    text: Run configuration ''{0}'' is running.
+message.text.run.configuration.already.run.do.you.want.to.restart.in.1:
+    text: Run configuration ''{0}'' is running. Do you want to restart the server in ''{1}'' mode?
+message.text.run.configuration.editor.no.specific.parameters.needed:
+    text: No specific parameters needed
+message.text.select.field.to.include.in.transfer.object:
+    text: Please select at least one field to include in Transfer Object.
+message.text.type.not.found:
+    text: Type ''{0}'' not found.
+message.text.unable.to.connect:
+    text: Unable to connect to the {0}
+message.text.unmark.web.resource.directory:
+    text: Unmark Web resource directory ''{0}''
+message.text.warning:
+    text: Warning
+message.text.web.resource.directory.should.be.located.under.module.root:
+    text: |-
+        Web resource directory should be located under module root.
+        Please press ''...'' (ellipsis) button to browse module root directories.
+message.title.cannot.create.relationship:
+    text: Cannot Create Relationship
+message.title.change.ejb.classes:
+    text: Change EJB Classes
+message.title.choose.filter.class:
+    text: Choose Filter Class
+message.title.class.not.found:
+    text: '{0} not found'
+message.title.conflicting.directory.found:
+    text: Conflicting Directory Found
+message.title.directory.not.found:
+    text: Directory Not Found
+message.title.directory.not.in.module:
+    text: Directory Not in Module
+message.title.error:
+    text: Error
+message.title.fielddescription.found:
+    text: '{0} Found'
+message.title.file.not.found:
+    text: File Not Found
+message.title.filter.exists:
+    text: Filter Already Exists
+message.title.listener.exists:
+    text: Listener Already Exists
+message.title.no.fields.selected:
+    text: No Fields Selected
+message.title.open.url:
+    text: Open URL
+message.title.primary.key.class.changed:
+    text: Primary Key Class Has Been Changed
+message.title.related.ejb.to.class.found:
+    text: EJB class found
+message.title.remove.web.resource.directory:
+    text: Remove Web Resource Directory
+message.title.server.connected:
+    text: Server Already Connected
+message.title.unmark.web.resource.directory:
+    text: Unmark Web Resource Directory
+message.title.warning:
+    text: Warning
+method.role.business.method.declaration:
+    text: Business Method Declaration
+method.role.business.method.implementation:
+    text: Business Method Implementation
+method.role.cmp.field.getter.declaration:
+    text: CMP Field Getter Declaration
+method.role.cmp.field.getter.implementation:
+    text: CMP Field Getter Implementation
+method.role.cmp.field.setter.declaration:
+    text: CMP Field Setter Declaration
+method.role.cmp.field.setter.implementation:
+    text: CMP Field Setter Implementation
+method.role.cmr.field.getter.declaration:
+    text: CMR Field Getter Declaration
+method.role.cmr.field.getter.implementation:
+    text: CMR Field Getter Implementation
+method.role.cmr.field.setter.declaration:
+    text: CMR Field Setter Declaration
+method.role.cmr.field.setter.implementation:
+    text: CMR Field Setter Implementation
+method.role.create.method.declaration:
+    text: Create Method Declaration
+method.role.create.method.implementation:
+    text: Create Method Implementation
+method.role.finder.method.declaration:
+    text: Finder Method Declaration
+method.role.finder.method.implementation:
+    text: Finder Method Implementation
+method.role.home.business.method.declaration:
+    text: Home Business Method Declaration
+method.role.home.business.method.implementation:
+    text: Home Business Method Implementation
+method.role.method.implementation:
+    text: Method Implementation
+method.role.post.create.method.implementation:
+    text: Post Create Method Implementation
+method.role.selector.method.implementation:
+    text: Selector Method Implementation
+method.role.unknown.method.declaration:
+    text: Unknown Method Declaration
+migrate.entity.beans.to.persistence.module:
+    text: Replace Entity Beans with CMP to Persistence Unit (Project may not compile)
+model.object.type.abstract.schema.name:
+    text: Abstract Schema Name
+model.object.type.cmp.field:
+    text: CMP field
+model.object.type.cmr.field:
+    text: CMR field
+model.object.type.ejb.environment.entry:
+    text: Environment Entry
+model.object.type.ejb.local.reference:
+    text: EJB local reference
+model.object.type.ejb.message.destination.reference:
+    text: Message destination reference
+model.object.type.ejb.reference:
+    text: EJB reference
+model.object.type.ejb.relation:
+    text: EJB relation
+model.object.type.ejb.resource.environment.reference:
+    text: EJB resource environment reference
+model.object.type.ejb.resource.reference:
+    text: EJB resource reference
+model.object.type.entity.bean:
+    text: Entity Bean
+model.object.type.filter:
+    text: Filter
+model.object.type.interceptor:
+    text: Interceptor
+model.object.type.listener:
+    text: Listener
+model.object.type.managed.bean:
+    text: Managed Bean
+model.object.type.message.driven.bean:
+    text: Message Driven Bean
+model.object.type.security.role:
+    text: Security Role
+model.object.type.service.reference:
+    text: Web Service reference
+model.object.type.servlet:
+    text: Servlet
+model.object.type.session.bean:
+    text: Session Bean
+not.configured:
+    text: Not configured
+plugin.com.intellij.javaee.description:
+    text: Provides support for Servlets, EJB, JPA and other Java EE technologies.
+presentable.server.instance.to.open.text:
+    text: '{0}: ''''{1}'''''
+progress.text.jasper.validation.validating.path:
+    text: Validating {0}
+progress.validating.ejbs.text:
+    text: Validating EJBs...
+project.view.pane.title.j2ee:
+    text: Java EE
+property.message.driven.bean.activation.config.other:
+    text: Other...
+quickfix.popup.title.select.a.facet.to.deploy:
+    text: Select a facet to deploy
+quickfix.popup.title.select.an.artifact.to.deploy:
+    text: Select an artifact to deploy
+role.for.ejb.name.string.representation:
+    text: '{0} for EJB ''''{1}'''''
+role.for.interceptor.name.string.representation:
+    text: '{0} for ''''{1}'''''
+run.configuration.local:
+    text: Local
+run.configuration.remote:
+    text: Remote
+run.tab.title.deployment:
+    text: Deployment
+run.tab.title.output:
+    text: Output
+run.tab.title.server:
+    text: Server
+runtime.configuration.error.description.file.does.not.exist:
+    text: '{0} ''''{1}'''' does not exist.'
+runtime.configuration.error.something.not.specified:
+    text: '{0} is not specified.'
+section.table.view.add:
+    text: '&Add...'
+section.table.view.add.0:
+    text: '&Add {0}...'
+section.table.view.delete:
+    text: '&Delete...'
+section.table.view.delete.0:
+    text: '&Delete {0}...'
+section.table.view.edit:
+    text: '&Edit...'
+section.table.view.edit.0:
+    text: '&Edit {0}...'
+security.role.name.should.accord.to.nmtoken.pattern:
+    text: Security role name should accord to NMTOKEN pattern
+select.in.j2ee:
+    text: Framework Views
+servlet.class.name.unknown:
+    text: Unknown
+servlet.fake.file.type.description:
+    text: Servlet fake file type
+servlet.jsp.file.name.unknown:
+    text: Unknown
+servlet.reference.canonical.text:
+    text: Cannot resolve servlet ''{0}''.
+servlet.string.representation:
+    text: Servlet ''{0}''
+template.node.application:
+    text: Application
+template.node.deployment.descriptors:
+    text: Deployment descriptors
+template.node.ejb:
+    text: EJB
+template.node.java.code.templates:
+    text: Java code templates
+template.node.web:
+    text: Web
+terms.web.directory:
+    text: web directory
+terms.web.directory.element:
+    text: web directory element
+title.appserver.specific.validators:
+    text: Application Server specific validators
+title.choose.interceptor.method.types:
+    text: Select Interceptor Methods to Implement
+title.edit.deployment.descriptor:
+    text: Edit Deployment Descriptor
+title.edit.module.configured.ejbs:
+    text: Configured EJBs
+title.edit.module.general.properties:
+    text: General Properties
+title.entity.bean:
+    text: Entity Bean
+title.j2ee.names:
+    text: Java EE Names
+title.module.ejb.environment.entries:
+    text: Environment Entries
+title.module.ejb.local.references:
+    text: EJB Local References
+title.module.ejb.remote.references:
+    text: EJB Remote References
+title.module.ejb.resource.environment.references:
+    text: Resource Environment References
+title.module.ejb.resource.references:
+    text: Resource References
+title.module.message.destination.references:
+    text: Message Destination References
+title.module.properties.ejb.classes:
+    text: EJB Classes
+title.module.properties.entity.bean.specifics:
+    text: Entity Bean Specifics
+title.module.properties.general:
+    text: General
+title.module.properties.message.driven.bean.specifics:
+    text: Message Driven Bean Specifics
+title.module.properties.session.bean.specifics:
+    text: Session Bean Specifics
+title.module.properties.specifics:
+    text: Specifics
+title.module.security.roles:
+    text: Security Roles
+title.module.service.references:
+    text: Web Service References
+title.open.file.in.browser.text:
+    text: Open File in Browser
+title.run.configuration.editor.deployment:
+    text: Deployment
+title.run.configuration.editor.server:
+    text: Server
+title.servlet.properties.general:
+    text: General
+title.servlet.properties.servlet.class:
+    text: Servlet Class
+title.servlet.properties.servlet.initialization.params:
+    text: Servlet Initialization Params
+tooltip.facet.excluded.from.deployment.text:
+    text: Facet is excluded from deployment
+tooltip.text.filter.class:
+    text: Filter ''{0}'' Class
+tooltip.text.listener.class:
+    text: Listener ''{0}'' Class
+tooltip.text.primary.key.class:
+    text: Primary Key Class
+tooltip.text.script.parameters:
+    text: Parameters...
+tooltip.text.servlet.class:
+    text: Servlet ''{0}'' Class
+tooltip.text.web.resource.directory:
+    text: Web resource directory ({0})
+updating.policy.hot.swap.classes:
+    text: '&Hot Swap classes'
+updating.policy.redeploy:
+    text: '&Redeploy'
+updating.policy.restart.server:
+    text: Restart &server
+updating.policy.update.classes.and.resources:
+    text: Update &classes and resources
+updating.policy.update.resources:
+    text: '&Update resources'
+usages.of.ejb.class:
+    text: Usages of EJB &class
+usages.of.servlet.class:
+    text: Usages of Servlet &class
+value.should.either.0.or.1:
+    text: Value should either {0} or {1}
 war.artifact.name:
-  text: 'Web Application: Archive'
+    text: 'Web Application: Archive'
+warning.delete.deployment.descriptor.title:
+    text: Delete Deployment Descriptor
+warning.duplicate.relative.deployment.path.text:
+    text: Duplicate relative deployment path ''{0}''
+warning.text.class.does.not.exist:
+    text: Class ''{0}'' does not exist
+web.context.family:
+    text: Web Context Family
+web.context.fix:
+    text: Set context folder to ''/'' for {0}
+web.context.fix.for.directory:
+    text: Set context folder to ''/'' for all files in {0} directory
+web.module.properties.assembly.descriptor.tab:
+    text: Assembly Descriptor
+web.root.family:
+    text: Setup Web Root
+wizard.descriptors.tab.name:
+    text: Descriptors
+wizard.ejb.step.tab.name:
+    text: EJB Specification
+wizard.javaee.app.included.facet.tab.name:
+    text: Include Web and EJB Facets
+wizard.step.ejb.version.button.add.persistence:
+    text: Add Java EE P&ersistence Support
+wizard.step.ejb.version.button.text.annos.only:
+    text: Java @&Annotations Only (no ejb-jar.xml)
+wizard.step.ejb.version.button.text1:
+    text: Enterprise JavaBeans 1.&x
+wizard.step.ejb.version.button.text2:
+    text: Enterprise JavaBeans &2.0
+wizard.step.ejb.version.button.text21:
+    text: Enterprise JavaBeans 2.&1
+wizard.step.ejb.version.button.text3:
+    text: Enterprise JavaBeans &3.0
+wizard.step.ejb.version.top.label.text:
+    text: |-
+        Please specify Enterprise JavaBeans specification version.
+        Note: existing descriptors if found will override these settings.
+wizard.web.exploded.dir.tab.name:
+    text: Exploded Directory
+wizard.web.roots.tab.name:
+    text: Web Roots
