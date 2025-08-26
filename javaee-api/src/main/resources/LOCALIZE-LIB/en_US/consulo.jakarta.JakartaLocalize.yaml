@@ -26,12 +26,14 @@ action.CreateFilterAction.text:
     text: _Filter
 action.CreateJSPAction.description:
     text: Create new JSP file in this directory
+action.CreateJSPAction.jsp.kind:
+    text: JSP
+action.CreateJSPAction.jspx.kind:
+    text: JSPX
 action.CreateJSPAction.text:
-    text: _JSP
-action.CreateJSPXAction.description:
-    text: Create new JSPX file in this directory
-action.CreateJSPXAction.text:
-    text: JSP_X
+    text: JSP
+action.CreateJSPAction.title:
+    text: Create JSP File
 action.CreateListenerAction.description:
     text: Create new listener
 action.CreateListenerAction.text:

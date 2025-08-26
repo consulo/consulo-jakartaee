@@ -18,9 +18,11 @@ import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.javaee.icon.JavaEEApiIconGroup;
 import consulo.language.psi.PsiDirectory;
 import consulo.language.util.ModuleUtilCore;
+import consulo.localize.LocalizeValue;
 import consulo.module.Module;
 import consulo.module.content.ProjectFileIndex;
 import consulo.project.Project;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL
@@ -29,20 +31,21 @@ import consulo.project.Project;
 @ActionImpl(id = "CreateJSPAction", parents = @ActionParentRef(value = @ActionRef(id = "NewGroup1"), anchor = ActionRefAnchor.FIRST))
 public class CreateJSPFileAction extends CreateFileFromTemplateAction implements DumbAware {
     public CreateJSPFileAction() {
-        super("JSP", null, JavaEEApiIconGroup.jsp());
+        super(JakartaLocalize.actionCreatejspactionText(), JakartaLocalize.actionCreatefilteractionDescription(), JavaEEApiIconGroup.jsp());
     }
 
     @Override
     protected void buildDialog(Project project, PsiDirectory directory, CreateFileFromTemplateDialog.Builder builder) {
-        builder.setTitle(JakartaLocalize.dialogTitleJspFile().get());
+        builder.setTitle(JakartaLocalize.dialogTitleJspFile());
 
-        builder.addKind("JSP", JavaEEApiIconGroup.jsp(), J2EEFileTemplateNames.JSP_FILE);
-        builder.addKind("JSPX", JavaEEApiIconGroup.jspx(), J2EEFileTemplateNames.JSPX_FILE);
+        builder.addKind(JakartaLocalize.actionCreatejspactionJspKind(), JavaEEApiIconGroup.jsp(), J2EEFileTemplateNames.JSP_FILE);
+        builder.addKind(JakartaLocalize.actionCreatejspactionJspxKind(), JavaEEApiIconGroup.jspx(), J2EEFileTemplateNames.JSPX_FILE);
     }
 
+    @Nonnull
     @Override
-    protected String getActionName(PsiDirectory directory, String newName, String templateName) {
-        return "Create File";
+    protected LocalizeValue getActionName(PsiDirectory directory, String newName, String templateName) {
+        return JakartaLocalize.actionCreatejspactionTitle();
     }
 
     @Override
