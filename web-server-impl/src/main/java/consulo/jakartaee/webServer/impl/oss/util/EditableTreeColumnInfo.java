@@ -4,11 +4,10 @@
 
 package consulo.jakartaee.webServer.impl.oss.util;
 
-
 import consulo.application.Result;
-import consulo.ide.impl.idea.ui.treeStructure.treetable.TreeColumnInfo;
 import consulo.language.editor.WriteCommandAction;
 import consulo.project.Project;
+import consulo.ui.ex.awt.tree.table.TreeColumnInfo;
 import consulo.ui.ex.tree.NodeDescriptor;
 import consulo.xml.util.xml.DomElement;
 
