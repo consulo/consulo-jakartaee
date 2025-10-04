@@ -16,15 +16,17 @@
 package consulo.jakartaee.webServer.impl.run.localRun;
 
 import com.intellij.javaee.J2EEBundle;
-import consulo.ide.impl.idea.openapi.util.io.FileUtil;
+import consulo.application.Application;
+import consulo.application.util.TempFileService;
+import consulo.util.io.FileUtil;
 import consulo.process.ExecutionException;
 import consulo.process.ProcessHandler;
 import consulo.process.event.ProcessAdapter;
 import consulo.process.event.ProcessEvent;
-import org.jetbrains.annotations.NonNls;
-
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import org.jetbrains.annotations.NonNls;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -93,7 +95,7 @@ public class ScriptExecutableObject implements ExecutableObject {
 
   private File createNewExecutableFile() throws IOException {
     if (myDirectoryForScript == null) {
-      File tempDirectory = FileUtil.createTempDirectory("exec", "script");
+      File tempDirectory = Application.get().getInstance(TempFileService.class).createTempDirectory("exec", "script").toFile();
       return ScriptUtil.createScriptFile(tempDirectory, myFileName);
     }
     else {

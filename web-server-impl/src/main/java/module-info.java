@@ -14,7 +14,6 @@ module consulo.jakartaee.web.impl {
 
     // TODO remove in future
     requires java.desktop;
-    requires consulo.ide.impl;
 
     exports consulo.jakartaee.webServer.impl;
     exports consulo.jakartaee.webServer.impl.appServerIntegrations;

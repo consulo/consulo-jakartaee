@@ -13,7 +13,6 @@ import consulo.jakartaee.webServer.impl.run.localRun.ScriptHelper;
 import consulo.javaee.run.configuration.JavaEEConfigurationImpl;
 import consulo.process.ExecutionException;
 import consulo.process.ProcessHandler;
-
 import jakarta.annotation.Nonnull;
 
 import java.util.Collections;
@@ -32,17 +31,17 @@ public class JavaEECommandLineState extends CommandLineState implements PatchedR
     public ExecutionResult execute(@Nonnull Executor executor, @Nonnull ProgramRunner runner) throws ExecutionException {
         ProcessHandler processHandler = startProcess();
         JavaEEDeploymentConsole console =
-            new JavaEEDeploymentConsole(executor, (JavaEEConfigurationImpl)getEnvironment().getRunProfile(), getEnvironment().getProject());
-        console.attachToProcess(processHandler);
-        return new DefaultExecutionResult(console, processHandler, createActions(console, processHandler, executor));
+            new JavaEEDeploymentConsole(executor, (JavaEEConfigurationImpl) getEnvironment().getRunProfile(), getEnvironment().getProject());
+        console.getConsoleView().attachToProcess(processHandler);
+        return new DefaultExecutionResult(console, processHandler, createActions(console.getConsoleView(), processHandler, executor));
     }
 
     @Nonnull
     @Override
     protected ProcessHandler startProcess() throws ExecutionException {
-        JavaEEConfigurationImpl configuration = (JavaEEConfigurationImpl)getEnvironment().getRunProfile();
+        JavaEEConfigurationImpl configuration = (JavaEEConfigurationImpl) getEnvironment().getRunProfile();
 
-        JavaeeStartupPolicy startupPolicy = (JavaeeStartupPolicy)configuration.getStartupPolicy();
+        JavaeeStartupPolicy startupPolicy = (JavaeeStartupPolicy) configuration.getStartupPolicy();
 
         ScriptHelper startupScriptHelper = startupPolicy.createStartupScriptHelper(getEnvironment().getRunner());
 
