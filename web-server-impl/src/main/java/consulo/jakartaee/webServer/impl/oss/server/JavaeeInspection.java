@@ -21,10 +21,4 @@ public abstract class JavaeeInspection extends BasicDomElementsInspection<Javaee
     public LocalizeValue getGroupDisplayName() {
         return JakartaLocalize.inspectionGroupDisplayNameApplicationServerInspections();
     }
-
-    @Nonnull
-    @Override
-    public LocalizeValue getDisplayName() {
-        return LocalizeValue.of(getShortName());
-    }
 }
