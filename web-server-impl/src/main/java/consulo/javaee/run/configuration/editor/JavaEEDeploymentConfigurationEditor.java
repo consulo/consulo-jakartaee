@@ -98,7 +98,7 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
         JPanel mainPanel = new JPanel(new BorderLayout());
 
         ToolbarDecorator decorator = ToolbarDecorator.createDecorator(myDeploySourceList);
-        decorator.setAddAction(anActionButton -> {
+        decorator.setAddAction((b, e) -> {
             ListPopupStep<String> step = new BaseListPopupStep<String>("Select source", ARTIFACT) {
                 @Override
                 public PopupStep onChosen(String selectedValue, boolean finalChoice) {
@@ -122,8 +122,8 @@ public class JavaEEDeploymentConfigurationEditor extends SettingsEditor<JavaEECo
                 }
             };
 
-            ListPopup popup = JBPopupFactory.getInstance().createListPopup(step);
-            popup.show(anActionButton.getPreferredPopupPoint());
+            ListPopup popup = JBPopupFactory.getInstance().createListPopup(myProject, step);
+            popup.showUnderneathOf(e.getRequiredData(UIExAWTDataKey.CONTEXT_COMPONENT));
         });
 
         decorator.setRemoveAction(anActionButton ->
