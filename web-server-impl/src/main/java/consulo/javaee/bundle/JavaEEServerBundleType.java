@@ -5,16 +5,18 @@ import consulo.execution.configuration.ui.SettingsEditor;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
 import consulo.jakartaee.webServer.impl.oss.server.JavaeeIntegration;
 import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
+import consulo.localize.LocalizeValue;
 import consulo.remoteServer.configuration.deployment.DeploymentSource;
-import org.jetbrains.annotations.NonNls;
+import consulo.ui.image.Image;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL
  * @since 2017-07-09
  */
 public abstract class JavaEEServerBundleType extends SdkType {
-    public JavaEEServerBundleType(@NonNls String name) {
-        super(name);
+    public JavaEEServerBundleType(@Nonnull String id, @Nonnull LocalizeValue displayName, @Nonnull Image icon) {
+        super(id, displayName, icon);
     }
 
     public DeploymentModel createNewDeploymentModel(CommonModel commonModel, DeploymentSource source) {
