@@ -15,10 +15,10 @@
  */
 package consulo.jsp.language.file;
 
-import com.intellij.xml.XmlElementDescriptor;
-import com.intellij.xml.XmlNSDescriptor;
 import consulo.language.psi.PsiFile;
 
+import consulo.xml.descriptor.XmlElementDescriptor;
+import consulo.xml.descriptor.XmlNSDescriptor;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 

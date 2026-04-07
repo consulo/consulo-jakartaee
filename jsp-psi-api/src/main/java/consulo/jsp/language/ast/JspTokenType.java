@@ -16,7 +16,7 @@
 package consulo.jsp.language.ast;
 
 import consulo.language.ast.IElementType;
-import consulo.xml.psi.xml.XmlTokenType;
+import consulo.xml.language.psi.XmlTokenType;
 
 /**
  * @author peter

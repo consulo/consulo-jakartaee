@@ -1,7 +1,7 @@
 package consulo.jsp.impl.language.psi;
 
+import consulo.xml.language.psi.XmlTag;
 import consulo.xml.psi.impl.source.xml.XmlDocumentImpl;
-import consulo.xml.psi.xml.XmlTag;
 
 /**
  * @author VISTALL

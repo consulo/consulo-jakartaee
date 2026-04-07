@@ -1,10 +1,10 @@
 package consulo.jsp.impl.language.psi.descriptor;
 
-import com.intellij.xml.XmlElementDescriptor;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.jsp.language.psi.xml.JspXmlRootTag;
+import consulo.xml.descriptor.XmlElementDescriptor;
+import consulo.xml.language.psi.XmlTag;
 import consulo.xml.psi.impl.source.xml.XmlElementDescriptorProvider;
-import consulo.xml.psi.xml.XmlTag;
 
 import jakarta.annotation.Nullable;
 

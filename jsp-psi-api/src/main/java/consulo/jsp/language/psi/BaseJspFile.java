@@ -19,9 +19,9 @@ import consulo.annotation.access.RequiredReadAction;
 import consulo.jsp.language.file.JspxFileViewProvider;
 import consulo.language.psi.PsiElement;
 import consulo.language.psi.PsiFile;
-import consulo.xml.psi.xml.XmlFile;
-import consulo.xml.psi.xml.XmlTag;
 
+import consulo.xml.language.psi.XmlFile;
+import consulo.xml.language.psi.XmlTag;
 import jakarta.annotation.Nonnull;
 
 public interface BaseJspFile extends XmlFile

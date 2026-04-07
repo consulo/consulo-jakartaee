@@ -45,7 +45,7 @@ import consulo.util.io.UriUtil;
 import consulo.util.lang.Pair;
 import consulo.virtualFileSystem.VirtualFile;
 import consulo.virtualFileSystem.util.VirtualFileUtil;
-import consulo.xml.psi.xml.XmlFile;
+import consulo.xml.language.psi.XmlFile;
 import consulo.xml.util.xml.DomUtil;
 import consulo.xml.util.xml.GenericDomValue;
 import org.jetbrains.annotations.NonNls;

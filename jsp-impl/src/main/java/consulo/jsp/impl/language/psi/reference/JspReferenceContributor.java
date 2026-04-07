@@ -14,8 +14,8 @@ import consulo.language.util.ProcessingContext;
 import consulo.module.Module;
 import consulo.module.content.ModuleRootManager;
 import consulo.module.content.layer.ContentFolder;
+import consulo.xml.language.psi.XmlAttribute;
 import consulo.xml.patterns.XmlPatterns;
-import consulo.xml.psi.xml.XmlAttribute;
 
 import jakarta.annotation.Nonnull;
 import java.util.Arrays;

@@ -3,7 +3,7 @@ package consulo.jsp.impl.language.lexer;
 import consulo.jsp.language.ast.JspTokenType;
 import consulo.language.ast.TokenSet;
 import consulo.language.lexer.MergingLexerAdapter;
-import consulo.xml.psi.xml.XmlTokenType;
+import consulo.xml.language.psi.XmlTokenType;
 
 /**
  * @author VISTALL

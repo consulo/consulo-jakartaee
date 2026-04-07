@@ -15,7 +15,7 @@
  */
 package consulo.jsp.language.psi.xml;
 
-import consulo.xml.psi.xml.XmlTag;
+import consulo.xml.language.psi.XmlTag;
 
 public interface JspTag extends XmlTag
 {

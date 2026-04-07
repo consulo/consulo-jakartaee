@@ -4,8 +4,8 @@ import consulo.jsp.language.psi.xml.JspXmlTagBase;
 import consulo.language.ast.IElementType;
 import consulo.language.psi.PsiElement;
 import consulo.language.psi.PsiElementVisitor;
+import consulo.xml.language.psi.XmlTag;
 import consulo.xml.psi.impl.source.xml.XmlTagImpl;
-import consulo.xml.psi.xml.XmlTag;
 
 import jakarta.annotation.Nonnull;
 

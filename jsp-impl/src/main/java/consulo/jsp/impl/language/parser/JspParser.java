@@ -9,9 +9,8 @@ import consulo.language.parser.PsiBuilderUtil;
 import consulo.language.parser.PsiParser;
 import consulo.language.version.LanguageVersion;
 import consulo.localize.LocalizeValue;
-import consulo.xml.psi.xml.XmlElementType;
-import consulo.xml.psi.xml.XmlTokenType;
-
+import consulo.xml.language.psi.XmlElementType;
+import consulo.xml.language.psi.XmlTokenType;
 import jakarta.annotation.Nonnull;
 
 /**

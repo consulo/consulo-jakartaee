@@ -5,7 +5,7 @@ import consulo.jsp.language.ast.JspTokenType;
 import consulo.language.ast.IElementType;
 import consulo.language.ast.TokenType;
 import consulo.language.lexer.LexerBase;
-import consulo.xml.psi.xml.XmlTokenType;
+import consulo.xml.language.psi.XmlTokenType;
 %%
 
 %public

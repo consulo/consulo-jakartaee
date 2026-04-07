@@ -5,8 +5,8 @@ import consulo.language.template.TemplateLanguageFileType;
 import consulo.localize.LocalizeValue;
 import consulo.ui.image.Image;
 import consulo.xml.ide.highlighter.XmlLikeFileType;
-import consulo.xml.lang.xml.XMLLanguage;
 
+import consulo.xml.language.XMLLanguage;
 import jakarta.annotation.Nonnull;
 
 /**

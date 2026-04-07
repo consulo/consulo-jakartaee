@@ -32,8 +32,8 @@ import consulo.language.psi.PsiFile;
 import consulo.util.collection.ArrayUtil;
 import consulo.util.collection.SmartList;
 import consulo.virtualFileSystem.fileType.FileType;
+import consulo.xml.language.psi.XmlTag;
 import consulo.xml.psi.impl.source.xml.XmlFileImpl;
-import consulo.xml.psi.xml.XmlTag;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

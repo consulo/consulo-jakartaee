@@ -5,7 +5,7 @@ import consulo.jsp.language.psi.xml.JspDirective;
 import consulo.jsp.language.psi.xml.JspExpression;
 import consulo.jsp.language.psi.xml.JspScriptlet;
 import consulo.language.psi.PsiElementVisitor;
-import consulo.xml.psi.xml.XmlAttribute;
+import consulo.xml.language.psi.XmlAttribute;
 
 /**
  * @author VISTALL

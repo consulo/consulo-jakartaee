@@ -21,7 +21,7 @@ import consulo.language.psi.PsiReference;
 import consulo.language.psi.path.PathReference;
 import consulo.language.psi.path.PathReferenceManager;
 import consulo.language.psi.path.PathReferenceProvider;
-import consulo.xml.psi.xml.XmlElement;
+import consulo.xml.language.psi.XmlElement;
 import consulo.xml.util.xml.ConvertContext;
 import consulo.xml.util.xml.converters.PathReferenceConverter;
 

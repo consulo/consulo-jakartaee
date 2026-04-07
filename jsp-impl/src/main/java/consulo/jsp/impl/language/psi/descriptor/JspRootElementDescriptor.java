@@ -1,12 +1,12 @@
 package consulo.jsp.impl.language.psi.descriptor;
 
-import com.intellij.xml.XmlAttributeDescriptor;
-import com.intellij.xml.XmlElementDescriptor;
-import com.intellij.xml.XmlNSDescriptor;
 import com.intellij.xml.impl.dtd.BaseXmlElementDescriptorImpl;
 import consulo.language.psi.PsiElement;
 import consulo.language.psi.PsiModificationTracker;
-import consulo.xml.psi.xml.XmlTag;
+import consulo.xml.descriptor.XmlAttributeDescriptor;
+import consulo.xml.descriptor.XmlElementDescriptor;
+import consulo.xml.descriptor.XmlNSDescriptor;
+import consulo.xml.language.psi.XmlTag;
 
 import java.util.HashMap;
 import java.util.Map;

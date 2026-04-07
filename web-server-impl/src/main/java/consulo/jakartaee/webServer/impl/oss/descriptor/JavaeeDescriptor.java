@@ -12,7 +12,7 @@ import consulo.javaee.module.extension.JavaEEModuleExtension;
 import consulo.ui.image.Image;
 import consulo.util.jdom.JDOMUtil;
 import consulo.util.lang.StringUtil;
-import consulo.xml.psi.xml.XmlFile;
+import consulo.xml.language.psi.XmlFile;
 import consulo.xml.util.xml.DomElement;
 import consulo.xml.util.xml.DomFileElement;
 import consulo.xml.util.xml.DomManager;
