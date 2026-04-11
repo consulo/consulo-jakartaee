@@ -35,7 +35,7 @@ package com.intellij.javaee.model.enums;
  * 	    Never
  * </pre>
  */
-public enum TransAttribute implements consulo.xml.util.xml.NamedEnum {
+public enum TransAttribute implements consulo.xml.dom.NamedEnum {
 	MANDATORY ("Mandatory"),
 	NEVER ("Never"),
 	NOT_SUPPORTED ("NotSupported"),

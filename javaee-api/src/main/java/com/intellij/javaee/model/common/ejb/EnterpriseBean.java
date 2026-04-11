@@ -20,9 +20,9 @@ import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.javaee.ejb.EjbMethod;
 import com.intellij.javaee.model.common.EnvironmentGroup;
 import com.intellij.javaee.model.enums.TransAttribute;
-import consulo.xml.util.xml.GenericValue;
-import consulo.xml.util.xml.NameValue;
-import consulo.xml.util.xml.PrimaryKey;
+import consulo.xml.dom.GenericValue;
+import consulo.xml.dom.NameValue;
+import consulo.xml.dom.PrimaryKey;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

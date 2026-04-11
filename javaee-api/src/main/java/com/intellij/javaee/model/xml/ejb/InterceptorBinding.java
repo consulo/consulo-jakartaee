@@ -24,9 +24,9 @@ import com.intellij.javaee.model.EjbAsteriskResolveConverter;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.Convert;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.SubTag;
+import consulo.xml.dom.Convert;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.SubTag;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

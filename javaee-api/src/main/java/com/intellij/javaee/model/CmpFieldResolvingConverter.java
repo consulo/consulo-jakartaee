@@ -19,8 +19,8 @@ import com.intellij.javaee.J2EEBundle;
 import com.intellij.javaee.model.common.ejb.CmpField;
 import com.intellij.javaee.model.common.ejb.EntityBean;
 import consulo.language.editor.CodeInsightBundle;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.ElementPresentationManager;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.ElementPresentationManager;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

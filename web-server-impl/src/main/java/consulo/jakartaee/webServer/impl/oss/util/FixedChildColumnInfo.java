@@ -4,8 +4,8 @@
 
 package consulo.jakartaee.webServer.impl.oss.util;
 
-import consulo.xml.util.xml.DomElement;
-import consulo.xml.util.xml.reflect.DomGenericInfo;
+import consulo.xml.dom.DomElement;
+import consulo.xml.dom.reflect.DomGenericInfo;
 import consulo.xml.util.xml.ui.ChildGenericValueColumnInfo;
 import org.jetbrains.annotations.NonNls;
 

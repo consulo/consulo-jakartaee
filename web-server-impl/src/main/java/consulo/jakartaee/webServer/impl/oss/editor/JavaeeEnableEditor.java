@@ -7,7 +7,7 @@ package consulo.jakartaee.webServer.impl.oss.editor;
 import consulo.jakartaee.webServer.impl.oss.JavaeeBundle;
 import consulo.application.Result;
 import consulo.language.editor.WriteCommandAction;
-import consulo.xml.util.xml.DomElement;
+import consulo.xml.dom.DomElement;
 
 import jakarta.annotation.Nonnull;
 import javax.swing.*;

@@ -16,8 +16,8 @@
 package com.intellij.javaee.model;
 
 import com.intellij.javaee.model.common.ejb.EntityBean;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.DomElement;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.DomElement;
 
 /**
  * @author peter

@@ -22,8 +22,8 @@ package com.intellij.javaee.model.xml;
 import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
 import com.intellij.javaee.model.enums.EjbRefType;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.PropertyAccessor;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.PropertyAccessor;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

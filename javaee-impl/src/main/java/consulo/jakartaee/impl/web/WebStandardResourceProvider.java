@@ -1,8 +1,8 @@
 package consulo.jakartaee.impl.web;
 
 import consulo.annotation.component.ExtensionImpl;
-import consulo.xml.javaee.ResourceRegistrar;
-import consulo.xml.javaee.StandardResourceProvider;
+import consulo.xml.standardResource.ResourceRegistrar;
+import consulo.xml.standardResource.StandardResourceProvider;
 
 /**
  * @author VISTALL

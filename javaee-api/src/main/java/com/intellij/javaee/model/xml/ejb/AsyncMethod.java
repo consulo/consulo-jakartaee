@@ -24,9 +24,9 @@ import jakarta.annotation.Nonnull;
 import com.intellij.javaee.model.EjbMethodResolveConverter;
 import com.intellij.javaee.model.enums.MethodIntf;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.Convert;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.SubTag;
+import consulo.xml.dom.Convert;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.SubTag;
 
 /**
  * http://java.sun.com/xml/ns/javaee:async-methodType interface.

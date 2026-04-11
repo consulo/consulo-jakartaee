@@ -20,7 +20,7 @@ import com.intellij.javaee.model.xml.ejb.EntityBean;
 import com.intellij.javaee.model.xml.ejb.MethodParams;
 import com.intellij.javaee.model.xml.ejb.Query;
 import com.intellij.javaee.model.xml.ejb.QueryMethod;
-import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.dom.ConvertContext;
 import org.jetbrains.annotations.NonNls;
 
 import jakarta.annotation.Nonnull;

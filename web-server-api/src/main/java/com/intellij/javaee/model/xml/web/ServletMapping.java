@@ -23,7 +23,7 @@ import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.web.converters.ServletNameConverter;
 import com.intellij.javaee.web.CommonServlet;
 import com.intellij.javaee.web.CommonServletMapping;
-import consulo.xml.util.xml.*;
+import consulo.xml.dom.*;
 
 import java.util.List;
 

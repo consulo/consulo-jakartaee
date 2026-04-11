@@ -16,9 +16,9 @@
 package com.intellij.javaee.model.common.ejb;
 
 import com.intellij.javaee.model.common.JavaeeModelElement;
-import consulo.xml.util.xml.GenericValue;
-import consulo.xml.util.xml.PrimaryKey;
-import consulo.xml.util.xml.PropertyAccessor;
+import consulo.xml.dom.GenericValue;
+import consulo.xml.dom.PrimaryKey;
+import consulo.xml.dom.PropertyAccessor;
 
 /**
  * @author peter

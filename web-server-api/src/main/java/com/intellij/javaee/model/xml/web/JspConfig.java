@@ -20,7 +20,7 @@
 package com.intellij.javaee.model.xml.web;
 
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.Stubbed;
+import consulo.xml.dom.Stubbed;
 
 import java.util.List;
 

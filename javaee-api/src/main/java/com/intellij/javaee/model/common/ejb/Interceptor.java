@@ -19,9 +19,9 @@ package com.intellij.javaee.model.common.ejb;
 import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.EnvironmentGroup;
 import consulo.application.util.function.Processor;
-import consulo.xml.util.xml.GenericValue;
-import consulo.xml.util.xml.NameValue;
-import consulo.xml.util.xml.PrimaryKey;
+import consulo.xml.dom.GenericValue;
+import consulo.xml.dom.NameValue;
+import consulo.xml.dom.PrimaryKey;
 
 /**
  * Created by IntelliJ IDEA.

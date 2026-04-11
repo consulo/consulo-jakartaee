@@ -8,7 +8,7 @@ import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.project.Project;
 import consulo.ui.ex.awt.ColumnInfo;
 import consulo.ui.ex.awt.UIUtil;
-import consulo.xml.util.xml.DomElement;
+import consulo.xml.dom.DomElement;
 import consulo.xml.util.xml.ui.AbstractTableView;
 import consulo.xml.util.xml.ui.CommittablePanel;
 import consulo.xml.util.xml.ui.StripeTableCellRenderer;

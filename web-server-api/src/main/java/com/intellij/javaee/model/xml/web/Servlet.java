@@ -32,7 +32,7 @@ import com.intellij.javaee.model.xml.RunAs;
 import com.intellij.javaee.model.xml.SecurityRoleRef;
 import com.intellij.javaee.model.xml.web.converters.WebDeleteHandler;
 import com.intellij.javaee.web.CommonServlet;
-import consulo.xml.util.xml.*;
+import consulo.xml.dom.*;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

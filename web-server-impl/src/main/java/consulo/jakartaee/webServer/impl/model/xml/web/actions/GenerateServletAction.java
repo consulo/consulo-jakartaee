@@ -31,7 +31,7 @@ import consulo.language.editor.template.macro.MacroCallNode;
 import consulo.language.psi.PsiDocumentManager;
 import consulo.language.psi.PsiFile;
 import consulo.project.Project;
-import consulo.xml.util.xml.DomElement;
+import consulo.xml.dom.DomElement;
 
 /**
  * @author Dmitry Avdeev

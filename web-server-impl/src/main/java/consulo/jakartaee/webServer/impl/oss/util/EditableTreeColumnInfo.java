@@ -9,7 +9,7 @@ import consulo.language.editor.WriteCommandAction;
 import consulo.project.Project;
 import consulo.ui.ex.awt.tree.table.TreeColumnInfo;
 import consulo.ui.ex.tree.NodeDescriptor;
-import consulo.xml.util.xml.DomElement;
+import consulo.xml.dom.DomElement;
 
 import javax.swing.*;
 import javax.swing.table.TableCellEditor;

@@ -19,7 +19,7 @@ import com.intellij.java.impl.util.descriptors.ConfigFileVersion;
 import com.intellij.javaee.JavaeeVersion;
 import com.intellij.javaee.model.EjbRootDescriptor;
 import com.intellij.javaee.model.common.JavaeeCommonConstants;
-import consulo.xml.util.xml.NamedEnum;
+import consulo.xml.dom.NamedEnum;
 import org.jetbrains.annotations.NonNls;
 
 import jakarta.annotation.Nonnull;

@@ -30,7 +30,7 @@ package com.intellij.javaee.model.enums;
  * 	    Container
  * </pre>
  */
-public enum TransactionType implements consulo.xml.util.xml.NamedEnum {
+public enum TransactionType implements consulo.xml.dom.NamedEnum {
 	BEAN ("Bean"),
 	CONTAINER ("Container");
 

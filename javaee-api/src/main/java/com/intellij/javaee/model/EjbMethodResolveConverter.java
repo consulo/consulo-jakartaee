@@ -24,8 +24,8 @@ import com.intellij.javaee.model.enums.MethodIntf;
 import com.intellij.javaee.model.xml.ejb.Method;
 import com.intellij.javaee.model.xml.ejb.MethodParams;
 import consulo.util.collection.ContainerUtil;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.GenericValue;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.GenericValue;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

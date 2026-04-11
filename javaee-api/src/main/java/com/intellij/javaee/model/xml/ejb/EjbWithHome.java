@@ -17,7 +17,7 @@
 package com.intellij.javaee.model.xml.ejb;
 
 import com.intellij.java.language.psi.PsiClass;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.GenericDomValue;
 
 /**
  * Created by IntelliJ IDEA.

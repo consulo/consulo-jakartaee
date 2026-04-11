@@ -17,10 +17,10 @@ package com.intellij.javaee.model.common;
 
 import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.enums.ResAuth;
-import consulo.xml.util.xml.Convert;
-import consulo.xml.util.xml.GenericValue;
-import consulo.xml.util.xml.NameValue;
-import consulo.xml.util.xml.PrimaryKey;
+import consulo.xml.dom.Convert;
+import consulo.xml.dom.GenericValue;
+import consulo.xml.dom.NameValue;
+import consulo.xml.dom.PrimaryKey;
 
 /**
  * @author peter

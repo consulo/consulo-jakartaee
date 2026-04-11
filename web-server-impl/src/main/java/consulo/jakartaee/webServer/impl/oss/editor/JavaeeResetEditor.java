@@ -9,7 +9,7 @@ import consulo.application.AllIcons;
 import consulo.application.Result;
 import consulo.language.editor.WriteCommandAction;
 import consulo.ui.ex.action.*;
-import consulo.xml.util.xml.DomElement;
+import consulo.xml.dom.DomElement;
 
 import javax.swing.*;
 import javax.swing.border.Border;

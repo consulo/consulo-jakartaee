@@ -8,8 +8,8 @@ import com.intellij.javaee.facet.JavaeeFacetUtil;
 import com.intellij.javaee.model.xml.application.JavaeeApplication;
 import com.intellij.javaee.model.xml.application.JavaeeModule;
 import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.ResolvingConverter;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

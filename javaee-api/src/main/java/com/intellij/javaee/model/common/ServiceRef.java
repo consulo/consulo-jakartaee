@@ -16,8 +16,8 @@
 package com.intellij.javaee.model.common;
 
 import com.intellij.java.language.psi.PsiClass;
-import consulo.xml.util.xml.GenericValue;
-import consulo.xml.util.xml.NameValue;
+import consulo.xml.dom.GenericValue;
+import consulo.xml.dom.NameValue;
 
 /**
  * @author peter

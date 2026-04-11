@@ -20,10 +20,10 @@
 package com.intellij.javaee.model.xml.web;
 
 import com.intellij.javaee.model.xml.*;
-import consulo.xml.util.xml.GenericAttributeValue;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.Stubbed;
-import consulo.xml.util.xml.SubTag;
+import consulo.xml.dom.GenericAttributeValue;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.Stubbed;
+import consulo.xml.dom.SubTag;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

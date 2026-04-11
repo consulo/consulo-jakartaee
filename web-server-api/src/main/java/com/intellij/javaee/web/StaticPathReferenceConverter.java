@@ -22,7 +22,7 @@ import consulo.language.psi.path.PathReference;
 import consulo.language.psi.path.PathReferenceManager;
 import consulo.language.psi.path.PathReferenceProvider;
 import consulo.xml.language.psi.XmlElement;
-import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.dom.ConvertContext;
 import consulo.xml.util.xml.converters.PathReferenceConverter;
 
 import jakarta.annotation.Nonnull;

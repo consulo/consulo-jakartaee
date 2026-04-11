@@ -23,7 +23,7 @@ import consulo.language.impl.psi.template.TemplateDataElementType;
 import consulo.language.lexer.Lexer;
 import consulo.language.psi.PsiFile;
 import consulo.language.template.TemplateLanguageFileViewProvider;
-import consulo.xml.lang.html.HTMLLanguage;
+import consulo.html.language.HTMLLanguage;
 
 /**
  * @author VISTALL

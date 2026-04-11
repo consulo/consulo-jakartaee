@@ -6,7 +6,7 @@ package consulo.jakartaee.webServer.impl.oss.server;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import consulo.jakarta.localize.JakartaLocalize;
 import consulo.localize.LocalizeValue;
-import consulo.xml.util.xml.highlighting.BasicDomElementsInspection;
+import consulo.xml.dom.editor.BasicDomElementsInspection;
 import jakarta.annotation.Nonnull;
 
 public abstract class JavaeeInspection extends BasicDomElementsInspection<JavaeeDomModelElement, Object> {

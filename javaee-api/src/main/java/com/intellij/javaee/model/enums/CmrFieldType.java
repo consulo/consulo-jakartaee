@@ -31,7 +31,7 @@ import com.intellij.java.language.psi.CommonClassNames;
  * 	must be either: java.util.Collection or java.util.Set.
  * </pre>
  */
-public enum CmrFieldType implements consulo.xml.util.xml.NamedEnum {
+public enum CmrFieldType implements consulo.xml.dom.NamedEnum {
 	JAVA_UTIL_COLLECTION ("java.util.Collection"),
 	JAVA_UTIL_SET (CommonClassNames.JAVA_UTIL_SET);
 

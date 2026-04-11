@@ -22,9 +22,9 @@ package com.intellij.javaee.model.xml.ejb;
 import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.javaee.model.NamedMethodResolveConverter;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.Convert;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.SubTag;
+import consulo.xml.dom.Convert;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.SubTag;
 
 import jakarta.annotation.Nonnull;
 

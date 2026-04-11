@@ -23,8 +23,8 @@ import consulo.module.extension.ModuleExtension;
 import consulo.project.Project;
 import consulo.util.collection.ContainerUtil;
 import consulo.util.lang.Pair;
-import consulo.xml.util.xml.ElementPresentationManager;
-import consulo.xml.util.xml.GenericValue;
+import consulo.xml.dom.ElementPresentationManager;
+import consulo.xml.dom.GenericValue;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

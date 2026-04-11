@@ -23,7 +23,7 @@ import com.intellij.java.impl.util.descriptors.ConfigFileVersion;
 import com.intellij.javaee.DeploymentDescriptorsConstants;
 import com.intellij.javaee.JavaeeVersion;
 import consulo.jsp.language.file.JspVersion;
-import consulo.xml.util.xml.NamedEnum;
+import consulo.xml.dom.NamedEnum;
 
 import jakarta.annotation.Nonnull;
 

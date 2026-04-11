@@ -17,9 +17,9 @@ package com.intellij.javaee.model.xml.converters;
 
 import com.intellij.javaee.model.xml.ParamValue;
 import consulo.module.Module;
-import consulo.xml.util.xml.Converter;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.WrappingConverter;
+import consulo.xml.dom.Converter;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.WrappingConverter;
 
 import jakarta.annotation.Nonnull;
 

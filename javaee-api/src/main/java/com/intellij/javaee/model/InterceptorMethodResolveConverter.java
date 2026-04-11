@@ -24,8 +24,8 @@ import com.intellij.javaee.model.xml.ejb.Interceptor;
 import com.intellij.javaee.model.xml.ejb.MethodParams;
 import consulo.util.collection.ContainerUtil;
 import consulo.util.lang.function.Condition;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.GenericDomValue;
 
 import jakarta.annotation.Nonnull;
 import java.util.Arrays;

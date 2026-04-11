@@ -22,7 +22,7 @@ package com.intellij.javaee.model.xml.web;
 import com.intellij.javaee.model.enums.Dispatcher;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.web.converters.ServletNameConverter;
-import consulo.xml.util.xml.*;
+import consulo.xml.dom.*;
 
 import java.util.List;
 

@@ -21,8 +21,8 @@ package com.intellij.javaee.model.xml.ejb;
 
 import com.intellij.javaee.model.common.ejb.EjbRootElement;
 import com.intellij.javaee.model.xml.*;
-import consulo.xml.util.xml.GenericAttributeValue;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.GenericAttributeValue;
+import consulo.xml.dom.GenericDomValue;
 
 import jakarta.annotation.Nonnull;
 

@@ -21,7 +21,7 @@ import com.intellij.javaee.model.enums.CmpVersion;
 import com.intellij.javaee.model.enums.PersistenceType;
 import consulo.util.collection.ContainerUtil;
 import consulo.util.lang.function.Condition;
-import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.dom.ConvertContext;
 
 import jakarta.annotation.Nonnull;
 import java.util.Collection;

@@ -36,7 +36,7 @@ package com.intellij.javaee.model.enums;
  * 	    ConsumesProduces
  * </pre>
  */
-public enum MessageDestinationUsage implements consulo.xml.util.xml.NamedEnum {
+public enum MessageDestinationUsage implements consulo.xml.dom.NamedEnum {
 	CONSUMES ("Consumes"),
 	CONSUMES_PRODUCES ("ConsumesProduces"),
 	PRODUCES ("Produces");

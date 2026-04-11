@@ -23,8 +23,8 @@ import jakarta.annotation.Nonnull;
 
 import com.intellij.javaee.model.enums.TimeUnitType;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.Required;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.Required;
 
 /**
  * http://java.sun.com/xml/ns/javaee:access-timeoutType interface.

@@ -21,7 +21,7 @@ import consulo.jsp.language.JspLanguage;
 import consulo.language.template.TemplateLanguageFileType;
 import consulo.localize.LocalizeValue;
 import consulo.ui.image.Image;
-import consulo.xml.ide.highlighter.XmlLikeFileType;
+import consulo.xml.language.XmlLikeFileType;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

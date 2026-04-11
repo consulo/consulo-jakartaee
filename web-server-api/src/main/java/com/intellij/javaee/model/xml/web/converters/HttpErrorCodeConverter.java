@@ -18,9 +18,9 @@ package com.intellij.javaee.model.xml.web.converters;
 import com.intellij.javaee.model.xml.web.HttpErrorCode;
 import consulo.language.editor.completion.lookup.LookupElement;
 import consulo.language.editor.completion.lookup.LookupElementBuilder;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.NamedEnumUtil;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.NamedEnumUtil;
+import consulo.xml.dom.ResolvingConverter;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

@@ -26,8 +26,8 @@ import com.intellij.javaee.model.xml.InjectionTarget;
 import com.intellij.javaee.model.xml.ServiceRef;
 import consulo.language.editor.CodeInsightBundle;
 import consulo.util.lang.StringUtil;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.DomUtil;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.DomUtil;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

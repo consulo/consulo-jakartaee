@@ -17,7 +17,7 @@ package com.intellij.javaee.model;
 
 import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.xml.LifecycleCallback;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.GenericDomValue;
 
 /**
  * @author peter

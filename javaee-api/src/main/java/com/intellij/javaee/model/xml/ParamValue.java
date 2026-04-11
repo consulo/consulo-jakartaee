@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml;
 
 import com.intellij.javaee.model.xml.converters.ContextParamNameConverter;
 import com.intellij.javaee.model.xml.converters.ContextParamValueConverter;
-import consulo.xml.util.xml.*;
+import consulo.xml.dom.*;
 
 import java.util.List;
 

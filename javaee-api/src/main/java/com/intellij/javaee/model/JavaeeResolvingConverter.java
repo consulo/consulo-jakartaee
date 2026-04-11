@@ -17,9 +17,9 @@ package com.intellij.javaee.model;
 
 import com.intellij.javaee.model.common.JavaeeModelElement;
 import consulo.language.psi.PsiElement;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.ElementPresentationManager;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.ElementPresentationManager;
+import consulo.xml.dom.ResolvingConverter;
 
 /**
  * @author peter

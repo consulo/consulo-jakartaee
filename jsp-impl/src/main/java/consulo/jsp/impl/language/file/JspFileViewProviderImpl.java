@@ -28,7 +28,7 @@ import consulo.language.parser.ParserDefinition;
 import consulo.language.psi.PsiFile;
 import consulo.language.psi.PsiManager;
 import consulo.virtualFileSystem.VirtualFile;
-import consulo.xml.lang.html.HTMLLanguage;
+import consulo.html.language.HTMLLanguage;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

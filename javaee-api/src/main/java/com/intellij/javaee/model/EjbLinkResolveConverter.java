@@ -21,7 +21,7 @@ import jakarta.annotation.Nonnull;
 
 import com.intellij.javaee.model.common.ejb.EjbCommonModelUtil;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
-import consulo.xml.util.xml.ConvertContext;
+import consulo.xml.dom.ConvertContext;
 
 /**
  * @author peter

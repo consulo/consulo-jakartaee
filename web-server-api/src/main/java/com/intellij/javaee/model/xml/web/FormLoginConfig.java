@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml.web;
 
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import consulo.language.psi.path.PathReference;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.GenericDomValue;
 
 import jakarta.annotation.Nonnull;
 

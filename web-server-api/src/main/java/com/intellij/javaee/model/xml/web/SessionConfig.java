@@ -20,7 +20,7 @@
 package com.intellij.javaee.model.xml.web;
 
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.GenericDomValue;
 
 /**
  * http://java.sun.com/xml/ns/javaee:session-configType interface.

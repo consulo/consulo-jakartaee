@@ -22,9 +22,9 @@ package com.intellij.javaee.model.xml.web;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.web.converters.MappingExtensionConverter;
 import com.intellij.javaee.model.xml.web.converters.MimeTypeConverter;
-import consulo.xml.util.xml.Convert;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.NameValue;
+import consulo.xml.dom.Convert;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.NameValue;
 
 import jakarta.annotation.Nonnull;
 

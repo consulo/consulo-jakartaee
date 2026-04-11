@@ -32,7 +32,7 @@ package com.intellij.javaee.model.enums;
  * 	    Write
  * </pre>
  */
-public enum ConcurrentLockType implements consulo.xml.util.xml.NamedEnum {
+public enum ConcurrentLockType implements consulo.xml.dom.NamedEnum {
 	READ ("Read"),
 	WRITE ("Write");
 

@@ -16,7 +16,7 @@
 package com.intellij.javaee.model.common.ejb;
 
 import com.intellij.javaee.model.common.JavaeeModelElement;
-import consulo.xml.util.xml.GenericValue;
+import consulo.xml.dom.GenericValue;
 
 import java.util.Collection;
 

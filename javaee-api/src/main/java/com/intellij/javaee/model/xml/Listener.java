@@ -23,9 +23,9 @@ import com.intellij.java.impl.util.xml.ClassTemplate;
 import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.J2EEFileTemplateNames;
 import com.intellij.javaee.model.CommonListener;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.NameValue;
-import consulo.xml.util.xml.Stubbed;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.NameValue;
+import consulo.xml.dom.Stubbed;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

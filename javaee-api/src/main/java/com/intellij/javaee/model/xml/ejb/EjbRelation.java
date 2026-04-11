@@ -23,9 +23,9 @@ import com.intellij.jam.view.DeleteHandler;
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.DescriptionOwner;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.SubTag;
-import consulo.xml.util.xml.NameValue;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.SubTag;
+import consulo.xml.dom.NameValue;
 import jakarta.annotation.Nonnull;
 
 import java.util.List;

@@ -4,8 +4,8 @@ import com.intellij.java.language.psi.PsiClass;
 import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.javaee.model.common.ejb.SecurityGroup;
 import com.intellij.javaee.model.enums.TransAttribute;
-import consulo.xml.util.xml.GenericValue;
-import consulo.xml.util.xml.PrimaryKey;
+import consulo.xml.dom.GenericValue;
+import consulo.xml.dom.PrimaryKey;
 
 import java.util.List;
 

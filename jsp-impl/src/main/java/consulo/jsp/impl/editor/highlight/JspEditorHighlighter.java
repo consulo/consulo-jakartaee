@@ -27,7 +27,7 @@ import consulo.language.editor.highlight.*;
 import consulo.language.lexer.Lexer;
 import consulo.project.Project;
 import consulo.virtualFileSystem.VirtualFile;
-import consulo.xml.ide.highlighter.HtmlFileType;
+import consulo.html.language.HtmlFileType;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

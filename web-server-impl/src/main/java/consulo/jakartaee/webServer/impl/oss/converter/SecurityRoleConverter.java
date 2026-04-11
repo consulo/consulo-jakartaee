@@ -13,9 +13,9 @@ import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.javaee.module.extension.EjbModuleExtension;
 import consulo.javaee.module.extension.JavaEEApplicationModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.ElementPresentationManager;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.ElementPresentationManager;
+import consulo.xml.dom.ResolvingConverter;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

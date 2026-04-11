@@ -4,8 +4,8 @@
 
 package consulo.jakartaee.webServer.impl.oss.util;
 
-import consulo.xml.util.xml.DomElement;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.DomElement;
+import consulo.xml.dom.GenericDomValue;
 import consulo.xml.util.xml.ui.DomWrapper;
 
 import jakarta.annotation.Nonnull;

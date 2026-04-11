@@ -17,7 +17,7 @@ package com.intellij.javaee.model.common.ejb;
 
 import com.intellij.javaee.model.enums.TransactionType;
 import com.intellij.javaee.model.common.ejb.EnterpriseBean;
-import consulo.xml.util.xml.GenericValue;
+import consulo.xml.dom.GenericValue;
 
 /**
  * @author peter

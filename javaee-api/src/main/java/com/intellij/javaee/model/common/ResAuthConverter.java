@@ -21,10 +21,10 @@ import consulo.xml.language.psi.XmlDoctype;
 import consulo.xml.language.psi.XmlDocument;
 import consulo.xml.language.psi.XmlProlog;
 import consulo.xml.language.psi.XmlTag;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.DomElement;
-import consulo.xml.util.xml.DomUtil;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.DomElement;
+import consulo.xml.dom.DomUtil;
+import consulo.xml.dom.ResolvingConverter;
 import org.jetbrains.annotations.NonNls;
 
 import jakarta.annotation.Nonnull;

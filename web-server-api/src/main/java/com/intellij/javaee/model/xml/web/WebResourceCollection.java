@@ -21,7 +21,7 @@ package com.intellij.javaee.model.xml.web;
 
 import com.intellij.javaee.model.xml.Description;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.GenericDomValue;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

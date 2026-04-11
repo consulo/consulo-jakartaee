@@ -32,7 +32,7 @@ package com.intellij.javaee.model.enums;
  * 	    Remote
  * </pre>
  */
-public enum ResultTypeMapping implements consulo.xml.util.xml.NamedEnum {
+public enum ResultTypeMapping implements consulo.xml.dom.NamedEnum {
 	LOCAL ("Local"),
 	REMOTE ("Remote");
 

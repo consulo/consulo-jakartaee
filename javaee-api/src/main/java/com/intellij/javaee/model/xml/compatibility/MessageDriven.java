@@ -23,7 +23,7 @@ import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.enums.TransactionType;
 import com.intellij.javaee.model.xml.*;
 import com.intellij.javaee.model.xml.ejb.SecurityIdentity;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.GenericDomValue;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

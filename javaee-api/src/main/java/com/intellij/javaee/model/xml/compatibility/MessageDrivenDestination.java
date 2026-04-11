@@ -20,7 +20,7 @@
 package com.intellij.javaee.model.xml.compatibility;
 
 
-import consulo.xml.util.xml.*;
+import consulo.xml.dom.*;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import jakarta.annotation.Nonnull;
 

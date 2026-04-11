@@ -17,8 +17,8 @@ package com.intellij.javaee.model;
 
 import com.intellij.javaee.J2EEBundle;
 import consulo.util.lang.Pair;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.ResolvingConverter;
 
 import jakarta.annotation.Nonnull;
 import java.util.Arrays;

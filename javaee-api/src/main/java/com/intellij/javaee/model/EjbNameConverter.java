@@ -19,9 +19,9 @@ package com.intellij.javaee.model;
 import com.intellij.java.language.psi.PsiClass;
 import com.intellij.java.language.psi.PsiNameHelper;
 import com.intellij.javaee.model.xml.ejb.EjbBase;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.Converter;
-import consulo.xml.util.xml.DomElement;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.Converter;
+import consulo.xml.dom.DomElement;
 
 /**
  * @author Gregory.Shrago

@@ -6,9 +6,9 @@ package consulo.jakartaee.webServer.impl.oss.converter;
 
 import com.intellij.javaee.model.xml.EjbLocalRef;
 import com.intellij.javaee.model.xml.JndiEnvironmentRefsGroup;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.ElementPresentationManager;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.ElementPresentationManager;
+import consulo.xml.dom.ResolvingConverter;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

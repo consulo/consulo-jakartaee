@@ -20,7 +20,7 @@
 package com.intellij.javaee.model.enums;
 
 import org.jetbrains.annotations.NonNls;
-import consulo.xml.util.xml.NamedEnum;
+import consulo.xml.dom.NamedEnum;
 
 /**
  * http://java.sun.com/xml/ns/javaee:multiplicityType enumeration.

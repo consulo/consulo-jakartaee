@@ -35,7 +35,7 @@ package com.intellij.javaee.model.enums;
  * 	    Nanoseconds
  * </pre>
  */
-public enum TimeUnitType implements consulo.xml.util.xml.NamedEnum {
+public enum TimeUnitType implements consulo.xml.dom.NamedEnum {
 	DAYS ("Days"),
 	HOURS ("Hours"),
 	MICROSECONDS ("Microseconds"),

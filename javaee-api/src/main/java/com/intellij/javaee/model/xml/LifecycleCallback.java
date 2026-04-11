@@ -22,8 +22,8 @@ package com.intellij.javaee.model.xml;
 import com.intellij.java.language.psi.PsiClass;
 import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.javaee.model.LifecycleCallbackResolveConverter;
-import consulo.xml.util.xml.Convert;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.Convert;
+import consulo.xml.dom.GenericDomValue;
 
 import jakarta.annotation.Nonnull;
 

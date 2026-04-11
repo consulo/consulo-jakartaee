@@ -29,7 +29,7 @@ import com.intellij.javaee.J2EEFileTemplateNames;
 import com.intellij.javaee.model.xml.*;
 import com.intellij.javaee.model.xml.web.converters.WebDeleteHandler;
 import com.intellij.javaee.web.CommonFilter;
-import consulo.xml.util.xml.*;
+import consulo.xml.dom.*;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

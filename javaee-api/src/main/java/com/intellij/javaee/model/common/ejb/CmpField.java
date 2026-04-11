@@ -17,9 +17,9 @@ package com.intellij.javaee.model.common.ejb;
 
 import com.intellij.java.language.psi.PsiMember;
 import com.intellij.javaee.model.common.JavaeeModelElement;
-import consulo.xml.util.xml.GenericValue;
-import consulo.xml.util.xml.NameValue;
-import consulo.xml.util.xml.Required;
+import consulo.xml.dom.GenericValue;
+import consulo.xml.dom.NameValue;
+import consulo.xml.dom.Required;
 
 import jakarta.annotation.Nullable;
 

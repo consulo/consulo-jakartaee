@@ -15,7 +15,7 @@
  */
 package com.intellij.javaee.model.common.ejb;
 
-import consulo.xml.util.xml.GenericValue;
+import consulo.xml.dom.GenericValue;
 
 /**
  * @author peter

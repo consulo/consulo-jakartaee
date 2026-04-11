@@ -20,8 +20,8 @@ import com.intellij.javaee.model.xml.web.FilterMapping;
 import com.intellij.javaee.model.xml.web.Servlet;
 import com.intellij.javaee.model.xml.web.WebApp;
 import com.intellij.javaee.model.xml.web.WebAppVersion;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.DomResolveConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.DomResolveConverter;
 
 import jakarta.annotation.Nonnull;
 import java.util.Collections;

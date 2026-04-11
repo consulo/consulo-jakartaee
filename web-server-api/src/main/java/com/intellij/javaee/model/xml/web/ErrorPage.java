@@ -25,8 +25,8 @@ import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.web.converters.HttpErrorCodeConverter;
 import consulo.language.psi.path.PathReference;
-import consulo.xml.util.xml.Convert;
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.Convert;
+import consulo.xml.dom.GenericDomValue;
 
 import jakarta.annotation.Nonnull;
 

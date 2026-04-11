@@ -10,6 +10,7 @@ module consulo.jsp.impl
 	requires consulo.java;
 	requires consulo.jakartaee.api;
 	requires consulo.jakartaee.web.api;
+	requires com.intellij.xml.html.api;
 
 	exports consulo.jsp.impl.action;
 	exports consulo.jsp.impl.editor;

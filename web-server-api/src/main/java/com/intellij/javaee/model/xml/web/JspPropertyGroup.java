@@ -22,9 +22,9 @@ package com.intellij.javaee.model.xml.web;
 import com.intellij.javaee.model.xml.*;
 import com.intellij.javaee.web.StaticPathReferenceConverter;
 import consulo.language.psi.path.PathReference;
-import consulo.xml.util.xml.Convert;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.Stubbed;
+import consulo.xml.dom.Convert;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.Stubbed;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

@@ -4,7 +4,7 @@
 
 package consulo.jakartaee.webServer.impl.oss.editor;
 
-import consulo.xml.util.xml.DomElement;
+import consulo.xml.dom.DomElement;
 
 import java.util.List;
 

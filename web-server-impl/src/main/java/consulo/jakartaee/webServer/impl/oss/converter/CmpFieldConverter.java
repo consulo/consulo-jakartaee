@@ -8,9 +8,9 @@ import com.intellij.jam.model.common.CommonModelManager;
 import com.intellij.javaee.model.xml.ejb.CmpField;
 import com.intellij.javaee.model.xml.ejb.EntityBean;
 import consulo.util.collection.ContainerUtil;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.ElementPresentationManager;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.ElementPresentationManager;
+import consulo.xml.dom.ResolvingConverter;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

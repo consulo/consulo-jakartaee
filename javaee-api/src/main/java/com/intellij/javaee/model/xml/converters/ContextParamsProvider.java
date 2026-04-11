@@ -19,8 +19,8 @@ import consulo.annotation.component.ComponentScope;
 import consulo.annotation.component.ExtensionAPI;
 import consulo.component.extension.ExtensionPointName;
 import consulo.module.Module;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.Converter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.Converter;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -35,7 +35,7 @@ public abstract class ContextParamsProvider {
   public static final ExtensionPointName<ContextParamsProvider> EP_NAME = ExtensionPointName.create(ContextParamsProvider.class);
 
   /**
-   * @param module         All modules from {@link consulo.xml.util.xml.ModuleContextProvider#getModules}.
+   * @param module         All modules from {@link consulo.xml.dom.ModuleContextProvider#getModules}.
    * @param convertContext Current convert context.
    * @return Parameter names applicable in this context.
    */
@@ -45,7 +45,7 @@ public abstract class ContextParamsProvider {
   }
 
   /**
-   * @deprecated use {@link #getContextParamNames(Module, consulo.xml.util.xml.ConvertContext)}
+   * @deprecated use {@link #getContextParamNames(Module, consulo.xml.dom.ConvertContext)}
    */
   @Deprecated
   public Set<String> getContextParamNames(@Nonnull Module module) {

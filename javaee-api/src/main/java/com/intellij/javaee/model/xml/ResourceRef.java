@@ -23,9 +23,9 @@ import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.common.ResAuthConverter;
 import com.intellij.javaee.model.enums.ResAuth;
 import com.intellij.javaee.model.enums.ResSharingScope;
-import consulo.xml.util.xml.Convert;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.NameValue;
+import consulo.xml.dom.Convert;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.NameValue;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

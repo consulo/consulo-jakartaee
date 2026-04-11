@@ -19,7 +19,7 @@
 
 package com.intellij.javaee.model.xml;
 
-import consulo.xml.util.xml.GenericDomValue;
+import consulo.xml.dom.GenericDomValue;
 import jakarta.annotation.Nonnull;
 
 import java.util.List;

@@ -24,8 +24,8 @@ import com.intellij.javaee.model.enums.ConcurrencyManagementType;
 import com.intellij.javaee.model.enums.SessionType;
 import com.intellij.javaee.model.enums.TransactionType;
 import com.intellij.javaee.model.xml.*;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.SubTag;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.SubTag;
 
 import jakarta.annotation.Nonnull;
 import java.util.List;

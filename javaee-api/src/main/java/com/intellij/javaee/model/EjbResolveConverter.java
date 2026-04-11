@@ -21,9 +21,9 @@ import consulo.application.util.function.Processor;
 import consulo.language.editor.CodeInsightBundle;
 import consulo.module.Module;
 import consulo.util.lang.Comparing;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.DomElement;
-import consulo.xml.util.xml.ModuleContextProvider;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.DomElement;
+import consulo.xml.dom.ModuleContextProvider;
 
 import jakarta.annotation.Nonnull;
 import java.util.Collection;

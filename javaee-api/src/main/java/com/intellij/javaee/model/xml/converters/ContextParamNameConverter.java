@@ -16,9 +16,9 @@
 package com.intellij.javaee.model.xml.converters;
 
 import consulo.module.Module;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.ModuleContextProvider;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.ModuleContextProvider;
+import consulo.xml.dom.ResolvingConverter;
 import org.jetbrains.annotations.NonNls;
 
 import jakarta.annotation.Nonnull;

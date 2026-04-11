@@ -19,7 +19,7 @@ import com.intellij.java.language.psi.PsiMethod;
 import com.intellij.java.language.psi.PsiType;
 import com.intellij.javaee.model.common.JavaeeModelElement;
 import com.intellij.javaee.model.enums.ResultTypeMapping;
-import consulo.xml.util.xml.GenericValue;
+import consulo.xml.dom.GenericValue;
 
 import java.util.List;
 

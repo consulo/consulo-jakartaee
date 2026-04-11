@@ -22,10 +22,10 @@ package com.intellij.javaee.model.xml.application;
 import jakarta.annotation.Nonnull;
 
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.Attribute;
-import consulo.xml.util.xml.GenericAttributeValue;
-import consulo.xml.util.xml.NameValue;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.Attribute;
+import consulo.xml.dom.GenericAttributeValue;
+import consulo.xml.dom.NameValue;
 
 /**
  * http://java.sun.com/xml/ns/javaee:moduleType interface.

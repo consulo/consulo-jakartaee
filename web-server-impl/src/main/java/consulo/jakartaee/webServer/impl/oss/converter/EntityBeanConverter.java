@@ -8,9 +8,9 @@ import com.intellij.javaee.facet.JavaeeFacetUtil;
 import com.intellij.javaee.model.xml.ejb.EjbJar;
 import com.intellij.javaee.model.xml.ejb.EntityBean;
 import consulo.javaee.module.extension.EjbModuleExtension;
-import consulo.xml.util.xml.ConvertContext;
-import consulo.xml.util.xml.ElementPresentationManager;
-import consulo.xml.util.xml.ResolvingConverter;
+import consulo.xml.dom.ConvertContext;
+import consulo.xml.dom.ElementPresentationManager;
+import consulo.xml.dom.ResolvingConverter;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

@@ -21,8 +21,8 @@ package com.intellij.javaee.model.xml.ejb;
 
 import com.intellij.java.language.psi.PsiClass;
 import com.intellij.javaee.model.xml.JavaeeDomModelElement;
-import consulo.xml.util.xml.GenericDomValue;
-import consulo.xml.util.xml.Required;
+import consulo.xml.dom.GenericDomValue;
+import consulo.xml.dom.Required;
 
 import jakarta.annotation.Nonnull;
 
@@ -58,7 +58,7 @@ public interface AroundTimeout extends JavaeeDomModelElement {
 	 * @return the value of the class child.
 	 */
 	@Nonnull
-	@consulo.xml.util.xml.SubTag ("class")
+	@consulo.xml.dom.SubTag ("class")
 	GenericDomValue<PsiClass> getClazz();
 
 
