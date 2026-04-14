@@ -16,7 +16,7 @@
 package consulo.jakartaee.webServer.impl.deployment;
 
 import consulo.compiler.artifact.ArtifactType;
-import consulo.ide.ServiceManager;
+import consulo.application.Application;
 
 import jakarta.annotation.Nonnull;
 import java.util.Collection;
@@ -26,7 +26,7 @@ import java.util.Collection;
  */
 public abstract class JavaeeDeploymentUtil {
   public static JavaeeDeploymentUtil getInstance() {
-    return ServiceManager.getService(JavaeeDeploymentUtil.class);
+    return Application.get().getInstance(JavaeeDeploymentUtil.class);
   }
 
   @Nonnull

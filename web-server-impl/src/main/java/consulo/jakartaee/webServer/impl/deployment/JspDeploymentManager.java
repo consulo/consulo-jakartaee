@@ -15,7 +15,7 @@
  */
 package consulo.jakartaee.webServer.impl.deployment;
 
-import consulo.ide.ServiceManager;
+import consulo.application.Application;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 import consulo.language.psi.PsiFile;
@@ -27,7 +27,7 @@ import jakarta.annotation.Nullable;
 public abstract class JspDeploymentManager {
 
   public static JspDeploymentManager getInstance() {
-    return ServiceManager.getService(JspDeploymentManager.class);
+    return Application.get().getInstance(JspDeploymentManager.class);
   }
 
   /**

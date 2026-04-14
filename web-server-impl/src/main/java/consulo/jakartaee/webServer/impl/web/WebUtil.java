@@ -24,7 +24,7 @@ import com.intellij.javaee.web.WebRoot;
 import consulo.application.util.function.Processor;
 import consulo.compiler.artifact.Artifact;
 import consulo.document.util.TextRange;
-import consulo.ide.ServiceManager;
+import consulo.application.Application;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.jakartaee.webServer.impl.WebDirectoryElement;
 import consulo.jakartaee.webServer.impl.deployment.DeploymentModel;
@@ -69,7 +69,7 @@ public abstract class WebUtil
 
 	public static WebUtil getWebUtil()
 	{
-		return ServiceManager.getService(WebUtil.class);
+		return Application.get().getInstance(WebUtil.class);
 	}
 
 	@Nullable

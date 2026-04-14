@@ -20,7 +20,7 @@ import consulo.annotation.component.ServiceAPI;
 import consulo.execution.RunnerAndConfigurationSettings;
 import consulo.execution.configuration.ConfigurationFactory;
 import consulo.execution.configuration.RunConfiguration;
-import consulo.ide.ServiceManager;
+import consulo.application.Application;
 import consulo.jakartaee.webServer.impl.appServerIntegrations.ApplicationServer;
 import consulo.jakartaee.webServer.impl.run.localRun.ExecutableObjectStartupPolicy;
 import consulo.javaee.bundle.JavaEEServerBundleType;
@@ -36,7 +36,7 @@ public abstract class J2EEConfigurationFactory
 {
 	public static J2EEConfigurationFactory getInstance()
 	{
-		return ServiceManager.getService(J2EEConfigurationFactory.class);
+		return Application.get().getInstance(J2EEConfigurationFactory.class);
 	}
 
 	public abstract RunConfiguration createJ2EERunConfiguration(ConfigurationFactory factory,

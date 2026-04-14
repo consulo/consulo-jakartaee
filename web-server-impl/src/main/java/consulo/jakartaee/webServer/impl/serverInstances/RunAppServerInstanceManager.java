@@ -16,7 +16,6 @@
 package consulo.jakartaee.webServer.impl.serverInstances;
 
 import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
-import consulo.ide.ServiceManager;
 import consulo.process.ProcessHandler;
 import consulo.project.Project;
 
@@ -27,7 +26,7 @@ import jakarta.annotation.Nullable;
  */
 public abstract class RunAppServerInstanceManager {
   public static RunAppServerInstanceManager getInstance(Project project) {
-    return ServiceManager.getService(project, RunAppServerInstanceManager.class);
+    return project.getInstance(RunAppServerInstanceManager.class);
   }
 
   @Nullable

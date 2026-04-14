@@ -19,7 +19,7 @@ import consulo.jakartaee.webServer.impl.appServerIntegrations.ApplicationServerU
 import consulo.compiler.artifact.Artifact;
 import consulo.compiler.artifact.ArtifactType;
 import consulo.content.library.Library;
-import consulo.ide.ServiceManager;
+import consulo.application.Application;
 import consulo.jakartaee.web.module.extension.JavaWebModuleExtension;
 import consulo.project.Project;
 
@@ -33,7 +33,7 @@ import java.util.Collection;
 public abstract class WebArtifactUtil {
 
   public static WebArtifactUtil getInstance() {
-    return ServiceManager.getService(WebArtifactUtil.class);
+    return Application.get().getInstance(WebArtifactUtil.class);
   }
 
   public abstract boolean isWebApplication(@Nonnull ArtifactType artifactType);

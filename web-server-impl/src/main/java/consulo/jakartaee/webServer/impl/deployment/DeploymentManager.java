@@ -20,7 +20,6 @@ import consulo.annotation.component.ServiceAPI;
 import consulo.jakartaee.webServer.impl.run.configuration.CommonModel;
 import consulo.jakartaee.webServer.impl.serverInstances.J2EEServerInstance;
 import consulo.compiler.artifact.Artifact;
-import consulo.ide.ServiceManager;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 import consulo.project.Project;
 
@@ -36,7 +35,7 @@ import java.util.List;
 @ServiceAPI(ComponentScope.PROJECT)
 public abstract class DeploymentManager {
   public static DeploymentManager getInstance(Project project) {
-    return ServiceManager.getService(project, DeploymentManager.class);
+    return project.getInstance(DeploymentManager.class);
   }
 
 

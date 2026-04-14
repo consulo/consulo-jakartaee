@@ -20,7 +20,6 @@ import com.intellij.javaee.model.xml.JavaeeDomModelElement;
 import com.intellij.javaee.model.xml.ejb.MethodParams;
 import consulo.application.util.function.CommonProcessors;
 import consulo.application.util.function.Processor;
-import consulo.ide.IdeBundle;
 import consulo.language.editor.CodeInsightBundle;
 import consulo.language.psi.PsiElement;
 import consulo.util.collection.ContainerUtil;
@@ -77,7 +76,7 @@ public abstract class AbstractMethodResolveConverter<T extends JavaeeDomModelEle
 	public String getErrorMessage(final String s, final ConvertContext context)
 	{
 		final T t = getParent(context);
-		return CodeInsightBundle.message("error.cannot.resolve.0.1", IdeBundle.message("element.method"), getReferenceCanonicalText(s, getMethodParams(t)));
+		return CodeInsightBundle.message("error.cannot.resolve.0.1", "method", getReferenceCanonicalText(s, getMethodParams(t)));
 	}
 
 	@Nonnull

@@ -5,7 +5,7 @@ import consulo.compiler.artifact.ArtifactType;
 import consulo.compiler.artifact.element.PackagingElement;
 import consulo.compiler.artifact.element.PackagingElementResolvingContext;
 import consulo.content.library.Library;
-import consulo.ide.ServiceManager;
+import consulo.application.Application;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 import consulo.project.Project;
 
@@ -18,7 +18,7 @@ import java.util.Collection;
  */
 public abstract class JavaeeArtifactUtil {
   public static JavaeeArtifactUtil getInstance() {
-    return ServiceManager.getService(JavaeeArtifactUtil.class);
+    return Application.get().getInstance(JavaeeArtifactUtil.class);
   }
 
   public abstract Collection<? extends ArtifactType> getAllJavaeeArtifactTypes();
