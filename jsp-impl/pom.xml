@@ -61,6 +61,18 @@
 	</build>
 
 	<dependencies>
+        <dependency>
+            <groupId>consulo</groupId>
+            <artifactId>consulo-file-template-api</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>consulo</groupId>
+            <artifactId>consulo-language-impl</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
 		<dependency>
 			<groupId>consulo</groupId>
 			<artifactId>consulo-ide-api</artifactId>

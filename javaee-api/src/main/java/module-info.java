@@ -5,6 +5,7 @@
 module consulo.jakartaee.api
 {
 	requires transitive consulo.ide.api;
+	requires transitive consulo.compiler.artifact.api;
 
 	requires com.intellij.xml;
 	requires consulo.java;

@@ -5,6 +5,8 @@
 module consulo.jsp.impl
 {
 	requires consulo.ide.api;
+	requires consulo.language.impl;
+	requires consulo.file.template.api;
 	requires consulo.jsp.language.api;
 	requires consulo.java.language.impl;
 	requires consulo.java;

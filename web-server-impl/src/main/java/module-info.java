@@ -6,6 +6,10 @@ module consulo.jakartaee.web.impl {
     requires java.management;
 
     requires consulo.ide.api;
+    requires consulo.execution.debug.api;
+    requires consulo.module.ui.api;
+    requires consulo.remote.server.api;
+    requires consulo.file.template.api;
     requires consulo.jakartaee.web.api;
 
     requires consulo.java.execution.impl;
