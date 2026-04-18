@@ -44,11 +44,8 @@ import com.intellij.javaee.oss.descriptor.JavaeeDescriptor;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.JDOMUtil;
 import com.intellij.openapi.util.SystemInfo;
-import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.CharsetToolkit;
-import com.intellij.openapi.vfs.VfsUtilCore;
-import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.util.ArrayUtil;
 import com.intellij.util.EnvironmentUtil;
@@ -56,6 +53,9 @@ import com.intellij.util.descriptors.ConfigFile;
 import com.intellij.util.descriptors.ConfigFileMetaData;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
 import consulo.javaee.module.extension.JavaWebModuleExtension;
+import consulo.util.io.FileUtil;
+import consulo.virtualFileSystem.util.VirtualFile;
+import consulo.virtualFileSystem.util.VirtualFileUtil;
 
 @SuppressWarnings({"unchecked"})
 public class TomcatUtil
