@@ -189,7 +189,7 @@ public class TomcatUtil
 						VirtualFile contextXmlFile = configFile.getVirtualFile();
 						if(contextXmlFile != null)
 						{
-							Document contextDocument = loadXMLFile(VfsUtilCore.virtualToIoFile(contextXmlFile));
+							Document contextDocument = loadXMLFile(VirtualFileUtil.virtualToIoFile(contextXmlFile));
 							return contextDocument.getRootElement();
 						}
 					}

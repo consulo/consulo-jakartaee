@@ -15,19 +15,6 @@
  */
 package org.jetbrains.idea.tomcat;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import jakarta.annotation.Nonnull;
-
-import org.jetbrains.annotations.NonNls;
 import com.intellij.debugger.NoDataException;
 import com.intellij.debugger.SourcePosition;
 import com.intellij.debugger.engine.DebugProcess;
@@ -46,19 +33,8 @@ import com.intellij.openapi.fileTypes.FileTypeManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Computable;
 import com.intellij.openapi.util.TextRange;
-import com.intellij.openapi.vfs.LocalFileSystem;
-import com.intellij.openapi.vfs.VfsUtil;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.vfs.VirtualFileAdapter;
-import com.intellij.openapi.vfs.VirtualFileEvent;
-import com.intellij.openapi.vfs.VirtualFileListener;
-import com.intellij.openapi.vfs.VirtualFileManager;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiComment;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiFileFactory;
-import com.intellij.psi.PsiManager;
+import com.intellij.openapi.vfs.*;
+import com.intellij.psi.*;
 import com.intellij.util.PathUtil;
 import com.intellij.util.containers.ContainerUtil;
 import consulo.internal.com.sun.jdi.AbsentInformationException;
@@ -68,6 +44,13 @@ import consulo.internal.com.sun.jdi.request.ClassPrepareRequest;
 import consulo.javaee.jsp.JspFileType;
 import consulo.javaee.jsp.JspxFileType;
 import consulo.javaee.module.extension.JavaEEModuleExtension;
+import consulo.virtualFileSystem.util.VirtualFileUtil;
+import jakarta.annotation.Nonnull;
+import org.jetbrains.annotations.NonNls;
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by IntelliJ IDEA.
@@ -459,7 +442,7 @@ public class Tomcat40PositionManager implements DisposablePositionManager {
     }
 
     private boolean isGenerated(VirtualFile file) {
-      return VfsUtil.isAncestor(myGeneratedFilesDirectory, file, true);
+      return VirtualFileUtil.isAncestor(myGeneratedFilesDirectory, file, true);
     }
 
     private boolean isGeneratedServlet(VirtualFile file) {
