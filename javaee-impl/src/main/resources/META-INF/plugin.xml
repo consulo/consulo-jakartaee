@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2013-2019 consulo.io
+  ~ Copyright 2013-2026 consulo.io
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,18 +14,21 @@
   ~ limitations under the License.
   -->
 
-<consulo-plugin url="https://github.com/consulo/consulo-jakartaee">
-	<id>consulo.javaee</id>
-	<name>Jakarta EE (Java EE)</name>
-	<version>SNAPSHOT</version>
-	<depends>com.intellij.xml</depends>
-	<depends>consulo.java</depends>
-	<depends optional="true">org.jetbrains.idea.maven</depends>
-	<resource-bundle>messages.J2EEBundle</resource-bundle>
-	<category>Web Framework</category>
+<consulo-plugin url="https://github.com/consulo/consulo-jakarta-web">
+    <id>consulo.jakarta.web</id>
+    <name>Jakarta Web (JSP, Servlet)</name>
+    <version>SNAPSHOT</version>
 
-	<tags>
-		<tag>web.framework</tag>
-		<tag>software.framework</tag>
-	</tags>
+    <depends>com.intellij.xml</depends>
+    <depends>consulo.java</depends>
+    <depends optional="true">org.jetbrains.idea.maven</depends>
+
+    <resource-bundle>messages.J2EEBundle</resource-bundle>
+
+    <category>Web Framework</category>
+
+    <tags>
+        <tag>web.framework</tag>
+        <tag>software.framework</tag>
+    </tags>
 </consulo-plugin>
